@@ -1,0 +1,2890 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-ECONOMY-TECH",
+  "date": "2026-11-15",
+  "game_version": "2.1.4",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-ECONOMY",
+    "FEAT-TECHNOLOGY",
+    "FEAT-STATE-METRICS",
+    "FEAT-ARMY-POWER"
+  ],
+  "document_ids": [
+    "DOC-ECONOMY",
+    "DOC-TECHNOLOGY",
+    "DOC-ECONOMY-DATA",
+    "DOC-STATE-OVERVIEW"
+  ],
+  "source_ids": [
+    "SRC-073",
+    "SRC-074",
+    "SRC-075",
+    "SRC-076",
+    "SRC-077",
+    "SRC-078"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_observations": "not_performed",
+    "runtime_verified": false
+  },
+  "scope": {
+    "completed": [
+      "resources/offshore",
+      "macro GDP/treasury/trade inputs",
+      "science/8 eras/58 inventions",
+      "industry/ecological feedback",
+      "military versus power",
+      "neighbor and maritime diffusion",
+      "local ruler/inspiration/secession inputs",
+      "in-memory save/legacy migration/backfill"
+    ],
+    "cross_package_boundaries": [
+      "Full politics/vassals/war/genealogy remain in later primary packages.",
+      "Goods creation/transport/delivery and full routes remain WP-TRADE-NAVIGATION.",
+      "Full historical sampling/UI rendering, disk storage/network and full world climate remain deferred."
+    ]
+  },
+  "identity": {
+    "source_files": [
+      {
+        "path": "EarthSimulator/core.js",
+        "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452",
+        "bytes": 115078
+      },
+      {
+        "path": "EarthSimulator/climate.js",
+        "sha256": "1da3c5da09e84894511c9fe3f4a4677e6a9cf7954db63f8fdd83060db88619a0",
+        "bytes": 36493
+      },
+      {
+        "path": "EarthSimulator/ecology.js",
+        "sha256": "07fd243ffeed98a9e33976ce1d9795c4195462bdb075e735b8a83c7b547fc22a",
+        "bytes": 23767
+      },
+      {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "bytes": 232072
+      },
+      {
+        "path": "EarthSimulator/trade.js",
+        "sha256": "9396c9233e6c5ebbbc4672e75a83b5735444630492650d3fcee79b8c574e1b46",
+        "bytes": 166129
+      },
+      {
+        "path": "EarthSimulator/people.js",
+        "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2",
+        "bytes": 237839
+      },
+      {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "bytes": 241594
+      },
+      {
+        "path": "EarthSimulator/menu.js",
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78",
+        "bytes": 153010
+      },
+      {
+        "path": "EarthSimulator/fauna.js",
+        "sha256": "277d6337b08f2f7eadd417742118aa1964bc4fbc438c36d70c3233ec82a77814",
+        "bytes": 174140
+      },
+      {
+        "path": "EarthSimulator/society.js",
+        "sha256": "888a0d1a3fee212f2646c5d73be684148805d50d47e4781f14e1cb16f711030d",
+        "bytes": 34368
+      },
+      {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "bytes": 28651
+      }
+    ],
+    "rea_reused_from": "WP-DEMOGRAPHY-CITIES; imported and inspected without repeating source analysis",
+    "rea_parent_evidence_id": "ev_63627df7d49729173b81f041a7395f35f7b9e2f87eb07739e9a86bac374c171d",
+    "rea_artifact_sha256": "681198ab2ecff4e60f72f69fdc9a37b496638215b61122491ece53ba5929b7cd",
+    "rea_bundle_path": ".research/rea/wp-demography-2026-11-15.evidence.json",
+    "rea_bundle_sha256": "abbd8bed8ae34a13ac24dc63c50df6a0b09436d5bd9d741d760e8e66fbf8acb6",
+    "rea_source_selection": [
+      "civ.js"
+    ],
+    "rea_limits": [
+      "Static syntax only; no game execution.",
+      "78 inventoried files outside selection; application and semantic graph partial.",
+      "78 application unknowns and 15481 semantic unknowns; unselected sources traced manually with source hashes."
+    ]
+  },
+  "declarations": {
+    "CIV": {
+      "TEMPO": 0.34,
+      "TECH_ERA_K": [
+        3.4,
+        2.2,
+        1.6,
+        1.5,
+        1.35,
+        1.25,
+        1.15,
+        1
+      ],
+      "R_BASE": 0.042,
+      "TRANSITION": [
+        0,
+        0.15,
+        0.4,
+        0.5,
+        0.75,
+        0.85,
+        0.9,
+        0.96
+      ],
+      "TERRA_TECH": 6,
+      "TERRA_MAX": 0.8,
+      "ADAPT_MAX": 0.55,
+      "ADAPT_RATE": 0.0011,
+      "ADAPT_DECAY": 0.997,
+      "SUBSIST_BASE": 35,
+      "SUBSIST_TECH": 7,
+      "SUBSIST_HAB": 120,
+      "SUBSIST_CAP": 420,
+      "HARSH_DECAY": 0.95,
+      "HEAT_LETHAL": 55,
+      "COLD_LETHAL": -40,
+      "LETHAL_DECAY": 0.5,
+      "K_FOOD_MAX": 4400,
+      "INHABITED_MIN": 40,
+      "STATE_MIN_POP": 700,
+      "PROD_BASE": 1.25,
+      "PROD_TECH": 0.45,
+      "IMPORT_TECH": 0.22,
+      "URB_RATE": 0.05,
+      "URBAN_CELL_MAX": 180000,
+      "CITY_POP_MIN": 11000,
+      "CITY_URBAN_MIN": 2800,
+      "CITY_DENS": [
+        0.022,
+        0.012
+      ],
+      "CITY_MAX": 44,
+      "CITY_GAP": 2,
+      "ZIPF": 0.85,
+      "TOWN_MAX": 1700,
+      "CITY_ERA_CAP": [
+        0.07,
+        0.15,
+        0.27,
+        0.33,
+        0.48,
+        0.62,
+        1,
+        1
+      ],
+      "MIG_RATE": 0.08,
+      "MIG_COMFORT": 0.62,
+      "MIG_MIN": 50,
+      "PIONEER": 0.03,
+      "SEED_ABS": 1300,
+      "SEED_FILL": 0.6,
+      "STATE_CAP": 26,
+      "BASE_REACH": 8,
+      "EXPAND_P": 0.4,
+      "MAX_NUCLEATE": 1,
+      "REBUILD_Y": 60,
+      "TECH_RATE": 0.006,
+      "TECH_CAP": 22,
+      "ERA_TECH": [
+        2,
+        5,
+        7,
+        9,
+        11,
+        13.5,
+        17
+      ],
+      "TECH_DIFF": 0.01,
+      "TECH_LAG": 0.8,
+      "AGRI": [
+        0.3,
+        1.2,
+        2.2,
+        3,
+        5,
+        7,
+        11,
+        18
+      ],
+      "ERA_MIL": [
+        0.5,
+        1,
+        1.5,
+        1.7,
+        2.2,
+        2.8,
+        3.6,
+        5
+      ],
+      "SEAFAR": [
+        0,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        4
+      ],
+      "TAX": 0.1,
+      "WAR_THRESH": -0.4,
+      "WAR_P": 0.05,
+      "SACK": 0.25,
+      "WAR_K": 0.035,
+      "WAR_GOAL": [
+        0.14,
+        0.38,
+        0.22,
+        0.6,
+        0.22
+      ],
+      "GREAT_WAR_N": 7,
+      "GREAT_WAR_SHARE": 0.5,
+      "GREAT_WAR_GAP": 70,
+      "TOTAL_WAR": 2.4,
+      "AMBITION": 0.35,
+      "DECLINE_AT": 0.1,
+      "DECLINE_RATE": 0.003,
+      "DECLINE_W": 0.62,
+      "OVERSIZE": 6,
+      "OVERSIZE_EMPIRE": 11,
+      "WAR_MIN_YEARS": 3,
+      "WAR_MAX_YEARS": 45,
+      "TRUCE_YEARS": 35,
+      "EXHAUST_PEACE": 0.72,
+      "VASSAL_LOSS": 0.42,
+      "ALLY_AT": 0.5,
+      "FRONT_SPEED": 0.3,
+      "AT_NAVY": 2,
+      "NAVY_ERA": [
+        0.2,
+        0.5,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "SEA_WAR_REACH": [
+        0,
+        10,
+        16,
+        20,
+        26,
+        34,
+        48,
+        64
+      ],
+      "SEA_FIGHT_P": 0.14,
+      "SEA_LAND_K": 0.3,
+      "SEA_MAX_STEP": 3,
+      "SEA_DECISIVE": 1.18,
+      "SEA_CREW": [
+        20,
+        50,
+        140,
+        180,
+        400,
+        500,
+        300,
+        150
+      ],
+      "SEA_EXH_WIN": 0.002,
+      "SEA_EXH_LOSS": 0.012,
+      "SEA_SCORE": 1,
+      "SEA_WIN": 5,
+      "SEA_BLOCKADE_P": 0.55,
+      "SEA_BLOCK_TRADE": 0.2,
+      "SEA_BLOCK_TICKS": 70,
+      "SEA_INTERCEPT_P": 0.5,
+      "SEA_COAST": 0.15,
+      "SEA_HOLD": 1.25,
+      "SEA_RAID_P": 0.06,
+      "SEA_LOG_YEARS": 15,
+      "SEA_LOG_GAP": 4,
+      "SEA_CUR_REF": 0.6,
+      "SEA_CUR_SAIL": 0.4,
+      "SEA_CUR_STEAM": 0.16,
+      "SEA_CUR_ENGINE": 0.05,
+      "SEA_WIND_REF": 1,
+      "SEA_WIND_OAR": 0.1,
+      "SEA_WIND_SAIL": 0.22,
+      "SEA_WIND_STEAM": 0.03,
+      "SEA_SPD_MIN": 0.55,
+      "SEA_SPD_MAX": 1.6,
+      "SEA_REACH_K": 0.5,
+      "WIND_AVG_K": 0.03,
+      "WIND_COAST": 0.25,
+      "WIND_ALT": 1.1,
+      "WIND_HARSH_AT": 0.92,
+      "WIND_HARSH_SPAN": 0.6,
+      "WIND_HARSH_MAX": 0.35,
+      "SECEDE_MIN_CELLS": 5,
+      "SECEDE_MIN_POP": 3000,
+      "UNION_P": 0.015,
+      "EMIT_K": 6.5e-06,
+      "PLAGUE_BASE": 0.0006,
+      "PLAGUE_LETHAL": 0.12,
+      "DISEASE_SPREAD": 0.22,
+      "IMMUNE_TICKS": 200,
+      "RUIN_HEAL": 0.996,
+      "GREEN_TECH": 17,
+      "AT_MISSILE": 5,
+      "AT_NUKE": 6,
+      "NUKE_TECH": 15,
+      "AT_SEA_NEAR": 1,
+      "AT_SEA_FAR": 4,
+      "SEA_REACH_NEAR": 9,
+      "SEA_REACH_FAR": 16,
+      "AT_WAR": 2,
+      "IND_AT": [
+        1,
+        2,
+        4
+      ],
+      "IND_MUL": [
+        0.03,
+        0.15,
+        0.5,
+        1
+      ],
+      "AT_MODERN": 6,
+      "AT_SPACE": 7,
+      "AT_HOUSE": 1,
+      "AT_FACTORY": 4,
+      "AT_TOWER": 6,
+      "AT_CAR": 5,
+      "AT_STEAMSHIP": 4,
+      "AT_LANDMARK": 2,
+      "AT_AIR": 5,
+      "AT_RAIL": 4,
+      "SEA_TRADE_NEAR": 16,
+      "SHIP_CAP": 150,
+      "SHIP_PER_STATE": 6,
+      "LANE_CAP": 120,
+      "LANE_DECAY": 0.996,
+      "LANE_MIN": 0.2,
+      "LANE_KEEP_P": 0.7,
+      "TRADE_LEN_REF": 65,
+      "TRADE_LEN_REF_FAR": 25,
+      "ERA_RU": [
+        "Племена",
+        "Аграрная",
+        "Классическая",
+        "Средневековая",
+        "Индустриальная",
+        "Постиндустриальная",
+        "Современная",
+        "Космическая"
+      ],
+      "ERA_EN": [
+        "Tribal",
+        "Agrarian",
+        "Classical",
+        "Medieval",
+        "Industrial",
+        "Post-Industrial",
+        "Modern",
+        "Space Age"
+      ],
+      "ERA_LOOK": [
+        0,
+        1,
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+      ],
+      "ERA_LIN": [
+        0,
+        1,
+        1.75,
+        2.25,
+        2.75,
+        3.25,
+        4,
+        5
+      ]
+    },
+    "PACE": {
+      "NUCLEATE_EVERY": 3,
+      "DIPLO_EVERY": 3,
+      "EXPAND_EVERY": 2,
+      "NUKE_EVERY": 2,
+      "NUCLEATE_P": 0.32
+    },
+    "RES": [
+      {
+        "key": "none",
+        "ru": "—",
+        "en": "—",
+        "color": [
+          0,
+          0,
+          0
+        ],
+        "era": 0
+      },
+      {
+        "key": "iron",
+        "ru": "Железо",
+        "en": "Iron",
+        "color": [
+          222,
+          120,
+          84
+        ],
+        "era": 1
+      },
+      {
+        "key": "coal",
+        "ru": "Уголь",
+        "en": "Coal",
+        "color": [
+          168,
+          176,
+          192
+        ],
+        "era": 4
+      },
+      {
+        "key": "oil",
+        "ru": "Нефть",
+        "en": "Oil",
+        "color": [
+          166,
+          110,
+          232
+        ],
+        "era": 5
+      },
+      {
+        "key": "gold",
+        "ru": "Золото",
+        "en": "Gold",
+        "color": [
+          250,
+          206,
+          70
+        ],
+        "era": 0
+      },
+      {
+        "key": "uranium",
+        "ru": "Уран",
+        "en": "Uranium",
+        "color": [
+          120,
+          232,
+          110
+        ],
+        "era": 6
+      },
+      {
+        "key": "gems",
+        "ru": "Самоцветы",
+        "en": "Gems",
+        "color": [
+          84,
+          212,
+          240
+        ],
+        "era": 1
+      }
+    ],
+    "RID": {
+      "none": 0,
+      "iron": 1,
+      "coal": 2,
+      "oil": 3,
+      "gold": 4,
+      "uranium": 5,
+      "gems": 6
+    },
+    "GOV": {
+      "tribe": {
+        "ru": "Племя",
+        "en": "Tribe",
+        "hered": true,
+        "stab": 0,
+        "war": 1,
+        "tech": 0.9,
+        "lead": [
+          "Вождь",
+          "Chief"
+        ]
+      },
+      "chiefdom": {
+        "ru": "Вождество",
+        "en": "Chiefdom",
+        "hered": true,
+        "stab": 0.02,
+        "war": 1.1,
+        "tech": 0.95,
+        "lead": [
+          "Верховный вождь",
+          "High Chief"
+        ]
+      },
+      "monarchy": {
+        "ru": "Королевство",
+        "en": "Kingdom",
+        "hered": true,
+        "stab": 0.05,
+        "war": 1,
+        "tech": 1,
+        "lead": [
+          "Король",
+          "King"
+        ]
+      },
+      "empire": {
+        "ru": "Империя",
+        "en": "Empire",
+        "hered": true,
+        "stab": 0,
+        "war": 1.35,
+        "tech": 1,
+        "lead": [
+          "Император",
+          "Emperor"
+        ]
+      },
+      "theocracy": {
+        "ru": "Теократия",
+        "en": "Theocracy",
+        "hered": false,
+        "stab": 0.08,
+        "war": 1.1,
+        "tech": 0.85,
+        "lead": [
+          "Первосвященник",
+          "High Priest"
+        ]
+      },
+      "republic": {
+        "ru": "Республика",
+        "en": "Republic",
+        "hered": false,
+        "free": true,
+        "stab": 0.03,
+        "war": 0.85,
+        "tech": 1.1,
+        "lead": [
+          "Консул",
+          "Consul"
+        ]
+      },
+      "democracy": {
+        "ru": "Демократия",
+        "en": "Democracy",
+        "hered": false,
+        "free": true,
+        "stab": 0.06,
+        "war": 0.7,
+        "tech": 1.15,
+        "lead": [
+          "Президент",
+          "President"
+        ]
+      },
+      "dictatorship": {
+        "ru": "Диктатура",
+        "en": "Dictatorship",
+        "hered": false,
+        "stab": -0.04,
+        "war": 1.4,
+        "tech": 0.95,
+        "lead": [
+          "Диктатор",
+          "Dictator"
+        ]
+      },
+      "technocracy": {
+        "ru": "Технократия",
+        "en": "Technocracy",
+        "hered": false,
+        "free": true,
+        "stab": 0.05,
+        "war": 0.6,
+        "tech": 1.3,
+        "lead": [
+          "Координатор",
+          "Coordinator"
+        ]
+      },
+      "federation": {
+        "ru": "Федерация",
+        "en": "Federation",
+        "hered": false,
+        "free": true,
+        "stab": 0.07,
+        "war": 0.6,
+        "tech": 1.2,
+        "lead": [
+          "Канцлер",
+          "Chancellor"
+        ]
+      }
+    },
+    "INVENTIONS": [
+      {
+        "key": "fire",
+        "tech": 0.4,
+        "ru": "огонь и орудия",
+        "en": "fire and tools"
+      },
+      {
+        "key": "pottery",
+        "tech": 1.1,
+        "ru": "гончарное дело",
+        "en": "pottery"
+      },
+      {
+        "key": "herding",
+        "tech": 1.6,
+        "ru": "приручение скота",
+        "en": "animal husbandry"
+      },
+      {
+        "key": "farming",
+        "tech": 2,
+        "ru": "земледелие",
+        "en": "agriculture",
+        "big": 1
+      },
+      {
+        "key": "weaving",
+        "tech": 2.4,
+        "ru": "ткачество",
+        "en": "weaving"
+      },
+      {
+        "key": "writing",
+        "tech": 2.8,
+        "ru": "письменность",
+        "en": "writing",
+        "big": 1
+      },
+      {
+        "key": "masonry",
+        "tech": 3.25,
+        "ru": "каменная кладка",
+        "en": "masonry"
+      },
+      {
+        "key": "wheel",
+        "tech": 3.7,
+        "ru": "колесо",
+        "en": "the wheel"
+      },
+      {
+        "key": "bronze",
+        "tech": 4.1,
+        "ru": "бронза",
+        "en": "bronze working"
+      },
+      {
+        "key": "sailing",
+        "tech": 4.55,
+        "ru": "мореходство",
+        "en": "sailing"
+      },
+      {
+        "key": "iron",
+        "tech": 5.2,
+        "ru": "железо",
+        "en": "iron working"
+      },
+      {
+        "key": "roads",
+        "tech": 5.5,
+        "ru": "мощёные дороги",
+        "en": "paved roads"
+      },
+      {
+        "key": "currency",
+        "tech": 5.8,
+        "ru": "деньги",
+        "en": "currency"
+      },
+      {
+        "key": "aqueduct",
+        "tech": 6.1,
+        "ru": "водопровод",
+        "en": "aqueducts"
+      },
+      {
+        "key": "philosophy",
+        "tech": 6.4,
+        "ru": "философия",
+        "en": "philosophy"
+      },
+      {
+        "key": "math",
+        "tech": 6.7,
+        "ru": "математика",
+        "en": "mathematics"
+      },
+      {
+        "key": "stirrup",
+        "tech": 7.05,
+        "ru": "стремя",
+        "en": "the stirrup"
+      },
+      {
+        "key": "watermill",
+        "tech": 7.25,
+        "ru": "водяная мельница",
+        "en": "the watermill"
+      },
+      {
+        "key": "castles",
+        "tech": 7.45,
+        "ru": "каменные замки",
+        "en": "stone castles"
+      },
+      {
+        "key": "paper",
+        "tech": 7.6,
+        "ru": "бумага",
+        "en": "paper"
+      },
+      {
+        "key": "crossbow",
+        "tech": 7.8,
+        "ru": "арбалет",
+        "en": "the crossbow"
+      },
+      {
+        "key": "compass",
+        "tech": 7.95,
+        "ru": "компас",
+        "en": "the compass"
+      },
+      {
+        "key": "clock",
+        "tech": 8.1,
+        "ru": "механические часы",
+        "en": "mechanical clocks"
+      },
+      {
+        "key": "gunpowder",
+        "tech": 8.3,
+        "ru": "порох",
+        "en": "gunpowder",
+        "big": 1
+      },
+      {
+        "key": "printing",
+        "tech": 8.55,
+        "ru": "книгопечатание",
+        "en": "the printing press",
+        "big": 1
+      },
+      {
+        "key": "telescope",
+        "tech": 8.8,
+        "ru": "телескоп",
+        "en": "the telescope"
+      },
+      {
+        "key": "steam",
+        "tech": 9,
+        "ru": "паровая машина",
+        "en": "the steam engine",
+        "big": 1
+      },
+      {
+        "key": "factory",
+        "tech": 9.35,
+        "ru": "фабрики",
+        "en": "factories"
+      },
+      {
+        "key": "steamship",
+        "tech": 9.7,
+        "ru": "пароход",
+        "en": "the steamship"
+      },
+      {
+        "key": "rail",
+        "tech": 10,
+        "ru": "железные дороги",
+        "en": "railways"
+      },
+      {
+        "key": "telegraph",
+        "tech": 10.35,
+        "ru": "телеграф",
+        "en": "the telegraph"
+      },
+      {
+        "key": "rifle",
+        "tech": 10.7,
+        "ru": "нарезная винтовка",
+        "en": "the rifle"
+      },
+      {
+        "key": "electric",
+        "tech": 11,
+        "ru": "электричество",
+        "en": "electricity",
+        "big": 1
+      },
+      {
+        "key": "engine",
+        "tech": 11.15,
+        "ru": "двигатель внутреннего сгорания",
+        "en": "the combustion engine"
+      },
+      {
+        "key": "airship",
+        "tech": 11.3,
+        "ru": "дирижабль",
+        "en": "the airship"
+      },
+      {
+        "key": "auto",
+        "tech": 11.45,
+        "ru": "автомобиль",
+        "en": "the automobile"
+      },
+      {
+        "key": "machinegun",
+        "tech": 11.6,
+        "ru": "пулемёт",
+        "en": "the machine gun"
+      },
+      {
+        "key": "vaccine",
+        "tech": 11.75,
+        "ru": "вакцины",
+        "en": "vaccines"
+      },
+      {
+        "key": "flight",
+        "tech": 11.85,
+        "ru": "авиация",
+        "en": "powered flight",
+        "big": 1
+      },
+      {
+        "key": "tank",
+        "tech": 12.05,
+        "ru": "танк",
+        "en": "the tank"
+      },
+      {
+        "key": "radio",
+        "tech": 12.3,
+        "ru": "радио",
+        "en": "radio"
+      },
+      {
+        "key": "radar",
+        "tech": 12.6,
+        "ru": "радар",
+        "en": "radar"
+      },
+      {
+        "key": "antibio",
+        "tech": 12.95,
+        "ru": "антибиотики",
+        "en": "antibiotics"
+      },
+      {
+        "key": "jet",
+        "tech": 13.6,
+        "ru": "реактивный двигатель",
+        "en": "the jet engine"
+      },
+      {
+        "key": "rocket",
+        "tech": 14,
+        "ru": "ракетная техника",
+        "en": "rocketry"
+      },
+      {
+        "key": "tv",
+        "tech": 14.5,
+        "ru": "телевидение",
+        "en": "television"
+      },
+      {
+        "key": "nuclear",
+        "tech": 15,
+        "ru": "атомная энергия",
+        "en": "nuclear power",
+        "big": 1
+      },
+      {
+        "key": "computer",
+        "tech": 15.45,
+        "ru": "компьютеры",
+        "en": "computers",
+        "big": 1
+      },
+      {
+        "key": "satellite",
+        "tech": 15.85,
+        "ru": "спутники",
+        "en": "satellites"
+      },
+      {
+        "key": "mobile",
+        "tech": 16.25,
+        "ru": "мобильная связь",
+        "en": "mobile phones"
+      },
+      {
+        "key": "internet",
+        "tech": 16.65,
+        "ru": "всемирная сеть",
+        "en": "the global network",
+        "big": 1
+      },
+      {
+        "key": "space",
+        "tech": 17.2,
+        "ru": "пилотируемый космос",
+        "en": "crewed spaceflight",
+        "big": 1
+      },
+      {
+        "key": "renew",
+        "tech": 17.55,
+        "ru": "чистая энергия",
+        "en": "clean energy"
+      },
+      {
+        "key": "robotics",
+        "tech": 17.95,
+        "ru": "роботы",
+        "en": "robotics"
+      },
+      {
+        "key": "genetics",
+        "tech": 18.25,
+        "ru": "генная инженерия",
+        "en": "genetic engineering"
+      },
+      {
+        "key": "ai",
+        "tech": 18.6,
+        "ru": "искусственный разум",
+        "en": "artificial intelligence",
+        "big": 1
+      },
+      {
+        "key": "fusion",
+        "tech": 18.95,
+        "ru": "термоядерный синтез",
+        "en": "fusion power",
+        "big": 1
+      },
+      {
+        "key": "colony",
+        "tech": 19.3,
+        "ru": "внеземные поселения",
+        "en": "off-world colonies",
+        "big": 1
+      }
+    ],
+    "INV_V1": [
+      "fire",
+      "pottery",
+      "farming",
+      "writing",
+      "wheel",
+      "bronze",
+      "sailing",
+      "iron",
+      "currency",
+      "philosophy",
+      "math",
+      "paper",
+      "compass",
+      "gunpowder",
+      "printing",
+      "steam",
+      "rail",
+      "electric",
+      "vaccine",
+      "radio",
+      "auto",
+      "flight",
+      "antibio",
+      "nuclear",
+      "computer",
+      "satellite",
+      "internet",
+      "space",
+      "renew",
+      "ai",
+      "fusion",
+      "colony"
+    ],
+    "ERA_V1": [
+      0,
+      1,
+      2,
+      4,
+      6,
+      7
+    ]
+  },
+  "rules": [
+    {
+      "id": "ECO-01",
+      "summary": "Resource IDs and base mining eras; markers are not finite mined stocks.",
+      "source_id": "SRC-073",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/core.js",
+        "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452",
+        "line": 209,
+        "end_line": 222,
+        "source_lines": [
+          "// уран — ядерное оружие и чистая энергия. era — с какой эпохи ресурс начинают добывать (номер в лестнице 2.2:",
+          "// уголь — с индустриальной, нефть — с машинной, уран — с современной; для лестницы дополнения пересчитывает civAtForLadder).",
+          "const RES = [",
+          "  { key: 'none',    ru: '—',      en: '—',       color: [0, 0, 0],       era: 0 },",
+          "  // цвета — для карты и легенд: на затемнённой карте слоя «Недра» уголь и нефть «как в жизни» (чёрные) были бы не видны",
+          "  { key: 'iron',    ru: 'Железо', en: 'Iron',    color: [222, 120, 84],  era: 1 },",
+          "  { key: 'coal',    ru: 'Уголь',  en: 'Coal',    color: [168, 176, 192], era: 4 },",
+          "  { key: 'oil',     ru: 'Нефть',  en: 'Oil',     color: [166, 110, 232], era: 5 },",
+          "  { key: 'gold',    ru: 'Золото', en: 'Gold',    color: [250, 206, 70],  era: 0 },",
+          "  { key: 'uranium', ru: 'Уран',   en: 'Uranium', color: [120, 232, 110], era: 6 },",
+          "  { key: 'gems',    ru: 'Самоцветы', en: 'Gems', color: [84, 212, 240],  era: 1 },",
+          "];",
+          "const RID = {}; RES.forEach((r, i) => RID[r.key] = i);",
+          "function resName(r) { const o = RES[r] || RES[0]; return T(o.ru, o.en); }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-02",
+      "summary": "Base tempo, economy/science/urban parameter declarations.",
+      "source_id": "SRC-073",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 59,
+        "end_line": 103,
+        "source_lines": [
+          "const PACE = { NUCLEATE_EVERY: 3, DIPLO_EVERY: 3, EXPAND_EVERY: 2, NUKE_EVERY: 2, NUCLEATE_P: 0.32 };",
+          "let _ct = 0;   // счётчик civ-тиков для гейтинга",
+          "",
+          "const CIV = {",
+          "  // ---- темп истории ----",
+          "  // В версии 1.0 путь от племён до космоса занимал ~250 лет: все державы шли ноздря в ноздрю и",
+          "  // события сливались в шум. TEMPO замедляет ход ИСТОРИИ (наука, рост, экспансия, войны), не трогая",
+          "  // быстрые равновесные процессы; вместе с W.pace (выбор игрока) даёт ~900 лет на полный путь.",
+          "  // Числа ниже (TECH_RATE, R_BASE, EXPAND_P…) оставлены в масштабе 1.0 — моды, написанные под него, не ломаются.",
+          "  TEMPO: 0.34,",
+          "  TECH_ERA_K: [3.4, 2.2, 1.6, 1.5, 1.35, 1.25, 1.15, 1.0],   // ранние эпохи идут быстрее поздних относительно порогов (иначе первые века пусты на события)",
+          "  // демография",
+          "  R_BASE: 0.042,                      // базовый прирост/тик — чуть медленнее (население растёт плавно)",
+          "  TRANSITION: [0.0, 0.15, 0.40, 0.50, 0.75, 0.85, 0.90, 0.96],  // демографический переход по эпохам",
+          "  TERRA_TECH: 6, TERRA_MAX: 0.80,     // технологическое освоение суровых земель (начинается раньше, плавно)",
+          "  ADAPT_MAX: 0.55, ADAPT_RATE: 0.0011, ADAPT_DECAY: 0.997,   // адаптация населения к климату со временем (эскимосы/бедуины)",
+          "  SUBSIST_BASE: 35, SUBSIST_TECH: 7, SUBSIST_HAB: 120, SUBSIST_CAP: 420,   // прокорм кочевников — РЕДКОЕ население на грани, не город",
+          "  HARSH_DECAY: 0.95,                  // мягкий отток из непригодной клетки (НЕ мгновенная гибель)",
+          "  // смертельный климат (2.1.2): человек не выживает ни с какой техникой — ни прокорма кочевников, ни адаптации (см. climateLethal).",
+          "  // Пороги далеко за пределами Земли: самый жаркий месяц на ней — около +40° в среднем, самый холодный обжитый край — около −15° за год",
+          "  HEAT_LETHAL: 55,                    // средняя температура месяца, при которой в клетке не выжить (кисть «Тепло», раскалённая планета)",
+          "  COLD_LETHAL: -40,                   // среднегодовая стужа, при которой не выжить (плато Антарктиды: −50…−55°)",
+          "  LETHAL_DECAY: 0.5,                  // за тик в смертельном климате остаётся такая доля людей (остальные гибнут; кто может — бежит к соседям)",
+          "  K_FOOD_MAX: 4400,                   // макс. прокорм клетки (чел.)",
+          "  INHABITED_MIN: 40,                  // ниже — клетка необжита (даёт расселяться на рубежи)",
+          "  STATE_MIN_POP: 700,                 // государство гибнет ниже этого",
+          "  // сельское хозяйство и урбанизация",
+          "  PROD_BASE: 1.25, PROD_TECH: 0.45,   // производительность = база + tech (избыток растёт с tech)",
+          "  IMPORT_TECH: 0.22,                  // транспорт/торговля позволяют кормить города импортом",
+          "  URB_RATE: 0.05,                     // скорость роста/спада городской ёмкости",
+          "  URBAN_CELL_MAX: 180000,             // потолок населения одной клетки (мегаполис)",
+          "  CITY_POP_MIN: 11000, CITY_URBAN_MIN: 2800,  // пороги «город» (маркеры/учёт)",
+          "  // города — в немногих лучших местах: число мест = 1 + площадь·(DENS0 + эпоха·DENS1), не ближе CITY_GAP клеток друг к другу.",
+          "  // Раньше избыток делился между ВСЕМИ клетками, и к 300-му году городом считалась почти каждая (1700 из 1900).",
+          "  CITY_DENS: [0.022, 0.012], CITY_MAX: 44, CITY_GAP: 2, ZIPF: 0.85, TOWN_MAX: 1700,",
+          "  CITY_ERA_CAP: [0.07, 0.15, 0.27, 0.33, 0.48, 0.62, 1, 1],   // потолок города по эпохам (доля URBAN_CELL_MAX): мегаполисы — дело современности",
+          "  // миграция (гравитационная)",
+          "  MIG_RATE: 0.08, MIG_COMFORT: 0.62, MIG_MIN: 50, PIONEER: 0.03,   // пионеры активно осваивают пустующие пригодные земли",
+          "  // государства",
+          "  SEED_ABS: 1300, SEED_FILL: 0.6, STATE_CAP: 26, BASE_REACH: 8, EXPAND_P: 0.4, MAX_NUCLEATE: 1,   // STATE_CAP — на карту 80×60; на больших картах растёт с площадью суши (см. stateCap)",
+          "  REBUILD_Y: 60,                // 2.2: за сколько лет город перестраивается под новую эпоху (дома меняют облик по одному, а не разом)",
+          "  TECH_RATE: 0.0060, TECH_CAP: 22, ERA_TECH: [2, 5, 7, 9, 11, 13.5, 17],   // пороги эпох (2.2: средневековье 7–9 и машинная 11–13,5 — внутри прежних классической и индустриальной)",
+          "  TECH_DIFF: 0.010, TECH_LAG: 0.8,    // знания перетекают к соседям: отставание сверх TECH_LAG тает с этой скоростью. Океан — изоляция",
+          "  AGRI: [0.3, 1.2, 2.2, 3.0, 5.0, 7.0, 11.0, 18.0], ERA_MIL: [0.5, 1.0, 1.5, 1.7, 2.2, 2.8, 3.6, 5.0], SEAFAR: [0, 1, 1, 1, 2, 2, 3, 4],",
+          "  TAX: 0.1, WAR_THRESH: -0.4, WAR_P: 0.05, SACK: 0.25,   // войны реже — не «суматоха», а заметные конфликты"
+        ]
+      }
+    },
+    {
+      "id": "ECO-03",
+      "summary": "Industry/emissions, era tables, legacy ladder mapping, era linearization and pace.",
+      "source_id": "SRC-074",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 163,
+        "end_line": 234,
+        "source_lines": [
+          "  EMIT_K: 6.5e-6,                     // выбросы CO₂ на единицу промышленности (городов стало меньше — каждый дымит за четверых)",
+          "  PLAGUE_BASE: 0.0006, PLAGUE_LETHAL: 0.12, DISEASE_SPREAD: 0.22, IMMUNE_TICKS: 200,",
+          "  RUIN_HEAL: 0.996,                   // разрушения заживают (в тик): половина — за ~7 лет",
+          "  GREEN_TECH: 17,                     // с этого уровня науки державы уходят от ископаемого топлива (выбросы падают)",
+          "  // ---- пороги эпох (AT_* = «начиная с какой эпохи») ----",
+          "  // Вынесены в данные, чтобы мод мог сдвинуть саму хронологию: например, отложить",
+          "  // ракеты до космической эпохи или дать мореходство сразу. Индексами эпох, а не",
+          "  // номерами в коде — иначе мод, добавивший эпохи, ломал бы смысл этих проверок.",
+          "  AT_MISSILE: 5, AT_NUKE: 6, NUKE_TECH: 15,          // ракеты / ядерное оружие",
+          "  AT_SEA_NEAR: 1, AT_SEA_FAR: 4,                     // каботаж и океанское плавание",
+          "  SEA_REACH_NEAR: 9, SEA_REACH_FAR: 16,              // дальность морской экспансии (клетки)",
+          "  AT_WAR: 2,                                          // с какой эпохи держава участвует в больших войнах",
+          "  IND_AT: [1, 2, 4], IND_MUL: [0.03, 0.15, 0.5, 1],  // разгон промышленности: пороги и множители (на один длиннее)",
+          "  AT_MODERN: 6, AT_SPACE: 7,                          // современность (светское общество, «демократический мир») и космос",
+          "  // ---- пороги внешнего вида (когда меняется застройка и транспорт) ----",
+          "  AT_HOUSE: 1, AT_FACTORY: 4, AT_TOWER: 6,           // шалаши -> дома, заводы, небоскрёбы",
+          "  AT_CAR: 5, AT_STEAMSHIP: 4,                         // автомобили, пароходы вместо парусов",
+          "  AT_LANDMARK: 2, AT_AIR: 5,                          // памятники в крупных городах, авиасообщение между столицами",
+          "  AT_RAIL: 4,                                         // железные дороги: паровозы, с AT_CAR — тепловозы и электрички",
+          "  // ---- морская торговля: суда симуляции и торговые пути карты (MAP-A) ----",
+          "  SEA_TRADE_NEAR: 16,                                 // до океанского плавания (AT_SEA_FAR) торговый рейс не длиннее стольких клеток морского пути",
+          "  SHIP_CAP: 150, SHIP_PER_STATE: 6,                   // судов в море всего и от одной державы",
+          "  LANE_CAP: 120, LANE_DECAY: 0.996, LANE_MIN: 0.2,    // торговые пути: сколько помним, затухание объёма за тик, ниже какого объёма путь забыт",
+          "  LANE_KEEP_P: 0.7,                                   // доля рейсов по уже устоявшимся путям из порта (остальные ищут новых партнёров)",
+          "  TRADE_LEN_REF: 65, TRADE_LEN_REF_FAR: 25,           // рейс короче стольких клеток (до океанского плавания / после) приносит торговли, знаний и веры пропорционально меньше",
+          "  // ---- лестница эпох (2.2): средневековье — между классической и индустриальной, машинная (век моторов: первые машины,",
+          "  // самолёты, дирижабли и танки) — между индустриальной и современной. Эпоха державы — индекс в этой лестнице.",
+          "  //  · ERA_LOOK — «видимая» эпоха из шести, которыми мыслят прогулка, 3D-застройка и музыка: средневековье строится как",
+          "  //    классика, машинная — как индустрия; своё у новых эпох отбирается по открытиям державы (INVENTIONS: машины, самолёты,",
+          "  //    танки появляются по мере открытий, а не все разом с новой эпохой);",
+          "  //  · ERA_LIN — эпоха как число для формул, линейных по её номеру (число городов, досягаемость, содержание армии): номер",
+          "  //    современности вырос с 4 до 6, а плотность городов и дальность не должны вырасти вместе с ним.",
+          "  ERA_RU: ['Племена', 'Аграрная', 'Классическая', 'Средневековая', 'Индустриальная', 'Постиндустриальная', 'Современная', 'Космическая'],",
+          "  ERA_EN: ['Tribal', 'Agrarian', 'Classical', 'Medieval', 'Industrial', 'Post-Industrial', 'Modern', 'Space Age'],",
+          "  ERA_LOOK: [0, 1, 2, 2, 3, 3, 4, 5],",
+          "  ERA_LIN: [0, 1, 1.75, 2.25, 2.75, 3.25, 4, 5],",
+          "};",
+          "// эпоха старой лестницы (до 2.2: шесть эпох) → номер в новой — для сохранений и дополнений, сделанных до средневековья и",
+          "// машинной эпохи. ERA_BUILTIN снимает mods.js, если дополнение заменило лестницу своей (тогда номера — его собственные)",
+          "const ERA_V1 = [0, 1, 2, 4, 6, 7];",
+          "let ERA_BUILTIN = true;",
+          "function eraFromV1(e) { e = e | 0; return ERA_BUILTIN && eraCount() === 8 ? ERA_V1[e < 0 ? 0 : e > 5 ? 5 : e] : e; }",
+          "// пороги AT_* старой лестницы: если дополнение заменило лестницу своей из N эпох, они пересчитываются пропорционально",
+          "// (для шести эпох — ровно как было до 2.2), а дальше дополнение может поправить их своим разделом balance",
+          "const CIV_AT_V1 = { AT_MISSILE: 3, AT_NUKE: 4, AT_SEA_NEAR: 1, AT_SEA_FAR: 3, AT_WAR: 2, AT_NAVY: 2, AT_HOUSE: 1, AT_FACTORY: 3, AT_TOWER: 4, AT_CAR: 4, AT_STEAMSHIP: 4, AT_LANDMARK: 2, AT_AIR: 4, AT_RAIL: 3, AT_MODERN: 4, AT_SPACE: 5, IND_AT: [1, 2, 3] };",
+          "const RES_ERA_V1 = { iron: 1, coal: 3, oil: 4, uranium: 4, gems: 1 };",
+          "function civAtForLadder(n) {",
+          "  const k = (n - 1) / 5, m = v => Math.max(0, Math.min(n - 1, Math.round(v * k)));",
+          "  for (const key in CIV_AT_V1) { const v = CIV_AT_V1[key]; CIV[key] = Array.isArray(v) ? v.map(m) : m(v); }",
+          "  for (const r of RES) if (RES_ERA_V1[r.key] != null) r.era = m(RES_ERA_V1[r.key]);",
+          "}",
+          "// Эпоха, которую игрок видит как индустриальную. У дополнения своя лестница, и порог заводов AT_FACTORY в нём может стоять",
+          "// на другой ступени: Attack on Titan держит его на эпохе 3, «Средневековой», и достижение индустриальной эпохи выдавалось в средневековье",
+          "function eraIndustrial() {",
+          "  if (!ERA_BUILTIN) { const re = /^(индустриальн|industrial)/i; for (let e = 0; e < eraCount(); e++) if (re.test(CIV.ERA_RU[e]) || re.test(CIV.ERA_EN[e])) return e; }",
+          "  return CIV.AT_FACTORY;",
+          "}",
+          "// локализованное имя эпохи (используется во всех модулях вместо CIV.ERA_RU[e])",
+          "// число эпох берём из таблицы, а не из константы 5: мод может добавить свои эпохи,",
+          "// подменив ERA_* массивы целиком (mods.js следит, чтобы их длины совпадали)",
+          "function eraCount() { return CIV.ERA_RU.length; }",
+          "function eraName(e) { e = clamp(e | 0, 0, eraCount() - 1); return T(CIV.ERA_RU[e], CIV.ERA_EN[e]); }   // i18n-dyn: слова из параллельных массивов ERA_RU/ERA_EN",
+          "// видимая эпоха (0…5) и «линейная» — см. ERA_LOOK/ERA_LIN; лестница дополнения без своих таблиц — пропорционально",
+          "function eraLook(e) { const n = eraCount(), L = CIV.ERA_LOOK; e = clamp(e | 0, 0, n - 1); if (L && L.length === n) return clamp(L[e] | 0, 0, 5); return n === 6 ? e : Math.round(e * 5 / Math.max(1, n - 1)); }",
+          "function eraLin(e) { const n = eraCount(), L = CIV.ERA_LIN; e = clamp(e | 0, 0, n - 1); if (L && L.length === n) return +L[e] || 0; return n === 6 ? e : e * 5 / Math.max(1, n - 1); }",
+          "// доля державы (или суммы держав) в населении мира — мера важности события для хроники и уведомлений",
+          "let _worldPop = 1;",
+          "function popShare(a, b) { return ((a ? a.pop : 0) + (b ? b.pop : 0)) / Math.max(_worldPop, 1); }",
+          "// скорость хода истории: выбор игрока × общий темп версии",
+          "function civPace() { return (W.pace || 1) * CIV.TEMPO; }",
+          "// значение поэпошной таблицы с защитой от «лишних» эпох из мода",
+          "function eraVal(arr, e) { return arr[e < arr.length ? e : arr.length - 1]; }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-04",
+      "summary": "Government modifiers consumed by science; full political lifecycle is deferred.",
+      "source_id": "SRC-074",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 278,
+        "end_line": 291,
+        "source_lines": [
+          "// наследование власти, стабильность и воинственность. hered — власть передаётся по крови (есть династия).",
+          "const GOV = {",
+          "  tribe:        { ru: 'Племя',        en: 'Tribe',        hered: true,  stab: 0.00, war: 1.0, tech: 0.9,  lead: ['Вождь', 'Chief'] },",
+          "  chiefdom:     { ru: 'Вождество',    en: 'Chiefdom',     hered: true,  stab: 0.02, war: 1.1, tech: 0.95, lead: ['Верховный вождь', 'High Chief'] },",
+          "  monarchy:     { ru: 'Королевство',  en: 'Kingdom',      hered: true,  stab: 0.05, war: 1.0, tech: 1.0,  lead: ['Король', 'King'] },",
+          "  empire:       { ru: 'Империя',      en: 'Empire',       hered: true,  stab: 0.00, war: 1.35, tech: 1.0, lead: ['Император', 'Emperor'] },",
+          "  theocracy:    { ru: 'Теократия',    en: 'Theocracy',    hered: false, stab: 0.08, war: 1.1, tech: 0.85, lead: ['Первосвященник', 'High Priest'] },",
+          "  republic:     { ru: 'Республика',   en: 'Republic',     hered: false, free: true, stab: 0.03, war: 0.85, tech: 1.1, lead: ['Консул', 'Consul'] },",
+          "  democracy:    { ru: 'Демократия',   en: 'Democracy',    hered: false, free: true, stab: 0.06, war: 0.7, tech: 1.15, lead: ['Президент', 'President'] },",
+          "  dictatorship: { ru: 'Диктатура',    en: 'Dictatorship', hered: false, stab: -0.04, war: 1.4, tech: 0.95, lead: ['Диктатор', 'Dictator'] },",
+          "  technocracy:  { ru: 'Технократия',  en: 'Technocracy',  hered: false, free: true, stab: 0.05, war: 0.6, tech: 1.3,  lead: ['Координатор', 'Coordinator'] },",
+          "  federation:   { ru: 'Федерация',    en: 'Federation',   hered: false, free: true, stab: 0.07, war: 0.6, tech: 1.2,  lead: ['Канцлер', 'Chancellor'] },",
+          "};",
+          "function govOf(st) { return GOV[st.gov] || GOV.tribe; }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-05",
+      "summary": "Offshore cached resource ownership uses first live NB8 neighbor; periodic and explicit invalidation.",
+      "source_id": "SRC-073",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 870,
+        "end_line": 885,
+        "source_lines": [
+          "function resDirty() { _resWater = null; }",
+          "function recountOffshore() {",
+          "  if (!_resWater) { _resWater = []; for (let i = 0; i < GRID.N; i++) if (W.res[i] && W.isWater[i]) _resWater.push(i); }",
+          "  for (const s of states) if (s._off) s._off.fill(0);",
+          "  const Wd = GRID.W, Hd = GRID.H;",
+          "  for (const i of _resWater) {",
+          "    if (!W.isWater[i] || !W.res[i]) { _resWater = null; return; }   // рельеф или ресурс поменяли — список устарел, пересоберём в следующий раз",
+          "    const x = i % Wd, y = (i / Wd) | 0;",
+          "    for (let k = 0; k < 8; k++) {",
+          "      const nx = x + NB8[k][0], ny = y + NB8[k][1]; if (nx < 0 || ny < 0 || nx >= Wd || ny >= Hd) continue;",
+          "      const st = stateOf(ny * Wd + nx); if (!st) continue;",
+          "      (st._off || (st._off = new Array(RES.length).fill(0)))[W.res[i]]++;",
+          "      break;",
+          "    }",
+          "  }",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "ECO-06",
+      "summary": "Cell aggregates, offshore counts, resource wealth, GDP smoothing and social input order.",
+      "source_id": "SRC-073",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 887,
+        "end_line": 914,
+        "source_lines": [
+          "function updateStateEconomyTech(st) {",
+          "  let pop = 0, area = 0, ind = 0, pol = 0, cityN = 0, maxCity = 0, urbanPop = 0;",
+          "  const res = st.res; for (let k = 0; k < res.length; k++) res[k] = 0;",
+          "  st.cells.forEach(i => {",
+          "    const p = W.pop[i], u = W.urban[i];",
+          "    pop += p; area++; ind += W.industry[i]; pol += W.pollution[i];",
+          "    const r = W.res[i]; if (r) res[r]++;",
+          "    if (u > CIV.CITY_URBAN_MIN && p > CIV.CITY_POP_MIN) { cityN++; urbanPop += Math.min(p, u); if (p > maxCity) maxCity = p; }",
+          "    else if (u > 300) urbanPop += Math.min(p, u) * 0.6;          // посады и местечки — тоже горожане, но «вполсилы»",
+          "  });",
+          "  if (st._off) for (let k = 1; k < res.length; k++) res[k] += st._off[k] | 0;",
+          "  st.pop = pop; st.area = area; st.industry = ind; st.pollution = area ? pol / area : 0;",
+          "  st.cityCount = cityN; st.largestCity = maxCity; st.urbanPct = pop > 0 ? clamp01(urbanPop / pop) : 0;",
+          "  if (pop > st.peakPop) { st.peakPop = pop; st.peakYear = W.simYear; }",
+          "  const pf = civPace(), era = st.era, g = govOf(st), rm = st.rm;",
+          "  const iron = Math.min(res[RID.iron], 5), coal = Math.min(res[RID.coal], 5), oil = Math.min(res[RID.oil], 5), gold = Math.min(res[RID.gold] + res[RID.gems], 6);",
+          "",
+          "  // --- благосостояние (условные единицы «на душу»): наука × города × порядок × недра × торговля ---",
+          "  const resWealth = gold * 0.05 + (era >= RES[RID.coal].era ? coal * 0.025 : 0) + (era >= RES[RID.oil].era ? oil * 0.045 : 0);",
+          "  const trade = st.trade;",
+          "  const gdpPc = 250 * Math.pow(1 + st.tech / 4, 2) * (0.7 + 0.6 * st.urbanPct) * (0.75 + 0.35 * st.stability)",
+          "    * (1 + Math.min(0.6, resWealth)) * (1 + Math.min(0.35, trade * 0.025)) * (1 - 0.3 * st.exhaust);",
+          "  st.gdpPc += (gdpPc - st.gdpPc) * 0.05;",
+          "  st.gdp = st.gdpPc * pop; st.economy = st.gdp;",
+          "  st.literacy += (clamp01((st.tech - 2.5) / 11) * (0.45 + 0.55 * st.urbanPct) * (g.hered ? 0.92 : 1.06) - st.literacy) * 0.02;",
+          "  st.lifeExp += (24 + st.tech * 2.7 - st.pollution * 12 - st.exhaust * 6 - st.lifeExp) * 0.02;",
+          "  const happy = clamp01(0.32 + 0.36 * st.stability + 0.16 * clamp01(st.gdpPc / 4500) - 0.25 * st.exhaust - 0.18 * st.pollution + (g.hered ? 0 : 0.05) + (st._golden > 0 ? 0.1 : 0));",
+          "  st.happiness += (happy - st.happiness) * 0.03;"
+        ]
+      }
+    },
+    {
+      "id": "ECO-07",
+      "summary": "Treasury production/upkeep/decay and trade decay use prior military and era.",
+      "source_id": "SRC-073",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 916,
+        "end_line": 920,
+        "source_lines": [
+          "  // --- казна: налоги + недра + торговля МИНУС содержание армии (дороже в поздние эпохи) и текущие расходы ---",
+          "  const production = pop * 0.0006 + ind * 0.05 + cityN * 0.05;",
+          "  const upkeep = st.military * 0.00005 * (1 + eraLin(era) * 0.4);",
+          "  st.treasury = Math.max(0, (st.treasury + CIV.TAX * production * (1 + resWealth) + trade * 0.02 - upkeep) * 0.996);",
+          "  st.trade = trade * 0.985;                                     // торговые связи без подпитки затухают"
+        ]
+      }
+    },
+    {
+      "id": "ECO-08",
+      "summary": "Science drive/gates, inventions, era events, military and bounded history.",
+      "source_id": "SRC-074",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 922,
+        "end_line": 953,
+        "source_lines": [
+          "  // --- наука: большие, городские, грамотные и торгующие державы идут быстрее; нет угля/железа или нефти — медленнее ---",
+          "  const popF = clamp01(Math.log10(1 + pop / 3000) / 2.5);",
+          "  const drive = clamp01(0.08 + 0.34 * popF + 0.22 * st.urbanPct + 0.14 * Math.min(1, cityN / 6) + 0.12 * Math.min(1, trade / 12) + 0.10 * st.literacy);",
+          "  let gate = 1;",
+          "  if (st.tech >= 8 && st.tech < 13 && !coal && !iron) gate = 0.72;          // индустрия без угля и железа буксует",
+          "  if (st.tech >= 12.5 && !oil) gate *= 0.80;                                // двигатели без нефти",
+          "  st.techRate = CIV.TECH_RATE * pf * eraVal(CIV.TECH_ERA_K, era) * drive * (1 - st.tech / CIV.TECH_CAP) * g.tech * rm.tech * gate",
+          "    * (0.6 + 0.4 * st.stability) * (st._golden > 0 ? 1.25 : 1);",
+          "  st.tech += st.techRate;",
+          "  if (st._golden > 0) st._golden -= 0.0015;",
+          "  // вехи науки: первое открытие в мире — событие и зачёт державе",
+          "  while (st.inv < INVENTIONS.length && st.tech >= INVENTIONS[st.inv].tech) {",
+          "    const iv = INVENTIONS[st.inv++];",
+          "    if (!iv.first) {",
+          "      iv.first = { uid: st.uid, name: st.name, year: Math.floor(W.simYear) }; st.firsts++;",
+          "      logEvent('invention', TF('{0} первой в мире открыла: {1}', '{0} was the first in the world to discover {1}', st.name, invName(iv)), { s: [st.id], cell: st.capital, imp: iv.big ? 2 : 0 });",
+          "    }",
+          "  }",
+          "  const ne = eraOf(st.tech);",
+          "  if (ne !== era) {",
+          "    if (ne > era) {",
+          "      const first = !_eraFirst[ne]; _eraFirst[ne] = 1;      // первая в мире держава новой эпохи — веха для всего мира",
+          "      logEvent('era', first ? TF('{0} первой в мире вступает в эпоху: {1}', '{0} is the first in the world to enter the era: {1}', st.name, eraName(ne))",
+          "        : TF('{0} вступает в эпоху: {1}', '{0} enters the era: {1}', st.name, eraName(ne)), { s: [st.id], cell: st.capital, imp: first ? 2 : 0 });",
+          "    }",
+          "    st.eraP = era; st.eraT = W.simYear;                    // с какой эпохи и с какого года идёт перестройка застройки (eraRebuilt)",
+          "    st.era = ne; st.cells.forEach(i => W.capDirty[i] = 1); st._sites = null;",
+          "    simEmit('eraChange', st, era, ne);",
+          "  }",
+          "  // АРМИЯ — доля населения под ружьём (мобилизация растёт с эпохой/технологиями), но всегда МЕНЬШЕ населения",
+          "  st.military = pop * Math.min(0.4, 0.02 + CIV.ERA_MIL[st.era] * 0.05 + st.tech * 0.008) * st.stability;",
+          "  if ((W.simTick & 7) === 0) { st.history.push([Math.round(st.pop), +st.tech.toFixed(1)]); if (st.history.length > 80) st.history.shift(); }   // история для графиков"
+        ]
+      }
+    },
+    {
+      "id": "ECO-09",
+      "summary": "All 58 invention declarations, invHas permissive unknown keys, eraRebuilt, inclusive era thresholds and rural productivity.",
+      "source_id": "SRC-074",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 356,
+        "end_line": 431,
+        "source_lines": [
+          "const INVENTIONS = [",
+          "  { key: 'fire',      tech: 0.4,  ru: 'огонь и орудия',      en: 'fire and tools' },",
+          "  { key: 'pottery',   tech: 1.1,  ru: 'гончарное дело',      en: 'pottery' },",
+          "  { key: 'herding',   tech: 1.6,  ru: 'приручение скота',    en: 'animal husbandry' },",
+          "  { key: 'farming',   tech: 2.0,  ru: 'земледелие',          en: 'agriculture', big: 1 },",
+          "  { key: 'weaving',   tech: 2.4,  ru: 'ткачество',           en: 'weaving' },",
+          "  { key: 'writing',   tech: 2.8,  ru: 'письменность',        en: 'writing', big: 1 },",
+          "  { key: 'masonry',   tech: 3.25, ru: 'каменная кладка',     en: 'masonry' },",
+          "  { key: 'wheel',     tech: 3.7,  ru: 'колесо',              en: 'the wheel' },",
+          "  { key: 'bronze',    tech: 4.1,  ru: 'бронза',              en: 'bronze working' },",
+          "  { key: 'sailing',   tech: 4.55, ru: 'мореходство',         en: 'sailing' },",
+          "  { key: 'iron',      tech: 5.2,  ru: 'железо',              en: 'iron working' },",
+          "  { key: 'roads',     tech: 5.5,  ru: 'мощёные дороги',      en: 'paved roads' },",
+          "  { key: 'currency',  tech: 5.8,  ru: 'деньги',              en: 'currency' },",
+          "  { key: 'aqueduct',  tech: 6.1,  ru: 'водопровод',          en: 'aqueducts' },",
+          "  { key: 'philosophy', tech: 6.4, ru: 'философия',           en: 'philosophy' },",
+          "  { key: 'math',      tech: 6.7,  ru: 'математика',          en: 'mathematics' },",
+          "  { key: 'stirrup',   tech: 7.05, ru: 'стремя',              en: 'the stirrup' },",
+          "  { key: 'watermill', tech: 7.25, ru: 'водяная мельница',    en: 'the watermill' },",
+          "  { key: 'castles',   tech: 7.45, ru: 'каменные замки',      en: 'stone castles' },",
+          "  { key: 'paper',     tech: 7.6,  ru: 'бумага',              en: 'paper' },",
+          "  { key: 'crossbow',  tech: 7.8,  ru: 'арбалет',             en: 'the crossbow' },",
+          "  { key: 'compass',   tech: 7.95, ru: 'компас',              en: 'the compass' },",
+          "  { key: 'clock',     tech: 8.1,  ru: 'механические часы',   en: 'mechanical clocks' },",
+          "  { key: 'gunpowder', tech: 8.3,  ru: 'порох',               en: 'gunpowder', big: 1 },   // аркебуза позднего средневековья живёт ~20 лет",
+          "  { key: 'printing',  tech: 8.55, ru: 'книгопечатание',      en: 'the printing press', big: 1 },",
+          "  { key: 'telescope', tech: 8.8,  ru: 'телескоп',            en: 'the telescope' },",
+          "  { key: 'steam',     tech: 9.0,  ru: 'паровая машина',      en: 'the steam engine', big: 1 },   // = порог индустриальной эпохи (ERA_TECH)",
+          "  { key: 'factory',   tech: 9.35, ru: 'фабрики',             en: 'factories' },",
+          "  { key: 'steamship', tech: 9.7,  ru: 'пароход',             en: 'the steamship' },",
+          "  { key: 'rail',      tech: 10.0, ru: 'железные дороги',     en: 'railways' },",
+          "  { key: 'telegraph', tech: 10.35, ru: 'телеграф',           en: 'the telegraph' },",
+          "  { key: 'rifle',     tech: 10.7, ru: 'нарезная винтовка',   en: 'the rifle' },",
+          "  { key: 'electric',  tech: 11.0, ru: 'электричество',       en: 'electricity', big: 1 },",
+          "  { key: 'engine',    tech: 11.15, ru: 'двигатель внутреннего сгорания', en: 'the combustion engine' },",
+          "  { key: 'airship',   tech: 11.3, ru: 'дирижабль',           en: 'the airship' },",
+          "  { key: 'auto',      tech: 11.45, ru: 'автомобиль',         en: 'the automobile' },",
+          "  { key: 'machinegun', tech: 11.6, ru: 'пулемёт',            en: 'the machine gun' },",
+          "  { key: 'vaccine',   tech: 11.75, ru: 'вакцины',            en: 'vaccines' },",
+          "  { key: 'flight',    tech: 11.85, ru: 'авиация',            en: 'powered flight', big: 1 },",
+          "  { key: 'tank',      tech: 12.05, ru: 'танк',               en: 'the tank' },",
+          "  { key: 'radio',     tech: 12.3, ru: 'радио',               en: 'radio' },",
+          "  { key: 'radar',     tech: 12.6, ru: 'радар',               en: 'radar' },",
+          "  { key: 'antibio',   tech: 12.95, ru: 'антибиотики',        en: 'antibiotics' },",
+          "  { key: 'jet',       tech: 13.6, ru: 'реактивный двигатель', en: 'the jet engine' },",
+          "  { key: 'rocket',    tech: 14.0, ru: 'ракетная техника',    en: 'rocketry' },   // не «ракеты»: так зовутся боевые ракеты (другой перевод)",
+          "  { key: 'tv',        tech: 14.5, ru: 'телевидение',         en: 'television' },",
+          "  { key: 'nuclear',   tech: 15.0, ru: 'атомная энергия',     en: 'nuclear power', big: 1 },",
+          "  { key: 'computer',  tech: 15.45, ru: 'компьютеры',         en: 'computers', big: 1 },",
+          "  { key: 'satellite', tech: 15.85, ru: 'спутники',           en: 'satellites' },",
+          "  { key: 'mobile',    tech: 16.25, ru: 'мобильная связь',    en: 'mobile phones' },",
+          "  { key: 'internet',  tech: 16.65, ru: 'всемирная сеть',     en: 'the global network', big: 1 },",
+          "  { key: 'space',     tech: 17.2, ru: 'пилотируемый космос', en: 'crewed spaceflight', big: 1 },",
+          "  { key: 'renew',     tech: 17.55, ru: 'чистая энергия',     en: 'clean energy' },",
+          "  { key: 'robotics',  tech: 17.95, ru: 'роботы',             en: 'robotics' },",
+          "  { key: 'genetics',  tech: 18.25, ru: 'генная инженерия',   en: 'genetic engineering' },",
+          "  { key: 'ai',        tech: 18.6, ru: 'искусственный разум', en: 'artificial intelligence', big: 1 },",
+          "  { key: 'fusion',    tech: 18.95, ru: 'термоядерный синтез', en: 'fusion power', big: 1 },",
+          "  { key: 'colony',    tech: 19.3, ru: 'внеземные поселения', en: 'off-world colonies', big: 1 },",
+          "];",
+          "// ключи списка до 2.2 в его порядке: сейвы тех версий хранят первооткрывателей массивом по этому порядку",
+          "const INV_V1 = ['fire', 'pottery', 'farming', 'writing', 'wheel', 'bronze', 'sailing', 'iron', 'currency', 'philosophy', 'math', 'paper', 'compass', 'gunpowder', 'printing',",
+          "  'steam', 'rail', 'electric', 'vaccine', 'radio', 'auto', 'flight', 'antibio', 'nuclear', 'computer', 'satellite', 'internet', 'space', 'renew', 'ai', 'fusion', 'colony'];",
+          "const INV_TECH = {}; for (const iv of INVENTIONS) INV_TECH[iv.key] = iv.tech;",
+          "// открыла ли держава (или достигла ли наука t) веху по ключу; незнакомый ключ — «открыто» (дополнение со своими вехами не ломает проверок)",
+          "function invHas(stOrTech, key) { const t = typeof stOrTech === 'number' ? stOrTech : stOrTech ? stOrTech.tech || 0 : 0, need = INV_TECH[key]; return need == null || t >= need; }",
+          "function invName(iv) { return T(iv.ru, iv.en); }",
+          "",
+          "// доля застройки, уже перестроенной под новую эпоху (0…1): город меняет облик не разом, а дом за домом за CIV.REBUILD_Y лет.",
+          "// Только при подъёме эпохи; держава из сейва до 2.2 (нет eraP) и откат эпохи — сразу целиком",
+          "function eraRebuilt(st) {",
+          "  if (!st || st.eraP == null || st.eraT == null || !(st.eraP < st.era)) return 1;",
+          "  return clamp((W.simYear - st.eraT) / Math.max(1, CIV.REBUILD_Y), 0, 1);",
+          "}",
+          "function eraOf(t) { const E = CIV.ERA_TECH; for (let e = E.length; e > 0; e--) if (t >= E[e - 1]) return e; return 0; }",
+          "const productivity = tech => CIV.PROD_BASE + tech * CIV.PROD_TECH;   // прокорм на одного крестьянина"
+        ]
+      }
+    },
+    {
+      "id": "ECO-10",
+      "summary": "State economy/science/army defaults and ruler modifiers.",
+      "source_id": "SRC-073",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 995,
+        "end_line": 1014,
+        "source_lines": [
+          "function stateBlank(id) {",
+          "  return {",
+          "    id, uid: -1, gen: 0, alive: false, color: [120, 120, 120], capital: -1, cells: new Set(),",
+          "    pop: 0, area: 0, tech: 0, era: 0, treasury: 0, military: 0, stability: 1, relations: new Map(),",
+          "    industry: 0, pollution: 0, economy: 0, atWar: 0, cityCount: 0, largestCity: 0, urbanPct: 0, name: '', history: [],",
+          "    missiles: 0, nukes: 0, peakArea: 0,   // арсенал (копится с индустрией) и пиковая территория — для порога «проигрывает войну»",
+          "    // ---- 2.0: биография и общество ----",
+          "    born: 0, died: null, deathCause: null, killer: -1, origin: 'tribe', parent: -1, parentGen: 0,",
+          "    gov: 'tribe', culture: 0, religion: 0,            // форма правления, культура и государственная вера (society.js)",
+          "    ruler: -1, dynasty: -1,                           // правитель и династия (people.js)",
+          "    overlord: -1, bloc: -1,                           // сюзерен (если вассал) и союзный блок",
+          "    res: new Array(RES.length).fill(0),               // месторождений в границах, по видам",
+          "    gdp: 0, gdpPc: 250, trade: 0, literacy: 0, lifeExp: 25, happiness: 0.6,",
+          "    warsTotal: 0, warsWon: 0, warsLost: 0, casualties: 0, conquered: 0, exhaust: 0, truce: new Map(),",
+          "    decline: 0,                                        // «усталость величия» 0..1: копится у держав-гигантов и ведёт к распаду",
+          "    firsts: 0, inv: 0, peakPop: 0, peakYear: 0,       // inv — сколько вех науки пройдено (индекс в INVENTIONS)",
+          "    herds: 0, horses: 0,                              // скот и кони (одомашнивание — fauna.js)",
+          "    cultUnity: 1, relUnity: 1,                        // доля населения своей культуры и веры (society.js)",
+          "    rm: { tech: 1, stab: 0, war: 1, dip: 0, growth: 1 },   // влияние правителя: множители науки/воинственности/прироста и добавки к стабильности/дипломатии (ставит people.js)",
+          "  };"
+        ]
+      }
+    },
+    {
+      "id": "ECO-11",
+      "summary": "Power is a separate derived value with technology/GDP/iron/horses/ruler/exhaustion modifiers.",
+      "source_id": "SRC-075",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 1134,
+        "end_line": 1138,
+        "source_lines": [
+          "function powerOf(st) {",
+          "  const iron = st.era >= 1 ? Math.min(st.res[RID.iron], 5) * 0.07 : 0;",
+          "  return st.military * (1 + st.tech * 0.12) * (0.55 + 0.45 * st.stability) * (1 + clamp01(Math.log10(1 + st.gdp / 1e6) / 4) * 0.5)",
+          "    * (1 + iron) * (1 - 0.5 * st.exhaust) * (st.horses && st.era >= 1 && st.era < CIV.AT_MODERN ? 1.1 : 1) * Math.sqrt(st.rm.war);",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "ECO-12",
+      "summary": "Cell industry target/fuel/smoothing, pollution/vegetation/emissions and bounded CO2 feedback.",
+      "source_id": "SRC-075",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 1704,
+        "end_line": 1732,
+        "source_lines": [
+          "function stepCivEcology() {",
+          "  let emit = 0, vegSum = 0;",
+          "  for (let i = 0; i < GRID.N; i++) {",
+          "    if (W.isWater[i]) continue;",
+          "    vegSum += W.veg[i];",
+          "    const p = W.pop[i];",
+          "    if (p > 50) {",
+          "      const st = stateOf(i); const era = st ? st.era : 0, tech = st ? st.tech : 0;",
+          "      const urbanF = clamp01(W.urban[i] / 6000);        // заводы — в городах",
+          "      const A = CIV.IND_AT, M = CIV.IND_MUL;",
+          "      const indMul = era >= A[2] ? M[3] : era >= A[1] ? M[2] : era >= A[0] ? M[1] : M[0];",
+          "      // недра разгоняют промышленность: уголь — с индустриальной эпохи, нефть — с современной",
+          "      const fuel = st ? 1 + (era >= RES[RID.coal].era ? Math.min(st.res[RID.coal], 5) * 0.08 : 0) + (era >= RES[RID.oil].era ? Math.min(st.res[RID.oil], 5) * 0.10 : 0) : 1;",
+          "      const targetInd = (0.2 + urbanF) * clamp01(p / 7000) * indMul * clamp01(0.2 + tech / 10) * fuel;",
+          "      W.industry[i] += (targetInd - W.industry[i]) * 0.05;",
+          "      // «зелёный переход»: после GREEN_TECH державы уходят от ископаемого топлива — та же промышленность дымит всё меньше",
+          "      const green = tech > CIV.GREEN_TECH ? Math.max(0.25, 1 - (tech - CIV.GREEN_TECH) * 0.16 - (st && st.res[RID.uranium] ? 0.12 : 0)) : 1;",
+          "      W.pollution[i] = clamp01(W.pollution[i] + (W.industry[i] * 0.9 * green + clamp01(p / 14000) * 0.12) * 0.04);   // смог копится мягче",
+          "      if (W.pollution[i] > 0.4) W.unrest[i] = clamp01(W.unrest[i] + 0.02);",
+          "      emit += (W.industry[i] + clamp01(p / 14000) * 0.05) * green;",
+          "      const lu = clamp01(p / Math.max(W.foodCap[i], 1));",
+          "      if (W.veg[i] > 0.08) W.veg[i] = Math.max(0.05, W.veg[i] - lu * 0.004);",
+          "    } else if (W.industry[i] > 0) W.industry[i] *= 0.97;",
+          "  }",
+          "  W.globalEmissions = emit;",
+          "  const sink = (W.co2 - 1) * (0.0022 + vegSum * 3e-6);",
+          "  W.co2 = clamp(W.co2 + emit * CIV.EMIT_K - sink, 0.7, 4.5);",
+          "  W.co2ppm = Math.round(280 * W.co2);",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "ECO-13",
+      "summary": "Civilization ordering; offshore every 16; aggregate, technology, urbanization and late diffusion snapshots.",
+      "source_id": "SRC-073",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 1746,
+        "end_line": 1782,
+        "source_lines": [
+          "function civTick() {",
+          "  W.simTick++; _ct++;",
+          "  windHarshTick();                                      // «климатический» ветер клеток (помеха заселению) — до ёмкостей",
+          "  refreshCapacities();",
+          "  stepPopulation();",
+          "  stepMigration();",
+          "  stepAdaptation();                                     // население адаптируется к климату со временем",
+          "  releaseDepopulated();                                 // обезлюдевшие клетки покидают государства",
+          "  if (_ct % PACE.NUCLEATE_EVERY === 0) nucleateStates();   // новые державы рождаются РЕЖЕ — как заметные вехи",
+          "  if ((_ct & 15) === 0) recountOffshore();                 // шельфовые месторождения — кому достались",
+          "  const doExpand = (_ct % PACE.EXPAND_EVERY === 0);        // границы двигаются реже → карта стабильнее и читается",
+          "  let wp = 0; for (const st of states) if (st.alive) wp += st.pop;",
+          "  _worldPop = wp > 1 ? wp : 1;",
+          "  for (const st of states) {",
+          "    if (!st.alive) continue;",
+          "    if (st.cells.size === 0) { killState(st); continue; }",
+          "    if (W.stateId[st.capital] !== st.id || W.pop[st.capital] < CIV.INHABITED_MIN || W.isWater[st.capital]) {   // море поднялось над столицей — двор переезжает сразу",
+          "      let best = -1, bp = 0; st.cells.forEach(i => { if (W.isWater[i]) return; const v = W.pop[i] + W.urban[i] * 2; if (v > bp) { bp = v; best = i; } });",
+          "      if (best >= 0) { st.capital = best; st._sites = null; } else { killState(st, 'depop'); continue; }",
+          "    }",
+          "    updateStateEconomyTech(st);",
+          "    allocateUrbanization(st);",
+          "    if (doExpand) { expandState(st); if (((_ct >> 1) + st.id) % 6 === 0) checkSecession(st); }   // окраины проверяем раз в ~полгода на державу (по очереди)",
+          "    updateStability(st);",
+          "    if (st.pop < CIV.STATE_MIN_POP) killState(st, 'depop');       // нет населения — нет государства",
+          "  }",
+          "  diplomacyAndWar();                                     // распад меток боёв — каждый тик; отношения/войны — реже (внутри)",
+          "  if (typeof societyTick === 'function') societyTick();  // культуры, религии, формы правления",
+          "  if (_ct % PACE.NUKE_EVERY === 0) { stepNavalWar(); stepSeaBattles(); stepStrategicWar(); }   // морские вторжения и сражения, ядерное — реже",
+          "  stepMissiles();                                        // полёт ракет и подрывы — каждый тик (плавная анимация)",
+          "  stepCivEcology();",
+          "  processShips();",
+          "  rebuildCities();",
+          "  checkClimateEvents();                                   // голод/неурожай — климат бьёт по людям, игрок видит это в хронике",
+          "  if (_ownersChanged) { markDirty('borders'); _ownersChanged = false; }   // перестраиваем слой границ только когда они реально менялись",
+          "  simEmit('civTick');",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "ECO-14",
+      "summary": "Peaceful neighbor trade and gap diffusion every third civ tick, blocked during war.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 1420,
+        "end_line": 1459,
+        "source_lines": [
+          "function diplomacyAndWar() {",
+          "  for (let b = battles.length - 1; b >= 0; b--) { if (--battles[b].life <= 0) battles.splice(b, 1); }   // затухание меток боёв — каждый тик",
+          "  if (_ct % PACE.DIPLO_EVERY !== 0) return;                   // отношения/войны считаем реже: меньше «суматохи», события заметнее",
+          "  const pf = civPace(), dpf = 0.45 + 0.55 * pf;",
+          "  scanNeighbors();",
+          "  const year = W.simYear;",
+          "  for (const a of states) {",
+          "    if (!a.alive || !a._nb) continue;",
+          "    const ga = govOf(a);",
+          "    for (const [bid, info] of a._nb) {",
+          "      if (bid <= a.id) continue;                              // каждая ПАРА — один раз (со стороны меньшего id)",
+          "      const b = states[bid]; if (!b || !b.alive) continue;",
+          "      const gb = govOf(b), rel = a.relations.get(bid) || 0, fighting = a._foes && a._foes.has(bid);",
+          "      // --- дрейф отношений: случайность + всё, что сближает и ссорит соседей ---",
+          "      let d = (Math.random() - 0.5) * 0.06;",
+          "      d -= Math.min(0.01, Math.abs(a.tech - b.tech) * 0.0015);              // разрыв в развитии рождает презрение и зависть",
+          "      d += (a.culture && a.culture === b.culture) ? 0.005 : -0.0004;        // свои — чужие (чужие не обязательно враги: иначе весь мир жил бы в вечной вражде)",
+          "      if (a.religion && b.religion) d += a.religion === b.religion ? 0.004 : -0.005 * ((a.era < CIV.AT_MODERN && b.era < CIV.AT_MODERN) ? 1 : 0.3);",
+          "      d += a.rm.dip + b.rm.dip;                                             // характер правителей",
+          "      if (ga.free && gb.free) d += 0.006;                                   // республики ладят между собой",
+          "      d -= Math.min(0.002, info.len * 0.0003);                              // длинная граница — больше поводов для ссор",
+          "      if (_sharedFoe(a, b)) d += 0.010;                                     // враг моего врага",
+          "      const vas = a.overlord === bid || b.overlord === a.id;",
+          "      if (vas) d += 0.02;",
+          "      d -= rel * 0.012;                                                     // память коротка: без причин отношения возвращаются к нейтральным",
+          "      let nrel = clamp(rel + d * dpf, -1, 1);",
+          "      if (fighting) nrel = Math.min(nrel, -0.6);                            // пока идёт война, потепления не бывает",
+          "      if (vas) nrel = Math.max(nrel, 0.3);",
+          "      a.relations.set(bid, nrel); b.relations.set(a.id, nrel);",
+          "      if (rel <= CIV.ALLY_AT && nrel > CIV.ALLY_AT && !fighting) {",
+          "        // отношения «дрожат» у порога — без памяти хроника тонула в тысяче записей «Союз: X и Y»",
+          "        const key = Math.min(a.uid, b.uid) + '_' + Math.max(a.uid, b.uid);",
+          "        // союз двух карликов — не новость: в хронику идут союзы, за которыми стоит хоть сколько-то заметная доля мира",
+          "        if (year - (_allyLog.get(key) || -1e9) > 80 && popShare(a, b) > 0.04) { _allyLog.set(key, year); logEvent('alliance', TF('Союз: {0} и {1}', 'Alliance: {0} and {1}', a.name, b.name), { s: [a.id, bid], cell: info.cell, imp: 0 }); }",
+          "      }",
+          "      if (fighting) continue;",
+          "      // --- мирное соседство: торговля через границу и перетекание знаний (отстающий подтягивается, но не догоняет вплотную) ---",
+          "      if (nrel > -0.15) { const tv = Math.min(1, info.len / 6) * 0.12 * (nrel > 0.3 ? 1.5 : 1); a.trade += tv; b.trade += tv; }",
+          "      const gap = a.tech - b.tech, lag = CIV.TECH_LAG, df = CIV.TECH_DIFF * pf * (nrel > 0 ? 1.4 : 0.7);",
+          "      if (gap > lag) b.tech += (gap - lag) * df; else if (gap < -lag) a.tech += (-gap - lag) * df;"
+        ]
+      }
+    },
+    {
+      "id": "ECO-15",
+      "summary": "Vassal tribute is a 2 percent treasury transfer per diplomacy update; full vassal politics deferred.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 1503,
+        "end_line": 1511,
+        "source_lines": [
+          "    const ov = states[v.overlord];",
+          "    if (!ov || !ov.alive || ov === v) { v.overlord = -1; continue; }",
+          "    const tribute = v.treasury * 0.02; v.treasury -= tribute; ov.treasury += tribute;",
+          "    v._vasT = (v._vasT || 0) + 1;",
+          "    const pv = powerOf(v), po = powerOf(ov);",
+          "    if ((ov.stability < 0.35 || pv > po * 0.75) && !(v.truce.get(ov.id) > year) && Math.random() < 0.03 * dpf) {",
+          "      v.overlord = -1; v._vasT = 0;",
+          "      declareWar(v, ov, 'independence');",
+          "    } else if (v._vasT > 160 && v.culture === ov.culture && (v.relations.get(ov.id) || 0) > 0.5 && v.area < ov.area * 0.5 && Math.random() < 0.012 * dpf) {"
+        ]
+      }
+    },
+    {
+      "id": "ECO-16",
+      "summary": "Maritime arrival context: route caches and ship spawning; pathfinding remains trade/navigation scope.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 2268,
+        "end_line": 2281,
+        "source_lines": [
+          "function processShips() {",
+          "  if ((W.simTick & 7) === 0) lanesTick();",
+          "  // кэш портов/пустых берегов: полный проход по сетке каждый тик — главный удар по производительности;",
+          "  // обновляем раз в 8 тиков или сразу после смены границ (_navDirty ставится в setOwner/clearOwner)",
+          "  if (_navDirty || W.simTick - _navListTick >= 8 || W.simTick < _navListTick) {",
+          "    _portsCache = listPorts(); _frontierCache = frontierCoasts(); _navListTick = W.simTick; _navDirty = false;",
+          "    _seaPortsSplit(_portsCache);                                   // порты по державам — для флотов (navyOf) и морских боёв",
+          "  }",
+          "  const ports = _portsCache, frontier = _frontierCache;",
+          "  // спавн судов из прибрежных городов: ТОРГОВЫЕ (к порту) и ИССЛЕДОВАТЕЛИ/КОЛОНИСТЫ (к пустому берегу)",
+          "  const SHIP_CAP = CIV.SHIP_CAP, PER_STATE = CIV.SHIP_PER_STATE, colP = 0.07 * (0.4 + 0.6 * civPace());",
+          "  if (ships.length < SHIP_CAP) {",
+          "    // равномерно по КАРТЕ: счётчик судов на державу, чтобы один регион не выбирал весь лимит (раньше первые державы забивали кап 80 → корабли только в одной части мира)",
+          "    const perOwner = {}; for (const s of ships) { if (s.owner) perOwner[s.owner.id] = (perOwner[s.owner.id] || 0) + 1; }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-17",
+      "summary": "Actual ship arrival credits treasuries/trade and diffuses knowledge, with route-length weight.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 2313,
+        "end_line": 2355,
+        "source_lines": [
+          "  for (let s = ships.length - 1; s >= 0; s--) {",
+          "    const sh = ships[s]; sh.life--;",
+          "    if (sh.life <= 0 || !sh.path) { ships.splice(s, 1); continue; }",
+          "    // ход за тик — по течению и ветру на этом шаге пути: sh.v посчитан на прошлом тике, и карта по нему же плавно ведёт судно до этого",
+          "    sh.pu = (sh.pu >= 0 ? sh.pu : sh.pi) + (sh.v > 0 ? sh.v : 1); sh.pi = Math.floor(sh.pu);",
+          "    if (sh.pi >= sh.path.length) {",
+          "      if (sh.invade) { resolveInvasion(sh); ships.splice(s, 1); continue; }                          // десант: вторжение/плацдарм",
+          "      if (sh.explore) {",
+          "        const t = sh.dest;",
+          "        if (W.stateId[t] < 0 && sh.owner && sh.owner.alive && W.habEff[t] > 0.1) {",
+          "          W.pop[t] += 900; setOwner(t, sh.owner);",
+          "          if (sh.owner.culture) W.culture[t] = sh.owner.culture;     // колонисты привозят свой язык и свою веру",
+          "          if (sh.owner.religion) W.religion[t] = sh.owner.religion;",
+          "          const lmN = landNameAt(t);                                    // безымянная земля — колония без имени места",
+          "          logEvent('colony', (lmN && W.landmass[t] !== W.landmass[sh.owner.capital] ? TF('{0} основала заморскую колонию на земле {1}', '{0} founded an overseas colony in the land of {1}', sh.owner.name, lmN) : TF('{0} основала заморскую колонию', '{0} founded an overseas colony', sh.owner.name)), { s: [sh.owner.id], cell: t, imp: 1 });",
+          "        }",
+          "        ships.splice(s, 1); continue;",
+          "      }",
+          "      // ТОРГОВЛЯ: начислить казну и отправить к НОВОМУ порту — судно продолжает рейсы (оживляет море), пока не кончится ресурс (life)",
+          "      // Вес рейса — по его длине (до TRADE_LEN_REF клеток, в океанскую эпоху — до TRADE_LEN_REF_FAR): с 2.1 каботаж не уходит",
+          "      // дальше досягаемости эпохи, а суда держатся устоявшихся путей — рейсы короче и чаще. Без веса торговля, знания и",
+          "      // вера ранних эпох выросли бы впятеро, а торговля связывает руки войнам. Итог за век близок к 2.0.",
+          "      const dst = stateOf(sh.dest), own = sh.owner, kv = Math.min(1, Math.max(0.1, (sh.path.length - 1) / ((own && own.era >= CIV.AT_SEA_FAR) ? CIV.TRADE_LEN_REF_FAR : CIV.TRADE_LEN_REF)));",
+          "      if (own && own.alive) { own.treasury += 3 * kv; own.trade += 1.4 * kv; }",
+          "      if (dst && dst.alive) {",
+          "        dst.treasury += 2 * kv; dst.trade += 1.0 * kv;",
+          "        // морем приходят не только товары, но и знания, и вера",
+          "        if (own && own.alive && own !== dst) {",
+          "          const gap = own.tech - dst.tech;",
+          "          if (gap > CIV.TECH_LAG) dst.tech += (gap - CIV.TECH_LAG) * 0.004 * kv; else if (gap < -CIV.TECH_LAG) own.tech += (-gap - CIV.TECH_LAG) * 0.004 * kv;",
+          "          if (own.religion && W.religion[sh.dest] === 0 && Math.random() < 0.25 * kv) W.religion[sh.dest] = own.religion;",
+          "        }",
+          "      }",
+          "      laneAdd(sh.from, sh.dest, sh.path, Math.max(own ? own.era : 0, dst ? dst.era : 0));   // рейс состоялся — торговый путь окреп",
+          "      const here = sh.path[sh.path.length - 1];",
+          "      const nd = pickTradeDest(here, sh.owner, sh.dest, ports, sh.dest);   // новый рейс: по устоявшемуся пути или к ближнему/дальнему порту, НЕ к врагу",
+          "      const era = own ? own.era : 0, np = (nd >= 0) ? waterPathTo(here, nd, seaTradeReach(sh.owner), era) : null;",
+          "      if (np && np.length > 1) { sh.from = sh.dest; sh.path = np; sh.pi = 0; sh.pu = 0; sh.v = seaStepV(era, np[0], np[1]); sh.dest = nd; sh.dispU = undefined; continue; }   // новый рейс",
+          "      ships.splice(s, 1); continue;",
+          "    }",
+          "    const cc = sh.path[sh.pi]; sh.x = cc % GRID.W; sh.y = (cc / GRID.W) | 0;",
+          "    sh.v = sh.pi + 1 < sh.path.length ? seaStepV(sh.owner ? sh.owner.era : 1, cc, sh.path[sh.pi + 1]) : 1;   // ход на следующий тик",
+          "    // корабль везёт заразу: из больного порта мор переплывает море (так эпидемии перешагивают океаны)"
+        ]
+      }
+    },
+    {
+      "id": "ECO-18",
+      "summary": "Goods accounting is separate from civilization macroeconomy; architecture declaration corroborated at local writes.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/trade.js",
+        "sha256": "9396c9233e6c5ebbbc4672e75a83b5735444630492650d3fcee79b8c574e1b46",
+        "line": 1,
+        "end_line": 23,
+        "source_lines": [
+          "// trade.js — товары и торговые пути (2.1.3): что везут, откуда, куда и кому.",
+          "// Зачем: просьба автора — «добавить больше информации о торговле: о каждом торговом пути и товарах. Цепочка товаров — где и",
+          "// кем произведён, когда погружен, куда и кому везут, прошлые потребители». Торговля в мире уже есть (civ.js): суда ходят между",
+          "// портами (ships, seaLanes), мирные соседи торгуют через границу (diplomacyAndWar). Но ЧТО везут — ядро не знает. Этот модуль",
+          "// ничего в мире не меняет: он смотрит на торговлю ядра и раскладывает её на товары и партии груза.",
+          "//  · ТОВАРЫ (TRADE_GOODS) — 26 видов, от кремня до роботов. Что вывозит держава, решает её земля (биомы, берег, горы, недра",
+          "//    W.res) и её открытия (invHas): зерно — с земледелия, книги — с бумаги, автомобили — с автомобиля. Кремень уходит с",
+          "//    бронзой, бронза — с железом: у каждой эпохи свои товары. Профиль производства держав считается раз в год, полосами.",
+          "//  · ПАРТИИ — пул фиксированного размера на типизированных массивах: товар, вес, кто, где и когда произвёл, где и когда",
+          "//    погрузили, на чём везут (по открытиям: носильщики, вьючные, караваны, обозы, поезда, грузовики; лодки, парусники,",
+          "//    каракки, пароходы, теплоходы, контейнеровозы; дорогое и лёгкое — дирижабли и самолёты), куда и кому. Купленное может уйти дальше — перепродажа: у партии",
+          "//    цепочка прежних покупателей (до TRADE.HOPS звеньев).",
+          "//  · МОРЕ: торговые суда ядра (sh.trade) отслеживаются без правок civ.js: новое судно или новый рейс (сменился sh.dest) —",
+          "//    погрузка, прибытие — доставка; судно пропало у вражеского берега с меткой «набег» — груз захвачен; судно «списано»",
+          "//    (кончился ресурс life) или мир загружен из сохранения (суда не сохраняются) — партия доходит к расчётному сроку сама.",
+          "//  · СУША: тот же расчёт, что у ядра для пограничной торговли (мирные соседи, отношения не хуже −0.15), копит «торговлю»",
+          "//    пары держав; набралась партия — от города-производителя к рынку соседа уходит караван (обоз, поезд, грузовики).",
+          "//  · ПУТИ: морской — пара портов (тот же ключ, что у seaLanes), сухопутный — пара держав. У пути — объём и стоимость по годам",
+          "//    (ряд с прореживанием, как в stats.js), что везут в каждую сторону, партии в пути и последние поставки.",
+          "// Случайность — свой хэш от зерна мира и тика, а не Math.random: с модулем и без него история мира одна и та же.",
+          "// Исключение — игрок (2.1.3, просьба автора): «Прогуляться к грузу» ведёт на прогулку к судну или каравану с партией (walktrade.js),",
+          "// и ограбленная партия (rob) не доходит, а держава-перевозчик теряет часть казны и торговых связей.",
+          "// Память ограничена: пул партий, число путей, кольца покупателей и ряды — фиксированной длины (TRADE)."
+        ]
+      }
+    },
+    {
+      "id": "ECO-19",
+      "summary": "Production gates use inventions/obsolescence/mining eras and local resource requirements; buyer slack is eligibility only.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/trade.js",
+        "sha256": "9396c9233e6c5ebbbc4672e75a83b5735444630492650d3fcee79b8c574e1b46",
+        "line": 217,
+        "end_line": 229,
+        "source_lines": [
+          "  // умеет ли держава (или уровень науки t для проверки) ДЕЛАТЬ товар g: открытие есть, замены ещё нет, недра для ремесла —",
+          "  // в границах, руда — по эпохе добычи (RES.era). Этим же проверяется, что партия не анахронизм (tradeCheck)",
+          "  function canMake(st, g) {",
+          "    const G = TRADE_GOODS[g], t = st.tech || 0;",
+          "    if (G.inv && !invHas(t, G.inv)) return false;",
+          "    if (G.obs && invHas(t, G.obs)) return false;",
+          "    if (G.res) { const r = typeof RID !== 'undefined' ? RID[G.res] : null; if (r == null || (st.era | 0) < ((RES[r] && RES[r].era) | 0)) return false; }",
+          "    if (G.need && st.res && typeof RID !== 'undefined') { let ok = false; for (const k of G.need.split('|')) if ((st.res[RID[k]] | 0) > 0) ok = true; if (!ok) return false; }",
+          "    return true;",
+          "  }",
+          "  // берёт ли покупатель товар: открытие товара не дальше TECH_SLACK от его науки (сталь — да, электроника — нет)",
+          "  function canUse(st, g) { const G = TRADE_GOODS[g]; return !G.inv || !st || invHas((st.tech || 0) + C.TECH_SLACK, G.inv); }",
+          "  function gateMask(st) { let m = 0; for (let g = 0; g < NG; g++) if (canMake(st, g)) m |= 1 << g; return m; }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-20",
+      "summary": "Player robbery explicitly subtracts treasury/trade; full walk robbery lifecycle deferred.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/trade.js",
+        "sha256": "9396c9233e6c5ebbbc4672e75a83b5735444630492650d3fcee79b8c574e1b46",
+        "line": 598,
+        "end_line": 610,
+        "source_lines": [
+          "  // _seaRaid), только меньше: это одна партия, а не судно. → сведения о партии до ограбления или null (уже не в пути)",
+          "  function rob(id) {",
+          "    const k = slotOf(id); if (k < 0 || cSt[k] !== ST_GO) return null;",
+          "    const L0 = lot(k);",
+          "    cSt[k] = ST_ROBBED; cDY[k] = W.simYear; cShip[k] = null; cBy[k] = BY_PLAYER; nBy[k] = ''; wTot.robbed++;",
+          "    const r = routeDone(k); if (r) r.lost++;",
+          "    const st = typeof stateByUid === 'function' ? stateByUid(cOUid[k]) : null;",
+          "    if (st && st.alive) { st.treasury = Math.max(0, (st.treasury || 0) - Math.min((st.treasury || 0) * 0.05, 2 + (st.treasury || 0) * 0.002)); st.trade = Math.max(0, (st.trade || 0) - 0.3); }",
+          "    _ver++;",
+          "    return L0;",
+          "  }",
+          "  // перевозчик партии дошёл на прогулке (walktrade.js): игрок видел это сам, партия доставлена, не дожидаясь расчётного срока. → сведения о партии или null",
+          "  function arrive(id) { const k = slotOf(id); if (k < 0 || cSt[k] !== ST_GO) return null; deliver(k, -1); return lot(k); }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-21",
+      "summary": "Ruler parameter declarations; full genealogy and succession deferred.",
+      "source_id": "SRC-077",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/people.js",
+        "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2",
+        "line": 12,
+        "end_line": 75,
+        "source_lines": [
+          "const PPL = {",
+          "  // объём хранилища",
+          "  MAX_PEOPLE: 24000,      // потолок числа персон в памяти и в сейве",
+          "  PRUNE_EVERY: 8,         // раз во сколько лет вычищаем давно умершую боковую родню",
+          "  PRUNE_AGE: 45,          // сколько лет после смерти помним тех, кто не правил и не оставил живых потомков",
+          "  HORIZON: 200,           // при переполнении режем самых древних, но не ближе этого числа лет от сегодняшнего дня",
+          "  NPC_CACHE: 3500,        // сколько простолюдинов (с роднёй) держим в кэше одновременно",
+          "  // возраст и семья",
+          "  ADULT: 16,",
+          "  MARRY_AGE: [17, 15],    // с какого возраста женятся / выходят замуж",
+          "  MARRY_P: 0.30,          // шанс в год вступить в брак для главной линии",
+          "  MARRY_SIDE: 0.35,       // множитель для боковых ветвей (они и затухают быстрее)",
+          "  DYN_MARRY_P: 0.40,      // доля браков правящей линии, для которых ищут партию в соседнем правящем доме",
+          "  FERTILE: [16, 44],      // детородный возраст матери",
+          "  BIRTH_P: 0.34,          // шанс рождения в год, пока детей меньше «задуманного»",
+          "  KIDS_MAIN: [1, 5],      // сколько детей у правителя и наследника",
+          "  KIDS_SIDE: [0, 3],      // у прочих детей правителя",
+          "  KIDS_FAR: [0, 1],       // у дальней родни — ветвь гаснет за поколение-два",
+          "  KIDS_LEADER: [0, 3],    // у выборных лидеров",
+          "  NAME_ANCESTOR: 0.45,    // шанс, что ребёнка назовут в честь предка (отсюда «Арвен III»)",
+          "  // смертность: пары [древность, современность], между ними — по st.lifeExp",
+          "  INFANT: [0.17, 0.006], CHILD: [0.030, 0.0008], YOUTH: [0.007, 0.0004],",
+          "  ADULT_Q: [0.011, 0.0008], GOMP_A: [0.0028, 0.0005], GOMP_B: [0.085, 0.095],",
+          "  LIFE_RANGE: [24, 78],   // значения st.lifeExp, которым отвечают левый и правый края пар выше",
+          "  CHILDBIRTH: [0.014, 0.0008],",
+          "  BATTLE_P: 0.02,         // шанс в год гибели в бою у правителя/принца воюющей державы",
+          "  PLAGUE_K: 0.30,         // насколько мор в столице поднимает смертность двора",
+          "  DISASTER_K: 0.05,       // шанс гибели придворного при сильном бедствии в столице",
+          "  // власть",
+          "  FEMALE_FOUNDER: 0.10,   // доля женщин среди основателей держав",
+          "  CADET_P: 0.55,          // отколовшуюся землю возглавляет младшая ветвь правящего дома метрополии",
+          "  RESTORE_P: 0.6,         // новую державу на старых землях возглавляет живой претендент павшего дома",
+          "  INVITE_P: 0.25,         // дом пресёкся — знать призывает принца соседнего дружественного дома",
+          "  UNION_P: 0.6,           // наследник уже правит соседней державой — уния (иначе престол идёт дальше по линии)",
+          "  // заговоры растут плавно по мере падения порядка ниже порога: шанс в год = P · (1 − стабильность / порог).",
+          "  // Порог высок (0.6), потому что державы ядра почти всегда стабильны (85% времени — выше 0.6): иначе переворотов не было бы вовсе",
+          "  USURP_STAB: 0.6, USURP_P: 0.045,      // узурпация престола родичем или полководцем",
+          "    USURP_GRACE: 6,         // первые годы после воцарения новую власть не свергают — иначе перевороты шли бы цепочкой",
+          "  ASSASS_STAB: 0.6, ASSASS_P: 0.04, ASSASS_BASE: 0.0015,   // покушения (BASE — дворцовые интриги, которые бывают и в спокойные годы)",
+          "  REGENT_USURP: 0.025,    // шанс в год, что регент-родич отнимет престол у малолетнего",
+          "  COUP_STAB: 0.5, COUP_P: 0.06,         // переворот против пожизненного лидера (диктатор, первосвященник)",
+          "  SUCC_WAR_P: 0.3,        // свергнутый дом находит заступника — соседа-родича, и тот идёт войной «за престол»",
+          "  SHOCK: [0.06, 0.16, 0.34, 0.36],   // сила кризиса: спорное наследование / малолетний или дальняя родня / пресечение дома / узурпация",
+          "  TERM_REPUBLIC: [6, 10], TERM_DEMOCRACY: [4, 6], TERM_TECHNOCRACY: [7, 10], TERM_FEDERATION: [5, 8],",
+          "  REELECT_P: 0.5, MAX_TERMS: 3,",
+          "  POL_DYNASTY: 0.12,      // выборным лидером становится сын или дочь прежнего лидера",
+          "  DICT_HEIR: 0.35,        // диктатор передаёт власть сыну — так рождаются новые династии",
+          "  // влияние правителя на державу (st.rm)",
+          "  RM_MUL: [0.75, 1.35],   // пределы множителей науки, воинственности и прироста",
+          "  RM_STAB: 0.15, RM_DIP: 0.02,",
+          "  RM_ELECTED: 0.6,        // выборный лидер ограничен законом — его характер весит меньше",
+          "  RM_REGENT: 0.6,         // регент правит вполсилы",
+          "  GOLD_SKILL: 29, GOLD_P: 0.08, GOLD_REIGN: 6, GOLD_STAB: 0.55,   // золотой век: сумма навыков, шанс в год, минимум лет на престоле и порядка",
+          "  GOLD_GAP: 100,          // не чаще одного золотого века на державу за столько лет",
+          "  MAD_BIRTH: 0.008, MAD_HEIR: 0.06, MAD_ONSET: 0.0012,           // безумие: врождённое, наследуемое от безумного родителя, приходящее с годами (в год)",
+          "  NICK_P: 0.2,            // шанс, что яркая черта характера станет прозвищем",
+          "  // важность событий в хронике (0 — лента, 1 — «Важное» и значок непрочитанного, 2 — всплывающее уведомление).",
+          "  // Пороги — доля населения мира у державы: о рядовой смене короля малой державы не кричат",
+          "  IMP_BIG: 0.12,          // рядовая смена правителя заметна (1) только у держав крупнее этой доли (на карте 80×60 это две-три сильнейшие)",
+          "  IMP_SOFT: 0.05,         // регентство, наследник не из детей, смена дома по женской линии, золотой век — от этой доли",
+          "  IMP_HUGE: 0.1,          // кризис (переворот, убийство, пресечение дома, безумие) всплывает уведомлением у держав крупнее этой доли",
+          "  LONG_DYN: 8,            // «долгий» дом: его падение всплывает уведомлением при любой величине державы",
+          "  // окно родословной",
+          "  TREE_ANC: 3, TREE_DESC: 3,"
+        ]
+      }
+    },
+    {
+      "id": "ECO-22",
+      "summary": "All ruler trait modifiers; science consumes trait rm[0].",
+      "source_id": "SRC-077",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/people.js",
+        "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2",
+        "line": 272,
+        "end_line": 299,
+        "source_lines": [
+          "  const _TR_SRC = [",
+          "    ['wise', 'мудрый', 'мудрая', 'wise', 1, 'mad', .07, .03, 0, .003, .02, 0, 0, 1, 2],",
+          "    ['warlike', 'воинственный', 'воинственная', 'warlike', 1, 'peaceful', -.02, 0, .20, -.006, 0, 0, 2, 0, 0],",
+          "    ['cruel', 'жестокий', 'жестокая', 'cruel', 1, 'just', 0, -.03, .06, -.005, -.03, -1, 0, 0, 0],",
+          "    ['just', 'справедливый', 'справедливая', 'just', 1, 'cruel', 0, .05, 0, .003, .03, 0, 0, 1, 0],",
+          "    ['pious', 'набожный', 'набожная', 'pious', 1, '', -.04, .03, 0, 0, 0, 0, 0, 0, 1],",
+          "    ['weak', 'слабый', 'слабая', 'weak', .7, 'brave', -.03, -.06, -.10, -.002, -.03, 0, -2, -1, 0],",
+          "    ['mad', 'безумный', 'безумная', 'mad', 0, 'wise', -.10, -.10, .08, -.008, -.06, -1, -1, -1, -1],",
+          "    ['builder', 'строитель', 'строительница', 'builder', 1, 'lazy', .03, .01, 0, 0, .09, 0, 0, 2, 0],",
+          "    ['diplomat', 'дипломат', 'дипломат', 'diplomat', 1, '', 0, .02, -.06, .009, 0, 3, 0, 0, 0],",
+          "    ['brave', 'храбрый', 'храбрая', 'brave', 1, 'coward', 0, .01, .07, 0, 0, 0, 1, 0, 0],",
+          "    ['coward', 'трусливый', 'трусливая', 'craven', .7, 'brave', 0, -.02, -.12, 0, 0, 0, -1, 0, 0],",
+          "    ['greedy', 'алчный', 'алчная', 'greedy', 1, 'generous', 0, -.03, .03, -.003, -.05, 0, 0, 0, 0],",
+          "    ['generous', 'щедрый', 'щедрая', 'generous', 1, 'greedy', 0, .04, 0, .003, .04, 1, 0, 0, 0],",
+          "    ['ambitious', 'честолюбивый', 'честолюбивая', 'ambitious', 1, 'lazy', .02, -.01, .10, -.003, .02, 0, 0, 1, 0],",
+          "    ['scholar', 'книжник', 'книжница', 'scholarly', 1, '', .10, 0, -.04, 0, 0, 0, 0, 0, 3],",
+          "    ['lazy', 'ленивый', 'ленивая', 'idle', .8, 'ambitious', -.05, -.02, -.05, 0, -.05, 0, 0, -2, 0],",
+          "    ['charismatic', 'обаятельный', 'обаятельная', 'charismatic', 1, '', 0, .05, 0, .005, 0, 2, 0, 0, 0],",
+          "    ['sickly', 'болезненный', 'болезненная', 'sickly', .6, '', 0, -.01, -.04, 0, 0, 0, -1, 0, 0],",
+          "    ['peaceful', 'миролюбивый', 'миролюбивая', 'peaceful', 1, 'warlike', .02, .02, -.20, .006, .03, 1, 0, 0, 0],",
+          "    ['cunning', 'хитрый', 'хитрая', 'cunning', 1, '', 0, .02, .03, .002, 0, 1, 0, 1, 0],",
+          "  ];",
+          "  const TRAITS = {}, _TR_KEYS = [];",
+          "  for (let k = 0; k < _TR_SRC.length; k++) {",
+          "    const t = _TR_SRC[k];",
+          "    TRAITS[t[0]] = { i: k, key: t[0], ru: t[1], ruF: t[2], en: t[3], w: t[4], opp: t[5], rm: [t[6], t[7], t[8], t[9], t[10]], sk: [t[11], t[12], t[13], t[14]] };",
+          "    _TR_KEYS.push(t[0]);",
+          "  }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-23",
+      "summary": "Ruler learning/administration/traits, elective/regency scaling and finite bounded modifiers.",
+      "source_id": "SRC-077",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/people.js",
+        "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2",
+        "line": 823,
+        "end_line": 846,
+        "source_lines": [
+          "  // влияние правителя: навыки и черты → st.rm. Всё зажато в пределы и проверено на конечность",
+          "  function _applyRm(st) {",
+          "    if (!st) return;",
+          "    const rm = (st.rm && typeof st.rm === 'object') ? st.rm : (st.rm = { tech: 1, stab: 0, war: 1, dip: 0, growth: 1 });",
+          "    let tech = 0, stab = 0, war = 0, dip = 0, gr = 0;",
+          "    const r = rulerOf(st);",
+          "    if (r && r.died === null) {",
+          "      let a = r, k = (typeof govHereditary === 'function' && !govHereditary(st)) ? PPL.RM_ELECTED : 1, pen = 0;",
+          "      if (personAge(r) < PPL.ADULT) {                              // за ребёнка правит регент — вполсилы, и двор неспокоен",
+          "        a = regentOf(st); k *= PPL.RM_REGENT; pen = a ? 0.04 : 0.07;",
+          "      }",
+          "      if (a && a.skill) {",
+          "        const s = a.skill;",
+          "        tech = (s.lrn - 5) * 0.03 + (s.adm - 5) * 0.01; stab = (s.adm - 5) * 0.010 + (s.dip - 5) * 0.006;",
+          "        war = (s.mil - 5) * 0.03; dip = (s.dip - 5) * 0.002; gr = (s.adm - 5) * 0.025;",
+          "        for (const tk of a.traits) { const t = TRAITS[tk]; if (!t) continue; tech += t.rm[0]; stab += t.rm[1]; war += t.rm[2]; dip += t.rm[3]; gr += t.rm[4]; }",
+          "        tech *= k; stab *= k; war *= k; dip *= k; gr *= k;",
+          "      }",
+          "      stab -= pen;",
+          "    }",
+          "    const lo = PPL.RM_MUL[0], hi = PPL.RM_MUL[1];",
+          "    rm.tech = clamp(_pFin(1 + tech, 1), lo, hi); rm.war = clamp(_pFin(1 + war, 1), lo, hi); rm.growth = clamp(_pFin(1 + gr, 1), lo, hi);",
+          "    rm.stab = clamp(_pFin(stab, 0), -PPL.RM_STAB, PPL.RM_STAB); rm.dip = clamp(_pFin(dip, 0), -PPL.RM_DIP, PPL.RM_DIP);",
+          "  }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-24",
+      "summary": "Golden shock changes stability and golden timer.",
+      "source_id": "SRC-077",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 322,
+        "end_line": 327,
+        "source_lines": [
+          "function civShock(st, kind, amt) {",
+          "  if (!st || !st.alive) return;",
+          "  amt = clamp01(amt || 0.3);",
+          "  if (kind === 'golden') { st.stability = clamp01(st.stability + 0.25 * amt); st._golden = Math.min(2, (st._golden || 0) + amt); return; }",
+          "  st.stability = clamp01(st.stability - 0.45 * amt);",
+          "  if (kind === 'succession' || kind === 'coup') st.cells.forEach(i => { W.unrest[i] = clamp01(W.unrest[i] + 0.25 * amt); });"
+        ]
+      }
+    },
+    {
+      "id": "ECO-25",
+      "summary": "Inspiration is a direct capped science addition; era is updated later.",
+      "source_id": "SRC-077",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 310,
+        "end_line": 316,
+        "source_lines": [
+          "  }",
+          "  if (!st) return false;",
+          "  if (name === 'inspire') {                                // озарение: рывок в науке и золотой век",
+          "    st.tech = Math.min(CIV.TECH_CAP, st.tech + 0.35 * s); civShock(st, 'golden', 0.8);",
+          "    logEvent('player', TF('Воля творца: державу {0} посетило озарение — наступает золотой век', 'The will of the maker: {0} is touched by inspiration — a golden age begins', st.name), { s: [st.id], cell, imp: 1 });",
+          "    return true;",
+          "  }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-26",
+      "summary": "Secession copies 82 percent technology and 80 percent GDP per capita; full secession deferred.",
+      "source_id": "SRC-077",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 1020,
+        "end_line": 1027,
+        "source_lines": [
+          "function secedeChunk(cells, parent, how) {",
+          "  let cap = cells[0], bp = -1; for (const i of cells) if (W.pop[i] > bp) { bp = W.pop[i]; cap = i; }",
+          "  const st = newStateObj(cap); st.tech = parent.tech * 0.82; st.era = eraOf(st.tech); st.capital = cap;",
+          "  while (st.inv < INVENTIONS.length && st.tech >= INVENTIONS[st.inv].tech) st.inv++;   // знания метрополии — не «открытия заново»",
+          "  st.herds = parent.herds; st.horses = parent.horses; st.literacy = parent.literacy * 0.85; st.gdpPc = parent.gdpPc * 0.8; st.lifeExp = parent.lifeExp;",
+          "  for (const i of cells) setOwner(i, st);",
+          "  st.relations.set(parent.id, -0.2); parent.relations.set(st.id, -0.2);   // отделились — отношения прохладные",
+          "  announceState(st, parent, how || 'secede');"
+        ]
+      }
+    },
+    {
+      "id": "ECO-27",
+      "summary": "Invention/era-first save contract, old ladder migration and exact/approximate backfill algorithm.",
+      "source_id": "SRC-077",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 2397,
+        "end_line": 2476,
+        "source_lines": [
+          "// сохранение: кто что открыл первым (остальное о державах и войнах menu.js пишет сам)",
+          "simOn('save', o => {",
+          "  const invK = {}; for (const iv of INVENTIONS) if (iv.first) invK[iv.key] = iv.first;",
+          "  o.ext.civ = { invK, ladder: 2, greatWars: _greatWars, greatLast: _greatLast, eraFirst: _eraFirst.map(x => x ? 1 : 0) };   // ladder 2 — лестница из 8 эпох (2.2)",
+          "});",
+          "simOn('load', o => {",
+          "  const c = o.ext && o.ext.civ;",
+          "  if (c && c.invK && typeof c.invK === 'object') { for (const iv of INVENTIONS) iv.first = c.invK[iv.key] || null; }",
+          "  else for (const iv of INVENTIONS) { const k = INV_V1.indexOf(iv.key); iv.first = (c && Array.isArray(c.inv) && k >= 0 && c.inv[k]) || null; }   // сейв до 2.2: массив по старому порядку",
+          "  // мир до 2.2 (шесть эпох): эпоха держав — заново по науке (средневековье и машинная вставлены внутрь прежних эпох), эпоха",
+          "  // торговых путей — по таблице старых номеров; st.inv — индекс в списке вех, а список вырос: считаем по науке заново",
+          "  const oldLadder = !(c && c.ladder >= 2) && ERA_BUILTIN && eraCount() === 8;",
+          "  if (oldLadder) { for (const s of states) if (s) s.era = eraOf(s.tech || 0); for (const L of seaLanes.values()) L.era = eraFromV1(L.era); }",
+          "  for (const s of states) { if (!s) continue; s.inv = 0; while (s.inv < INVENTIONS.length && (s.tech || 0) >= INVENTIONS[s.inv].tech) s.inv++; }",
+          "  _greatWars = (c && c.greatWars) || 0; _greatLast = (c && typeof c.greatLast === 'number') ? c.greatLast : -1e9;",
+          "  _resWater = null; _landCells = 0; _blocSeen.clear(); _allyLog.clear(); _eraFirst.length = 0;",
+          "  _seaBodyT = -1e9; _seaLogLast = -1e9; _seaLogW.clear(); _navDirty = true;   // берега и порты загруженного мира — пересчитать",
+          "  for (const s of states) { if (s.alive && s.bloc >= 0) _blocSeen.add(s.bloc); for (let e = 1; e <= s.era; e++) _eraFirst[e] = 1; }",
+          "  if (c && Array.isArray(c.eraFirst)) c.eraFirst.forEach((x, e) => { if (x) _eraFirst[oldLadder ? eraFromV1(e) : e] = 1; });   // первопроходцы эпохи могли погибнуть — «первой в мире» второй раз не бывает",
+          "  rebuildFoes();",
+          "  if (typeof statsSeries !== 'function') invBackfill();   // летописи нет (модуль статистики не загружен); иначе зовёт stats.js, когда восстановит ряды",
+          "});",
+          "",
+          "// Первооткрыватели, которых нет в сейве. Державы знают веху, а записи «кто открыл первым» нет: в сейвах до 2.2 нет 26 новых",
+          "// вех, а в 2.1.2 у многих вех опустился порог. Вкладка «Наука» показывала такие вехи как «ещё не открыто», а сами державы их",
+          "// уже не откроют: st.inv считается по науке, и переход порога позади. Восстанавливаем запись при загрузке, молча: открытие",
+          "// давнее, хроника и уведомления о нём не нужны. Кто и когда первым перешёл порог, ищем по рядам науки летописи (statsSeries —",
+          "// живые и исчезнувшие державы); год между двумя снимками — по прямой. Если ряд начинается уже выше порога (летопись моложе",
+          "// открытия: сейв 1.x, держава родилась с этим знанием), запись приблизительная — a: 1, во вкладке «≈ год»: год — первый",
+          "// снимок, в котором веху уже знали, держава — с самой высокой наукой в нём. Без рядов — держава с самой высокой наукой и",
+          "// нынешний год, тоже приблизительно. Зовёт stats.js в конце своей загрузки: подписчик 'load' у civ.js срабатывает раньше,",
+          "// чем летопись прочитана из сейва. Возвращает, сколько записей восстановлено.",
+          "function invBackfill() {",
+          "  const miss = [];",
+          "  for (const iv of INVENTIONS) if (!iv.first) miss.push(iv);",
+          "  if (!miss.length) return 0;",
+          "  const H = (typeof HIST !== 'undefined' && HIST && HIST.states instanceof Map) ? HIST.states : null;",
+          "  let liveMax = 0, recMax = 0;",
+          "  for (const s of states) if (s && s.alive && s.cells.size && s.tech > liveMax) liveMax = s.tech;",
+          "  if (H) for (const r of H.values()) if (r && r.peak && r.peak.tech > recMax) recMax = r.peak.tech;",
+          "  while (miss.length && miss[miss.length - 1].tech > Math.max(liveMax, recMax)) miss.pop();   // этих вех не знает никто — их откроют как обычно",
+          "  if (!miss.length) return 0;",
+          "  // один проход по ряду каждой державы: наука в ряду не убывает, пороги вех — по возрастанию",
+          "  const ex = new Array(miss.length).fill(null), st0 = new Array(miss.length).fill(null);",
+          "  if (H && typeof statsSeries === 'function') for (const r of H.values()) {",
+          "    if (!r || !(r.uid >= 0)) continue;",
+          "    const S = statsSeries(r.uid, 'tech'), X = S.x, Y = S.y;",
+          "    let j = 0, px = 0, py = 0, head = true;",
+          "    for (let k = 0; k < Y.length && j < miss.length; k++) {",
+          "      const y = Y[k]; if (!(y === y)) continue;                                // дырка: державу в этот снимок не видели",
+          "      for (; j < miss.length && y >= miss[j].tech; j++) {",
+          "        if (head) { const b = st0[j]; if (!b || X[k] < b.y || (X[k] === b.y && y > b.t)) st0[j] = { y: X[k], t: y, uid: r.uid, name: r.name }; }",
+          "        else { const yr = px + (X[k] - px) * (miss[j].tech - py) / Math.max(1e-9, y - py); if (!ex[j] || yr < ex[j].y) ex[j] = { y: yr, uid: r.uid, name: r.name }; }",
+          "      }",
+          "      head = false; px = X[k]; py = y;",
+          "    }",
+          "  }",
+          "  const now = Math.floor(W.simYear);",
+          "  let n = 0;",
+          "  for (let j = 0; j < miss.length; j++) {",
+          "    const iv = miss[j], e = ex[j], b = st0[j];",
+          "    let f = null;",
+          "    if (e && (!b || e.y <= b.y)) f = { uid: e.uid, name: e.name, year: Math.floor(e.y) };",
+          "    else if (b) f = { uid: b.uid, name: b.name, year: Math.floor(b.y), a: 1 };",
+          "    else {",
+          "      let best = null, bt = -1;",
+          "      for (const s of states) if (s && s.alive && s.cells.size && s.tech >= iv.tech && s.tech > bt) { best = s; bt = s.tech; }",
+          "      if (best) f = { uid: best.uid, name: best.name, year: now, a: 1 };",
+          "      else if (H) {                                                                // знала только исчезнувшая держава",
+          "        let rb = null; for (const r of H.values()) if (r && r.peak && r.peak.tech >= iv.tech && (!rb || r.peak.tech > rb.peak.tech)) rb = r;",
+          "        if (rb) f = { uid: rb.uid, name: rb.name, year: rb.died != null ? Math.floor(rb.died) : now, a: 1 };",
+          "      }",
+          "    }",
+          "    if (!f) continue;",
+          "    f.year = Math.max(0, Math.min(now, f.year));",
+          "    const st = stateByUid(f.uid);",
+          "    if (st) { f.name = st.name; st.firsts = (st.firsts | 0) + 1; }                 // живая держава — открытие в её зачёт, как у обычного",
+          "    iv.first = f; n++;",
+          "  }",
+          "  return n;"
+        ]
+      }
+    },
+    {
+      "id": "ECO-28",
+      "summary": "Ordinary in-memory economy/state save and restore; no disk storage claims.",
+      "source_id": "SRC-077",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78",
+        "line": 10,
+        "end_line": 138,
+        "source_lines": [
+          "const _SCAL_KEYS = ['co2', 'solar', 'seaLevel', 'globalForce', 'tiltMul', 'windMul', 'currentMul', 'poleCold',",
+          "  'co2ppm', 'globalEmissions', 'ecoGlobal', 'simYear', 'simTick', 'dayOfYear', 'seasonPhase', 'paused',",
+          "  'nukeWinter', 'pace', 'dynSea', 'seaBase', 'seaRefT', 'disasterRate', 'aerosol', 'faunaAuto', 'faunaRich'];",
+          "// производные/временные поля НЕ сохраняем: они пересчитываются при загрузке (recomputeStatic + первые шаги климата).",
+          "const _SKIP_ARRAYS = new Set(['_pIndex', '_scratch', '_scratch2', 'isWater', 'seaDepth', 'isCoast', 'slope',",
+          "  'distOcean', 'basinSide', 'upwindWet', 'windU', 'windV', 'currentU', 'currentV', 'npp', 'hab', 'habEff',",
+          "  'capacity', 'foodCap', 'capDirty', 'landmass']);",
+          "",
+          "function _ab2b64(view) {",
+          "  const u8 = new Uint8Array(view.buffer, view.byteOffset, view.byteLength);",
+          "  let s = ''; const CH = 0x8000;",
+          "  for (let i = 0; i < u8.length; i += CH) s += String.fromCharCode.apply(null, u8.subarray(i, i + CH));",
+          "  return btoa(s);",
+          "}",
+          "function _b642ab(b64) {",
+          "  const s = atob(b64), u8 = new Uint8Array(s.length);",
+          "  for (let i = 0; i < s.length; i++) u8[i] = s.charCodeAt(i);",
+          "  return u8.buffer;",
+          "}",
+          "const _TYPED_CTORS = { Float32Array: Float32Array, Float64Array: Float64Array, Uint8Array: Uint8Array, Uint16Array: Uint16Array, Uint32Array: Uint32Array, Int8Array: Int8Array, Int16Array: Int16Array, Int32Array: Int32Array };",
+          "// держава → простой объект. Поля перечисляются не списком, а обходом: новое поле державы попадает",
+          "// в сейв само (раньше забытое в списке поле молча терялось при загрузке). Служебные (_имя) пропускаем —",
+          "// кроме тех, что держат состояние на годы вперёд: золотой век, «откаты» реформ, восстаний и уний,",
+          "// стаж вассала, кто последним отнял землю. Без них каждое автосохранение обрывало золотой век.",
+          "const _KEEP_U = new Set(['_golden', '_govY', '_revoltY', '_unionY', '_vasT', '_lostToUid']);",
+          "function _packState(st) {",
+          "  const o = {};",
+          "  for (const k in st) {",
+          "    if (k.charCodeAt(0) === 95 && !(_KEEP_U.has(k) && typeof st[k] === 'number' && isFinite(st[k]))) continue;",
+          "    const v = st[k];",
+          "    o[k] = (v instanceof Set) ? { __s: Array.from(v) } : (v instanceof Map) ? { __m: Array.from(v) } : v;",
+          "  }",
+          "  return o;",
+          "}",
+          "// запись хроники из файла: сохранения ходят между игроками (Мастерская, «Загрузить из файла»), поэтому",
+          "// всё, что потом попадает в разметку, приводится к числам и «словам»; текст выводится только через UI.esc",
+          "function _cleanEvent(e) {",
+          "  if (!e || typeof e !== 'object') return null;",
+          "  const o = { year: +e.year || 0, type: String(e.type || '').replace(/[^a-z]/g, '').slice(0, 20) || 'dawn', text: String(e.text == null ? '' : e.text).slice(0, 600) };",
+          "  const d = e.d;",
+          "  if (d && typeof d === 'object') {",
+          "    const n = v => (typeof v === 'number' && isFinite(v)) ? v | 0 : -1;",
+          "    o.d = { s: Array.isArray(d.s) ? d.s.slice(0, 8).map(n) : [], cell: n(d.cell), p: n(d.p), war: n(d.war), imp: Math.max(0, Math.min(3, n(d.imp))) };",
+          "    if (Array.isArray(d.u)) o.d.u = d.u.slice(0, 8).map(n);",
+          "    if (typeof d.dis === 'string') o.d.dis = d.dis.replace(/[^a-z]/g, '').slice(0, 20);",
+          "    for (const k in d) if (!(k in o.d) && (typeof d[k] === 'number' ? isFinite(d[k]) : typeof d[k] === 'boolean')) o.d[k] = d[k];   // прочие числовые поля модулей",
+          "  }",
+          "  return o;",
+          "}",
+          "function _unpackState(ss) {",
+          "  const st = (typeof stateBlank === 'function') ? stateBlank(ss.id) : { id: ss.id };",
+          "  for (const k in ss) {",
+          "    const v = ss[k];",
+          "    if (v && typeof v === 'object' && Array.isArray(v.__s)) st[k] = new Set(v.__s);",
+          "    else if (v && typeof v === 'object' && Array.isArray(v.__m)) st[k] = new Map(v.__m);",
+          "    else st[k] = v;",
+          "  }",
+          "  // сейвы версии 1.x: cells и relations лежали голыми массивами",
+          "  if (Array.isArray(st.cells)) st.cells = new Set(st.cells);",
+          "  if (Array.isArray(st.relations)) st.relations = new Map(st.relations);",
+          "  if (!(st.cells instanceof Set)) st.cells = new Set();",
+          "  if (!(st.relations instanceof Map)) st.relations = new Map();",
+          "  if (!(st.truce instanceof Map)) st.truce = new Map();",
+          "  if (!Array.isArray(st.history)) st.history = [];",
+          "  if (!Array.isArray(st.res) || st.res.length !== RES.length) st.res = new Array(RES.length).fill(0);",
+          "  if (!st.rm || typeof st.rm !== 'object') st.rm = { tech: 1, stab: 0, war: 1, dip: 0, growth: 1 };",
+          "  return st;",
+          "}",
+          "function serializeWorld() {",
+          "  const save = { v: 3, app: GAME_VERSION, w: GRID.W, h: GRID.H, ts: Date.now(), seed: worldSeed, scal: {}, arrays: {}, states: [],",
+          "    stateSeq: (typeof _stateSeq !== 'undefined' ? _stateSeq : 0), events: (typeof worldEvents !== 'undefined' ? worldEvents.slice(0, EVENT_CAP) : []),",
+          "    cityNames: Object.assign({}, cityNames), cityMeta: Object.assign({}, cityMeta), wars, warLog, warSeq: _warSeq, ext: {} };",
+          "  for (const k of _SCAL_KEYS) save.scal[k] = W[k];",
+          "  // открытое меню само ставит мир на паузу — в сейв идёт состояние игры ДО меню, иначе «Продолжить» всегда начинало бы с паузы",
+          "  { const mm = document.getElementById('main-menu'); if (mm && mm.classList.contains('show')) save.scal.paused = !!_prevPaused; }",
+          "  for (const k in W) { const v = W[k]; if (ArrayBuffer.isView(v) && !_SKIP_ARRAYS.has(k)) save.arrays[k] = { t: v.constructor.name, b: _ab2b64(v) }; }",
+          "  if (typeof states !== 'undefined') for (const st of states) save.states.push(_packState(st));",
+          "  simEmit('save', save);                                           // подсистемы дописывают своё в save.ext.<имя>",
+          "  return save;",
+          "}",
+          "function applyLoadedSave(save) {",
+          "  if (typeof netScrub === 'function') netScrub(save, 0);           // сейвами делятся: разметка из чужого файла в окне игры сработала бы как код",
+          "  if (typeof save.seed === 'number') worldSeed = save.seed;        // от зерна зависят имена материков и весь «шум» мира",
+          "  const had = {};",
+          "  for (const k in save.arrays) {",
+          "    const a = save.arrays[k]; if (!W[k] || !ArrayBuffer.isView(W[k])) continue;",
+          "    const Ctor = _TYPED_CTORS[a.t]; if (!Ctor) continue;           // только типизированные массивы (защита от подделанного сейва)",
+          "    const arr = new Ctor(_b642ab(a.b));",
+          "    if (arr.length === W[k].length) { W[k].set(arr); had[k] = true; }",
+          "  }",
+          "  // поля 2.0, которых нет в старом сейве, обнуляем явно: загрузка идёт поверх мира, сгенерированного при старте",
+          "  for (const k of ['res', 'culture', 'religion', 'herb', 'pred', 'fish', 'ruin', 'fire', 'immune']) if (!had[k]) W[k].fill(0);",
+          "  if (!had.pAnom) W.pAnom.fill(1);",
+          "  W.pace = 1; W.dynSea = 0; W.disasterRate = 1; W.aerosol = 0; W.nukeWinter = 0; W.seaRefT = 1e9;",
+          "  W.faunaAuto = 1; W.faunaRich = 1;                                  // сейв до 2.1.3: звери расселяются сами, животный мир обычный — как было",
+          "  for (const k of _SCAL_KEYS) if (k in save.scal) W[k] = save.scal[k];",
+          "  if (!('seaBase' in save.scal)) W.seaBase = W.seaLevel;",
+          "  if (typeof states !== 'undefined') {",
+          "    states.length = 0;",
+          "    let maxId = -1; for (const ss of save.states) if (ss.id > maxId) maxId = ss.id;",
+          "    for (let i = 0; i <= maxId; i++) states[i] = stateBlank(i);",
+          "    let seq = save.stateSeq || 0;",
+          "    for (const ss of save.states) { const st = _unpackState(ss); states[st.id] = st; }",
+          "    for (const st of states) if (!(st.uid >= 0)) st.uid = seq++;   // сейв 1.x: сквозных номеров не было — раздаём",
+          "    _stateSeq = Math.max(seq, maxId + 1);                          // цвета и номера новых держав не дублируют загруженные",
+          "    if (typeof ships !== 'undefined') ships.length = 0;",
+          "    if (typeof battles !== 'undefined') battles.length = 0;",
+          "    if (typeof missiles !== 'undefined') { missiles.length = 0; explosions.length = 0; }",
+          "    if (typeof selectedState !== 'undefined') selectedState = null;",
+          "    if (typeof highlightedState !== 'undefined') highlightedState = null;",
+          "  }",
+          "  if (typeof worldEvents !== 'undefined' && Array.isArray(save.events)) { worldEvents.length = 0; for (const e of save.events) { const c = _cleanEvent(e); if (c) worldEvents.push(c); } if (typeof _eventsChanged !== 'undefined') _eventsChanged = true; }",
+          "  for (const k in cityNames) delete cityNames[k];",
+          "  for (const k in cityMeta) delete cityMeta[k];",
+          "  if (save.cityNames) Object.assign(cityNames, save.cityNames);    // без этого города после загрузки получали новые случайные имена",
+          "  if (save.cityMeta && typeof save.cityMeta === 'object') for (const k in save.cityMeta) { const m = save.cityMeta[k]; if (m && typeof m === 'object') cityMeta[k] = Object.assign({}, m, { founded: +m.founded || 0, peak: +m.peak || 0, by: m.by == null ? '' : String(m.by) }); }",
+          "  wars.length = 0; warLog.length = 0;",
+          "  if (Array.isArray(save.wars)) for (const w of save.wars) wars.push(w);",
+          "  if (Array.isArray(save.warLog)) for (const w of save.warLog) warLog.push(w);",
+          "  _warSeq = save.warSeq || (wars.length + warLog.length);",
+          "  if (typeof recomputeStatic === 'function') recomputeStatic();      // полный пересчёт производных полей (вода/берег/склон/ветра/течения)",
+          "  if (!had.res) genResources();                                      // мир из версии 1.x: месторождений ещё не было — расставляем по его рельефу",
+          "  if (typeof rebuildCities === 'function') rebuildCities();",
+          "  if (typeof refreshCapacities === 'function') refreshCapacities();",
+          "  simEmit('load', save);                                             // подсистемы читают save.ext (или заводят состояние с нуля, если его там нет)",
+          "  if (typeof syncPlayGlyph === 'function') syncPlayGlyph();          // кнопка ⏸/▶ соответствует загруженному paused",
+          "  if (typeof syncPlanetSliders === 'function') syncPlanetSliders();  // ползунки «Планеты» = состояние загруженного мира",
+          "  markDirty('base'); markDirty('borders');",
+          "  return true;"
+        ]
+      }
+    },
+    {
+      "id": "ECO-29",
+      "summary": "Statistics reads existing macro aggregates and army count.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "line": 211,
+        "end_line": 217,
+        "source_lines": [
+          "  function readState(st, o) {",
+          "    const pop = num(st.pop), gdp = st.gdp > 0 ? st.gdp : num(st.economy);   // ВВП ядро считает с 2.0; в мирах 1.x его роль играла «экономика»",
+          "    o[SI.pop] = pop; o[SI.area] = num(st.area); o[SI.tech] = num(st.tech); o[SI.gdp] = gdp;",
+          "    o[SI.gdpPc] = st.gdpPc > 0 ? st.gdpPc : (pop > 0 ? gdp / pop : 0);",
+          "    o[SI.army] = num(st.military); o[SI.stab] = num(st.stability); o[SI.cities] = num(st.cityCount); o[SI.urban] = num(st.urbanPct);",
+          "    o[SI.ind] = num(st.industry); o[SI.poll] = num(st.pollution); o[SI.treas] = num(st.treasury);",
+          "    o[SI.lit] = num(st.literacy); o[SI.life] = num(st.lifeExp); o[SI.happy] = num(st.happiness); o[SI.wars] = warsOf(st);"
+        ]
+      }
+    },
+    {
+      "id": "ECO-30",
+      "summary": "State table metrics use aggregate values; full ranking/UI remains separate.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "line": 1323,
+        "end_line": 1337,
+        "source_lines": [
+          "  function rowOfState(st, now) {",
+          "    const r = HIST.states.get(st.uid), pop = num(st.pop), gdp = st.gdp > 0 ? st.gdp : num(st.economy);",
+          "    let resN = 0; if (st.res) for (let k = 1; k < st.res.length; k++) resN += st.res[k] | 0;",
+          "    let power = null; if (typeof powerOf === 'function') { try { power = powerOf(st); } catch (e) { power = null; } }",
+          "    return { uid: st.uid, id: st.id, alive: 1, st, r, name: st.name, color: st.color, gov: govName(st.gov), govK: st.gov || 'tribe', era: st.era | 0,",
+          "      pop, area: st.area | 0, gdp, gdpPc: st.gdpPc > 0 ? st.gdpPc : (pop > 0 ? gdp / pop : 0), tech: num(st.tech), army: num(st.military), stab: num(st.stability), cities: st.cityCount | 0,",
+          "      age: now - num(st.born), born: num(st.born), died: null, ruler: pName(st.ruler), rulerId: st.ruler >= 0 ? st.ruler : -1, dyn: dynName(st.dynasty), dynId: st.dynasty >= 0 ? st.dynasty : -1,",
+          "      lm: lmName(st.capital), cul: st.culture | 0, rel: st.religion | 0, culN: culName(st.culture | 0), relN: relName(st.religion | 0),",
+          "      cultU: typeof st.cultUnity === 'number' ? st.cultUnity : null, relU: typeof st.relUnity === 'number' ? st.relUnity : null,",
+          "      treas: num(st.treasury), trade: num(st.trade), ind: num(st.industry), poll: num(st.pollution), urban: num(st.urbanPct), bigCity: num(st.largestCity), resN, power,",
+          "      warsNow: warsOf(st), warsTot: st.warsTotal | 0, won: st.warsWon | 0, lost: st.warsLost | 0, cas: num(st.casualties), conq: st.conquered | 0,",
+          "      mis: st.missiles | 0, nuk: st.nukes | 0, exh: num(st.exhaust), lit: num(st.literacy), life: num(st.lifeExp), happy: num(st.happiness), firsts: st.firsts | 0,",
+          "      peakPop: Math.max(r ? r.peak.pop : 0, num(st.peakPop), pop), peakArea: Math.max(r ? r.peak.area : 0, num(st.peakArea), st.area | 0),",
+          "      origin: (r && r.origin) || st.origin || 'tribe', parent: r ? r.parent : -1, parentName: r ? r.parentName : '', cause: '', killer: -1, killerName: '' };",
+          "  }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-31",
+      "summary": "Technology, agricultural productivity and herds feed food capacity; previously extracted demography input.",
+      "source_id": "SRC-075",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 589,
+        "end_line": 618,
+        "source_lines": [
+          "function refreshCapacities() {",
+          "  const fauna = (typeof faunaFood === 'function');",
+          "  if (!_wN) windHarshTick();                                               // мир только что создан: «климатический» ветер ещё не набран",
+          "  for (let i = 0; i < GRID.N; i++) {",
+          "    W.hab[i] = habitability(i);",
+          "    if (W.isWater[i]) { W.habEff[i] = 0; W.foodCap[i] = 0; W.capacity[i] = 0; _lethalF[i] = 0; continue; }",
+          "    // смертельный климат: ни земледелия, ни прокорма кочевников — ёмкость ноль, сюда не переселяются, отсюда бегут",
+          "    if ((_lethalF[i] = climateLethal(i))) { W.hab[i] = 0; W.habEff[i] = 0; W.foodCap[i] = 0; W.foodCapS[i] *= 0.985; W.capacity[i] = 0; continue; }",
+          "    const st = stateOf(i);",
+          "    const era = st ? st.era : 0, tech = st ? st.tech : 0;",
+          "    // эффективная пригодность = природная + (технологии + базовое выживание + накопленная адаптация)",
+          "    const terra = clamp01((tech - CIV.TERRA_TECH) / 12) * CIV.TERRA_MAX;   // технологическое освоение",
+          "    const base = 0.02 + clamp01(tech / CIV.TECH_CAP) * 0.06;               // люди выживают даже на грани (кочевники)",
+          "    const adaptBoost = W.adapt[i] * CIV.ADAPT_MAX;                         // местная адаптация со временем",
+          "    W.habEff[i] = clamp01(W.hab[i] + (1 - W.hab[i]) * clamp01(base + terra + adaptBoost));",
+          "    const agri = 1 + CIV.AGRI[era] * tech / 8;",
+          "    let fc = foodCapacity(i) * agri;",
+          "    if (fauna) fc *= 1 + faunaFood(i, era);                                // охота и рыбалка: много значат для племён, мало — для индустрии",
+          "    if (st && st.herds) fc *= 1 + 0.18 * st.herds;                         // скот (одомашнивание — fauna.js)",
+          "    const ruin = W.ruin[i]; if (ruin > 0) fc *= 1 - 0.5 * ruin;            // разорённая земля кормит хуже",
+          "    const wf = _windF[i]; fc *= wf;                                        // продуваемая земля тоже: ветер ломает посевы, выдувает почву, студит",
+          "    W.foodCap[i] = fc;",
+          "    W.foodCapS[i] = W.foodCapS[i] > 0 ? W.foodCapS[i] + (fc - W.foodCapS[i]) * 0.015 : fc;   // СГЛАЖЕННЫЙ продкап для урбанизации → урбан не скачет по сезонам (тип застройки не мерцает)",
+          "    const ruralCap = fc / productivity(tech);          // крестьян нужно меньше, чем кормит земля",
+          "    // прокорм собирателей/кочевников: суровая земля кормит МАЛО (редкое население), но не ноль",
+          "    const subsist = clamp(CIV.SUBSIST_BASE + tech * CIV.SUBSIST_TECH + W.habEff[i] * CIV.SUBSIST_HAB, 0, CIV.SUBSIST_CAP) * wf;",
+          "    W.capacity[i] = ruralCap + subsist + W.urban[i];   // + городская ёмкость (живёт на избыток)",
+          "  }",
+          "}",
+          ""
+        ]
+      }
+    },
+    {
+      "id": "ECO-32",
+      "summary": "Previously extracted urban surplus/Zipf allocation consumes new tech; does not transport concrete goods.",
+      "source_id": "SRC-075",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 815,
+        "end_line": 866,
+        "source_lines": [
+          "function siteScore(i, st) {",
+          "  let s = 1 + (W.isCoast[i] ? 1.6 : 0) + (W.riverFlux[i] > 0.3 ? 1.1 : 0) + W.fertility[i] * 1.1;   // только СТАБИЛЬНЫЕ факторы (без сезонной hab) → урбан не перераспределяется по сезонам",
+          "  if (W.res[i]) s += 0.7;                               // у рудника и скважины вырастает город",
+          "  s += clamp01(W.urban[i] / 6000) * 2.2;                // сложившийся город держит своё место (иначе столицы «прыгали» бы между соседними клетками)",
+          "  if (i === st.capital) s *= 3.2;                       // столица — первичный город (primate city)",
+          "  return s * _windF[i];                                 // продуваемое место город выбирает в последнюю очередь (растёт медленнее)",
+          "}",
+          "const _siteSc = new Float32Array(GRID.N);",
+          "const _eraFirst = [];               // эпохи, в которые уже кто-то вступил (для «первой в мире»)",
+          "function pickCitySites(st) {",
+          "  const want = clamp(Math.round(1 + st.area * (CIV.CITY_DENS[0] + eraLin(st.era) * CIV.CITY_DENS[1])), 1, CIV.CITY_MAX);",
+          "  const cand = [];",
+          "  st.cells.forEach(i => { if (W.pop[i] >= 150 || i === st.capital) { cand.push(i); _siteSc[i] = siteScore(i, st); } });",
+          "  cand.sort((a, b) => _siteSc[b] - _siteSc[a]);",
+          "  const sites = [], gap = CIV.CITY_GAP, Wd = GRID.W;",
+          "  for (let c = 0; c < cand.length && sites.length < want; c++) {",
+          "    const i = cand[c], x = i % Wd, y = (i / Wd) | 0; let ok = true;",
+          "    for (let k = 0; k < sites.length; k++) { const s = sites[k]; if (Math.abs((s % Wd) - x) < gap && Math.abs(((s / Wd) | 0) - y) < gap) { ok = false; break; } }",
+          "    if (ok) sites.push(i);",
+          "  }",
+          "  st._sites = sites; st._sitesTick = W.simTick; st._sitesEra = st.era;",
+          "}",
+          "function allocateUrbanization(st) {",
+          "  if (!st._sites || st._sitesEra !== st.era || W.simTick - st._sitesTick > 30 || W.simTick < st._sitesTick) pickCitySites(st);",
+          "  // чистый продовольственный избыток государства (плюс импорт по технологиям транспорта)",
+          "  let foodTot = 0, popTot = 0;",
+          "  st.cells.forEach(i => { foodTot += W.foodCapS[i]; popTot += W.pop[i]; });   // СГЛАЖЕННЫЙ продкап → стабильная урбанизация по сезонам",
+          "  const budget = Math.max(0, foodTot * (1 + st.tech * CIV.IMPORT_TECH) - popTot);",
+          "  const sites = st._sites, rate = CIV.URB_RATE * (0.4 + 0.6 * civPace());",
+          "  const cap = CIV.URBAN_CELL_MAX * eraVal(CIV.CITY_ERA_CAP, st.era);",
+          "  // веса мест: оценка места / ранг^ZIPF — первый город заметно крупнее второго, второй — третьего",
+          "  let totalW = 0;",
+          "  for (let k = 0; k < sites.length; k++) { const i = sites[k]; if (W.stateId[i] !== st.id) continue; totalW += _siteSc[i] / Math.pow(k + 1, CIV.ZIPF); }",
+          "  const siteSet = st._siteSet || (st._siteSet = new Set()); siteSet.clear();",
+          "  if (totalW > 0) {",
+          "    for (let k = 0; k < sites.length; k++) {",
+          "      const i = sites[k]; if (W.stateId[i] !== st.id) continue;",
+          "      siteSet.add(i);",
+          "      const target = Math.min(cap, budget * 0.86 * (_siteSc[i] / Math.pow(k + 1, CIV.ZIPF)) / totalW);",
+          "      W.urban[i] += (target - W.urban[i]) * rate;",
+          "      if (W.urban[i] < 1) W.urban[i] = 0;",
+          "    }",
+          "  }",
+          "  // остальные клетки — сёла и местечки: городом (по порогам) им не стать, избыток им достаётся по остаточному принципу",
+          "  const rest = st.area > sites.length ? budget * 0.14 / (st.area - sites.length) : 0, townMax = CIV.TOWN_MAX;",
+          "  st.cells.forEach(i => {",
+          "    if (siteSet.has(i)) return;",
+          "    const target = W.pop[i] < 150 ? 0 : Math.min(townMax, rest * (0.5 + W.fertility[i]));",
+          "    W.urban[i] += (target - W.urban[i]) * rate;",
+          "    if (W.urban[i] < 1) W.urban[i] = 0;",
+          "  });",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "ECO-33",
+      "summary": "Ranking metrics and top-positive descending bars; local growth comparison.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "line": 1503,
+        "end_line": 1521,
+        "source_lines": [
+          "  const RANK = ['pop', 'area', 'gdp', 'gdpPc', 'tech', 'army', 'power', 'cities', 'stab', 'urban', 'lit', 'life', 'happy', 'treas', 'trade', 'ind', 'firsts', 'cas', 'conq'];",
+          "  // полные, но короткие имена показателей — для списков выбора и «места в мире» (в шапках таблиц они сокращены)",
+          "  const RANK_N = { pop: T('Население', 'Population'), area: T('Площадь', 'Area'), gdp: T('ВВП', 'GDP'), gdpPc: T('ВВП на душу', 'GDP per capita'), tech: T('Технологии', 'Technology'), army: T('Армия', 'Army'),",
+          "    power: T('Боевая мощь', 'Military power'), cities: T('Города', 'Cities'), stab: T('Стабильность', 'Stability'), urban: T('Урбанизация', 'Urbanization'), lit: T('Грамотность', 'Literacy'),",
+          "    life: T('Продолжительность жизни', 'Life expectancy'), happy: T('Счастье', 'Happiness'), treas: T('Казна', 'Treasury'), trade: T('Торговля', 'Trade'), ind: T('Промышленность', 'Industry'),",
+          "    firsts: T('Открытия', 'Discoveries'), cas: T('Потери в войнах', 'War dead'), conq: T('Завоёвано клеток', 'Cells conquered') };",
+          "  function barsBy(host, rows, key, f, n) {",
+          "    const top = rows.filter(r => r[key] != null && r[key] === r[key] && r[key] > 0).sort((a, b) => b[key] - a[key]).slice(0, n || 10);",
+          "    ubars(host, top.map(r => ({ label: r.name, value: r[key], color: r.color, sub: r.alive ? '' : '†', onClick: () => openState(r.uid) })), { fmt: f });",
+          "  }",
+          "  // прирост населения державы за последние годы (доля): по её ряду и нынешнему числу",
+          "  function growthOf(r, pop, years) {",
+          "    const s = r && r.s; if (!s || s.n < 2) return null;",
+          "    const y0 = W.simYear - years; let k = s.n - 1;",
+          "    while (k > 0 && HIST.t[s.i0 + k] > y0) k--;",
+          "    if (W.simYear - HIST.t[s.i0 + k] < 10) return null;",
+          "    const p0 = s.d[k * NS + SI.pop];",
+          "    return p0 > 0 ? pop / p0 - 1 : null;",
+          "  }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-34",
+      "summary": "Percentage points, multipliers and percent-change formatting thresholds.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "line": 1175,
+        "end_line": 1188,
+        "source_lines": [
+          "  function deltaOf(m, now, old) {",
+          "    if (old == null || old !== old || now !== now) return null;",
+          "    const d = now - old, a = Math.abs(d), sg = d > 0 ? '+' : '−'; let s;",
+          "    if (m.u === 'temp') { if (a < 0.05) return null; s = uTempD(d, 1); }",
+          "    else if (m.u === 'sea') { const dm = seaM(d); if (!dm) return null; s = mTxt(dm); }",
+          "    else if (m.u === 'pct') { const pp = a * 100; if (pp < 0.05) return null; s = sg + TF('{0} п.п.', '{0} pp', pp.toFixed(pp < 10 ? 1 : 0)); }",
+          "    else if (m.u === 'cnt' || m.u === 'era' || m.u === 'ppm' || m.u === 'cells') { if (a < 0.5) return null; s = sg + UI.fmt(Math.round(a)); }",
+          "    else if (m.u === 'idx' || m.u === 'yrs') { if (a < 0.05) return null; s = sg + a.toFixed(1); }",
+          "    else {",
+          "      if (!(old > 0)) return null;",
+          "      const r = now / old;",
+          "      if (r >= 10) s = '×' + r.toFixed(0); else { const p = Math.abs(r - 1) * 100; if (p < 0.05) return null; s = sg + p.toFixed(p < 10 ? 1 : 0) + '%'; }",
+          "    }",
+          "    return { s, cls: !m.good ? 'nt' : ((d > 0) === (m.good > 0) ? 'up' : 'dn') };"
+        ]
+      }
+    },
+    {
+      "id": "ECO-35",
+      "summary": "State change-label snapshot selection by historical window.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "line": 2314,
+        "end_line": 2319,
+        "source_lines": [
+          "  function stDelta(r, key, now) {",
+          "    const s = r && r.s; if (!s || s.n < 2) return null;",
+          "    const y0 = W.simYear - C.GROW_YEARS; let k = s.n - 1;",
+          "    while (k > 0 && HIST.t[s.i0 + k] > y0) k--;",
+          "    return deltaOf(SM[SI[key]], now, s.d[k * NS + SI[key]]);",
+          "  }"
+        ]
+      }
+    },
+    {
+      "id": "ECO-36",
+      "summary": "Default change-label window is 50 simulation years.",
+      "source_id": "SRC-076",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "line": 31,
+        "end_line": 31,
+        "source_lines": [
+          "  GROW_YEARS: 50,      // окно «изменение за последние N лет» в плитках и в рейтинге роста"
+        ]
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "TICK-SNAPSHOTS",
+      "evidence": [
+        "ECO-06",
+        "ECO-07",
+        "ECO-08",
+        "ECO-13"
+      ],
+      "conclusion": "GDP uses prior tech; upkeep uses prior military/era; military uses new tech/era; industry and external tech diffusion occur after aggregate update."
+    },
+    {
+      "id": "OFFSHORE-TIE",
+      "evidence": [
+        "ECO-05"
+      ],
+      "conclusion": "First live neighboring owner in NB8 order wins, not nearest capital or largest coast; stale/new resource cache boundaries matter."
+    },
+    {
+      "id": "SCIENCE-GATE",
+      "evidence": [
+        "ECO-08"
+      ],
+      "conclusion": "Industry gate requires BOTH coal and iron absent; gate overlaps missing oil at 12.5<=tech<13; technology has soft convergence rather than a final clamp."
+    },
+    {
+      "id": "ERA-LAG",
+      "evidence": [
+        "ECO-14",
+        "ECO-17"
+      ],
+      "conclusion": "External knowledge gain changes tech but does not immediately update era, inv, firsts, techRate or GDP."
+    },
+    {
+      "id": "UNITS-SEPARATE",
+      "evidence": [
+        "ECO-06",
+        "ECO-07",
+        "ECO-18",
+        "ECO-20"
+      ],
+      "conclusion": "Conditional GDP, treasury, trade ties, goods accounting and player coins remain distinct; explicit local robbery is an exception touching treasury/trade."
+    },
+    {
+      "id": "INVENTION-GATES",
+      "evidence": [
+        "ECO-09",
+        "ECO-19",
+        "ECO-27"
+      ],
+      "conclusion": "invHas uses numeric tech, not global first or st.inv; unknown keys are open. First records persist or are reconstructed with exact/approximate attribution."
+    }
+  ],
+  "verification": {
+    "command": "node design-docs/tools/probe_economy.cjs",
+    "report_path": ".research/wp-economy/probe-results.json",
+    "test_copy_path": ".research/wp-economy/test-copy/EarthSimulator",
+    "checks": [
+      {
+        "id": "E01-base-economy-units",
+        "status": "passed",
+        "observed": {
+          "gdp": 2471250,
+          "treasury": 0.5976
+        }
+      },
+      {
+        "id": "E02-aggregation-and-water-has-no-filter",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E03-resource-wealth-saturation",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E04-gems-wealth-before-mining-era",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E05-coal-and-oil-era-gates",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E06-gdp-trade-bonus-cap",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E07-treasury-old-military-and-floor",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E08-equilibrium-values-ignore-pace",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E09-zero-pace-falls-back-to-one",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E10-resource-count-is-not-consumed",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E11-offshore-first-neighbor-not-largest-state",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E12-offshore-cached-new-resource-needs-dirty",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E13-offshore-stale-entry-clears-then-retries",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E14-coal-or-iron-individually-removes-science-gate",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E15-oil-gate-combines-with-industry-gate",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E16-tech13-ends-coal-iron-gate",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E17-science-cap-is-soft-return-not-clamp",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E18-golden-multiplier-and-fixed-decay",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E19-government-and-ruler-science-multipliers",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E20-new-literacy-used-in-current-science-drive",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E21-era-thresholds-are-inclusive",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E22-era-change-events-and-capacity-invalidation",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E23-invention-first-wins-state-order",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E24-invhas-unknown-keys-are-open",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E25-military-cap-and-power-separate",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E26-power-iron-and-horses-gates",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E27-neighbor-diffusion-leaves-gap-and-era-stale",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E28-hostile-peace-diffuses-without-trade",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E29-war-blocks-neighbor-diffusion",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E30-diplomacy-gated-every-third-civ-tick",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E31-industry-target-and-aggregate-lag",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E32-industry-fuel-capped-and-epoch-gated",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E33-sparse-industry-decays-water-persists",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E34-green-transition-strict-threshold-and-floor",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E35-maritime-arrival-money-and-science-real-function",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E36-tribute-is-treasury-transfer",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E37-inmemory-save-inventions-and-economy",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E38-invention-backfill-approximate-without-history",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E39-era-downgrade-keeps-invention-index",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E40-legacy-ladder-load-recomputes-era",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "E41-backfill-interpolates-history-without-game-runtime",
+        "status": "passed",
+        "observed": null
+      }
+    ],
+    "probe_script_sha256": "56ce7c7f3806e8224b0a6f4137b73996cec865c1fa5729f6c743cb3d4c238b19",
+    "environment": {
+      "kind": "isolated-node-vm",
+      "node": "v26.13.1",
+      "grid": [
+        24,
+        24
+      ],
+      "fixture": "Synthetic land and state fixtures; actual core/climate/ecology/civ; ordinary menu serialization prefix in E37. No full game, renderer, disk storage or network execution.",
+      "stubs": [
+        "T/TF and network naming helpers",
+        "sessionStorage boot grid, DOM lookup, base64 adapters, performance clock",
+        "Math.random fixed at .99999",
+        "E35 new-destination selection and lane bookkeeping stubbed after actual arrival; no route search executed",
+        "E41 synthetic HIST and statsSeries provide input rows to the actual invBackfill"
+      ]
+    },
+    "runtime_verified": false
+  },
+  "limitations": [
+    "Finite isolated numerical execution is not full-game runtime verification.",
+    "Only core/climate/ecology/civ and the exact menu serialization prefix execute in these probes; other hashed source files are static inputs.",
+    "E35 uses actual arrival and payouts with subsequent destination/lane bookkeeping stubbed. E41 supplies synthetic historical rows, not a running statistics UI.",
+    "Long stochastic trajectories, visuals/performance, disk saves, network/Steam/mods and full next-package mechanics remain unobserved."
+  ],
+  "next_package": "WP-POLITICS-SOCIETY"
+}

@@ -1,0 +1,2989 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-BASELINE",
+  "date": "2026-11-14",
+  "game_version": "2.1.4",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-GAME-LOOP",
+    "FEAT-SIMULATION-TIME"
+  ],
+  "document_ids": [
+    "DOC-BASELINE",
+    "DOC-CLOCK-POPULATION"
+  ],
+  "source_ids": [
+    "SRC-058",
+    "SRC-059",
+    "SRC-060",
+    "SRC-061"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "baseline_static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_observations": "not_performed",
+    "runtime_verified": false
+  },
+  "scope": {
+    "owned_modules": [
+      "EarthSimulator/index.html",
+      "EarthSimulator/package.json",
+      "EarthSimulator/main.js",
+      "EarthSimulator/core.js"
+    ],
+    "cross_package_reads": [
+      "EarthSimulator/climate.js",
+      "EarthSimulator/ecology.js",
+      "EarthSimulator/civ.js",
+      "EarthSimulator/ui.js",
+      "EarthSimulator/net.js",
+      "EarthSimulator/walk.js",
+      "EarthSimulator/walkgen.js",
+      "EarthSimulator/netwalk.js"
+    ],
+    "excluded": [
+      "Full subsystem algorithms",
+      "NW.js/Chromium/Steam internals",
+      "Real save storage",
+      "User mod execution",
+      "Game UI/runtime observations"
+    ]
+  },
+  "identity": {
+    "manifest": {
+      "name": "earth-simulator",
+      "product_string": "EarthSimulator",
+      "version": "2.1.4",
+      "main": "index.html",
+      "single-instance": true,
+      "window": {
+        "title": "Симулятор Земли",
+        "icon": "build/icon.png",
+        "width": 1360,
+        "height": 860,
+        "min_width": 1024,
+        "min_height": 660,
+        "position": "center"
+      },
+      "chromium-args": "--force-color-profile=srgb --in-process-gpu --autoplay-policy=no-user-gesture-required"
+    },
+    "rea_artifact_sha256": "681198ab2ecff4e60f72f69fdc9a37b496638215b61122491ece53ba5929b7cd",
+    "rea_parent_evidence_id": "ev_e96ef1a8d90bd9ad952167ee9b85552f24c50ce0eb7213c9aee1295e70b3065e",
+    "rea_summary_evidence_id": "ev_0a6fb760686676ecca75779cd24282f3d08c3d307384f067c1988f320507f0ff",
+    "rea_bundle_path": ".research/rea/wp-baseline-2026-11-14.evidence.json",
+    "source_files": [
+      {
+        "path": "EarthSimulator/achievements.js",
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d",
+        "bytes": 29070
+      },
+      {
+        "path": "EarthSimulator/audio.js",
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04",
+        "bytes": 102422
+      },
+      {
+        "path": "EarthSimulator/changelog.js",
+        "sha256": "66efaf7f3f60d45c6b087f393915dd99e271c4e27a9d1b853ef983a59ebb706d",
+        "bytes": 195524
+      },
+      {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "bytes": 232072
+      },
+      {
+        "path": "EarthSimulator/climate.js",
+        "sha256": "1da3c5da09e84894511c9fe3f4a4677e6a9cf7954db63f8fdd83060db88619a0",
+        "bytes": 36493
+      },
+      {
+        "path": "EarthSimulator/coop.js",
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b",
+        "bytes": 35398
+      },
+      {
+        "path": "EarthSimulator/core.js",
+        "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452",
+        "bytes": 115078
+      },
+      {
+        "path": "EarthSimulator/custom.js",
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb",
+        "bytes": 161884
+      },
+      {
+        "path": "EarthSimulator/demomode.js",
+        "sha256": "73b749c57173a581b3521fb7d0054e59ea95ca92a2bdc22ac4ba587f9e6e413b",
+        "bytes": 27449
+      },
+      {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "bytes": 28651
+      },
+      {
+        "path": "EarthSimulator/earthdata.js",
+        "sha256": "1e6711b145108b51155c7e581c693fc3f7988fcc7afd1fe5ce7749185395df0c",
+        "bytes": 527280
+      },
+      {
+        "path": "EarthSimulator/ecology.js",
+        "sha256": "07fd243ffeed98a9e33976ce1d9795c4195462bdb075e735b8a83c7b547fc22a",
+        "bytes": 23767
+      },
+      {
+        "path": "EarthSimulator/fauna.js",
+        "sha256": "277d6337b08f2f7eadd417742118aa1964bc4fbc438c36d70c3233ec82a77814",
+        "bytes": 174140
+      },
+      {
+        "path": "EarthSimulator/flags.js",
+        "sha256": "47d7afd4912fa7bec028388d946ed42c17119972904f4531d2e99393c9877881",
+        "bytes": 26317
+      },
+      {
+        "path": "EarthSimulator/gamepad.js",
+        "sha256": "57575f19dad62a932b829691749f38e5173783ff32a283ec86b63d5a49fe0356",
+        "bytes": 40232
+      },
+      {
+        "path": "EarthSimulator/gfx.js",
+        "sha256": "0d8f78e61bbc619af735b84f0c066ac34ab5bcf8579fb1108a822a497fd6fbb2",
+        "bytes": 9928
+      },
+      {
+        "path": "EarthSimulator/gfx3d.js",
+        "sha256": "f6b4a33e0bb3a992b2dd87ccdf7d32c31a9615ae7cfa758e4c122d6194755bd3",
+        "bytes": 123241
+      },
+      {
+        "path": "EarthSimulator/goals.js",
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250",
+        "bytes": 34942
+      },
+      {
+        "path": "EarthSimulator/i18n.js",
+        "sha256": "125716e5af130dd5d64520953ef5a4dee013cba358669359cabe236c02f6f74e",
+        "bytes": 19346
+      },
+      {
+        "path": "EarthSimulator/keys.js",
+        "sha256": "7852e660c5f546c10bd54f6f65a3e31b3461c93550479e02988464d3c975eac7",
+        "bytes": 40536
+      },
+      {
+        "path": "EarthSimulator/main.js",
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+        "bytes": 18207
+      },
+      {
+        "path": "EarthSimulator/menu.js",
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78",
+        "bytes": 153010
+      },
+      {
+        "path": "EarthSimulator/menunews.js",
+        "sha256": "e4240c12e71f8c2a4cc83836a4ef5789d8f214ea28fd2f4268158401aae24537",
+        "bytes": 18353
+      },
+      {
+        "path": "EarthSimulator/modboot.js",
+        "sha256": "5a11bf2f947e1a54d54e39436333b5c1c0154133a875ec08dcff22cf3670acfb",
+        "bytes": 32965
+      },
+      {
+        "path": "EarthSimulator/modedit.js",
+        "sha256": "46942a346886207a70ec174c442687e14f745dc862e4a1f89a4e88eb0693f21e",
+        "bytes": 325312
+      },
+      {
+        "path": "EarthSimulator/mods.js",
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90",
+        "bytes": 196320
+      },
+      {
+        "path": "EarthSimulator/music.js",
+        "sha256": "6415c2b61121a68b68cde541286caff2a0bb31bedb4da67179dd9a3c82420baf",
+        "bytes": 123121
+      },
+      {
+        "path": "EarthSimulator/net.js",
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9",
+        "bytes": 69863
+      },
+      {
+        "path": "EarthSimulator/netserver.js",
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0",
+        "bytes": 55166
+      },
+      {
+        "path": "EarthSimulator/netui.js",
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f",
+        "bytes": 79587
+      },
+      {
+        "path": "EarthSimulator/netwalk.js",
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6",
+        "bytes": 52043
+      },
+      {
+        "path": "EarthSimulator/osk.js",
+        "sha256": "dde718702edcd49836f14158db84f07a4de4ef9e98cfd22681e7e529bda7c3dd",
+        "bytes": 7997
+      },
+      {
+        "path": "EarthSimulator/panels.js",
+        "sha256": "41e6dae6b7e29e0836272542fd6ebac95375fe86aac98f374b572b0dd7d6821e",
+        "bytes": 61914
+      },
+      {
+        "path": "EarthSimulator/people.js",
+        "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2",
+        "bytes": 237839
+      },
+      {
+        "path": "EarthSimulator/render.js",
+        "sha256": "50e6d0ab46250f2de2faa24d8c80649a7690ab1311ba250e99b79b99836beef3",
+        "bytes": 164795
+      },
+      {
+        "path": "EarthSimulator/rival.js",
+        "sha256": "e9664938b5d1ce37fe06f5f4c170fb2c87f94b44028ad79def5bd2de211dc655",
+        "bytes": 25359
+      },
+      {
+        "path": "EarthSimulator/savestore.js",
+        "sha256": "44c6aada66ae2a82d57e07e15fcbc8180dcc5dcf98105f9c2a41efce3da23fcc",
+        "bytes": 8260
+      },
+      {
+        "path": "EarthSimulator/society.js",
+        "sha256": "888a0d1a3fee212f2646c5d73be684148805d50d47e4781f14e1cb16f711030d",
+        "bytes": 34368
+      },
+      {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "bytes": 241594
+      },
+      {
+        "path": "EarthSimulator/steam.js",
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126",
+        "bytes": 29524
+      },
+      {
+        "path": "EarthSimulator/textures.js",
+        "sha256": "68d07c5e2548389ab261ef0f7e3bf3c66e8dc6cc384ccc3c886a042efea1f57c",
+        "bytes": 1245514
+      },
+      {
+        "path": "EarthSimulator/three.min.js",
+        "sha256": "9274bbcec8d96168626c732b5d31c775aa8cfb7eaa0599bec0c175908a2c1ce2",
+        "bytes": 603445
+      },
+      {
+        "path": "EarthSimulator/trade.js",
+        "sha256": "9396c9233e6c5ebbbc4672e75a83b5735444630492650d3fcee79b8c574e1b46",
+        "bytes": 166129
+      },
+      {
+        "path": "EarthSimulator/tutorial.js",
+        "sha256": "f0a7a98e58288fd7a248e2de22023c508ee2fa8941d7758274a328d67bbf1c96",
+        "bytes": 32528
+      },
+      {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "bytes": 137343
+      },
+      {
+        "path": "EarthSimulator/uikit.js",
+        "sha256": "560634df35e0297fa58566f52483cde01756fab687b01f6197eca1f8ddda3f5b",
+        "bytes": 58054
+      },
+      {
+        "path": "EarthSimulator/units.js",
+        "sha256": "dba62d2c7218e0d9f10218eb4b2fa2804599a157bbac9244a800f53f7054838a",
+        "bytes": 9071
+      },
+      {
+        "path": "EarthSimulator/walk.js",
+        "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73",
+        "bytes": 165453
+      },
+      {
+        "path": "EarthSimulator/walkact.js",
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435",
+        "bytes": 670510
+      },
+      {
+        "path": "EarthSimulator/walkair.js",
+        "sha256": "b2061ad0c2915978c333a63912767f8e219ed019291eaab0747977ed92e9682e",
+        "bytes": 524488
+      },
+      {
+        "path": "EarthSimulator/walkeco.js",
+        "sha256": "92ee31a36f129a4d62f638b6d6221accbfcacfa96f0a565c0a8d5106af127482",
+        "bytes": 409594
+      },
+      {
+        "path": "EarthSimulator/walkgen.js",
+        "sha256": "69f701d003bdb750a74af292094bf11a5d03f8f8745fcaa44ca3dbd6035a6189",
+        "bytes": 569276
+      },
+      {
+        "path": "EarthSimulator/walklaw.js",
+        "sha256": "18c8707100b2a13db797d4dcdc62a5c6a89ec1ee9077d34842d1c048a670c080",
+        "bytes": 167061
+      },
+      {
+        "path": "EarthSimulator/walkmil.js",
+        "sha256": "a8421372fa6ca991c7e4421a2890817c712cf033c9cd84c307d4a04a0114aea9",
+        "bytes": 221405
+      },
+      {
+        "path": "EarthSimulator/walkrail.js",
+        "sha256": "42c8dc614e501c81ed96feb8e5abc6b8ea799356b8666eb087e4182c4614f2af",
+        "bytes": 307207
+      },
+      {
+        "path": "EarthSimulator/walksea.js",
+        "sha256": "c9f7dcbe27483e344a7813d8f7a82a5d540ca99250ca1e8649d2c6c121c4a83e",
+        "bytes": 620434
+      },
+      {
+        "path": "EarthSimulator/walkstrike.js",
+        "sha256": "863993107530fc4f91cc7b7e857dd0703c07282f22ab9fe200b853b21d69b2f8",
+        "bytes": 102425
+      },
+      {
+        "path": "EarthSimulator/walktrade.js",
+        "sha256": "47ce6e5bc7f713da193842cec7f678f2ff67724bb7ae060f0f693297e00e2066",
+        "bytes": 53162
+      },
+      {
+        "path": "EarthSimulator/world3d.js",
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f",
+        "bytes": 580225
+      },
+      {
+        "path": "EarthSimulator/index.html",
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a",
+        "bytes": 71289
+      },
+      {
+        "path": "EarthSimulator/package.json",
+        "sha256": "9827eebab03661a4a3c7c08b7a6488e6d9919eb3d47218e428ba6b96a5d744d8",
+        "bytes": 460
+      }
+    ]
+  },
+  "bootstrap": {
+    "scripts_in_document_order": [
+      {
+        "line": 691,
+        "kind": "inline",
+        "src": null,
+        "attributes": "",
+        "body_sha256": "46cb1df213d7401654d841716598849afa5734baead48f295a79fff8815a914c"
+      },
+      {
+        "line": 698,
+        "kind": "external",
+        "src": "three.min.js",
+        "attributes": "src=\"three.min.js\"",
+        "body_sha256": null
+      },
+      {
+        "line": 699,
+        "kind": "inline",
+        "src": null,
+        "attributes": "",
+        "body_sha256": "5326fa945e9402db6c5b8878dd57cb1b40f1ccde581892e4b61db981a7cc57d4"
+      },
+      {
+        "line": 703,
+        "kind": "external",
+        "src": "i18n.js?v=279",
+        "attributes": "src=\"i18n.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 704,
+        "kind": "external",
+        "src": "units.js?v=279",
+        "attributes": "src=\"units.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 705,
+        "kind": "external",
+        "src": "demomode.js?v=279",
+        "attributes": "src=\"demomode.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 706,
+        "kind": "external",
+        "src": "modboot.js?v=279",
+        "attributes": "src=\"modboot.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 707,
+        "kind": "external",
+        "src": "keys.js?v=279",
+        "attributes": "src=\"keys.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 708,
+        "kind": "external",
+        "src": "uikit.js?v=279",
+        "attributes": "src=\"uikit.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 709,
+        "kind": "external",
+        "src": "flags.js?v=279",
+        "attributes": "src=\"flags.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 710,
+        "kind": "external",
+        "src": "steam.js?v=279",
+        "attributes": "src=\"steam.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 711,
+        "kind": "external",
+        "src": "earthdata.js?v=279",
+        "attributes": "src=\"earthdata.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 712,
+        "kind": "external",
+        "src": "core.js?v=279",
+        "attributes": "src=\"core.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 713,
+        "kind": "external",
+        "src": "gfx.js?v=279",
+        "attributes": "src=\"gfx.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 714,
+        "kind": "external",
+        "src": "climate.js?v=279",
+        "attributes": "src=\"climate.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 715,
+        "kind": "external",
+        "src": "ecology.js?v=279",
+        "attributes": "src=\"ecology.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 716,
+        "kind": "external",
+        "src": "fauna.js?v=279",
+        "attributes": "src=\"fauna.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 717,
+        "kind": "external",
+        "src": "civ.js?v=279",
+        "attributes": "src=\"civ.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 718,
+        "kind": "external",
+        "src": "society.js?v=279",
+        "attributes": "src=\"society.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 719,
+        "kind": "external",
+        "src": "disasters.js?v=279",
+        "attributes": "src=\"disasters.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 720,
+        "kind": "external",
+        "src": "people.js?v=279",
+        "attributes": "src=\"people.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 721,
+        "kind": "external",
+        "src": "trade.js?v=279",
+        "attributes": "src=\"trade.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 722,
+        "kind": "external",
+        "src": "net.js?v=279",
+        "attributes": "src=\"net.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 723,
+        "kind": "external",
+        "src": "netserver.js?v=279",
+        "attributes": "src=\"netserver.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 724,
+        "kind": "external",
+        "src": "savestore.js?v=279",
+        "attributes": "src=\"savestore.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 725,
+        "kind": "external",
+        "src": "render.js?v=279",
+        "attributes": "src=\"render.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 726,
+        "kind": "external",
+        "src": "textures.js?v=279",
+        "attributes": "src=\"textures.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 727,
+        "kind": "external",
+        "src": "gfx3d.js?v=279",
+        "attributes": "src=\"gfx3d.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 728,
+        "kind": "external",
+        "src": "world3d.js?v=279",
+        "attributes": "src=\"world3d.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 729,
+        "kind": "external",
+        "src": "walkgen.js?v=279",
+        "attributes": "src=\"walkgen.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 730,
+        "kind": "external",
+        "src": "walkact.js?v=279",
+        "attributes": "src=\"walkact.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 731,
+        "kind": "external",
+        "src": "walk.js?v=279",
+        "attributes": "src=\"walk.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 732,
+        "kind": "external",
+        "src": "walklaw.js?v=279",
+        "attributes": "src=\"walklaw.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 733,
+        "kind": "external",
+        "src": "walkeco.js?v=279",
+        "attributes": "src=\"walkeco.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 734,
+        "kind": "external",
+        "src": "walksea.js?v=279",
+        "attributes": "src=\"walksea.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 735,
+        "kind": "external",
+        "src": "walkair.js?v=279",
+        "attributes": "src=\"walkair.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 736,
+        "kind": "external",
+        "src": "walkmil.js?v=279",
+        "attributes": "src=\"walkmil.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 737,
+        "kind": "external",
+        "src": "walkrail.js?v=279",
+        "attributes": "src=\"walkrail.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 738,
+        "kind": "external",
+        "src": "walkstrike.js?v=279",
+        "attributes": "src=\"walkstrike.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 739,
+        "kind": "external",
+        "src": "walktrade.js?v=279",
+        "attributes": "src=\"walktrade.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 740,
+        "kind": "external",
+        "src": "audio.js?v=279",
+        "attributes": "src=\"audio.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 741,
+        "kind": "external",
+        "src": "music.js?v=279",
+        "attributes": "src=\"music.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 742,
+        "kind": "external",
+        "src": "achievements.js?v=279",
+        "attributes": "src=\"achievements.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 743,
+        "kind": "external",
+        "src": "goals.js?v=279",
+        "attributes": "src=\"goals.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 744,
+        "kind": "external",
+        "src": "mods.js?v=279",
+        "attributes": "src=\"mods.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 745,
+        "kind": "external",
+        "src": "ui.js?v=279",
+        "attributes": "src=\"ui.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 746,
+        "kind": "external",
+        "src": "panels.js?v=279",
+        "attributes": "src=\"panels.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 747,
+        "kind": "external",
+        "src": "stats.js?v=279",
+        "attributes": "src=\"stats.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 748,
+        "kind": "external",
+        "src": "custom.js?v=279",
+        "attributes": "src=\"custom.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 749,
+        "kind": "external",
+        "src": "tutorial.js?v=279",
+        "attributes": "src=\"tutorial.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 750,
+        "kind": "external",
+        "src": "menu.js?v=279",
+        "attributes": "src=\"menu.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 751,
+        "kind": "external",
+        "src": "changelog.js?v=279",
+        "attributes": "src=\"changelog.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 752,
+        "kind": "external",
+        "src": "menunews.js?v=279",
+        "attributes": "src=\"menunews.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 753,
+        "kind": "external",
+        "src": "netui.js?v=279",
+        "attributes": "src=\"netui.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 754,
+        "kind": "external",
+        "src": "netwalk.js?v=279",
+        "attributes": "src=\"netwalk.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 755,
+        "kind": "external",
+        "src": "gamepad.js?v=279",
+        "attributes": "src=\"gamepad.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 756,
+        "kind": "external",
+        "src": "osk.js?v=279",
+        "attributes": "src=\"osk.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 757,
+        "kind": "external",
+        "src": "coop.js?v=279",
+        "attributes": "src=\"coop.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 758,
+        "kind": "external",
+        "src": "rival.js?v=279",
+        "attributes": "src=\"rival.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 759,
+        "kind": "external",
+        "src": "modedit.js?v=279",
+        "attributes": "src=\"modedit.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 760,
+        "kind": "external",
+        "src": "main.js?v=279",
+        "attributes": "src=\"main.js?v=279\"",
+        "body_sha256": null
+      },
+      {
+        "line": 761,
+        "kind": "inline",
+        "src": null,
+        "attributes": "",
+        "body_sha256": "f4680f902b611c6ad6d98904a72dcbe1b25e429603eab687e0bf48cede261166"
+      }
+    ],
+    "boot_entry": {
+      "path": "EarthSimulator/main.js",
+      "line": 147,
+      "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+      "code_excerpt": "function start() {"
+    },
+    "grid_entry": {
+      "path": "EarthSimulator/core.js",
+      "line": 8,
+      "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452",
+      "code_excerpt": "const _boot = (function () { try { return JSON.parse(sessionStorage.getItem('earthsim.boot') || 'null'); } catch (e) { return null; } })();"
+    },
+    "boot_parameters_entry": {
+      "path": "EarthSimulator/main.js",
+      "line": 124,
+      "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+      "code_excerpt": "function _applyBootParams(cfg) {"
+    },
+    "limit": "Base HTML order only; code mods can intercept subsequent scripts. User profile was not inspected."
+  },
+  "state_contract": {
+    "source": {
+      "path": "EarthSimulator/core.js",
+      "line": 26,
+      "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452",
+      "code_excerpt": "const W = {"
+    },
+    "fields_after_core_initialization": [
+      {
+        "name": "elev",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "isWater",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "seaDepth",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "isCoast",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "slope",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "distOcean",
+        "type": "Int16Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 2
+      },
+      {
+        "name": "basinSide",
+        "type": "Int8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "riverFlux",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "volcanic",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "windU",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "windV",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "baseTemp",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "sst",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "temp",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "tempSmoothed",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 15,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "precip",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "precipSmoothed",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 800,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "iceAlbedo",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "humidity",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "tempForce",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "tempPulse",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "precipMul",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 1,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "currentU",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "currentV",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "stir",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "curAddU",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "curAddV",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "windAddU",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "windAddV",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "upwindWet",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "_pIndex",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "_scratch",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "_scratch2",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "npp",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "veg",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "fertility",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "biome",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "biomeAge",
+        "type": "Uint16Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 2
+      },
+      {
+        "name": "biomeCand",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "biomeHold",
+        "type": "Uint16Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 2
+      },
+      {
+        "name": "eco",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 1,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "pop",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "capacity",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "foodCap",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "foodCapS",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "urban",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "hab",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "habEff",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "rTier",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 255,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "adapt",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "stateId",
+        "type": "Int16Array",
+        "length": 4800,
+        "initial": -1,
+        "bytes_per_cell": 2
+      },
+      {
+        "name": "unrest",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "devLevel",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "disease",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "pollution",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "industry",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "fallout",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "capDirty",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "res",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "culture",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "religion",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "herb",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "pred",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "fish",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "ruin",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "fire",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "immune",
+        "type": "Uint8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "pAnom",
+        "type": "Float32Array",
+        "length": 4800,
+        "initial": 1,
+        "bytes_per_cell": 4
+      },
+      {
+        "name": "landmass",
+        "type": "Int16Array",
+        "length": 4800,
+        "initial": -1,
+        "bytes_per_cell": 2
+      },
+      {
+        "name": "climBiasT",
+        "type": "Int8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "climBiasTs",
+        "type": "Int8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "climBiasTc",
+        "type": "Int8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "climBiasP",
+        "type": "Int8Array",
+        "length": 4800,
+        "initial": 0,
+        "bytes_per_cell": 1
+      },
+      {
+        "name": "dirty",
+        "type": "object",
+        "initial": {
+          "terrain": true,
+          "climate": true,
+          "base": true,
+          "borders": true
+        }
+      },
+      {
+        "name": "dayOfYear",
+        "type": "number",
+        "initial": 0
+      },
+      {
+        "name": "seasonPhase",
+        "type": "number",
+        "initial": 0
+      },
+      {
+        "name": "co2",
+        "type": "number",
+        "initial": 1
+      },
+      {
+        "name": "solar",
+        "type": "number",
+        "initial": 1
+      },
+      {
+        "name": "seaLevel",
+        "type": "number",
+        "initial": 0.4
+      },
+      {
+        "name": "globalForce",
+        "type": "number",
+        "initial": 0
+      },
+      {
+        "name": "nukeWinter",
+        "type": "number",
+        "initial": 0
+      },
+      {
+        "name": "poleCold",
+        "type": "number",
+        "initial": 0
+      },
+      {
+        "name": "tiltMul",
+        "type": "number",
+        "initial": 1
+      },
+      {
+        "name": "windMul",
+        "type": "number",
+        "initial": 1
+      },
+      {
+        "name": "currentMul",
+        "type": "number",
+        "initial": 1
+      },
+      {
+        "name": "co2ppm",
+        "type": "number",
+        "initial": 280
+      },
+      {
+        "name": "globalEmissions",
+        "type": "number",
+        "initial": 0
+      },
+      {
+        "name": "ecoGlobal",
+        "type": "number",
+        "initial": 1
+      },
+      {
+        "name": "paused",
+        "type": "boolean",
+        "initial": false
+      },
+      {
+        "name": "simYear",
+        "type": "number",
+        "initial": 0
+      },
+      {
+        "name": "simTick",
+        "type": "number",
+        "initial": 0
+      },
+      {
+        "name": "pace",
+        "type": "number",
+        "initial": 1
+      },
+      {
+        "name": "dynSea",
+        "type": "number",
+        "initial": 0
+      },
+      {
+        "name": "seaBase",
+        "type": "number",
+        "initial": 0.4
+      },
+      {
+        "name": "seaRefT",
+        "type": "number",
+        "initial": 1000000000
+      },
+      {
+        "name": "disasterRate",
+        "type": "number",
+        "initial": 1
+      },
+      {
+        "name": "aerosol",
+        "type": "number",
+        "initial": 0
+      },
+      {
+        "name": "faunaAuto",
+        "type": "number",
+        "initial": 1
+      },
+      {
+        "name": "faunaRich",
+        "type": "number",
+        "initial": 1
+      }
+    ],
+    "field_count": 99,
+    "typed_arrays": 73,
+    "typed_array_bytes_per_cell": 231,
+    "default_grid": [
+      80,
+      60
+    ],
+    "default_grid_typed_array_bytes": 1108800,
+    "limit": "Initial core fields only; not a complete schema for late module properties."
+  },
+  "events": {
+    "declarations_from_core_comments": [
+      "worldgen",
+      "reset",
+      "year",
+      "civTick",
+      "stateNew",
+      "stateDead",
+      "eraChange",
+      "war",
+      "peace",
+      "event",
+      "save",
+      "load"
+    ],
+    "bus_source": {
+      "path": "EarthSimulator/core.js",
+      "line": 101,
+      "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452",
+      "code_excerpt": "const SIM = { hooks: Object.create(null), _err: Object.create(null) };"
+    },
+    "literal_calls": [
+      {
+        "operation": "simEmit",
+        "event": "event",
+        "path": "EarthSimulator/civ.js",
+        "line": 53,
+        "excerpt": "simEmit('event', e);"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/civ.js",
+        "line": 585,
+        "excerpt": "simOn('worldgen', () => { _wN = 0; });"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/civ.js",
+        "line": 586,
+        "excerpt": "simOn('load', () => { _wN = 0; windHarshTick(); });   // ветер загруженного мира — с его текущего поля, не с прошлого мира"
+      },
+      {
+        "operation": "simEmit",
+        "event": "stateDead",
+        "path": "EarthSimulator/civ.js",
+        "line": 773,
+        "excerpt": "simEmit('stateDead', st, cause, by || null);"
+      },
+      {
+        "operation": "simEmit",
+        "event": "stateNew",
+        "path": "EarthSimulator/civ.js",
+        "line": 778,
+        "excerpt": "simEmit('stateNew', st, parent || null, how);"
+      },
+      {
+        "operation": "simEmit",
+        "event": "eraChange",
+        "path": "EarthSimulator/civ.js",
+        "line": 949,
+        "excerpt": "simEmit('eraChange', st, era, ne);"
+      },
+      {
+        "operation": "simEmit",
+        "event": "war",
+        "path": "EarthSimulator/civ.js",
+        "line": 1246,
+        "excerpt": "simEmit('war', w);"
+      },
+      {
+        "operation": "simEmit",
+        "event": "peace",
+        "path": "EarthSimulator/civ.js",
+        "line": 1267,
+        "excerpt": "rebuildFoes(); simEmit('peace', w);"
+      },
+      {
+        "operation": "simEmit",
+        "event": "peace",
+        "path": "EarthSimulator/civ.js",
+        "line": 1290,
+        "excerpt": "simEmit('peace', w);"
+      },
+      {
+        "operation": "simEmit",
+        "event": "peace",
+        "path": "EarthSimulator/civ.js",
+        "line": 1318,
+        "excerpt": "simEmit('peace', w);"
+      },
+      {
+        "operation": "simEmit",
+        "event": "civTick",
+        "path": "EarthSimulator/civ.js",
+        "line": 1781,
+        "excerpt": "simEmit('civTick');"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/civ.js",
+        "line": 2378,
+        "excerpt": "simOn('worldgen', _civForget);"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/civ.js",
+        "line": 2379,
+        "excerpt": "simOn('reset', _civForget);"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/civ.js",
+        "line": 2382,
+        "excerpt": "simOn('save', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/civ.js",
+        "line": 2387,
+        "excerpt": "simOn('load', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/civ.js",
+        "line": 2398,
+        "excerpt": "simOn('save', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/civ.js",
+        "line": 2402,
+        "excerpt": "simOn('load', o => {"
+      },
+      {
+        "operation": "simEmit",
+        "event": "year",
+        "path": "EarthSimulator/climate.js",
+        "line": 232,
+        "excerpt": "if (!_climSpin && Math.floor(W.simYear) !== _y0) simEmit('year', Math.floor(W.simYear));   // годовой такт подсистем (люди, статистика, бедствия)"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/climate.js",
+        "line": 498,
+        "excerpt": "simOn('load', save => {"
+      },
+      {
+        "operation": "simEmit",
+        "event": "worldgen",
+        "path": "EarthSimulator/core.js",
+        "line": 1182,
+        "excerpt": "simEmit('worldgen', type);                        // подсистемы (животные, люди, культуры, статистика…) заводят своё состояние для нового мира"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/custom.js",
+        "line": 313,
+        "excerpt": "simOn('save', function (o) {"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/custom.js",
+        "line": 323,
+        "excerpt": "simOn('load', function (o) {"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/custom.js",
+        "line": 336,
+        "excerpt": "simOn('worldgen', function () { NC_FLAGS.clear(); _ncFlagCaches(); });"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/custom.js",
+        "line": 337,
+        "excerpt": "simOn('reset', function () { NC_FLAGS.clear(); _ncFlagCaches(); });"
+      },
+      {
+        "operation": "simOn",
+        "event": "govChange",
+        "path": "EarthSimulator/custom.js",
+        "line": 576,
+        "excerpt": "if (typeof simOn === 'function') simOn('govChange', st => { if (st && st.govNm) delete st.govNm; });"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/custom.js",
+        "line": 1243,
+        "excerpt": "simOn('save', function (o) {"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/custom.js",
+        "line": 1255,
+        "excerpt": "simOn('load', function (o) {"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/custom.js",
+        "line": 1274,
+        "excerpt": "simOn('worldgen', function () { NC_GEO.length = 0; _ncAutoClear(); _ncGeoChanged(true); _ncGeoPickEnd(); });"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/custom.js",
+        "line": 1275,
+        "excerpt": "simOn('reset', function () { _ncAutoClear(); _ncGeoChanged(true); });"
+      },
+      {
+        "operation": "simOn",
+        "event": "year",
+        "path": "EarthSimulator/custom.js",
+        "line": 1732,
+        "excerpt": "simOn('year', function (y) {"
+      },
+      {
+        "operation": "simOn",
+        "event": "civTick",
+        "path": "EarthSimulator/disasters.js",
+        "line": 239,
+        "excerpt": "simOn('civTick', _disTick);"
+      },
+      {
+        "operation": "simOn",
+        "event": "year",
+        "path": "EarthSimulator/disasters.js",
+        "line": 247,
+        "excerpt": "simOn('year', () => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "year",
+        "path": "EarthSimulator/disasters.js",
+        "line": 350,
+        "excerpt": "simOn('year', () => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/disasters.js",
+        "line": 366,
+        "excerpt": "simOn('worldgen', () => { DISASTERS.length = 0; _burning.clear(); });"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/disasters.js",
+        "line": 367,
+        "excerpt": "simOn('reset', () => { DISASTERS.length = 0; });"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/disasters.js",
+        "line": 368,
+        "excerpt": "simOn('save', o => { o.ext.disasters = { list: DISASTERS.slice(0, 40) }; });"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/disasters.js",
+        "line": 369,
+        "excerpt": "simOn('load', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/ecology.js",
+        "line": 290,
+        "excerpt": "simOn('save', o => { o.ext.ecology = { bv: 2 }; });"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/ecology.js",
+        "line": 291,
+        "excerpt": "simOn('load', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "stateNew",
+        "path": "EarthSimulator/fauna.js",
+        "line": 1363,
+        "excerpt": "simOn('stateNew', (st, parent) => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "stateDead",
+        "path": "EarthSimulator/fauna.js",
+        "line": 1367,
+        "excerpt": "simOn('stateDead', (st, cause, by) => {"
+      },
+      {
+        "operation": "simEmit",
+        "event": "faunaSpecies",
+        "path": "EarthSimulator/fauna.js",
+        "line": 1756,
+        "excerpt": "if (typeof simEmit === 'function') simEmit('faunaSpecies', s);"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/fauna.js",
+        "line": 1914,
+        "excerpt": "simOn('worldgen', () => { _faNewWorld(false); });"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/fauna.js",
+        "line": 1915,
+        "excerpt": "simOn('reset', () => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/fauna.js",
+        "line": 1926,
+        "excerpt": "simOn('save', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/fauna.js",
+        "line": 2021,
+        "excerpt": "simOn('load', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/goals.js",
+        "line": 376,
+        "excerpt": "simOn('save', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/goals.js",
+        "line": 384,
+        "excerpt": "simOn('worldgen', () => { if (activeScenario) endScenario(); });"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/goals.js",
+        "line": 385,
+        "excerpt": "simOn('load', o => {"
+      },
+      {
+        "operation": "simEmit",
+        "event": "worldgen",
+        "path": "EarthSimulator/main.js",
+        "line": 141,
+        "excerpt": "simEmit('worldgen', cfg.type || 'continents');            // подсистемы (животные, народы…) заселяют уже изменённый мир"
+      },
+      {
+        "operation": "simEmit",
+        "event": "save",
+        "path": "EarthSimulator/menu.js",
+        "line": 87,
+        "excerpt": "simEmit('save', save);                                           // подсистемы дописывают своё в save.ext.<имя>"
+      },
+      {
+        "operation": "simEmit",
+        "event": "load",
+        "path": "EarthSimulator/menu.js",
+        "line": 134,
+        "excerpt": "simEmit('load', save);                                             // подсистемы читают save.ext (или заводят состояние с нуля, если его там нет)"
+      },
+      {
+        "operation": "simEmit",
+        "event": "worldgen",
+        "path": "EarthSimulator/mods.js",
+        "line": 2018,
+        "excerpt": "simEmit('worldgen', 'heightmap');                                     // животные, культуры, статистика заводят состояние уже под настоящий рельеф"
+      },
+      {
+        "operation": "simOn",
+        "event": "year",
+        "path": "EarthSimulator/mods.js",
+        "line": 2440,
+        "excerpt": "simOn('year', _mYearTick);"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/mods.js",
+        "line": 2441,
+        "excerpt": "simOn('save', _mEvSave);"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/mods.js",
+        "line": 2442,
+        "excerpt": "simOn('load', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/mods.js",
+        "line": 2452,
+        "excerpt": "simOn('worldgen', () => { _mEvState = {}; _mEvLate = false; _mWorldgenHook(); });"
+      },
+      {
+        "operation": "simOn",
+        "event": "civTick",
+        "path": "EarthSimulator/mods.js",
+        "line": 2453,
+        "excerpt": "simOn('civTick', _mToolLocksSync);"
+      },
+      {
+        "operation": "simOn",
+        "event": "event",
+        "path": "EarthSimulator/panels.js",
+        "line": 147,
+        "excerpt": "simOn('event', _notifyEvent);"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/people.js",
+        "line": 1834,
+        "excerpt": "simOn('worldgen', _pSafe('worldgen', _pResetAll));"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/people.js",
+        "line": 1835,
+        "excerpt": "simOn('reset', _pSafe('reset', _pResetAll));"
+      },
+      {
+        "operation": "simOn",
+        "event": "stateNew",
+        "path": "EarthSimulator/people.js",
+        "line": 1836,
+        "excerpt": "simOn('stateNew', _pSafe('stateNew', _pOnStateNew));"
+      },
+      {
+        "operation": "simOn",
+        "event": "stateDead",
+        "path": "EarthSimulator/people.js",
+        "line": 1837,
+        "excerpt": "simOn('stateDead', _pSafe('stateDead', _pOnStateDead));"
+      },
+      {
+        "operation": "simOn",
+        "event": "govChange",
+        "path": "EarthSimulator/people.js",
+        "line": 1838,
+        "excerpt": "simOn('govChange', _pSafe('govChange', (st, from, to, how) => _pOnGovChange(st, from, to, how || _govHowGuess(st, from, to))));"
+      },
+      {
+        "operation": "simOn",
+        "event": "peace",
+        "path": "EarthSimulator/people.js",
+        "line": 1839,
+        "excerpt": "simOn('peace', _pSafe('peace', _pOnPeace));"
+      },
+      {
+        "operation": "simOn",
+        "event": "year",
+        "path": "EarthSimulator/people.js",
+        "line": 1840,
+        "excerpt": "simOn('year', _pSafe('year', _pplYear));"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/people.js",
+        "line": 1841,
+        "excerpt": "simOn('save', _pSafe('save', _pSave));"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/people.js",
+        "line": 1842,
+        "excerpt": "simOn('load', _pSafe('load', _pLoad));"
+      },
+      {
+        "operation": "simOn",
+        "event": "year",
+        "path": "EarthSimulator/rival.js",
+        "line": 72,
+        "excerpt": "simOn('year', () => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/rival.js",
+        "line": 87,
+        "excerpt": "simOn('worldgen', _rvReset); simOn('reset', _rvReset);"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/rival.js",
+        "line": 87,
+        "excerpt": "simOn('worldgen', _rvReset); simOn('reset', _rvReset);"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/rival.js",
+        "line": 88,
+        "excerpt": "simOn('save', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/rival.js",
+        "line": 93,
+        "excerpt": "simOn('load', o => {"
+      },
+      {
+        "operation": "simEmit",
+        "event": "govChange",
+        "path": "EarthSimulator/society.js",
+        "line": 127,
+        "excerpt": "simEmit('govChange', st, from, to, how || 'reform');"
+      },
+      {
+        "operation": "simOn",
+        "event": "stateNew",
+        "path": "EarthSimulator/society.js",
+        "line": 172,
+        "excerpt": "simOn('stateNew', (st, parent, how) => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "year",
+        "path": "EarthSimulator/society.js",
+        "line": 292,
+        "excerpt": "simOn('year', () => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/society.js",
+        "line": 323,
+        "excerpt": "simOn('worldgen', _socForget);"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/society.js",
+        "line": 324,
+        "excerpt": "simOn('reset', _socForget);"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/society.js",
+        "line": 325,
+        "excerpt": "simOn('save', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/society.js",
+        "line": 331,
+        "excerpt": "simOn('load', o => {"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/stats.js",
+        "line": 766,
+        "excerpt": "simOn('worldgen', () => bootstrap(true));"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/stats.js",
+        "line": 767,
+        "excerpt": "simOn('reset', () => bootstrap(false));"
+      },
+      {
+        "operation": "simOn",
+        "event": "year",
+        "path": "EarthSimulator/stats.js",
+        "line": 768,
+        "excerpt": "simOn('year', onYear);"
+      },
+      {
+        "operation": "simOn",
+        "event": "stateNew",
+        "path": "EarthSimulator/stats.js",
+        "line": 769,
+        "excerpt": "simOn('stateNew', onNew);"
+      },
+      {
+        "operation": "simOn",
+        "event": "stateDead",
+        "path": "EarthSimulator/stats.js",
+        "line": 770,
+        "excerpt": "simOn('stateDead', onDead);"
+      },
+      {
+        "operation": "simOn",
+        "event": "eraChange",
+        "path": "EarthSimulator/stats.js",
+        "line": 771,
+        "excerpt": "simOn('eraChange', onEra);"
+      },
+      {
+        "operation": "simOn",
+        "event": "govChange",
+        "path": "EarthSimulator/stats.js",
+        "line": 772,
+        "excerpt": "simOn('govChange', onGov);"
+      },
+      {
+        "operation": "simOn",
+        "event": "peace",
+        "path": "EarthSimulator/stats.js",
+        "line": 773,
+        "excerpt": "simOn('peace', onPeace);"
+      },
+      {
+        "operation": "simOn",
+        "event": "event",
+        "path": "EarthSimulator/stats.js",
+        "line": 774,
+        "excerpt": "simOn('event', onEvent);"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/stats.js",
+        "line": 775,
+        "excerpt": "simOn('save', onSave);"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/stats.js",
+        "line": 776,
+        "excerpt": "simOn('load', onLoad);"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/steam.js",
+        "line": 306,
+        "excerpt": "simOn('worldgen', function () { tl.era = -1; tl.pop = 0; });"
+      },
+      {
+        "operation": "simOn",
+        "event": "eraChange",
+        "path": "EarthSimulator/steam.js",
+        "line": 307,
+        "excerpt": "simOn('eraChange', function (st, era, ne) {"
+      },
+      {
+        "operation": "simOn",
+        "event": "year",
+        "path": "EarthSimulator/steam.js",
+        "line": 313,
+        "excerpt": "simOn('year', function () {"
+      },
+      {
+        "operation": "simOn",
+        "event": "civTick",
+        "path": "EarthSimulator/trade.js",
+        "line": 1084,
+        "excerpt": "simOn('civTick', tick);"
+      },
+      {
+        "operation": "simOn",
+        "event": "year",
+        "path": "EarthSimulator/trade.js",
+        "line": 1085,
+        "excerpt": "simOn('year', y => { if (P) yearly(y); });"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/trade.js",
+        "line": 1086,
+        "excerpt": "simOn('worldgen', reset); simOn('reset', reset);"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/trade.js",
+        "line": 1086,
+        "excerpt": "simOn('worldgen', reset); simOn('reset', reset);"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/trade.js",
+        "line": 1087,
+        "excerpt": "simOn('save', save); simOn('load', load);"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/trade.js",
+        "line": 1087,
+        "excerpt": "simOn('save', save); simOn('load', load);"
+      },
+      {
+        "operation": "simOn",
+        "event": "faunaSpecies",
+        "path": "EarthSimulator/ui.js",
+        "line": 186,
+        "excerpt": "if (typeof simOn === 'function') simOn('faunaSpecies', () => { const v = faunaSel.value; _fillFaunaSelect(faunaSel); faunaSel.value = v; });"
+      },
+      {
+        "operation": "simEmit",
+        "event": "reset",
+        "path": "EarthSimulator/ui.js",
+        "line": 1091,
+        "excerpt": "simEmit('reset');                       // люди, культуры, статистика и прочие подсистемы забывают прошлую жизнь"
+      },
+      {
+        "operation": "simEmit",
+        "event": "walkchar",
+        "path": "EarthSimulator/walkact.js",
+        "line": 4931,
+        "excerpt": "if (typeof simEmit === 'function') simEmit('walkchar', why, WKC.cur);"
+      },
+      {
+        "operation": "simOn",
+        "event": "save",
+        "path": "EarthSimulator/walkact.js",
+        "line": 4989,
+        "excerpt": "simOn('save', o => { if (o && o.ext) o.ext.walk = wkcSave(); });"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/walkact.js",
+        "line": 4990,
+        "excerpt": "simOn('load', o => wkcLoad(o && o.ext ? o.ext.walk : null));          // сейв 2.0 без раздела — чистый профиль"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/walkact.js",
+        "line": 4991,
+        "excerpt": "simOn('worldgen', () => wkcLoad(null));"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/walkact.js",
+        "line": 4992,
+        "excerpt": "simOn('reset', () => wkcLoad(null));"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/walkeco.js",
+        "line": 1923,
+        "excerpt": "if (typeof simOn === 'function') { simOn('load', ecoOnLoad); simOn('worldgen', ecoOnLoad); simOn('reset', ecoOnLoad); }"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/walkeco.js",
+        "line": 1923,
+        "excerpt": "if (typeof simOn === 'function') { simOn('load', ecoOnLoad); simOn('worldgen', ecoOnLoad); simOn('reset', ecoOnLoad); }"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/walkeco.js",
+        "line": 1923,
+        "excerpt": "if (typeof simOn === 'function') { simOn('load', ecoOnLoad); simOn('worldgen', ecoOnLoad); simOn('reset', ecoOnLoad); }"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/world3d.js",
+        "line": 2012,
+        "excerpt": "if (typeof simOn === 'function') { simOn('worldgen', _setForget); simOn('reset', _setForget); simOn('load', _setForget); }"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/world3d.js",
+        "line": 2012,
+        "excerpt": "if (typeof simOn === 'function') { simOn('worldgen', _setForget); simOn('reset', _setForget); simOn('load', _setForget); }"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/world3d.js",
+        "line": 2012,
+        "excerpt": "if (typeof simOn === 'function') { simOn('worldgen', _setForget); simOn('reset', _setForget); simOn('load', _setForget); }"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/world3d.js",
+        "line": 2817,
+        "excerpt": "if (typeof simOn === 'function') { simOn('worldgen', _netForget); simOn('reset', _netForget); simOn('load', _netForget); }   // другой мир — чужая память"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/world3d.js",
+        "line": 2817,
+        "excerpt": "if (typeof simOn === 'function') { simOn('worldgen', _netForget); simOn('reset', _netForget); simOn('load', _netForget); }   // другой мир — чужая память"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/world3d.js",
+        "line": 2817,
+        "excerpt": "if (typeof simOn === 'function') { simOn('worldgen', _netForget); simOn('reset', _netForget); simOn('load', _netForget); }   // другой мир — чужая память"
+      },
+      {
+        "operation": "simOn",
+        "event": "worldgen",
+        "path": "EarthSimulator/world3d.js",
+        "line": 4779,
+        "excerpt": "if (typeof simOn === 'function') { simOn('worldgen', _navForget); simOn('reset', _navForget); simOn('load', _navForget); }   // корабли прошлого мира не доигрывают бой на чужой суше"
+      },
+      {
+        "operation": "simOn",
+        "event": "reset",
+        "path": "EarthSimulator/world3d.js",
+        "line": 4779,
+        "excerpt": "if (typeof simOn === 'function') { simOn('worldgen', _navForget); simOn('reset', _navForget); simOn('load', _navForget); }   // корабли прошлого мира не доигрывают бой на чужой суше"
+      },
+      {
+        "operation": "simOn",
+        "event": "load",
+        "path": "EarthSimulator/world3d.js",
+        "line": 4779,
+        "excerpt": "if (typeof simOn === 'function') { simOn('worldgen', _navForget); simOn('reset', _navForget); simOn('load', _navForget); }   // корабли прошлого мира не доигрывают бой на чужой суше"
+      }
+    ],
+    "limit": "Line-based lexical candidates, not a call graph or reachability proof. Dynamic names, wrappers and user mods are not exhausted."
+  },
+  "clock_write_candidates": {
+    "occurrences": [
+      {
+        "path": "EarthSimulator/civ.js",
+        "line": 1747,
+        "excerpt": "W.simTick++; _ct++;"
+      },
+      {
+        "path": "EarthSimulator/climate.js",
+        "line": 228,
+        "excerpt": "W.dayOfYear = (W.dayOfYear + 6) % 360;"
+      },
+      {
+        "path": "EarthSimulator/climate.js",
+        "line": 229,
+        "excerpt": "W.seasonPhase = Math.sin(2 * Math.PI * W.dayOfYear / 360);"
+      },
+      {
+        "path": "EarthSimulator/climate.js",
+        "line": 231,
+        "excerpt": "W.simYear += 6 / 360;"
+      },
+      {
+        "path": "EarthSimulator/core.js",
+        "line": 1013,
+        "excerpt": "W.dayOfYear = 80; W.seasonPhase = Math.sin(2 * Math.PI * W.dayOfYear / 360);"
+      },
+      {
+        "path": "EarthSimulator/core.js",
+        "line": 1022,
+        "excerpt": "W.dayOfYear = 80; W.seasonPhase = Math.sin(2 * Math.PI * W.dayOfYear / 360);"
+      },
+      {
+        "path": "EarthSimulator/core.js",
+        "line": 1142,
+        "excerpt": "W.dayOfYear = 80; W.seasonPhase = Math.sin(2 * Math.PI * W.dayOfYear / 360);"
+      },
+      {
+        "path": "EarthSimulator/core.js",
+        "line": 1153,
+        "excerpt": "W.seaBase = W.seaLevel; W.seaRefT = 1e9; W.simTick = 0;"
+      },
+      {
+        "path": "EarthSimulator/core.js",
+        "line": 1158,
+        "excerpt": "W.simYear = 0;                                     // до записи «зари»: иначе у нового мира она датировалась годом прежнего"
+      },
+      {
+        "path": "EarthSimulator/core.js",
+        "line": 1180,
+        "excerpt": "W.simYear = 0;"
+      },
+      {
+        "path": "EarthSimulator/demomode.js",
+        "line": 213,
+        "excerpt": "if (typeof W !== 'undefined') W.paused = true;"
+      },
+      {
+        "path": "EarthSimulator/goals.js",
+        "line": 269,
+        "excerpt": "else W.pace = 1;"
+      },
+      {
+        "path": "EarthSimulator/goals.js",
+        "line": 300,
+        "excerpt": "if (!sc.won && !sc.lost) W.pace = 1;"
+      },
+      {
+        "path": "EarthSimulator/main.js",
+        "line": 72,
+        "excerpt": "if (typeof MENU_UP !== 'undefined' && MENU_UP && !W.paused && !netLive()) W.paused = true;"
+      },
+      {
+        "path": "EarthSimulator/main.js",
+        "line": 131,
+        "excerpt": "if (typeof cfg.pace === 'number') W.pace = clamp(cfg.pace, 0.3, 3);"
+      },
+      {
+        "path": "EarthSimulator/menu.js",
+        "line": 103,
+        "excerpt": "W.pace = 1; W.dynSea = 0; W.disasterRate = 1; W.aerosol = 0; W.nukeWinter = 0; W.seaRefT = 1e9;"
+      },
+      {
+        "path": "EarthSimulator/menu.js",
+        "line": 1656,
+        "excerpt": "_menuHold = true; MENU_UP = true; _prevPaused = W.paused; if (!netLive()) W.paused = true;"
+      },
+      {
+        "path": "EarthSimulator/menu.js",
+        "line": 1667,
+        "excerpt": "_menuHold = false; MENU_UP = false; W.paused = netLive() ? NP.paused : _prevPaused;   // меню не оставляет игру «замороженной навсегда»"
+      },
+      {
+        "path": "EarthSimulator/mods.js",
+        "line": 441,
+        "excerpt": "if (b.pace !== undefined && !sc.won && !sc.lost) W.pace = b.pace;"
+      },
+      {
+        "path": "EarthSimulator/mods.js",
+        "line": 462,
+        "excerpt": "if (b.pace !== undefined) W.pace = b.pace;"
+      },
+      {
+        "path": "EarthSimulator/mods.js",
+        "line": 465,
+        "excerpt": "if (b.startYear !== undefined) W.simYear = b.startYear;"
+      },
+      {
+        "path": "EarthSimulator/mods.js",
+        "line": 2016,
+        "excerpt": "W.simYear = 0;"
+      },
+      {
+        "path": "EarthSimulator/net.js",
+        "line": 632,
+        "excerpt": "if (W.paused !== !!t.p) { W.paused = !!t.p; if (typeof syncPlayGlyph === 'function') syncPlayGlyph(); }"
+      },
+      {
+        "path": "EarthSimulator/net.js",
+        "line": 786,
+        "excerpt": "NP.paused = !!save.net.paused; NP.speed = save.net.speed || 1; W.paused = NP.paused;"
+      },
+      {
+        "path": "EarthSimulator/net.js",
+        "line": 834,
+        "excerpt": "W.paused = true; if (typeof syncPlayGlyph === 'function') syncPlayGlyph();"
+      },
+      {
+        "path": "EarthSimulator/ui.js",
+        "line": 1003,
+        "excerpt": "function togglePlay() { if (netLive()) { if (netCanTime()) netSetPaused(!NP.paused); else netTimeDeny(); return; } W.paused = !W.paused; if (typeof syncPlayGlyph === 'function') syncPlayGlyph(); else document.getElementById('btn-play').classList.toggle('paused', W.paused); }"
+      },
+      {
+        "path": "EarthSimulator/ui.js",
+        "line": 1276,
+        "excerpt": "case 'pace': W.pace = clamp(v, 0.3, 3); break;"
+      },
+      {
+        "path": "EarthSimulator/uikit.js",
+        "line": 263,
+        "excerpt": "if (w.pause && typeof W !== 'undefined' && !(typeof netLive === 'function' && netLive())) { w._paused = W.paused; W.paused = true; if (typeof syncPlayGlyph === 'function') syncPlayGlyph(); }"
+      },
+      {
+        "path": "EarthSimulator/uikit.js",
+        "line": 271,
+        "excerpt": "if (w.pause && w._paused !== null && typeof W !== 'undefined') { W.paused = w._paused; w._paused = null; if (typeof syncPlayGlyph === 'function') syncPlayGlyph(); }"
+      },
+      {
+        "path": "EarthSimulator/walk.js",
+        "line": 76,
+        "excerpt": "W.paused = false; if (typeof syncPlayGlyph === 'function') syncPlayGlyph();   // ходом мира в прогулке правит walkSimSpeed(), а не пауза карты"
+      },
+      {
+        "path": "EarthSimulator/walk.js",
+        "line": 124,
+        "excerpt": "W.paused = WK.prev.paused; if (typeof syncPlayGlyph === 'function') syncPlayGlyph();"
+      }
+    ],
+    "limit": "Direct scalar writes only; aliases, indexed assignments and snapshot mutations are not exhausted."
+  },
+  "rules": [
+    {
+      "id": "BASE-FRAME-DT",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 69,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+        "code_excerpt": "  const dt = Math.min(now - _last, 200); _last = now;",
+        "end_line": 70
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Each rAF frame; milliseconds; upper cap only.",
+      "source_lines": [
+        "  const dt = Math.min(now - _last, 200); _last = now;",
+        "  // Открыто главное меню — мир стоит. showMainMenu ставит W.paused, но кто-то ещё мог его снять (выход из прогулки возвращает"
+      ]
+    },
+    {
+      "id": "BASE-DEBT-ADD",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 40,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+        "code_excerpt": "  _climateAcc += dt * speed; _civAcc += dt * speed;",
+        "end_line": 41
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Unpaused local simulation; speed<=0 drops full-step debt.",
+      "source_lines": [
+        "  _climateAcc += dt * speed; _civAcc += dt * speed;",
+        "  const t0 = performance.now();"
+      ]
+    },
+    {
+      "id": "BASE-STEP-SELECT",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 46,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+        "code_excerpt": "    const doCl = cl && (!cv || _climateAcc >= _civAcc);",
+        "end_line": 47
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Largest ready debt in milliseconds; climate wins ties.",
+      "source_lines": [
+        "    const doCl = cl && (!cv || _climateAcc >= _civAcc);",
+        "    if (did > 0 && performance.now() - t0 + (doCl ? _stepCl : _stepCiv) > SIM_BUDGET_MS) { over = true; break; }   // хотя бы один шаг делаем всегда — иначе мир встанет"
+      ]
+    },
+    {
+      "id": "BASE-BUDGET",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 47,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+        "code_excerpt": "    if (did > 0 && performance.now() - t0 + (doCl ? _stepCl : _stepCiv) > SIM_BUDGET_MS) { over = true; break; }   // хотя бы один шаг делаем всегда — иначе мир встанет",
+        "end_line": 48
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Soft 11 ms frame budget; first ready step always runs.",
+      "source_lines": [
+        "    if (did > 0 && performance.now() - t0 + (doCl ? _stepCl : _stepCiv) > SIM_BUDGET_MS) { over = true; break; }   // хотя бы один шаг делаем всегда — иначе мир встанет",
+        "    const s0 = performance.now();"
+      ]
+    },
+    {
+      "id": "BASE-DEBT-CUT",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 56,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+        "code_excerpt": "    if (lag > SIM_LAG_CAP) { const cut = lag - SIM_LAG_CAP; _climateAcc -= cut; _civAcc -= cut; }   // обоим поровну: кто отстал сильнее, того и обслужим первым",
+        "end_line": 57
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Only after a budget stop; equal subtraction, max debt 860 ms.",
+      "source_lines": [
+        "    if (lag > SIM_LAG_CAP) { const cut = lag - SIM_LAG_CAP; _climateAcc -= cut; _civAcc -= cut; }   // обоим поровну: кто отстал сильнее, того и обслужим первым",
+        "  }"
+      ]
+    },
+    {
+      "id": "BASE-RATE",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 58,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+        "code_excerpt": "  if (_simWant > 4000 * Math.max(1, speed)) { SIM_RATE = clamp01(_simDone / _simWant + 0.04); _simWant = 0; _simDone = 0; }",
+        "end_line": 59
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Local rate; done counts climate milliseconds, not civ work.",
+      "source_lines": [
+        "  if (_simWant > 4000 * Math.max(1, speed)) { SIM_RATE = clamp01(_simDone / _simWant + 0.04); _simWant = 0; _simDone = 0; }",
+        "}"
+      ]
+    },
+    {
+      "id": "BASE-PAUSE-DEBT",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 64,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+        "code_excerpt": "function simDropDebt() {",
+        "end_line": 71
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Full steps become 165/429 ms; fractional debt survives.",
+      "source_lines": [
+        "function simDropDebt() {",
+        "  if (_climateAcc >= CLIMATE_MS) _climateAcc = CLIMATE_MS - 1;",
+        "  if (_civAcc >= CIV_MS) _civAcc = CIV_MS - 1;",
+        "}",
+        "function frame(now) {",
+        "  const dt = Math.min(now - _last, 200); _last = now;",
+        "  // Открыто главное меню — мир стоит. showMainMenu ставит W.paused, но кто-то ещё мог его снять (выход из прогулки возвращает",
+        "  // прежнее значение, быстрая загрузка, подсказки): подстраховка в самом цикле, а не только в обработчике меню"
+      ]
+    },
+    {
+      "id": "BASE-CALENDAR",
+      "source": {
+        "path": "EarthSimulator/climate.js",
+        "line": 226,
+        "sha256": "1da3c5da09e84894511c9fe3f4a4677e6a9cf7954db63f8fdd83060db88619a0",
+        "code_excerpt": "function climateStep() {",
+        "end_line": 233
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Day modulo 360; year += 1/60; year event before climate update.",
+      "source_lines": [
+        "function climateStep() {",
+        "  // 1. время года",
+        "  W.dayOfYear = (W.dayOfYear + 6) % 360;",
+        "  W.seasonPhase = Math.sin(2 * Math.PI * W.dayOfYear / 360);",
+        "  const _y0 = Math.floor(W.simYear);",
+        "  W.simYear += 6 / 360;",
+        "  if (!_climSpin && Math.floor(W.simYear) !== _y0) simEmit('year', Math.floor(W.simYear));   // годовой такт подсистем (люди, статистика, бедствия)",
+        "  climateRows();"
+      ]
+    },
+    {
+      "id": "BASE-CIV-CLOCK",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "line": 1746,
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "code_excerpt": "function civTick() {",
+        "end_line": 1747
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Increments simTick at start; emits civTick at successful end.",
+      "source_lines": [
+        "function civTick() {",
+        "  W.simTick++; _ct++;"
+      ]
+    },
+    {
+      "id": "BASE-MANUAL-STEP",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 1005,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "code_excerpt": "netAct('step', () => { climateStep(); ecologyStep(); civTick(); markDirty('base'); markDirty('borders'); if (typeof rUrgent === 'function') rUrgent(); });",
+        "end_line": 1006
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Exactly one climate/ecology/civ step; no scheduler or pause check inside handler.",
+      "source_lines": [
+        "netAct('step', () => { climateStep(); ecologyStep(); civTick(); markDirty('base'); markDirty('borders'); if (typeof rUrgent === 'function') rUrgent(); });",
+        "// Мир «есть что терять»: прожил хотя бы год или игрок уже правил его кистями. Свежую карту можно"
+      ]
+    },
+    {
+      "id": "BASE-WALK-SPEED",
+      "source": {
+        "path": "EarthSimulator/walk.js",
+        "line": 133,
+        "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73",
+        "code_excerpt": "function walkSimSpeed() { return (!walkActive || WK.paused) ? 0 : WK.simMode === 1 ? WALK.SIM_SLOW : WK.simMode === 2 ? WALK.SIM_FAST : 0; }",
+        "end_line": 134
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "World speeds 0, 0.02, 0.1; independent local walk clock.",
+      "source_lines": [
+        "function walkSimSpeed() { return (!walkActive || WK.paused) ? 0 : WK.simMode === 1 ? WALK.SIM_SLOW : WK.simMode === 2 ? WALK.SIM_FAST : 0; }",
+        "function wkPrefsSave() { try { localStorage.setItem('earthsim.walk', JSON.stringify(WK.prefs)); } catch (e) {} }"
+      ]
+    },
+    {
+      "id": "BASE-WALK-DT",
+      "source": {
+        "path": "EarthSimulator/walk.js",
+        "line": 1650,
+        "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73",
+        "code_excerpt": "  const dt = WK.last ? Math.min(0.1, Math.max(0.001, (now - WK.last) / 1000)) : 0.016; WK.last = now; WK.frame++;",
+        "end_line": 1651
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Seconds, first frame .016, then clamp [.001,.1].",
+      "source_lines": [
+        "  const dt = WK.last ? Math.min(0.1, Math.max(0.001, (now - WK.last) / 1000)) : 0.016; WK.last = now; WK.frame++;",
+        "  const P = WK.pl, U = WK.ui, run = !WK.paused && WK.ready, E = WK.env, cam = WK.cam;"
+      ]
+    },
+    {
+      "id": "BASE-WALK-TOD",
+      "source": {
+        "path": "EarthSimulator/walk.js",
+        "line": 700,
+        "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73",
+        "code_excerpt": "  else if (!WK.paused && cyc) WK.tod = (WK.tod + dt * 24 / WALK.DAY_LEN * (E.elev < -0.08 ? 2.2 : 1)) % 24; else if (!cyc) WK.tod = 10.5;",
+        "end_line": 701
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "720 second base scale; night factor 2.2; network may substitute nwTod.",
+      "source_lines": [
+        "  else if (!WK.paused && cyc) WK.tod = (WK.tod + dt * 24 / WALK.DAY_LEN * (E.elev < -0.08 ? 2.2 : 1)) % 24; else if (!cyc) WK.tod = 10.5;",
+        "  const lat = latOf(clamp(P.z / WALK.CELL - 0.5, 0, GRID.H - 1));"
+      ]
+    },
+    {
+      "id": "BASE-NET-STEP",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 72,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9",
+        "code_excerpt": "function netStepOne(vt) {",
+        "end_line": 79
+      },
+      "source_ids": [
+        "SRC-060"
+      ],
+      "verification": "static_traced",
+      "scope": "Chronological absolute thresholds 166/430; climate wins ties.",
+      "source_lines": [
+        "function netStepOne(vt) {",
+        "  const tc = (_nClim + 1) * NET.CLIM_MS, tv = (_nCiv + 1) * NET.CIV_MS;",
+        "  if (tc <= tv) { if (tc > vt) return false; climateStep(); ecologyStep(); _nClim++; return true; }",
+        "  if (tv > vt) return false;",
+        "  civTick(); _nCiv++; return true;",
+        "}",
+        "",
+        "// ---------- граф объектов: снимок всего, на что есть ссылки ----------"
+      ]
+    }
+  ],
+  "verification": {
+    "command": "node design-docs/tools/probe_baseline.cjs",
+    "report_path": ".research/wp-baseline/probe-results.json",
+    "test_copy_path": ".research/wp-baseline/test-copy/EarthSimulator",
+    "passed": 26,
+    "failed": 0,
+    "runtime_verified": false,
+    "checks": [
+      {
+        "id": "B01-default-grid-and-field-initializers",
+        "status": "passed",
+        "observed": {
+          "grid": [
+            80,
+            60,
+            4800
+          ],
+          "field_count": 99
+        }
+      },
+      {
+        "id": "B02-boot-grid-bounds-and-pair-validation",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B03-event-failure-isolation-and-once-per-name-log",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B04-event-live-array-addition",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B05-ordinary-scheduler-10-seconds",
+        "status": "passed",
+        "observed": {
+          "climate": 60,
+          "civ": 23
+        }
+      },
+      {
+        "id": "B06-scheduler-thresholds-and-climate-tie",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B07-overload-one-step-and-equal-debt-cut",
+        "status": "passed",
+        "observed": {
+          "after_first_frame": {
+            "climate_debt_ms": 694,
+            "civ_debt_ms": 860
+          },
+          "step_cost_ms": 15
+        }
+      },
+      {
+        "id": "B08-pause-debt-preserves-substep-fractions",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B09-frame-200ms-cap",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B10-menu-pauses-local-world-and-skips-render",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B11-menu-keeps-network-frame",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B12-loop-recovers-and-requests-next-frame",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B13-real-worldgen-warmup-and-final-clock",
+        "status": "passed",
+        "observed": {
+          "simYear": 0,
+          "dayOfYear": 356,
+          "year_events": 0
+        }
+      },
+      {
+        "id": "B14-real-boot-parameter-warmup-advances-year-silently",
+        "status": "passed",
+        "observed": {
+          "simYear": 0.09999999999999999,
+          "dayOfYear": 32,
+          "worldgen_events": 2
+        }
+      },
+      {
+        "id": "B15-real-climate-calendar-floating-boundary",
+        "status": "passed",
+        "observed": {
+          "after_120_steps": 1.9999999999999978,
+          "year_events_after_120": 1,
+          "second_year_event_after_step": 121
+        }
+      },
+      {
+        "id": "B16-manual-step-actual-ui-handler",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B17-network-order-independent-of-singleplayer-debt",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B18-boot-default",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B19-boot-load-success",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B20-boot-load-fallback-false",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B20-boot-load-fallback-throw",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B21-boot-network-placeholder",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B22-boot-new-mod-fallback-and-settlement",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B23-boot-new-mod-success-and-scenario",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B24-boot-parameters-clamps",
+        "status": "passed",
+        "observed": null
+      },
+      {
+        "id": "B25-walk-world-speed-independent-of-local-clock",
+        "status": "passed",
+        "observed": null
+      }
+    ]
+  },
+  "limitations": [
+    "REA parsed core/main as inert syntax and HTML/package links; graph partial, 75 inventoried files outside selected analysis; three inline bodies read manually.",
+    "Controlled VM probes execute shipped code with stubbed UI/storage/network; they are not observations of the running game.",
+    "Each subsystem owns complete traces of its consumers; this baseline does not complete those packages.",
+    "No original build process reproduced; manifest declarations do not establish runtime component versions."
+  ],
+  "open_questions": [
+    "Cold start, failed load and final HUD in complete game test copy.",
+    "Measured step cost and SIM_RATE under load.",
+    "Visible manual step, pause, menu and walk transitions.",
+    "Network and minimized-window observations with matching builds and explicit mod list."
+  ]
+}

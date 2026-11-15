@@ -1,0 +1,873 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-NETWORK-WALK",
+  "game_version": "2.1.4",
+  "date": "2026-11-15",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-NETWORK-WALK-SHARED-ACTORS",
+    "FEAT-NETWORK-WALK"
+  ],
+  "document_ids": [
+    "DOC-NETWORK-WALK",
+    "DOC-NETWORK-WALK-DATA"
+  ],
+  "source_ids": [
+    "SRC-219",
+    "SRC-220",
+    "SRC-221",
+    "SRC-222",
+    "SRC-223",
+    "SRC-224",
+    "SRC-225"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_verified": false
+  },
+  "source_files": [
+    {
+      "path": "EarthSimulator/index.html",
+      "bytes": 71289,
+      "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+    },
+    {
+      "path": "EarthSimulator/net.js",
+      "bytes": 69863,
+      "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+    },
+    {
+      "path": "EarthSimulator/netserver.js",
+      "bytes": 55166,
+      "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+    },
+    {
+      "path": "EarthSimulator/netui.js",
+      "bytes": 79587,
+      "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+    },
+    {
+      "path": "EarthSimulator/netwalk.js",
+      "bytes": 52043,
+      "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+    },
+    {
+      "path": "EarthSimulator/walk.js",
+      "bytes": 165453,
+      "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73"
+    },
+    {
+      "path": "EarthSimulator/walkact.js",
+      "bytes": 670510,
+      "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+    },
+    {
+      "path": "EarthSimulator/walkgen.js",
+      "bytes": 569276,
+      "sha256": "69f701d003bdb750a74af292094bf11a5d03f8f8745fcaa44ca3dbd6035a6189"
+    }
+  ],
+  "declarations": {
+    "shared": {
+      "SNAP_MS": 200,
+      "KEY_S": 4,
+      "LOOKS": 40,
+      "LINK": 120,
+      "UNLINK": 170,
+      "SEND_R": 200,
+      "LEAD_S": 3.5,
+      "GONE": 2,
+      "NPC_MAX": 150,
+      "ANI_MAX": 80,
+      "VEH_MAX": 60,
+      "MACH_MAX": 12,
+      "DESC_MAX": 900,
+      "FX_MS": 60,
+      "FX_R": 320,
+      "PVP_S": 30,
+      "HIT_S": 60,
+      "VEH_PHYS": {
+        "car": 1,
+        "horse": 1,
+        "boat": 1,
+        "tank": 1,
+        "lead": 1
+      },
+      "VEH_FAR": 1500
+    },
+    "presence": {
+      "SEND_MS": 130,
+      "STALE_MS": 4000,
+      "NEAR": 170,
+      "LABEL": 420
+    },
+    "walk": {
+      "DAY_LEN": 720,
+      "START_HOUR": 9.5,
+      "HP": 100
+    },
+    "huntInFreeCommands": false
+  },
+  "rules": [
+    {
+      "id": "NWK-001",
+      "source_id": "SRC-219",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 752,
+        "end_line": 756,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "NWK-002",
+      "source_id": "SRC-219",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 616,
+        "end_line": 674,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "NWK-003",
+      "source_id": "SRC-219",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 416,
+        "end_line": 424,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NWK-004",
+      "source_id": "SRC-219",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 55,
+        "end_line": 72,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-005",
+      "source_id": "SRC-219",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 84,
+        "end_line": 147,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-006",
+      "source_id": "SRC-219",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 149,
+        "end_line": 199,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-007",
+      "source_id": "SRC-220",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 14,
+        "end_line": 44,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-008",
+      "source_id": "SRC-220",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 267,
+        "end_line": 309,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-009",
+      "source_id": "SRC-220",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 589,
+        "end_line": 614,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-010",
+      "source_id": "SRC-220",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 2299,
+        "end_line": 2304,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-011",
+      "source_id": "SRC-220",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 3071,
+        "end_line": 3078,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-012",
+      "source_id": "SRC-220",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 3380,
+        "end_line": 3387,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-013",
+      "source_id": "SRC-220",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 3433,
+        "end_line": 3437,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-014",
+      "source_id": "SRC-220",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 5897,
+        "end_line": 5905,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-015",
+      "source_id": "SRC-221",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 312,
+        "end_line": 348,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-016",
+      "source_id": "SRC-221",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 350,
+        "end_line": 368,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-017",
+      "source_id": "SRC-221",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 369,
+        "end_line": 408,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-018",
+      "source_id": "SRC-221",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 410,
+        "end_line": 445,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-019",
+      "source_id": "SRC-221",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 447,
+        "end_line": 477,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-020",
+      "source_id": "SRC-221",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 479,
+        "end_line": 501,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-021",
+      "source_id": "SRC-221",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 2480,
+        "end_line": 2484,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-022",
+      "source_id": "SRC-221",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 3135,
+        "end_line": 3139,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-023",
+      "source_id": "SRC-221",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 6236,
+        "end_line": 6242,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-024",
+      "source_id": "SRC-221",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 424,
+        "end_line": 426,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NWK-025",
+      "source_id": "SRC-221",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 425,
+        "end_line": 432,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NWK-026",
+      "source_id": "SRC-222",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 223,
+        "end_line": 235,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-027",
+      "source_id": "SRC-222",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 504,
+        "end_line": 587,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-028",
+      "source_id": "SRC-222",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 2899,
+        "end_line": 2908,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-029",
+      "source_id": "SRC-222",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 2952,
+        "end_line": 3002,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-030",
+      "source_id": "SRC-222",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 3102,
+        "end_line": 3120,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-031",
+      "source_id": "SRC-222",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 4430,
+        "end_line": 4438,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-032",
+      "source_id": "SRC-222",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 244,
+        "end_line": 279,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NWK-033",
+      "source_id": "SRC-222",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 409,
+        "end_line": 416,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NWK-034",
+      "source_id": "SRC-222",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 403,
+        "end_line": 407,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NWK-035",
+      "source_id": "SRC-223",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 201,
+        "end_line": 230,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-036",
+      "source_id": "SRC-223",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 237,
+        "end_line": 258,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-037",
+      "source_id": "SRC-223",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walk.js",
+        "line": 441,
+        "end_line": 454,
+        "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73"
+      }
+    },
+    {
+      "id": "NWK-038",
+      "source_id": "SRC-223",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 4618,
+        "end_line": 4654,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-039",
+      "source_id": "SRC-223",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 5182,
+        "end_line": 5220,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-040",
+      "source_id": "SRC-223",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 2013,
+        "end_line": 2023,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-041",
+      "source_id": "SRC-223",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkact.js",
+        "line": 5367,
+        "end_line": 5372,
+        "sha256": "e22f172042b8a6ed9b435dc42e5da14afe2764e68bf62a26992ad8eeb4bfc435"
+      }
+    },
+    {
+      "id": "NWK-042",
+      "source_id": "SRC-224",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netwalk.js",
+        "line": 260,
+        "end_line": 264,
+        "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+      }
+    },
+    {
+      "id": "NWK-043",
+      "source_id": "SRC-224",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 461,
+        "end_line": 469,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NWK-044",
+      "source_id": "SRC-224",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walkgen.js",
+        "line": 28,
+        "end_line": 36,
+        "sha256": "69f701d003bdb750a74af292094bf11a5d03f8f8745fcaa44ca3dbd6035a6189"
+      }
+    },
+    {
+      "id": "NWK-045",
+      "source_id": "SRC-224",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walk.js",
+        "line": 661,
+        "end_line": 705,
+        "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "PRESENCE",
+      "source_id": "SRC-219",
+      "summary": "Peer appearance, pose and mounted transport",
+      "evidence": [
+        "NWK-001",
+        "NWK-002",
+        "NWK-003",
+        "NWK-004",
+        "NWK-005",
+        "NWK-006"
+      ],
+      "checks": [
+        "presence-avatar",
+        "presence-transport",
+        "presence-model-types"
+      ]
+    },
+    {
+      "id": "GROUP",
+      "source_id": "SRC-220",
+      "summary": "Proximity components, leader selection and role transitions",
+      "evidence": [
+        "NWK-007",
+        "NWK-008",
+        "NWK-009",
+        "NWK-010",
+        "NWK-011",
+        "NWK-012",
+        "NWK-013",
+        "NWK-014"
+      ],
+      "checks": [
+        "group-transitive",
+        "group-hysteresis",
+        "group-stale",
+        "group-election",
+        "group-leader-change",
+        "group-guest-return",
+        "group-clear"
+      ]
+    },
+    {
+      "id": "SNAPSHOT",
+      "source_id": "SRC-221",
+      "summary": "Actor snapshots, descriptors, reconstruction and expiry",
+      "evidence": [
+        "NWK-015",
+        "NWK-016",
+        "NWK-017",
+        "NWK-018",
+        "NWK-019",
+        "NWK-020",
+        "NWK-021",
+        "NWK-022",
+        "NWK-023",
+        "NWK-024",
+        "NWK-025"
+      ],
+      "checks": [
+        "snapshot-cadence",
+        "snapshot-actor-radius",
+        "snapshot-limits",
+        "snapshot-appearance-refresh",
+        "snapshot-new-guest-refresh",
+        "snapshot-record-lifecycle",
+        "snapshot-record-kinds"
+      ]
+    },
+    {
+      "id": "ACTIONS",
+      "source_id": "SRC-222",
+      "summary": "Guest hits, kill consequences, conversation and vehicle transfer",
+      "evidence": [
+        "NWK-026",
+        "NWK-027",
+        "NWK-028",
+        "NWK-029",
+        "NWK-030",
+        "NWK-031",
+        "NWK-032",
+        "NWK-033",
+        "NWK-034"
+      ],
+      "checks": [
+        "actions-hit-and-kill",
+        "actions-ruler-result",
+        "actions-hunt-result",
+        "actions-hold",
+        "actions-take-leader",
+        "actions-take-guest"
+      ]
+    },
+    {
+      "id": "PVP",
+      "source_id": "SRC-223",
+      "summary": "Victim health, vehicle damage, death and remote effects",
+      "evidence": [
+        "NWK-035",
+        "NWK-036",
+        "NWK-037",
+        "NWK-038",
+        "NWK-039",
+        "NWK-040",
+        "NWK-041"
+      ],
+      "checks": [
+        "pvp-routes-to-victim",
+        "pvp-health-death",
+        "pvp-local-god",
+        "pvp-vehicle",
+        "pvp-fx-only"
+      ]
+    },
+    {
+      "id": "CLOCK",
+      "source_id": "SRC-224",
+      "summary": "Room time, local daylight and weather targets",
+      "evidence": [
+        "NWK-042",
+        "NWK-043",
+        "NWK-044",
+        "NWK-045"
+      ],
+      "checks": [
+        "presence-room-clock"
+      ]
+    }
+  ],
+  "verification": {
+    "passed": 29,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "group-transitive",
+        "status": "passed"
+      },
+      {
+        "id": "group-hysteresis",
+        "status": "passed"
+      },
+      {
+        "id": "group-stale",
+        "status": "passed"
+      },
+      {
+        "id": "group-election",
+        "status": "passed"
+      },
+      {
+        "id": "group-leader-change",
+        "status": "passed"
+      },
+      {
+        "id": "group-guest-return",
+        "status": "passed"
+      },
+      {
+        "id": "group-clear",
+        "status": "passed"
+      },
+      {
+        "id": "snapshot-cadence",
+        "status": "passed"
+      },
+      {
+        "id": "snapshot-actor-radius",
+        "status": "passed"
+      },
+      {
+        "id": "snapshot-limits",
+        "status": "passed"
+      },
+      {
+        "id": "snapshot-appearance-refresh",
+        "status": "passed"
+      },
+      {
+        "id": "snapshot-new-guest-refresh",
+        "status": "passed"
+      },
+      {
+        "id": "snapshot-record-lifecycle",
+        "status": "passed"
+      },
+      {
+        "id": "snapshot-record-kinds",
+        "status": "passed"
+      },
+      {
+        "id": "actions-hit-and-kill",
+        "status": "passed"
+      },
+      {
+        "id": "actions-ruler-result",
+        "status": "passed"
+      },
+      {
+        "id": "actions-hunt-result",
+        "status": "passed"
+      },
+      {
+        "id": "actions-hold",
+        "status": "passed"
+      },
+      {
+        "id": "actions-take-leader",
+        "status": "passed"
+      },
+      {
+        "id": "actions-take-guest",
+        "status": "passed"
+      },
+      {
+        "id": "presence-avatar",
+        "status": "passed"
+      },
+      {
+        "id": "presence-transport",
+        "status": "passed"
+      },
+      {
+        "id": "presence-model-types",
+        "status": "passed"
+      },
+      {
+        "id": "presence-room-clock",
+        "status": "passed"
+      },
+      {
+        "id": "pvp-routes-to-victim",
+        "status": "passed"
+      },
+      {
+        "id": "pvp-health-death",
+        "status": "passed"
+      },
+      {
+        "id": "pvp-local-god",
+        "status": "passed"
+      },
+      {
+        "id": "pvp-vehicle",
+        "status": "passed"
+      },
+      {
+        "id": "pvp-fx-only",
+        "status": "passed"
+      }
+    ],
+    "environment": {
+      "engine": "Node VM",
+      "node": "v26.13.1"
+    },
+    "runtime_verified": false
+  },
+  "limitations": [
+    "The VM runs the shipped netwalk.js and selected health and declaration excerpts.",
+    "Actors, clock, UI, hooks and transport are in-memory fixtures. Guest NPC damage and world commands use adapters.",
+    "Live connections, frame pacing, rendering, weather, full vehicle systems and cross-client world effects remain unobserved."
+  ],
+  "next_package": "WP-LOCAL-MULTIPLAYER"
+}

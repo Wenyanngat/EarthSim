@@ -1,0 +1,1668 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-NETWORK",
+  "game_version": "2.1.4",
+  "date": "2026-11-15",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-MULTIPLAYER",
+    "FEAT-LAN-HOSTING",
+    "FEAT-NETWORK-PERMISSIONS",
+    "FEAT-NETWORK-SYNC",
+    "FEAT-NETWORK-RECOVERY",
+    "FEAT-NETWORK-PRESENCE"
+  ],
+  "document_ids": [
+    "DOC-NETWORK-ROOMS-SYNC",
+    "DOC-NETWORK-DATA"
+  ],
+  "source_ids": [
+    "SRC-211",
+    "SRC-212",
+    "SRC-213",
+    "SRC-214",
+    "SRC-215",
+    "SRC-216",
+    "SRC-217",
+    "SRC-218"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_verified": false
+  },
+  "source_files": [
+    {
+      "path": "EarthSimulator/net.js",
+      "bytes": 69863,
+      "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+    },
+    {
+      "path": "EarthSimulator/netserver.js",
+      "bytes": 55166,
+      "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+    },
+    {
+      "path": "EarthSimulator/netui.js",
+      "bytes": 79587,
+      "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+    },
+    {
+      "path": "EarthSimulator/menu.js",
+      "bytes": 153010,
+      "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+    },
+    {
+      "path": "EarthSimulator/main.js",
+      "bytes": 18207,
+      "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0"
+    },
+    {
+      "path": "EarthSimulator/core.js",
+      "bytes": 115078,
+      "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452"
+    },
+    {
+      "path": "EarthSimulator/people.js",
+      "bytes": 237839,
+      "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2"
+    },
+    {
+      "path": "EarthSimulator/trade.js",
+      "bytes": 166129,
+      "sha256": "9396c9233e6c5ebbbc4672e75a83b5735444630492650d3fcee79b8c574e1b46"
+    },
+    {
+      "path": "EarthSimulator/ui.js",
+      "bytes": 137343,
+      "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+    },
+    {
+      "path": "EarthSimulator/custom.js",
+      "bytes": 161884,
+      "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+    },
+    {
+      "path": "EarthSimulator/rival.js",
+      "bytes": 25359,
+      "sha256": "e9664938b5d1ce37fe06f5f4c170fb2c87f94b44028ad79def5bd2de211dc655"
+    },
+    {
+      "path": "EarthSimulator/index.html",
+      "bytes": 71289,
+      "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+    },
+    {
+      "path": "EarthSimulator/netwalk.js",
+      "bytes": 52043,
+      "sha256": "2225ab038b4d4e838b3d9a9c67281f6fd98f8805d413dae8d5b1859086e33ae6"
+    }
+  ],
+  "declarations": {
+    "protocol": {
+      "PROTO": 3,
+      "CLIM_MS": 166,
+      "CIV_MS": 430
+    },
+    "client": {
+      "MODS_WAIT_S": 10,
+      "TURN_MAX": 49152,
+      "CMD_MAX": 16384,
+      "SNAP_MAX": 67108864,
+      "SNAP_TEXT_MAX": 268435456,
+      "SNAP_COOL_S": 20,
+      "SNAP_COOL_MAX": 300,
+      "CMD_RATE": 45,
+      "CMD_BURST": 90,
+      "CMD_HEAVY": 15,
+      "FREE_RATE": 0.5,
+      "FREE_BURST": 4,
+      "WAIT_S": 4,
+      "GIVEUP_S": 20,
+      "HASH_EVERY": 50,
+      "TURN_MS": 100,
+      "TURN_FAST_MS": 50,
+      "SNAP_RETRY_S": 20,
+      "RETRY_S": 75,
+      "JUMP_S": 45
+    },
+    "server": {
+      "PROTO": 3,
+      "MAX_MSG": 131072,
+      "MAX_CMD": 16384,
+      "MAX_FRAG": 64,
+      "MAX_ROOMS": 200,
+      "MAX_CONN": 2000,
+      "MAX_PER_IP": 32,
+      "MAX_ROOMS_IP": 3,
+      "MAX_PLAYERS": 16,
+      "RING": 2400,
+      "RING_BYTES": 2097152,
+      "GRACE_MS": 90000,
+      "PING_MS": 10000,
+      "DEAD_MS": 35000,
+      "HELLO_MS": 5000,
+      "STATUS_MS": 1000,
+      "BUF_LIMIT": 16777216,
+      "BUF_TOTAL": 268435456,
+      "RATE_MSG": 800,
+      "RATE_BYTES": 8388608,
+      "RATE_PRE": 16,
+      "RATE_SNAP": 167772160,
+      "SNAP_MAX": 67108864,
+      "SNAP_PARTS": 4000,
+      "SNAP_COOL_MS": 15000,
+      "PASS_TRIES": 5,
+      "PASS_LOCK_MS": 60000,
+      "CHAT_MSG": 8,
+      "CHAT_MS": 5000,
+      "PLAYERS_MS": 60000,
+      "PLAYERS_OLD_MS": 600000,
+      "STEAM_MS": 6000,
+      "STEAM_MAX": 32,
+      "STEAM_MIN": 300,
+      "STEAM_TRIES": 4,
+      "STEAM_TICKET": 2560
+    },
+    "lan": {
+      "discovery": 34782,
+      "startPort": 2279
+    },
+    "presence": {
+      "SEND_MS": 130,
+      "STALE_MS": 4000,
+      "NEAR": 170,
+      "LABEL": 420
+    },
+    "walkTime": {
+      "STAND": 0,
+      "SLOW": 1,
+      "FAST": 2,
+      "WORLD": 3
+    },
+    "snapshotGlobals": [
+      "_psi",
+      "_curlF",
+      "_oceanInf",
+      "_curCountdown",
+      "_riverCountdown",
+      "_ecoCount",
+      "FAUNA",
+      "_fa",
+      "_faQ",
+      "_faStock",
+      "_faFit",
+      "_faWild",
+      "_faRc",
+      "ships",
+      "cities",
+      "battles",
+      "missiles",
+      "explosions",
+      "_stateSeq",
+      "_warSeq",
+      "_fcHist",
+      "_fcHistTick",
+      "_exodusTick",
+      "_ct",
+      "_worldPop",
+      "_popBuf",
+      "_laneCand",
+      "_famineCool",
+      "_wAU",
+      "_wAV",
+      "_wAS",
+      "_windF",
+      "_wN",
+      "_siteSc",
+      "_eraFirst",
+      "_blocSeen",
+      "_allyLog",
+      "_mLogCool",
+      "_nukeQueue",
+      "_navDirty",
+      "_ownersChanged",
+      "_seaBody",
+      "_seaQ",
+      "_seaBodyT",
+      "_seaLogLast",
+      "_seaLogW",
+      "_seaPA",
+      "_seaPB",
+      "seaLanes",
+      "seaLanesVer",
+      "_portsCache",
+      "_frontierCache",
+      "_navListTick",
+      "CULTURES",
+      "RELIGIONS",
+      "_socT",
+      "_socWorld",
+      "_socWorldAcc",
+      "DISASTERS",
+      "_burning",
+      "NC_AUTO",
+      "_ncAutoY",
+      "_terrainTouched",
+      "_windTouched",
+      "_currentTouched",
+      "_civTouched",
+      "_resTouched",
+      "_brushErased",
+      "_brushStates"
+    ],
+    "free": [
+      "wkKill",
+      "wkQuest",
+      "tradeRob",
+      "tradeArrive"
+    ],
+    "baseHostOnly": [
+      "regen",
+      "resetLife",
+      "step"
+    ],
+    "chunkBytes": 49152,
+    "commands": [
+      {
+        "name": "wkKill",
+        "path": "EarthSimulator/net.js",
+        "line": 269
+      },
+      {
+        "name": "wkHunt",
+        "path": "EarthSimulator/net.js",
+        "line": 275
+      },
+      {
+        "name": "wkQuest",
+        "path": "EarthSimulator/net.js",
+        "line": 279
+      },
+      {
+        "name": "noop",
+        "path": "EarthSimulator/net.js",
+        "line": 283
+      },
+      {
+        "name": "tradeRob",
+        "path": "EarthSimulator/net.js",
+        "line": 284
+      },
+      {
+        "name": "tradeArrive",
+        "path": "EarthSimulator/net.js",
+        "line": 285
+      },
+      {
+        "name": "tool",
+        "path": "EarthSimulator/ui.js",
+        "line": 651
+      },
+      {
+        "name": "toolEnd",
+        "path": "EarthSimulator/ui.js",
+        "line": 662
+      },
+      {
+        "name": "discord",
+        "path": "EarthSimulator/ui.js",
+        "line": 663
+      },
+      {
+        "name": "step",
+        "path": "EarthSimulator/ui.js",
+        "line": 1005
+      },
+      {
+        "name": "regen",
+        "path": "EarthSimulator/ui.js",
+        "line": 1068
+      },
+      {
+        "name": "resetLife",
+        "path": "EarthSimulator/ui.js",
+        "line": 1070
+      },
+      {
+        "name": "planet",
+        "path": "EarthSimulator/ui.js",
+        "line": 1267
+      },
+      {
+        "name": "rename",
+        "path": "EarthSimulator/custom.js",
+        "line": 219
+      },
+      {
+        "name": "flag",
+        "path": "EarthSimulator/custom.js",
+        "line": 306
+      },
+      {
+        "name": "geoList",
+        "path": "EarthSimulator/custom.js",
+        "line": 1228
+      },
+      {
+        "name": "rival",
+        "path": "EarthSimulator/rival.js",
+        "line": 29
+      },
+      {
+        "name": "rivalGo",
+        "path": "EarthSimulator/rival.js",
+        "line": 43
+      }
+    ],
+    "hostOnly": [
+      "regen",
+      "resetLife",
+      "step",
+      "rivalGo"
+    ]
+  },
+  "rules": [
+    {
+      "id": "NW-001",
+      "source_id": "SRC-211",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 722,
+        "end_line": 723,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "NW-002",
+      "source_id": "SRC-211",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 753,
+        "end_line": 753,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "NW-003",
+      "source_id": "SRC-211",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 17,
+        "end_line": 43,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-004",
+      "source_id": "SRC-211",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 149,
+        "end_line": 201,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-005",
+      "source_id": "SRC-211",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 555,
+        "end_line": 597,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-006",
+      "source_id": "SRC-211",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 600,
+        "end_line": 619,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-007",
+      "source_id": "SRC-211",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 623,
+        "end_line": 654,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-008",
+      "source_id": "SRC-211",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 19,
+        "end_line": 32,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "NW-009",
+      "source_id": "SRC-211",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 242,
+        "end_line": 311,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "NW-010",
+      "source_id": "SRC-211",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 384,
+        "end_line": 416,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "NW-011",
+      "source_id": "SRC-211",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 348,
+        "end_line": 402,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-012",
+      "source_id": "SRC-212",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 77,
+        "end_line": 85,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-013",
+      "source_id": "SRC-212",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 258,
+        "end_line": 311,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-014",
+      "source_id": "SRC-212",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 358,
+        "end_line": 393,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-015",
+      "source_id": "SRC-212",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 465,
+        "end_line": 515,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-016",
+      "source_id": "SRC-212",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 313,
+        "end_line": 382,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "NW-017",
+      "source_id": "SRC-212",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 469,
+        "end_line": 544,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-018",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 241,
+        "end_line": 304,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-019",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 317,
+        "end_line": 323,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-020",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 404,
+        "end_line": 415,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-021",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 443,
+        "end_line": 451,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-022",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 587,
+        "end_line": 601,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-023",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 396,
+        "end_line": 409,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-024",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 446,
+        "end_line": 462,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-025",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 747,
+        "end_line": 804,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "NW-026",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 651,
+        "end_line": 670,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "NW-027",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 1005,
+        "end_line": 1005,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "NW-028",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 1068,
+        "end_line": 1080,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "NW-029",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 1267,
+        "end_line": 1280,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "NW-030",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/custom.js",
+        "line": 219,
+        "end_line": 219,
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+      }
+    },
+    {
+      "id": "NW-031",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/custom.js",
+        "line": 306,
+        "end_line": 306,
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+      }
+    },
+    {
+      "id": "NW-032",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/custom.js",
+        "line": 1228,
+        "end_line": 1245,
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+      }
+    },
+    {
+      "id": "NW-033",
+      "source_id": "SRC-213",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/rival.js",
+        "line": 29,
+        "end_line": 58,
+        "sha256": "e9664938b5d1ce37fe06f5f4c170fb2c87f94b44028ad79def5bd2de211dc655"
+      }
+    },
+    {
+      "id": "NW-034",
+      "source_id": "SRC-214",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 416,
+        "end_line": 426,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-035",
+      "source_id": "SRC-214",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 440,
+        "end_line": 455,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-036",
+      "source_id": "SRC-214",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 668,
+        "end_line": 673,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-037",
+      "source_id": "SRC-214",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 321,
+        "end_line": 324,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-038",
+      "source_id": "SRC-214",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 410,
+        "end_line": 432,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-039",
+      "source_id": "SRC-214",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 530,
+        "end_line": 548,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-040",
+      "source_id": "SRC-214",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 485,
+        "end_line": 505,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "NW-041",
+      "source_id": "SRC-214",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 533,
+        "end_line": 595,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "NW-042",
+      "source_id": "SRC-214",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 616,
+        "end_line": 641,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "NW-043",
+      "source_id": "SRC-215",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 11,
+        "end_line": 77,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-044",
+      "source_id": "SRC-215",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 328,
+        "end_line": 339,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-045",
+      "source_id": "SRC-215",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 461,
+        "end_line": 468,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-046",
+      "source_id": "SRC-215",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 545,
+        "end_line": 571,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-047",
+      "source_id": "SRC-215",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 587,
+        "end_line": 673,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-048",
+      "source_id": "SRC-215",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 676,
+        "end_line": 722,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-049",
+      "source_id": "SRC-215",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 325,
+        "end_line": 328,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-050",
+      "source_id": "SRC-215",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 396,
+        "end_line": 402,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-051",
+      "source_id": "SRC-215",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 75,
+        "end_line": 101,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0"
+      }
+    },
+    {
+      "id": "NW-052",
+      "source_id": "SRC-216",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 82,
+        "end_line": 144,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-053",
+      "source_id": "SRC-216",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 149,
+        "end_line": 201,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-054",
+      "source_id": "SRC-216",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 203,
+        "end_line": 239,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-055",
+      "source_id": "SRC-216",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 725,
+        "end_line": 794,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-056",
+      "source_id": "SRC-216",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 433,
+        "end_line": 445,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-057",
+      "source_id": "SRC-216",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 516,
+        "end_line": 522,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-058",
+      "source_id": "SRC-216",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 78,
+        "end_line": 109,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "NW-059",
+      "source_id": "SRC-216",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/people.js",
+        "line": 2920,
+        "end_line": 2932,
+        "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2"
+      }
+    },
+    {
+      "id": "NW-060",
+      "source_id": "SRC-216",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/trade.js",
+        "line": 1060,
+        "end_line": 1083,
+        "sha256": "9396c9233e6c5ebbbc4672e75a83b5735444630492650d3fcee79b8c574e1b46"
+      }
+    },
+    {
+      "id": "NW-061",
+      "source_id": "SRC-216",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 805,
+        "end_line": 829,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "NW-062",
+      "source_id": "SRC-217",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 573,
+        "end_line": 583,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-063",
+      "source_id": "SRC-217",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 604,
+        "end_line": 617,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-064",
+      "source_id": "SRC-217",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 657,
+        "end_line": 667,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-065",
+      "source_id": "SRC-217",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 797,
+        "end_line": 846,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "NW-066",
+      "source_id": "SRC-217",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 325,
+        "end_line": 354,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-067",
+      "source_id": "SRC-217",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 465,
+        "end_line": 515,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    },
+    {
+      "id": "NW-068",
+      "source_id": "SRC-217",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netserver.js",
+        "line": 530,
+        "end_line": 550,
+        "sha256": "814e15c42762a13367156169a34effc57bc051ea8e4c9bd23ba178b8ee6860d0"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "TRANSPORT",
+      "source_id": "SRC-211",
+      "summary": "Server modes, connection, and LAN discovery",
+      "evidence": [
+        "NW-001",
+        "NW-002",
+        "NW-003",
+        "NW-004",
+        "NW-005",
+        "NW-006",
+        "NW-007",
+        "NW-008",
+        "NW-009",
+        "NW-010",
+        "NW-011"
+      ],
+      "checks": [
+        "NW01-rooms",
+        "NW02-rooms",
+        "NW03-rooms",
+        "NW04-rooms",
+        "NW05-rooms",
+        "NW06-rooms",
+        "NW07-rooms",
+        "NW08-rooms",
+        "NW09-rooms",
+        "NW10-rooms",
+        "NW11-rooms",
+        "NW12-rooms"
+      ]
+    },
+    {
+      "id": "ROOMS",
+      "source_id": "SRC-212",
+      "summary": "Room greeting, admission, password proof and world selection",
+      "evidence": [
+        "NW-012",
+        "NW-013",
+        "NW-014",
+        "NW-015",
+        "NW-016",
+        "NW-017"
+      ],
+      "checks": [
+        "NW01-rooms",
+        "NW02-rooms",
+        "NW03-rooms",
+        "NW04-rooms",
+        "NW05-rooms",
+        "NW06-rooms",
+        "NW07-rooms",
+        "NW08-rooms",
+        "NW09-rooms",
+        "NW10-rooms",
+        "NW11-rooms",
+        "NW12-rooms"
+      ]
+    },
+    {
+      "id": "AUTHORITY",
+      "source_id": "SRC-213",
+      "summary": "Role, host authority and command admission",
+      "evidence": [
+        "NW-018",
+        "NW-019",
+        "NW-020",
+        "NW-021",
+        "NW-022",
+        "NW-023",
+        "NW-024",
+        "NW-025",
+        "NW-026",
+        "NW-027",
+        "NW-028",
+        "NW-029",
+        "NW-030",
+        "NW-031",
+        "NW-032",
+        "NW-033"
+      ],
+      "checks": [
+        "NW19-authority",
+        "NW20-authority",
+        "NW21-authority",
+        "NW22-authority",
+        "NW23-authority",
+        "NW24-authority",
+        "NW25-authority",
+        "NW26-authority",
+        "NW27-authority",
+        "NW28-authority",
+        "NW29-authority",
+        "NW30-authority",
+        "NW31-authority"
+      ]
+    },
+    {
+      "id": "PRESENCE",
+      "source_id": "SRC-214",
+      "summary": "Participant status, chat, cursor, and walk presence",
+      "evidence": [
+        "NW-034",
+        "NW-035",
+        "NW-036",
+        "NW-037",
+        "NW-038",
+        "NW-039",
+        "NW-040",
+        "NW-041",
+        "NW-042"
+      ],
+      "checks": [
+        "NW13-presence",
+        "NW14-presence",
+        "NW15-presence",
+        "NW16-presence",
+        "NW17-presence",
+        "NW18-presence"
+      ]
+    },
+    {
+      "id": "SIMULATION",
+      "source_id": "SRC-215",
+      "summary": "Ordered turns, seeded randomness, virtual clock and world checks",
+      "evidence": [
+        "NW-043",
+        "NW-044",
+        "NW-045",
+        "NW-046",
+        "NW-047",
+        "NW-048",
+        "NW-049",
+        "NW-050",
+        "NW-051"
+      ],
+      "checks": [
+        "NW32-turns",
+        "NW33-turns",
+        "NW34-turns",
+        "NW35-turns",
+        "NW36-turns",
+        "NW37-turns",
+        "NW38-turns",
+        "NW39-turns",
+        "NW40-turns",
+        "NW41-turns",
+        "NW42-turns",
+        "NW43-turns",
+        "NW44-turns",
+        "NW45-turns"
+      ]
+    },
+    {
+      "id": "SNAPSHOT",
+      "source_id": "SRC-216",
+      "summary": "Exact graph, snapshot chunks and restore",
+      "evidence": [
+        "NW-052",
+        "NW-053",
+        "NW-054",
+        "NW-055",
+        "NW-056",
+        "NW-057",
+        "NW-058",
+        "NW-059",
+        "NW-060",
+        "NW-061"
+      ],
+      "checks": [
+        "NW46-snapshot",
+        "NW47-snapshot",
+        "NW48-snapshot",
+        "NW49-snapshot",
+        "NW50-snapshot",
+        "NW51-snapshot",
+        "NW52-snapshot",
+        "NW53-snapshot",
+        "NW54-snapshot",
+        "NW55-snapshot",
+        "NW56-snapshot"
+      ]
+    },
+    {
+      "id": "RECOVERY",
+      "source_id": "SRC-217",
+      "summary": "Retained turns, interruption, resynchronization and host handoff",
+      "evidence": [
+        "NW-062",
+        "NW-063",
+        "NW-064",
+        "NW-065",
+        "NW-066",
+        "NW-067",
+        "NW-068"
+      ],
+      "checks": [
+        "NW57-recovery",
+        "NW58-recovery",
+        "NW59-recovery",
+        "NW60-recovery",
+        "NW61-recovery",
+        "NW62-recovery",
+        "NW63-recovery",
+        "NW64-recovery",
+        "NW65-recovery"
+      ]
+    }
+  ],
+  "verification": {
+    "passed": 65,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "NW01-rooms",
+        "label": "Protocol three accepts an ordinary greeting",
+        "status": "passed"
+      },
+      {
+        "id": "NW02-rooms",
+        "label": "Different protocol is rejected during greeting",
+        "status": "passed"
+      },
+      {
+        "id": "NW03-rooms",
+        "label": "Create returns host and bounded room size",
+        "status": "passed"
+      },
+      {
+        "id": "NW04-rooms",
+        "label": "Check reports room without reserving a seat",
+        "status": "passed"
+      },
+      {
+        "id": "NW05-rooms",
+        "label": "Version and add-on set must match separately",
+        "status": "passed"
+      },
+      {
+        "id": "NW06-rooms",
+        "label": "Password challenge accepts the expected verifier proof",
+        "status": "passed"
+      },
+      {
+        "id": "NW07-rooms",
+        "label": "Host-edit room starts new members as viewers awaiting a world",
+        "status": "passed"
+      },
+      {
+        "id": "NW08-rooms",
+        "label": "Voluntary last exit removes the room",
+        "status": "passed"
+      },
+      {
+        "id": "NW09-rooms",
+        "label": "Host can update room name and admission policy",
+        "status": "passed"
+      },
+      {
+        "id": "NW10-rooms",
+        "label": "Direct LAN address keeps explicit port or gains 2279",
+        "status": "passed"
+      },
+      {
+        "id": "NW11-rooms",
+        "label": "LAN advertisements deduplicate by server and expire after seven seconds",
+        "status": "passed"
+      },
+      {
+        "id": "NW12-rooms",
+        "label": "TLS connection faults map to separate UI outcomes",
+        "status": "passed"
+      },
+      {
+        "id": "NW13-presence",
+        "label": "Server uses registered name and trims chat text",
+        "status": "passed"
+      },
+      {
+        "id": "NW14-presence",
+        "label": "Server broadcasts cursor to peers and skips sender",
+        "status": "passed"
+      },
+      {
+        "id": "NW15-presence",
+        "label": "Walking messages set presence and clear it on exit",
+        "status": "passed"
+      },
+      {
+        "id": "NW16-presence",
+        "label": "Client walker presence expires after four seconds",
+        "status": "passed"
+      },
+      {
+        "id": "NW17-presence",
+        "label": "Client chat retains at most 200 messages",
+        "status": "passed"
+      },
+      {
+        "id": "NW18-presence",
+        "label": "Remote cursor removal follows participant departure",
+        "status": "passed"
+      },
+      {
+        "id": "NW19-authority",
+        "label": "Outside a room netDo executes directly",
+        "status": "passed"
+      },
+      {
+        "id": "NW20-authority",
+        "label": "Host command is pending until a turn is received",
+        "status": "passed"
+      },
+      {
+        "id": "NW21-authority",
+        "label": "Editor world command is sent to the room",
+        "status": "passed"
+      },
+      {
+        "id": "NW22-authority",
+        "label": "Viewer world command is blocked at local entry",
+        "status": "passed"
+      },
+      {
+        "id": "NW23-authority",
+        "label": "Host receives a known editor world command",
+        "status": "passed"
+      },
+      {
+        "id": "NW24-authority",
+        "label": "Host rejects a viewer world edit",
+        "status": "passed"
+      },
+      {
+        "id": "NW25-authority",
+        "label": "Host rejects remote host-only command",
+        "status": "passed"
+      },
+      {
+        "id": "NW26-authority",
+        "label": "Viewer free action requires current walk presence",
+        "status": "passed"
+      },
+      {
+        "id": "NW27-authority",
+        "label": "Independent normal and unaided action budgets refill at configured rates",
+        "status": "passed"
+      },
+      {
+        "id": "NW28-authority",
+        "label": "Host can assign an existing player role",
+        "status": "passed"
+      },
+      {
+        "id": "NW29-authority",
+        "label": "Host can transfer room time to a connected participant",
+        "status": "passed"
+      },
+      {
+        "id": "NW30-authority",
+        "label": "Only the current host controls local time",
+        "status": "passed"
+      },
+      {
+        "id": "NW31-authority",
+        "label": "Server accepts next host turn and ignores old or nonhost turns",
+        "status": "passed"
+      },
+      {
+        "id": "NW32-turns",
+        "label": "Seeded RNG produces repeatable nonconstant sequence",
+        "status": "passed"
+      },
+      {
+        "id": "NW33-turns",
+        "label": "Name generator restores shared random function and consumes one shared draw",
+        "status": "passed"
+      },
+      {
+        "id": "NW34-turns",
+        "label": "Virtual simulation interleaves climate and civilization in due order",
+        "status": "passed"
+      },
+      {
+        "id": "NW35-turns",
+        "label": "Commands run in listed order before simulation",
+        "status": "passed"
+      },
+      {
+        "id": "NW36-turns",
+        "label": "Frame budget yields and continues without repeating commands",
+        "status": "passed"
+      },
+      {
+        "id": "NW37-turns",
+        "label": "Duplicate turn is ignored and a gap requests a snapshot",
+        "status": "passed"
+      },
+      {
+        "id": "NW38-turns",
+        "label": "Host sends control update without advancing paused world",
+        "status": "passed"
+      },
+      {
+        "id": "NW39-turns",
+        "label": "Host applies pause mode while somebody is walking",
+        "status": "passed"
+      },
+      {
+        "id": "NW40-turns",
+        "label": "Host waits for a moderately lagging peer",
+        "status": "passed"
+      },
+      {
+        "id": "NW41-turns",
+        "label": "Room clock ignores small late corrections and accepts a large clock shift",
+        "status": "passed"
+      },
+      {
+        "id": "NW42-turns",
+        "label": "Hash changes with a changed world array or RNG state",
+        "status": "passed"
+      },
+      {
+        "id": "NW43-turns",
+        "label": "Early hash is compared when host reaches same turn",
+        "status": "passed"
+      },
+      {
+        "id": "NW44-turns",
+        "label": "Hash match clears mismatch backoff",
+        "status": "passed"
+      },
+      {
+        "id": "NW45-turns",
+        "label": "Add-on signature is insensitive to subscription ordering",
+        "status": "passed"
+      },
+      {
+        "id": "NW46-snapshot",
+        "label": "Codec restores shared references and object cycles",
+        "status": "passed"
+      },
+      {
+        "id": "NW47-snapshot",
+        "label": "Codec preserves typed arrays, Set and Map links",
+        "status": "passed"
+      },
+      {
+        "id": "NW48-snapshot",
+        "label": "Codec round trips special primitive values",
+        "status": "passed"
+      },
+      {
+        "id": "NW49-snapshot",
+        "label": "Snapshot restores exact counters, world arrays and state aliases",
+        "status": "passed"
+      },
+      {
+        "id": "NW50-snapshot",
+        "label": "Snapshot graph retains shared objects across trade and shipping arrays",
+        "status": "passed"
+      },
+      {
+        "id": "NW51-snapshot",
+        "label": "Snapshot shape check rejects an incomplete save",
+        "status": "passed"
+      },
+      {
+        "id": "NW52-snapshot",
+        "label": "Ordinary gzip round trip preserves UTF-8 content",
+        "status": "passed"
+      },
+      {
+        "id": "NW53-snapshot",
+        "label": "Snapshot header gates pump and resets receive boundary",
+        "status": "passed"
+      },
+      {
+        "id": "NW54-snapshot",
+        "label": "Chunks are emitted at the declared 48 KiB boundary",
+        "status": "passed"
+      },
+      {
+        "id": "NW55-snapshot",
+        "label": "Accepted snapshot resumes retained turns and preserves local character save",
+        "status": "passed"
+      },
+      {
+        "id": "NW56-snapshot",
+        "label": "Wrong map dimensions end the room during snapshot load",
+        "status": "passed"
+      },
+      {
+        "id": "NW57-recovery",
+        "label": "A disconnected original host hands time to a connected player",
+        "status": "passed"
+      },
+      {
+        "id": "NW58-recovery",
+        "label": "Reserved disconnected seat counts against capacity",
+        "status": "passed"
+      },
+      {
+        "id": "NW59-recovery",
+        "label": "Returning seat receives retained turns after its last received turn",
+        "status": "passed"
+      },
+      {
+        "id": "NW60-recovery",
+        "label": "Return outside retained history requires a snapshot",
+        "status": "passed"
+      },
+      {
+        "id": "NW61-recovery",
+        "label": "Server snapshot header sends subsequent room turns in order",
+        "status": "passed"
+      },
+      {
+        "id": "NW62-recovery",
+        "label": "Server throttles a repeat snapshot request for fifteen seconds",
+        "status": "passed"
+      },
+      {
+        "id": "NW63-recovery",
+        "label": "Client host change abandons incomplete snapshot and requests new one",
+        "status": "passed"
+      },
+      {
+        "id": "NW64-recovery",
+        "label": "Retry resumes by last received turn and keeps queued work",
+        "status": "passed"
+      },
+      {
+        "id": "NW65-recovery",
+        "label": "Expired retry keeps local world paused and leaves the room",
+        "status": "passed"
+      }
+    ],
+    "environment": {
+      "node": "v26.13.1",
+      "kind": "Copied client and UI modules in a fresh VM. Server message dispatcher exposed only in the fixture. HTTP, peers, timers, UI and base save/load have in-memory adapters."
+    },
+    "runtime_verified": false
+  },
+  "limitations": [
+    "The VM evaluates ordinary decoded messages using in-memory client and server fixtures.",
+    "The base save/load adapter is synthetic. The snapshot codec, state merge and gzip use the shipped functions.",
+    "Live WebSocket and UDP delivery, Steam authentication, full loaded worlds and game runtime remain unobserved."
+  ],
+  "next_package": "WP-NETWORK-WALK"
+}

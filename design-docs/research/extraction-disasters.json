@@ -1,0 +1,3334 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-DISASTERS-DIVINE",
+  "date": "2026-11-15",
+  "game_version": "2.1.4",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-DISASTERS",
+    "FEAT-DIVINE-POWERS",
+    "FEAT-MAP-TOOLS"
+  ],
+  "document_ids": [
+    "DOC-DISASTERS",
+    "DOC-DISASTERS-DATA",
+    "DOC-TOOLS",
+    "DOC-SCENARIOS"
+  ],
+  "source_ids": [
+    "SRC-127",
+    "SRC-128",
+    "SRC-129",
+    "SRC-130",
+    "SRC-131",
+    "SRC-132",
+    "SRC-133",
+    "SRC-134"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_observations": "not_performed",
+    "runtime_verified": false
+  },
+  "identity": {
+    "source_files": [
+      {
+        "path": "EarthSimulator/core.js",
+        "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452",
+        "bytes": 115078
+      },
+      {
+        "path": "EarthSimulator/climate.js",
+        "sha256": "1da3c5da09e84894511c9fe3f4a4677e6a9cf7954db63f8fdd83060db88619a0",
+        "bytes": 36493
+      },
+      {
+        "path": "EarthSimulator/ecology.js",
+        "sha256": "07fd243ffeed98a9e33976ce1d9795c4195462bdb075e735b8a83c7b547fc22a",
+        "bytes": 23767
+      },
+      {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "bytes": 232072
+      },
+      {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "bytes": 28651
+      },
+      {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "bytes": 137343
+      },
+      {
+        "path": "EarthSimulator/goals.js",
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250",
+        "bytes": 34942
+      },
+      {
+        "path": "EarthSimulator/mods.js",
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90",
+        "bytes": 196320
+      },
+      {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "bytes": 241594
+      },
+      {
+        "path": "EarthSimulator/people.js",
+        "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2",
+        "bytes": 237839
+      },
+      {
+        "path": "EarthSimulator/menu.js",
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78",
+        "bytes": 153010
+      },
+      {
+        "path": "EarthSimulator/main.js",
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+        "bytes": 18207
+      },
+      {
+        "path": "EarthSimulator/index.html",
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a",
+        "bytes": 71289
+      }
+    ],
+    "rea_source_selection": [
+      "disasters.js"
+    ],
+    "rea_parent_evidence_id": "ev_0a9337237bd6f9e875f40ff6a01db10c50144ca7855c5d90eef9f6fecab7332c",
+    "rea_summary_evidence_id": "ev_72bf7528cd0165fda3890c30cf1764ad4c3486739ed944c9c5903b3d140cd4ed",
+    "rea_artifact_sha256": "681198ab2ecff4e60f72f69fdc9a37b496638215b61122491ece53ba5929b7cd",
+    "rea_bundle_path": ".research/rea/wp-disasters-2026-11-15.evidence.json",
+    "rea_bundle_sha256": "c3dba881f7a09fb4263c61348a5b896d19716a76fa18fb576a3c47b0bf047ffa",
+    "rea_limits": [
+      "1 JavaScript file parsed, 5198 AST nodes, zero parse failures, 78 other files unselected.",
+      "Partial application and semantic graphs: 78 and 3215 unknowns."
+    ]
+  },
+  "declarations": {
+    "version": "2.1.4",
+    "constants": {
+      "RATE": 1,
+      "P_VOLCANO": 0.012,
+      "P_QUAKE": 0.022,
+      "P_HURRICANE": 0.06,
+      "P_DROUGHT": 0.03,
+      "P_FLOOD": 0.028,
+      "P_FIRE": 0.035,
+      "P_PLAGUE": 0.01,
+      "P_METEOR": 0.0005,
+      "P_BLIZZARD": 0.02,
+      "ASH_COOL": 1.6,
+      "FIRE_SPREAD": 0.55,
+      "DROUGHT_DRY": 0.38
+    },
+    "civ_disaster_year_step": 0.043172690763052204,
+    "names": {
+      "volcano": [
+        "Извержение вулкана",
+        "Volcanic eruption"
+      ],
+      "quake": [
+        "Землетрясение",
+        "Earthquake"
+      ],
+      "tsunami": [
+        "Цунами",
+        "Tsunami"
+      ],
+      "hurricane": [
+        "Ураган",
+        "Hurricane"
+      ],
+      "fire": [
+        "Пожары",
+        "Wildfires"
+      ],
+      "meteor": [
+        "Падение метеорита",
+        "Meteorite impact"
+      ],
+      "plague": [
+        "Эпидемия",
+        "Epidemic"
+      ],
+      "drought": [
+        "Засуха",
+        "Drought"
+      ],
+      "flood": [
+        "Наводнение",
+        "Flood"
+      ],
+      "blizzard": [
+        "Лютая стужа",
+        "Deep freeze"
+      ]
+    },
+    "epidemic_names": {
+      "ru": [
+        "Чёрный мор",
+        "Красная лихорадка",
+        "Серая хворь",
+        "Потливая горячка",
+        "Моровая язва",
+        "Портовая чума",
+        "Кашляющая смерть",
+        "Белая немочь"
+      ],
+      "en": [
+        "the Black Plague",
+        "the Red Fever",
+        "the Grey Sickness",
+        "the Sweating Fever",
+        "the Great Pestilence",
+        "the Harbor Plague",
+        "the Coughing Death",
+        "the White Wasting"
+      ]
+    },
+    "tools": {
+      "inspect": {
+        "g": ""
+      },
+      "walk": {
+        "g": "",
+        "point": 1,
+        "good": 1
+      },
+      "terrain": {
+        "g": "land",
+        "layer": "biome"
+      },
+      "elevation": {
+        "g": "land",
+        "layer": "biome",
+        "str": 1,
+        "dir": [
+          "Raise",
+          "Lower"
+        ]
+      },
+      "smooth": {
+        "g": "land",
+        "layer": "biome",
+        "str": 1
+      },
+      "water": {
+        "g": "land",
+        "layer": "biome",
+        "dir": [
+          "Flood",
+          "Raise land"
+        ]
+      },
+      "resource": {
+        "g": "land",
+        "layer": "resources",
+        "dir": [
+          "Place",
+          "Remove"
+        ]
+      },
+      "eraser": {
+        "g": "land"
+      },
+      "temp": {
+        "g": "climate",
+        "layer": "temperature",
+        "str": 1,
+        "dir": [
+          "Heat",
+          "Cool"
+        ]
+      },
+      "precip": {
+        "g": "climate",
+        "layer": "humidity",
+        "str": 1,
+        "dir": [
+          "Wetter",
+          "Drier"
+        ]
+      },
+      "wind": {
+        "g": "climate",
+        "layer": "wind",
+        "str": 1
+      },
+      "current": {
+        "g": "climate",
+        "layer": "currents",
+        "str": 1
+      },
+      "rain": {
+        "g": "climate",
+        "layer": "humidity",
+        "str": 1,
+        "area": "rain",
+        "good": 1
+      },
+      "drought": {
+        "g": "climate",
+        "layer": "humidity",
+        "str": 1,
+        "point": 1,
+        "dis": "drought"
+      },
+      "population": {
+        "g": "life",
+        "layer": "population",
+        "str": 1,
+        "dir": [
+          "Settle",
+          "Remove"
+        ]
+      },
+      "city": {
+        "g": "life",
+        "layer": "political",
+        "point": 1,
+        "good": 1
+      },
+      "fauna": {
+        "g": "life",
+        "layer": "fauna",
+        "str": 1,
+        "dir": [
+          "Release",
+          "Wipe out"
+        ]
+      },
+      "bless": {
+        "g": "life",
+        "str": 1,
+        "area": "bless",
+        "good": 1
+      },
+      "inspire": {
+        "g": "life",
+        "layer": "political",
+        "str": 1,
+        "point": 1,
+        "power": "inspire",
+        "good": 1
+      },
+      "peace": {
+        "g": "life",
+        "layer": "political",
+        "point": 1,
+        "power": "peace",
+        "good": 1
+      },
+      "discord": {
+        "g": "life",
+        "layer": "political",
+        "point": 1,
+        "power": "discord"
+      },
+      "plague": {
+        "g": "life",
+        "layer": "disease",
+        "point": 1,
+        "dis": "plague"
+      },
+      "volcano": {
+        "g": "powers",
+        "str": 1,
+        "point": 1,
+        "dis": "volcano"
+      },
+      "quake": {
+        "g": "powers",
+        "str": 1,
+        "point": 1,
+        "dis": "quake"
+      },
+      "meteor": {
+        "g": "powers",
+        "str": 1,
+        "point": 1,
+        "dis": "meteor"
+      },
+      "tsunami": {
+        "g": "powers",
+        "str": 1,
+        "point": 1,
+        "dis": "tsunami"
+      },
+      "hurricane": {
+        "g": "powers",
+        "str": 1,
+        "point": 1,
+        "dis": "hurricane"
+      },
+      "fire": {
+        "g": "powers",
+        "str": 1,
+        "point": 1,
+        "dis": "fire"
+      },
+      "flood": {
+        "g": "powers",
+        "str": 1,
+        "point": 1,
+        "dis": "flood"
+      },
+      "blizzard": {
+        "g": "powers",
+        "str": 1,
+        "point": 1,
+        "dis": "blizzard"
+      },
+      "rocket": {
+        "g": "powers",
+        "layer": "political",
+        "point": 1
+      },
+      "nuke": {
+        "g": "powers",
+        "layer": "political",
+        "point": 1
+      }
+    },
+    "biome_paint": {
+      "deepOcean": {
+        "water": true
+      },
+      "tropRainforest": {
+        "t": 26,
+        "p": 3000
+      },
+      "tropSeasonalForest": {
+        "t": 25,
+        "p": 1400
+      },
+      "savanna": {
+        "t": 24,
+        "p": 600
+      },
+      "mangrove": {
+        "t": 25,
+        "p": 2000,
+        "low": true
+      },
+      "temperateDeciduous": {
+        "t": 12,
+        "p": 1000
+      },
+      "temperateRainforest": {
+        "t": 10,
+        "p": 2600
+      },
+      "temperateGrassland": {
+        "t": 12,
+        "p": 380
+      },
+      "marsh": {
+        "t": 14,
+        "p": 1800,
+        "low": true
+      },
+      "subtropicalDesert": {
+        "t": 29,
+        "p": 70
+      },
+      "coldDesert": {
+        "t": 2,
+        "p": 110
+      },
+      "borealForest": {
+        "t": 2,
+        "p": 600
+      },
+      "tundra": {
+        "t": -8,
+        "p": 240
+      },
+      "iceSheet": {
+        "t": -28,
+        "p": 90
+      },
+      "alpine": {
+        "t": 1,
+        "p": 800,
+        "mountain": true
+      },
+      "barrenRock": {
+        "t": 0,
+        "p": 200,
+        "mountain": true
+      }
+    },
+    "default_ui": {
+      "tool": "inspect",
+      "group": "land",
+      "dir": 1,
+      "biome": "temperateDeciduous",
+      "res": 1,
+      "fauna": "herb",
+      "brush": 3,
+      "layer": "biome",
+      "speed": 1,
+      "strength": 5,
+      "persistentSrc": true,
+      "showCities": true
+    },
+    "preview_radii": {
+      "volcano": [
+        1.5799999999999998,
+        2.3,
+        3.2
+      ],
+      "quake": [
+        2.02,
+        2.9000000000000004,
+        4
+      ],
+      "tsunami": [
+        5.6,
+        8,
+        11
+      ],
+      "hurricane": [
+        2.3400000000000003,
+        2.9000000000000004,
+        3.6
+      ],
+      "fire": [
+        1.15,
+        1.75,
+        2.5
+      ],
+      "meteor": [
+        2.8200000000000003,
+        3.7,
+        4.800000000000001
+      ],
+      "plague": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "drought": [
+        4.4,
+        6,
+        8
+      ],
+      "flood": [
+        3.3,
+        4.5,
+        6
+      ],
+      "blizzard": [
+        5.4,
+        7,
+        9
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "DD-01",
+      "source_id": "SRC-127",
+      "summary": "Disaster constants, base probabilities, clock conversion and names.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 8,
+        "end_line": 29,
+        "source_lines": [
+          "const DIS = {",
+          "  RATE: 1,                 // общий множитель частоты природных бедствий (× W.disasterRate)",
+          "  // шанс в год на стандартную карту (1900 клеток суши); на больших картах растёт с площадью",
+          "  P_VOLCANO: 0.012, P_QUAKE: 0.022, P_HURRICANE: 0.06, P_DROUGHT: 0.030, P_FLOOD: 0.028,",
+          "  P_FIRE: 0.035, P_PLAGUE: 0.010, P_METEOR: 0.0005, P_BLIZZARD: 0.020,",
+          "  ASH_COOL: 1.6,           // сколько градусов глобального охлаждения даёт сильнейшее извержение",
+          "  FIRE_SPREAD: 0.55,       // шанс перехода огня на соседнюю сухую клетку за тик",
+          "  DROUGHT_DRY: 0.38,       // множитель осадков в очаге засухи",
+          "};",
+          "const DT_YEAR = 430 / 166 * 6 / 360;   // один civ-тик в годах",
+          "",
+          "const DISASTERS = [];                  // идущие сейчас: { type, x, y, r, t0, life, power, vx, vy, … }",
+          "const _burning = new Set();            // горящие клетки (W.fire > 0) — чтобы не обходить всю карту ради пары очагов",
+          "",
+          "const _DIS_NAME = {",
+          "  volcano: ['Извержение вулкана', 'Volcanic eruption'], quake: ['Землетрясение', 'Earthquake'], tsunami: ['Цунами', 'Tsunami'],",
+          "  hurricane: ['Ураган', 'Hurricane'], fire: ['Пожары', 'Wildfires'], meteor: ['Падение метеорита', 'Meteorite impact'],",
+          "  plague: ['Эпидемия', 'Epidemic'], drought: ['Засуха', 'Drought'], flood: ['Наводнение', 'Flood'], blizzard: ['Лютая стужа', 'Deep freeze'],",
+          "};",
+          "function disasterName(t) { const v = _DIS_NAME[t] || [t, t]; return T(v[0], v[1]); }",
+          "const _PLAGUE_RU = ['Чёрный мор', 'Красная лихорадка', 'Серая хворь', 'Потливая горячка', 'Моровая язва', 'Портовая чума', 'Кашляющая смерть', 'Белая немочь'];",
+          "const _PLAGUE_EN = ['the Black Plague', 'the Red Fever', 'the Grey Sickness', 'the Sweating Fever', 'the Great Pestilence', 'the Harbor Plague', 'the Coughing Death', 'the White Wasting'];"
+        ]
+      }
+    },
+    {
+      "id": "DD-02",
+      "source_id": "SRC-127",
+      "summary": "Context text, spatial falloff, event record and ignition helper.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 31,
+        "end_line": 55,
+        "source_lines": [
+          "// где это случилось — словами, для хроники. Земля, которую ещё никто не назвал (core.js landNameAt), — безымянная",
+          "function whereText(i) {",
+          "  const st = stateOf(i); if (st) return TF('в державе {0}', 'in {0}', st.name);",
+          "  const lm = landmassOf(i); if (!lm) return T('в открытом море', 'on the open sea');",
+          "  const nm = landNameAt(i); if (nm) return TF('на земле {0}', 'in the land of {0}', nm);",
+          "  return lm.island ? T('на безымянном острове', 'on a nameless island') : T('на безымянном материке', 'on a nameless continent');",
+          "}",
+          "// обход клеток в круге: fn(i, k), k = 1 в центре → 0 на краю",
+          "function _around(cx, cy, r, fn) {",
+          "  const R = Math.ceil(r), Wd = GRID.W, Hd = GRID.H;",
+          "  for (let y = Math.max(0, cy - R); y <= Math.min(Hd - 1, cy + R); y++) for (let x = Math.max(0, cx - R); x <= Math.min(Wd - 1, cx + R); x++) {",
+          "    const d = Math.hypot(x - cx, y - cy); if (d > r) continue;",
+          "    fn(y * Wd + x, 1 - d / (r + 0.001));",
+          "  }",
+          "}",
+          "function _kill(i, share) { const d = W.pop[i] * clamp01(share); W.pop[i] -= d; return d; }",
+          "function _fmtN(n) { return (typeof UI !== 'undefined') ? UI.fmt(Math.round(n)) : String(Math.round(n)); }",
+          "function _push(type, cell, r, life, power, extra) {",
+          "  const d = Object.assign({ type, x: (cell % GRID.W) + 0.5, y: ((cell / GRID.W) | 0) + 0.5, r, t0: W.simYear, life, power, vx: 0, vy: 0 }, extra || {});",
+          "  DISASTERS.push(d);",
+          "  if (DISASTERS.length > 40) DISASTERS.shift();",
+          "  if (typeof markDirty === 'function') markDirty('base');",
+          "  return d;",
+          "}",
+          "function _ignite(i, v) { if (W.isWater[i]) return; if (v > W.fire[i]) W.fire[i] = v; _burning.add(i); }"
+        ]
+      }
+    },
+    {
+      "id": "DD-03",
+      "source_id": "SRC-127",
+      "summary": "Area-scaled rolls and natural target selection.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 242,
+        "end_line": 263,
+        "source_lines": [
+          "function _randLand(tries, score) {",
+          "  let best = -1, bs = 0;",
+          "  for (let t = 0; t < tries; t++) { const i = (Math.random() * GRID.N) | 0; if (W.isWater[i]) continue; const s = score(i); if (s > bs) { bs = s; best = i; } }",
+          "  return best;",
+          "}",
+          "simOn('year', () => {",
+          "  const rate = (W.disasterRate == null ? 1 : W.disasterRate) * DIS.RATE;",
+          "  if (rate <= 0) return;",
+          "  let land = 0; for (const m of LANDMASS) land += m.n;",
+          "  const k = rate * Math.sqrt(Math.max(land, 200) / 1900), roll = p => Math.random() < p * k;",
+          "  if (roll(DIS.P_VOLCANO)) { const i = _randLand(60, j => landH(j) * 0.7 + W.slope[j] + (W.distOcean[j] <= 3 ? 0.35 : 0) + Math.random() * 0.4); if (i >= 0 && (landH(i) > 0.2 || W.slope[i] > 0.25)) disasterTrigger('volcano', i); }",
+          "  if (roll(DIS.P_QUAKE)) { const i = _randLand(40, j => W.slope[j] * 1.5 + landH(j) * 0.5 + Math.random() * 0.5); if (i >= 0) disasterTrigger('quake', i); }",
+          "  if (roll(DIS.P_HURRICANE)) {",
+          "    for (let t = 0; t < 40; t++) { const i = (Math.random() * GRID.N) | 0, a = Math.abs(latOf((i / GRID.W) | 0)); if (W.isWater[i] && W.temp[i] > 24 && a > 6 && a < 32 && i % GRID.W > GRID.W * 0.2) { disasterTrigger('hurricane', i); break; } }",
+          "  }",
+          "  if (roll(DIS.P_DROUGHT)) { const i = _randLand(30, j => (W.pop[j] > 300 ? 1 : 0.2) + (W.precipSmoothed[j] < 900 ? 0.6 : 0) + Math.random()); if (i >= 0) disasterTrigger('drought', i); }",
+          "  if (roll(DIS.P_FLOOD)) { const i = _randLand(40, j => W.riverFlux[j] * 2 + (W.pop[j] > 300 ? 0.5 : 0) + Math.random() * 0.4); if (i >= 0 && W.riverFlux[i] > 0.15) disasterTrigger('flood', i); }",
+          "  if (roll(DIS.P_FIRE)) { const i = _randLand(50, j => W.veg[j] * clamp01((W.temp[j] - 8) / 18) * (1 - clamp01(W.precip[j] / 1400)) + Math.random() * 0.1); if (i >= 0 && W.veg[i] > 0.3 && W.temp[i] > 12) disasterTrigger('fire', i); }",
+          "  if (roll(DIS.P_PLAGUE) && cities.length) { const c = cities[(Math.random() * cities.length) | 0]; if (c.pop > 20000 && !W.immune[c.i]) disasterTrigger('plague', c.i); }",
+          "  if (roll(DIS.P_METEOR)) disasterTrigger('meteor', (Math.random() * GRID.N) | 0, 0.3 + Math.random() * 0.5);",
+          "  if (roll(DIS.P_BLIZZARD)) { const i = _randLand(30, j => (Math.abs(latOf((j / GRID.W) | 0)) > 35 ? 1 : 0) + (W.pop[j] > 300 ? 0.6 : 0) + Math.random() * 0.5); if (i >= 0) disasterTrigger('blizzard', i); }",
+          "});"
+        ]
+      }
+    },
+    {
+      "id": "DD-04",
+      "source_id": "SRC-128",
+      "summary": "Common entry and volcanic damage, island, nutrients and dust.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 59,
+        "end_line": 84,
+        "source_lines": [
+          "function disasterTrigger(type, cell, power, byPlayer) {",
+          "  if (!(cell >= 0 && cell < GRID.N)) return null;",
+          "  power = clamp(power == null ? 0.4 + Math.random() * 0.6 : power, 0.1, 1);",
+          "  const cx = cell % GRID.W, cy = (cell / GRID.W) | 0, st0 = stateOf(cell);",
+          "  let dead = 0, d = null, txt = '', imp = 1;",
+          "  const ev = [], sId = st0 ? [st0.id] : [];",
+          "  switch (type) {",
+          "    case 'volcano': {",
+          "      const r = 1.4 + power * 1.8;",
+          "      if (W.isWater[cell] && byPlayer) {                   // вулкан посреди моря поднимает остров",
+          "        _around(cx, cy, 1.2, (i, k) => { W.elev[i] = Math.max(W.elev[i], W.seaLevel + 0.02 + 0.16 * k * power); });",
+          "        recomputeStatic(true); if (typeof resDirty === 'function') resDirty();",
+          "      }",
+          "      _around(cx, cy, r, (i, k) => {",
+          "        if (W.isWater[i]) return;",
+          "        dead += _kill(i, 0.75 * k * power); W.urban[i] *= 1 - 0.7 * k * power; W.industry[i] *= 1 - 0.7 * k * power;",
+          "        W.veg[i] *= 1 - 0.85 * k; W.ruin[i] = clamp01(W.ruin[i] + k * power); W.capDirty[i] = 1;",
+          "        if (k > 0.35) _ignite(i, k);",
+          "      });",
+          "      _around(cx, cy, r + 2.5, (i, k) => { if (!W.isWater[i]) W.volcanic[i] = Math.max(W.volcanic[i], 0.35 + 0.65 * k * power); W.tempPulse[i] += 3 * k; });   // пепел: сперва губит, потом удобряет",
+          "      W.aerosol = Math.min(6, (W.aerosol || 0) + DIS.ASH_COOL * power * (0.3 + 0.7 * power));",
+          "      d = _push('volcano', cell, r, 1.2 + power, power);",
+          "      imp = dead > 3000 || power > 0.8 ? 2 : 1;",
+          "      txt = TFC('disaster and place', '{0} {1}', '{0} {1}', disasterName(type), whereText(cell)) + (dead > 50 ? TF(': погибло {0}', ': {0} dead', _fmtN(dead)) : '') + (power > 0.7 ? T('. Пепел затмил небо — впереди холодные годы', '. Ash veils the sky — cold years lie ahead') : '');",
+          "      break;",
+          "    }"
+        ]
+      }
+    },
+    {
+      "id": "DD-05",
+      "source_id": "SRC-128",
+      "summary": "Quake, coastal cascade and tsunami.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 85,
+        "end_line": 108,
+        "source_lines": [
+          "    case 'quake': {",
+          "      const r = 1.8 + power * 2.2;",
+          "      _around(cx, cy, r, (i, k) => {",
+          "        if (W.isWater[i]) return;",
+          "        dead += _kill(i, 0.14 * k * power); W.urban[i] *= 1 - 0.45 * k * power; W.industry[i] *= 1 - 0.4 * k * power;",
+          "        W.ruin[i] = clamp01(W.ruin[i] + 0.7 * k * power); W.unrest[i] = clamp01(W.unrest[i] + 0.2 * k); W.capDirty[i] = 1;",
+          "      });",
+          "      d = _push('quake', cell, r, 0.35, power);",
+          "      imp = dead > 5000 ? 2 : 1;",
+          "      txt = TFC('disaster and place', '{0} {1}', '{0} {1}', disasterName(type), whereText(cell)) + (dead > 50 ? TF(': города в руинах, погибло {0}', ': cities in ruins, {0} dead', _fmtN(dead)) : '');",
+          "      if (W.distOcean[cell] <= 2 && (W.isWater[cell] || Math.random() < 0.5)) ev.push(() => disasterTrigger('tsunami', cell, power * 0.8, false));",
+          "      break;",
+          "    }",
+          "    case 'tsunami': {",
+          "      const r = 5 + power * 6;",
+          "      _around(cx, cy, r, (i, k) => {",
+          "        if (W.isWater[i] || !W.isCoast[i]) return;",
+          "        dead += _kill(i, 0.4 * k * power); W.urban[i] *= 1 - 0.35 * k * power; W.ruin[i] = clamp01(W.ruin[i] + 0.6 * k * power); W.capDirty[i] = 1;",
+          "      });",
+          "      d = _push('tsunami', cell, r, 0.3, power);",
+          "      imp = dead > 5000 ? 2 : 1;",
+          "      txt = dead > 50 ? TF('Цунами обрушилось на берега: погибло {0}', 'A tsunami struck the coasts: {0} dead', _fmtN(dead)) : '';",
+          "      break;",
+          "    }"
+        ]
+      }
+    },
+    {
+      "id": "DD-06",
+      "source_id": "SRC-128",
+      "summary": "Hurricane spawn and initial ignition.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 109,
+        "end_line": 120,
+        "source_lines": [
+          "    case 'hurricane': {",
+          "      const lat = latOf(cy), hemi = lat >= 0 ? 1 : -1;",
+          "      d = _push('hurricane', cell, 2.2 + power * 1.4, 0.45 + power * 0.35, power, { vx: -0.25, vy: -0.18 * hemi, hit: 0 });",
+          "      break;                                                // урон наносится по ходу движения (см. _disTick)",
+          "    }",
+          "    case 'fire': {",
+          "      _around(cx, cy, 1 + power * 1.5, (i, k) => { if (!W.isWater[i] && W.veg[i] > 0.12) _ignite(i, 0.5 + 0.5 * k); });",
+          "      d = _push('fire', cell, 2 + power * 2, 0.6, power);",
+          "      imp = st0 && st0.pop > 0 ? 1 : 0;",
+          "      txt = TF('Пожары охватили земли {0}', 'Wildfires swept the lands {0}', whereText(cell));",
+          "      break;",
+          "    }"
+        ]
+      }
+    },
+    {
+      "id": "DD-07",
+      "source_id": "SRC-128",
+      "summary": "Meteor crater, ring fire, aerosol and cascade.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 121,
+        "end_line": 137,
+        "source_lines": [
+          "    case 'meteor': {",
+          "      const r = 2.6 + power * 2.2;",
+          "      if (!W.isWater[cell]) { _around(cx, cy, 1.3, (i, k) => { W.elev[i] = clamp01(W.elev[i] - 0.05 * k * power); }); recomputeStatic(true); }",
+          "      _around(cx, cy, r, (i, k) => {",
+          "        W.tempPulse[i] += 10 * k;",
+          "        if (W.isWater[i]) return;",
+          "        dead += _kill(i, 0.97 * k); W.urban[i] *= 1 - 0.97 * k; W.industry[i] *= 1 - 0.97 * k; W.veg[i] *= 1 - 0.95 * k;",
+          "        W.ruin[i] = clamp01(W.ruin[i] + k * 1.2); W.unrest[i] = clamp01(W.unrest[i] + 0.5 * k); W.capDirty[i] = 1;",
+          "        if (k < 0.6) _ignite(i, 0.9);",
+          "      });",
+          "      W.aerosol = Math.min(8, (W.aerosol || 0) + 1.5 + 2.5 * power);",
+          "      d = _push('meteor', cell, r, 1.0, power);",
+          "      imp = 3;",
+          "      txt = TF('Небесный камень упал {0}', 'A stone from the sky fell {0}', whereText(cell)) + (dead > 50 ? TF(': погибло {0}', ': {0} dead', _fmtN(dead)) : '') + T('. Пыль закрыла солнце', '. Dust hides the sun');",
+          "      if (W.isWater[cell] || W.distOcean[cell] <= 2) ev.push(() => disasterTrigger('tsunami', cell, 1, false));",
+          "      break;",
+          "    }"
+        ]
+      }
+    },
+    {
+      "id": "DD-08",
+      "source_id": "SRC-128",
+      "summary": "Epidemic center threshold, neighboring cells and immunity.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 138,
+        "end_line": 147,
+        "source_lines": [
+          "    case 'plague': {",
+          "      if (W.isWater[cell] || W.pop[cell] < 200) return null;",
+          "      W.disease[cell] = 0.9; W.immune[cell] = 0;",
+          "      _around(cx, cy, 1.5, (i, k) => { if (W.pop[i] > 300) { W.disease[i] = Math.max(W.disease[i], 0.5 + 0.4 * k); W.immune[i] = CIV.IMMUNE_TICKS; } });",
+          "      const pk = (Math.random() * _PLAGUE_RU.length) | 0, nm = T(_PLAGUE_RU[pk], _PLAGUE_EN[pk]);   // i18n-dyn: слова из параллельных массивов выше",
+          "      d = _push('plague', cell, 3, 3, power, { name: nm });",
+          "      imp = 2;",
+          "      txt = TF('{0}: мор начался {1} и расходится по соседям', '{0}: the pestilence broke out {1} and is spreading', nm.charAt(0).toUpperCase() + nm.slice(1), whereText(cell));",
+          "      break;",
+          "    }"
+        ]
+      }
+    },
+    {
+      "id": "DD-09",
+      "source_id": "SRC-128",
+      "summary": "Drought spawn and initial precipitation anomaly.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 148,
+        "end_line": 154,
+        "source_lines": [
+          "    case 'drought': {",
+          "      const r = 4 + power * 4;",
+          "      d = _push('drought', cell, r, 1.5 + power * 2.5, power);",
+          "      _applyDrought(d);",
+          "      txt = TF('Засуха поразила земли {0} — посевы гибнут', 'Drought struck the lands {0} — the crops are dying', whereText(cell));",
+          "      break;",
+          "    }"
+        ]
+      }
+    },
+    {
+      "id": "DD-10",
+      "source_id": "SRC-128",
+      "summary": "Flood rain, vulnerability and extinguishing.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 155,
+        "end_line": 166,
+        "source_lines": [
+          "    case 'flood': {",
+          "      const r = 3 + power * 3;",
+          "      _around(cx, cy, r, (i, k) => {",
+          "        if (W.isWater[i]) return;",
+          "        W.pAnom[i] = Math.max(W.pAnom[i], 1.5 + 0.8 * k);",
+          "        if (W.riverFlux[i] > 0.2 || W.isCoast[i] || landH(i) < 0.04) { dead += _kill(i, 0.10 * k * power); W.urban[i] *= 1 - 0.18 * k * power; W.ruin[i] = clamp01(W.ruin[i] + 0.35 * k * power); W.capDirty[i] = 1; }",
+          "        if (W.fire[i] > 0) W.fire[i] = 0;",
+          "      });",
+          "      d = _push('flood', cell, r, 0.5, power);",
+          "      txt = TF('Реки вышли из берегов {0}', 'Rivers burst their banks {0}', whereText(cell)) + (dead > 50 ? TF(': погибло {0}', ': {0} dead', _fmtN(dead)) : '');",
+          "      break;",
+          "    }"
+        ]
+      }
+    },
+    {
+      "id": "DD-11",
+      "source_id": "SRC-128",
+      "summary": "Deep freeze temperature pulse.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 167,
+        "end_line": 175,
+        "source_lines": [
+          "    case 'blizzard': {",
+          "      const r = 5 + power * 4;",
+          "      _around(cx, cy, r, (i, k) => { W.tempPulse[i] = clamp(W.tempPulse[i] - (6 + 8 * power) * k, -60, 60); if (!W.isWater[i]) W.capDirty[i] = 1; });",
+          "      d = _push('blizzard', cell, r, 0.5, power);",
+          "      imp = 0;",
+          "      txt = TF('Небывалая стужа сковала земли {0}', 'An unheard-of cold gripped the lands {0}', whereText(cell));",
+          "      break;",
+          "    }",
+          "    default: return null;"
+        ]
+      }
+    },
+    {
+      "id": "DD-12",
+      "source_id": "SRC-128",
+      "summary": "Chronicle eligibility, importance, sounds and deferred cascade.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 177,
+        "end_line": 187,
+        "source_lines": [
+          "  if (txt && (byPlayer || st0 || dead > 50 || type === 'volcano' || type === 'meteor')) {",
+          "    // уведомления достойна беда, задевшая заметную часть мира; остальное — строка в хронике",
+          "    const wp = (typeof _worldPop !== 'undefined') ? _worldPop : 1e9;",
+          "    if (type !== 'meteor') imp = dead > Math.max(4000, wp * 0.003) ? 2 : (st0 || dead > 50) ? 1 : 0;",
+          "    if (type === 'plague') imp = W.pop[cell] > 40000 ? 2 : 1;",
+          "    logEvent(byPlayer ? 'player' : (type === 'plague' ? 'plague' : 'disaster'), (byPlayer ? T('Воля творца. ', 'The will of the maker. ') : '') + txt, { s: sId, cell, imp: byPlayer ? Math.max(1, imp) : imp, dis: type });",
+          "  }",
+          "  if (typeof SFX !== 'undefined' && SFX.play && (byPlayer || imp >= 2)) { try { SFX.play(type === 'volcano' ? 'eruption' : type === 'quake' ? 'quake' : type === 'hurricane' || type === 'blizzard' ? 'thunder' : type === 'tsunami' || type === 'flood' ? 'splash' : 'quake'); } catch (e) {} }",
+          "  for (const f of ev) f();",
+          "  return d;",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-13",
+      "source_id": "SRC-129",
+      "summary": "Drought reapplication, lifespan, hurricane movement and landfall.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 188,
+        "end_line": 214,
+        "source_lines": [
+          "function _applyDrought(d) {",
+          "  _around(d.x | 0, d.y | 0, d.r, (i, k) => { if (!W.isWater[i]) W.pAnom[i] = Math.min(W.pAnom[i], lerp(1, DIS.DROUGHT_DRY, Math.min(1, k * 1.6))); });",
+          "}",
+          "",
+          "// ---- ход бедствий: каждый civ-тик ----",
+          "function _disTick() {",
+          "  // идущие бедствия: срок, движение, продолжающийся урон",
+          "  for (let k = DISASTERS.length - 1; k >= 0; k--) {",
+          "    const d = DISASTERS[k];",
+          "    d.life -= DT_YEAR;",
+          "    if (d.type === 'hurricane') {",
+          "      // ураган несёт ветром и тянет к полюсу; над сушей он быстро выдыхается",
+          "      const cx = clamp(d.x | 0, 0, GRID.W - 1), cy = clamp(d.y | 0, 0, GRID.H - 1), ci = cy * GRID.W + cx;",
+          "      d.x += d.vx + W.windU[ci] * 0.55; d.y += d.vy + W.windV[ci] * 0.55;",
+          "      if (d.x < 0 || d.y < 0 || d.x >= GRID.W || d.y >= GRID.H) { DISASTERS.splice(k, 1); continue; }",
+          "      if (!W.isWater[ci]) d.life -= DT_YEAR * 2.5;",
+          "      let dead = 0, land = -1;",
+          "      _around(d.x | 0, d.y | 0, d.r, (i, kk) => {",
+          "        if (W.isWater[i]) return;",
+          "        W.pAnom[i] = Math.max(W.pAnom[i], 1.3 + 0.7 * kk);",
+          "        if (W.isCoast[i] || kk > 0.5) { dead += _kill(i, 0.035 * kk * d.power); W.urban[i] *= 1 - 0.04 * kk * d.power; W.ruin[i] = clamp01(W.ruin[i] + 0.12 * kk * d.power); if (land < 0 && W.pop[i] > 500) land = i; }",
+          "      });",
+          "      d.dead = (d.dead || 0) + dead;",
+          "      if (land >= 0 && !d.hit) { d.hit = 1; logEvent('disaster', TF('Ураган обрушился на побережье {0}', 'A hurricane made landfall {0}', whereText(land)), { s: stateOf(land) ? [stateOf(land).id] : [], cell: land, imp: 1, dis: 'hurricane' }); }",
+          "    } else if (d.type === 'drought') _applyDrought(d);                 // засуха держится весь срок: аномалия осадков сама тянется к норме",
+          "    if (d.life <= 0) DISASTERS.splice(k, 1);",
+          "  }"
+        ]
+      }
+    },
+    {
+      "id": "DD-14",
+      "source_id": "SRC-129",
+      "summary": "Fire damage, spread, decay and civTick subscription.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 215,
+        "end_line": 239,
+        "source_lines": [
+          "  // огонь: выжигает, перекидывается по ветру на сухую растительность, гаснет под дождём и сам собой",
+          "  if (_burning.size) {",
+          "    const Wd = GRID.W, Hd = GRID.H, add = [];",
+          "    for (const i of _burning) {",
+          "      const f = W.fire[i];",
+          "      if (f < 0.06 || W.isWater[i]) { W.fire[i] = 0; _burning.delete(i); continue; }",
+          "      W.veg[i] *= 1 - 0.30 * f; W.pop[i] *= 1 - 0.025 * f; W.urban[i] *= 1 - 0.02 * f;",
+          "      W.pollution[i] = clamp01(W.pollution[i] + 0.05 * f); W.ruin[i] = clamp01(W.ruin[i] + 0.04 * f);",
+          "      const wet = clamp01(W.precip[i] / 1800), x = i % Wd, y = (i / Wd) | 0;",
+          "      if (f > 0.3) {",
+          "        // вероятнее — по ветру",
+          "        const wu = W.windU[i], wv = W.windV[i], kk = (Math.random() * 8) | 0, dx = NB8[kk][0], dy = NB8[kk][1];",
+          "        const nx = x + dx, ny = y + dy;",
+          "        if (nx >= 0 && ny >= 0 && nx < Wd && ny < Hd) {",
+          "          const ni = ny * Wd + nx, along = clamp01(0.5 + (dx * wu + dy * wv) * 0.6);",
+          "          if (!W.isWater[ni] && W.fire[ni] < 0.1 && W.veg[ni] > 0.22 && Math.random() < DIS.FIRE_SPREAD * along * (1 - clamp01(W.precip[ni] / 1500)) * clamp01((W.temp[ni] + 2) / 20)) add.push(ni);",
+          "        }",
+          "      }",
+          "      W.fire[i] = f * (0.72 - 0.3 * wet);",
+          "    }",
+          "    for (const ni of add) _ignite(ni, 0.8);",
+          "    if ((W.simTick & 3) === 0 && typeof markDirty === 'function') markDirty('base');",
+          "  }",
+          "}",
+          "simOn('civTick', _disTick);"
+        ]
+      }
+    },
+    {
+      "id": "DD-15",
+      "source_id": "SRC-129",
+      "summary": "Disease, immunity and ruins coefficients.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 164,
+        "end_line": 165,
+        "source_lines": [
+          "  PLAGUE_BASE: 0.0006, PLAGUE_LETHAL: 0.12, DISEASE_SPREAD: 0.22, IMMUNE_TICKS: 200,",
+          "  RUIN_HEAL: 0.996,                   // разрушения заживают (в тик): половина — за ~7 лет"
+        ]
+      }
+    },
+    {
+      "id": "DD-16",
+      "source_id": "SRC-129",
+      "summary": "Capacity update and effect of ruins on food.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 589,
+        "end_line": 615,
+        "source_lines": [
+          "function refreshCapacities() {",
+          "  const fauna = (typeof faunaFood === 'function');",
+          "  if (!_wN) windHarshTick();                                               // мир только что создан: «климатический» ветер ещё не набран",
+          "  for (let i = 0; i < GRID.N; i++) {",
+          "    W.hab[i] = habitability(i);",
+          "    if (W.isWater[i]) { W.habEff[i] = 0; W.foodCap[i] = 0; W.capacity[i] = 0; _lethalF[i] = 0; continue; }",
+          "    // смертельный климат: ни земледелия, ни прокорма кочевников — ёмкость ноль, сюда не переселяются, отсюда бегут",
+          "    if ((_lethalF[i] = climateLethal(i))) { W.hab[i] = 0; W.habEff[i] = 0; W.foodCap[i] = 0; W.foodCapS[i] *= 0.985; W.capacity[i] = 0; continue; }",
+          "    const st = stateOf(i);",
+          "    const era = st ? st.era : 0, tech = st ? st.tech : 0;",
+          "    // эффективная пригодность = природная + (технологии + базовое выживание + накопленная адаптация)",
+          "    const terra = clamp01((tech - CIV.TERRA_TECH) / 12) * CIV.TERRA_MAX;   // технологическое освоение",
+          "    const base = 0.02 + clamp01(tech / CIV.TECH_CAP) * 0.06;               // люди выживают даже на грани (кочевники)",
+          "    const adaptBoost = W.adapt[i] * CIV.ADAPT_MAX;                         // местная адаптация со временем",
+          "    W.habEff[i] = clamp01(W.hab[i] + (1 - W.hab[i]) * clamp01(base + terra + adaptBoost));",
+          "    const agri = 1 + CIV.AGRI[era] * tech / 8;",
+          "    let fc = foodCapacity(i) * agri;",
+          "    if (fauna) fc *= 1 + faunaFood(i, era);                                // охота и рыбалка: много значат для племён, мало — для индустрии",
+          "    if (st && st.herds) fc *= 1 + 0.18 * st.herds;                         // скот (одомашнивание — fauna.js)",
+          "    const ruin = W.ruin[i]; if (ruin > 0) fc *= 1 - 0.5 * ruin;            // разорённая земля кормит хуже",
+          "    const wf = _windF[i]; fc *= wf;                                        // продуваемая земля тоже: ветер ломает посевы, выдувает почву, студит",
+          "    W.foodCap[i] = fc;",
+          "    W.foodCapS[i] = W.foodCapS[i] > 0 ? W.foodCapS[i] + (fc - W.foodCapS[i]) * 0.015 : fc;   // СГЛАЖЕННЫЙ продкап для урбанизации → урбан не скачет по сезонам (тип застройки не мерцает)",
+          "    const ruralCap = fc / productivity(tech);          // крестьян нужно меньше, чем кормит земля",
+          "    // прокорм собирателей/кочевников: суровая земля кормит МАЛО (редкое население), но не ноль",
+          "    const subsist = clamp(CIV.SUBSIST_BASE + tech * CIV.SUBSIST_TECH + W.habEff[i] * CIV.SUBSIST_HAB, 0, CIV.SUBSIST_CAP) * wf;",
+          "    W.capacity[i] = ruralCap + subsist + W.urban[i];   // + городская ёмкость (живёт на избыток)"
+        ]
+      }
+    },
+    {
+      "id": "DD-17",
+      "source_id": "SRC-129",
+      "summary": "Population pass, plague origin, spread, lethality and medicine.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 632,
+        "end_line": 668,
+        "source_lines": [
+          "function stepPopulation() {",
+          "  const Wd = GRID.W, Hd = GRID.H, grow = 0.35 + 0.65 * civPace(), spread = CIV.DISEASE_SPREAD;",
+          "  for (let i = 0; i < GRID.N; i++) {",
+          "    let P = W.pop[i];",
+          "    if (W.ruin[i] > 0) { W.ruin[i] *= CIV.RUIN_HEAL; if (W.ruin[i] < 0.004) W.ruin[i] = 0; }",
+          "    if (W.immune[i]) W.immune[i]--;",
+          "    // городская ёмкость без населения/государства медленно ветшает",
+          "    if (W.urban[i] > 0 && (W.stateId[i] < 0 || P < CIV.INHABITED_MIN)) { W.urban[i] *= 0.97; if (W.urban[i] < 1) W.urban[i] = 0; }",
+          "    if (P <= 0) { if (W.disease[i] > 0) W.disease[i] *= 0.85; continue; }",
+          "    // смертельный климат: за тик гибнет половина (кто может — уходит к соседям при миграции), последние — до нуля:",
+          "    // кисть «Люди» на раскалённой земле видна, но люди там не живут (просьба автора 2.1.2)",
+          "    if (_lethalF[i]) { P *= CIV.LETHAL_DECAY; W.pop[i] = P < 1 ? 0 : P; if (W.disease[i] > 0) W.disease[i] *= 0.85; continue; }",
+          "    const K = W.capacity[i], hab = W.habEff[i], st = stateOf(i);",
+          "    if (hab < 0.02 || K < 1) {",
+          "      P *= CIV.HARSH_DECAY;                              // совсем непригодно — мягкий отток, не мгновенная гибель",
+          "    } else {",
+          "      const r = CIV.R_BASE * grow * hab * (1 - CIV.TRANSITION[st ? st.era : 0]) * (st ? st.rm.growth : 1);",
+          "      P += r * P * (1 - P / K);                         // логистика: плавно, без скачков и переполнения",
+          "      if (P > K * 1.05 && K > 3000 && !W.immune[i] && Math.random() < CIV.PLAGUE_BASE) { W.disease[i] = 0.55; W.immune[i] = CIV.IMMUNE_TICKS; }",
+          "      W.unrest[i] = clamp01(W.unrest[i] + (P > K ? 0.03 : -0.02));",
+          "    }",
+          "    const d = W.disease[i];",
+          "    if (d > 0.01) {",
+          "      const med = st ? clamp01((st.tech - 9) / 6) : 0;   // медицина: вакцины и антибиотики гасят мор",
+          "      P *= (1 - d * CIV.PLAGUE_LETHAL * (1 - 0.8 * med));",
+          "      // зараза идёт к случайному соседу: из очага расходится ВОЛНА, а переболевшие клетки на время невосприимчивы",
+          "      if (d > 0.25 && Math.random() < spread * (1 - 0.7 * med)) {",
+          "        const k = (Math.random() * 8) | 0, nx = (i % Wd) + NB8[k][0], ny = ((i / Wd) | 0) + NB8[k][1];",
+          "        if (nx >= 0 && ny >= 0 && nx < Wd && ny < Hd) {",
+          "          const ni = ny * Wd + nx;",
+          "          if (W.pop[ni] > 300 && !W.immune[ni] && W.disease[ni] < 0.05) { W.disease[ni] = d * 0.92; W.immune[ni] = CIV.IMMUNE_TICKS; }",
+          "        }",
+          "      }",
+          "      W.disease[i] = d * 0.85;",
+          "    }",
+          "    W.pop[i] = P < 0 ? 0 : P > CIV.URBAN_CELL_MAX ? CIV.URBAN_CELL_MAX : P;",
+          "  }"
+        ]
+      }
+    },
+    {
+      "id": "DD-18",
+      "source_id": "SRC-129",
+      "summary": "Main tick order and famine detector.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 1746,
+        "end_line": 1804,
+        "source_lines": [
+          "function civTick() {",
+          "  W.simTick++; _ct++;",
+          "  windHarshTick();                                      // «климатический» ветер клеток (помеха заселению) — до ёмкостей",
+          "  refreshCapacities();",
+          "  stepPopulation();",
+          "  stepMigration();",
+          "  stepAdaptation();                                     // население адаптируется к климату со временем",
+          "  releaseDepopulated();                                 // обезлюдевшие клетки покидают государства",
+          "  if (_ct % PACE.NUCLEATE_EVERY === 0) nucleateStates();   // новые державы рождаются РЕЖЕ — как заметные вехи",
+          "  if ((_ct & 15) === 0) recountOffshore();                 // шельфовые месторождения — кому достались",
+          "  const doExpand = (_ct % PACE.EXPAND_EVERY === 0);        // границы двигаются реже → карта стабильнее и читается",
+          "  let wp = 0; for (const st of states) if (st.alive) wp += st.pop;",
+          "  _worldPop = wp > 1 ? wp : 1;",
+          "  for (const st of states) {",
+          "    if (!st.alive) continue;",
+          "    if (st.cells.size === 0) { killState(st); continue; }",
+          "    if (W.stateId[st.capital] !== st.id || W.pop[st.capital] < CIV.INHABITED_MIN || W.isWater[st.capital]) {   // море поднялось над столицей — двор переезжает сразу",
+          "      let best = -1, bp = 0; st.cells.forEach(i => { if (W.isWater[i]) return; const v = W.pop[i] + W.urban[i] * 2; if (v > bp) { bp = v; best = i; } });",
+          "      if (best >= 0) { st.capital = best; st._sites = null; } else { killState(st, 'depop'); continue; }",
+          "    }",
+          "    updateStateEconomyTech(st);",
+          "    allocateUrbanization(st);",
+          "    if (doExpand) { expandState(st); if (((_ct >> 1) + st.id) % 6 === 0) checkSecession(st); }   // окраины проверяем раз в ~полгода на державу (по очереди)",
+          "    updateStability(st);",
+          "    if (st.pop < CIV.STATE_MIN_POP) killState(st, 'depop');       // нет населения — нет государства",
+          "  }",
+          "  diplomacyAndWar();                                     // распад меток боёв — каждый тик; отношения/войны — реже (внутри)",
+          "  if (typeof societyTick === 'function') societyTick();  // культуры, религии, формы правления",
+          "  if (_ct % PACE.NUKE_EVERY === 0) { stepNavalWar(); stepSeaBattles(); stepStrategicWar(); }   // морские вторжения и сражения, ядерное — реже",
+          "  stepMissiles();                                        // полёт ракет и подрывы — каждый тик (плавная анимация)",
+          "  stepCivEcology();",
+          "  processShips();",
+          "  rebuildCities();",
+          "  checkClimateEvents();                                   // голод/неурожай — климат бьёт по людям, игрок видит это в хронике",
+          "  if (_ownersChanged) { markDirty('borders'); _ownersChanged = false; }   // перестраиваем слой границ только когда они реально менялись",
+          "  simEmit('civTick');",
+          "}",
+          "",
+          "// ---- КЛИМАТИЧЕСКИЕ БЕДСТВИЯ: голод при обвале продовольственной ёмкости обжитых клеток ----",
+          "function checkClimateEvents() {",
+          "  const dt = W.simTick - _fcHistTick;",
+          "  // первый вызов / новый мир / загрузка (simTick скакнул) — не сравниваем историю РАЗНЫХ миров",
+          "  if (_fcHistTick < 0 || dt < 0 || dt > 80) { _fcHist.set(W.foodCapS); _fcHistTick = W.simTick; _famineCool.clear(); return; }",
+          "  if (dt < 40) return;                                    // сравниваем с продкапом ~40 тиков назад",
+          "  for (let i = 0; i < GRID.N; i++) {",
+          "    const old = _fcHist[i];",
+          "    if (old < 400 || W.pop[i] < 1500) continue;           // интересны только обжитые кормящие клетки",
+          "    if (W.foodCapS[i] > old * 0.55) continue;             // падение меньше 45% — ещё не голод",
+          "    const st = stateOf(i), key = st ? st.id : ('c' + i);   // бесхозные земли — ключ по клетке (иначе один -1 глушит голод по всей карте)",
+          "    if (W.simTick - (_famineCool.get(key) || -1e9) < 160) continue;   // рейт-лимит: не чаще ~раза в 40 с на державу/область",
+          "    _famineCool.set(key, W.simTick);",
+          "    W.unrest[i] = clamp01(W.unrest[i] + 0.2);             // голод → волнения",
+          "    // причину называем прямо: игрок должен видеть, ЧТО именно в климате ударило по людям",
+          "    const dry = W.precip[i] < W.precipSmoothed[i] * 0.7, cold = W.temp[i] < W.tempSmoothed[i] - 3, hot = W.temp[i] > W.tempSmoothed[i] + 3;",
+          "    const why = W.ruin[i] > 0.3 ? T('земля разорена', 'the land is devastated') : dry ? T('засуха', 'drought') : cold ? T('похолодание', 'a cold spell') : hot ? T('зной', 'heat') : T('неурожай', 'crop failure');",
+          "    logEvent('famine', (st ? TF('Голод в державе {0} — {1}', 'Famine in {0} — {1}', st.name, why) : TF('Голод — {0}', 'Famine — {0}', why)), { s: st ? [st.id] : [], cell: i, imp: 1 });",
+          "  }",
+          "  _fcHist.set(W.foodCapS); _fcHistTick = W.simTick;",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-19",
+      "source_id": "SRC-129",
+      "summary": "Thermal pulse, aerosol and climate field relaxation.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/climate.js",
+        "sha256": "1da3c5da09e84894511c9fe3f4a4677e6a9cf7954db63f8fdd83060db88619a0",
+        "line": 295,
+        "end_line": 312,
+        "source_lines": [
+          "    W.baseTemp[i] = t;",
+          "    if (W.isWater[i]) W.sst[i] = t;",
+          "  }",
+          "",
+          "  // временные источники (tempPulse) затухают; постоянные (tempForce) держатся",
+          "  for (let i = 0; i < GRID.N; i++) { if (W.tempPulse[i] !== 0) { W.tempPulse[i] *= 0.95; if (Math.abs(W.tempPulse[i]) < 0.1) W.tempPulse[i] = 0; } }",
+          "  // ядерная зима рассеивается очень медленно (копоть вымывается из стратосферы годами)",
+          "  W.nukeWinter *= 0.9995; if (W.nukeWinter < 0.01) W.nukeWinter = 0;",
+          "  // вулканический пепел оседает быстрее копоти: «год без лета» длится несколько лет, а не десятилетия",
+          "  if (W.aerosol > 0) { W.aerosol *= 0.9965; if (W.aerosol < 0.01) W.aerosol = 0; }",
+          "  // сглаженная температура (медленная) — по ней классифицируются БИОМЫ, чтобы они не скакали по сезонам",
+          "  for (let i = 0; i < GRID.N; i++) W.tempSmoothed[i] += (W.temp[i] - W.tempSmoothed[i]) * 0.012;",
+          "  moisturePass();",
+          "  // сглаженные осадки — по ним тоже классифицируются БИОМЫ",
+          "  for (let i = 0; i < GRID.N; i++) W.precipSmoothed[i] += (W.precip[i] - W.precipSmoothed[i]) * 0.012;",
+          "  // реки периодически пересчитываются по фактическим осадкам (сдвиг муссонов/засуха меняет русла и плодородие долин)",
+          "  if (--_riverCountdown <= 0) { carveRivers(); _riverCountdown = 380; markDirty('base'); }",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-20",
+      "source_id": "SRC-129",
+      "summary": "Precipitation anomaly and recovery.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/climate.js",
+        "sha256": "1da3c5da09e84894511c9fe3f4a4677e6a9cf7954db63f8fdd83060db88619a0",
+        "line": 380,
+        "end_line": 390,
+        "source_lines": [
+          "",
+          "  // 4. лёгкое сглаживание и перевод в мм/год (+кисть «Влага»)",
+          "  boxBlur(P, W._scratch);",
+          "  // pAnom — аномалия осадков от бедствий (засуха/ливни, disasters.js): сама релаксирует к 1",
+          "  const A = W.pAnom;",
+          "  for (let i = 0; i < GRID.N; i++) {",
+          "    W.precip[i] = clamp(P[i] * CLIM.mmScale * W.precipMul[i] * A[i], 0, 6000);",
+          "    if (A[i] !== 1) { A[i] += (1 - A[i]) * 0.006; if (Math.abs(A[i] - 1) < 0.01) A[i] = 1; }",
+          "  }",
+          "  if (_climBiasOn) climBiasPrecip();                        // «Реальная Земля»: множитель осадков к нормам GPCP",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-21",
+      "source_id": "SRC-129",
+      "summary": "Fertility contributions from river, volcanic deposits and pollution.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ecology.js",
+        "sha256": "07fd243ffeed98a9e33976ce1d9795c4195462bdb075e735b8a83c7b547fc22a",
+        "line": 89,
+        "end_line": 103,
+        "source_lines": [
+          "function computeFertility(i) {",
+          "  const b = W.biome[i];",
+          "  if (b === BID.scorched) return 0;     // спёкшаяся земля: ни перегноя, ни жизни в почве",
+          "  const base = BIOME_CIV[b] ? Math.max(0.15, BIOME_CIV[b].arable) : 0.2;",
+          "  const p = W.precipSmoothed[i], t = W.tempSmoothed[i];   // СГЛАЖЕННЫЙ климат: плодородие — свойство почвы, не должно гулять по сезонам",
+          "  const precipF = Math.exp(-((p - 800) * (p - 800)) / (2 * 700 * 700));",
+          "  const tempF = Math.exp(-((t - 18) * (t - 18)) / (2 * 22 * 22));",
+          "  let f = base * (0.5 + 0.5 * precipF) * (0.6 + 0.4 * tempF);",
+          "  f += 0.35 * W.riverFlux[i] - 0.40 * W.slope[i] + 0.30 * W.volcanic[i];   // вулканический пепел удобряет землю (W.volcanic заполняют извержения, см. disasters.js)",
+          "  f *= 0.45 + 0.55 * W.eco[i];          // деградация экосистемы снижает плодородие",
+          "  f -= 0.30 * W.pollution[i];           // загрязнение отравляет почву",
+          "  f -= 0.5 * W.fallout[i];              // радиация стерилизует землю (ядерные удары)",
+          "  return clamp01(f);",
+          "}",
+          ""
+        ]
+      }
+    },
+    {
+      "id": "DD-22",
+      "source_id": "SRC-129",
+      "summary": "Disaster proximity to capitals in the court model.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/people.js",
+        "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2",
+        "line": 1413,
+        "end_line": 1426,
+        "source_lines": [
+          "  function _pDisasterHits() {",
+          "    if (typeof DISASTERS === 'undefined' || !DISASTERS.length) return null;",
+          "    let m = null;",
+          "    for (const st of states) {",
+          "      if (!st.alive || st.capital < 0) continue;",
+          "      const x = st.capital % GRID.W, y = (st.capital / GRID.W) | 0;",
+          "      for (const d of DISASTERS) {",
+          "        if (d.type === 'drought' || d.type === 'plague' || d.type === 'blizzard') continue;",
+          "        const dx = d.x - x, dy = d.y - y, r = (d.r || 1) + 0.5;",
+          "        if (dx * dx + dy * dy <= r * r) { if (!m) m = new Map(); m.set(st.uid, Math.max(m.get(st.uid) || 0, clamp01(d.power || 0.5))); }",
+          "      }",
+          "    }",
+          "    return m;",
+          "  }"
+        ]
+      }
+    },
+    {
+      "id": "DD-23",
+      "source_id": "SRC-129",
+      "summary": "Court yearly mortality branches for plague and disaster.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/people.js",
+        "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2",
+        "line": 1586,
+        "end_line": 1606,
+        "source_lines": [
+          "    let ls = 0, ln = 0; for (const st of states) if (st.alive) { ls += _pFin(st.lifeExp, 25); ln++; }",
+          "    _pLifeAvg = ln ? clamp01((ls / ln - PPL.LIFE_RANGE[0]) / (PPL.LIFE_RANGE[1] - PPL.LIFE_RANGE[0])) : _pLifeAvg;",
+          "    const hits = _pDisasterHits();",
+          "    // --- люди: смерть, брак, дети. Идём с конца: умершие вынимаются из списка перестановкой последнего ---",
+          "    for (let i = _pLive.length - 1; i >= 0; i--) {",
+          "      if (i >= _pLive.length) continue;",
+          "      const p = PEOPLE[_pLive[i]];",
+          "      if (!p || p.died !== null || p._y === y) continue;",
+          "      p._y = y;",
+          "      const age = y - p.born, st = _stOf(p.st);",
+          "      if (p.st >= 0 && !st) p.st = -1;                              // держава исчезла без события (страховка)",
+          "      if (st && p.claim < 0) p.cell = st.capital;",
+          "      const L = st ? clamp01((_pFin(st.lifeExp, 25) - PPL.LIFE_RANGE[0]) / (PPL.LIFE_RANGE[1] - PPL.LIFE_RANGE[0])) : _pLifeAvg;",
+          "      let q = _deathQ(age, L), cause = '';",
+          "      if (_pHas(p, 'sickly')) q *= 1.6;",
+          "      if (!st) q *= 1.25;",
+          "      if (st) {",
+          "        const dz = W.disease[st.capital] || 0;",
+          "        if (dz > 0.04 && Math.random() < dz * PPL.PLAGUE_K) cause = 'plague';",
+          "        else if (hits && hits.has(st.uid) && Math.random() < hits.get(st.uid) * PPL.DISASTER_K) cause = 'disaster';",
+          "        else if (st.atWar > 0 && !p.sex && age >= 17 && age <= 58 && p.dyn >= 0 && p.claim < 0 && (p.role === 'ruler' || p.role === 'heir' || _rankOf(p) <= 1)) {"
+        ]
+      }
+    },
+    {
+      "id": "DD-24",
+      "source_id": "SRC-130",
+      "summary": "Nearest political neighbor and two-target discord handler.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 267,
+        "end_line": 298,
+        "source_lines": [
+          "// сосед державы st у щелчка (cx, cy): чужая клетка соседней державы не дальше двух клеток — ближайшая. null — щелчок в глубине",
+          "function _powerNb(st, cx, cy) {",
+          "  if (!st || !st._nb) return null; let best = null, bd = 1e9;",
+          "  for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) {",
+          "    const x = cx + dx, y = cy + dy; if (x < 0 || y < 0 || x >= GRID.W || y >= GRID.H) continue;",
+          "    const sid = W.stateId[y * GRID.W + x]; if (sid < 0 || sid === st.id || !st._nb.has(sid)) continue;",
+          "    const o = states[sid], d = dx * dx + dy * dy; if (o && o.alive && d < bd) { bd = d; best = o; }",
+          "  }",
+          "  return best;",
+          "}",
+          "// раздор с явным исходом (2.1.1, круг 2): a — первая держава; b — вторая (война a с b) или null — со всеми соседями (войны с ближайшими,",
+          "// не больше четырёх, с остальными — вражда, внутри смута). → { wars, msg }",
+          "function godDiscord(a, b) {",
+          "  if (!a || !a.alive) return { wars: 0, msg: T('Этой державы больше нет', 'This nation no longer exists') };",
+          "  const list = b ? [b] : (a._nb ? [...a._nb.keys()] : []).map(id => states[id]).filter(o => o && o.alive && o !== a);",
+          "  if (!list.length) return { wars: 0, msg: TF('У державы {0} нет соседей — ссориться не с кем', '{0} has no neighbours — there is no one to quarrel with', a.name) };",
+          "  // ближние (больше общей границы) — первыми: с ними и воевать",
+          "  if (!b) list.sort((x, y) => (a._nb.get(y.id) || 0) - (a._nb.get(x.id) || 0));",
+          "  let wars = 0, already = 0;",
+          "  for (const o of list) {",
+          "    civBond(a, o, -2); a.truce.delete(o.id); o.truce.delete(a.id);",
+          "    if (warBetween(a, o)) { already++; continue; }",
+          "    if ((b || wars < 4) && declareWar(a, o, 'border')) wars++;",
+          "  }",
+          "  if (!b) a.stability = clamp01(a.stability - 0.2);",
+          "  const cell = a.capital >= 0 ? a.capital : -1;",
+          "  if (b) logEvent('player', wars ? TF('Воля творца: {0} и {1} рассорились — началась война', 'The will of the maker: {0} and {1} fell out — war has begun', a.name, b.name) : TF('Воля творца: между державами {0} и {1} посеян раздор', 'The will of the maker: discord is sown between {0} and {1}', a.name, b.name), { s: [a.id, b.id], cell, imp: 1 });",
+          "  else logEvent('player', TF('Воля творца: держава {0} рассорилась со всеми соседями — войн: {1}', 'The will of the maker: {0} fell out with all its neighbours — wars: {1}', a.name, wars), { s: [a.id], cell, imp: 1 });",
+          "  const msg = b ? (wars ? TF('{0} и {1} воюют', '{0} and {1} are at war', a.name, b.name) : already ? TF('{0} и {1} уже воюют', '{0} and {1} are already at war', a.name, b.name) : TF('Между {0} и {1} — вражда', 'Enmity between {0} and {1}', a.name, b.name))",
+          "    : TF('{0}: раздор со всеми соседями, новых войн — {1}', '{0}: discord with all neighbours, new wars — {1}', a.name, wars);",
+          "  return { wars, msg };",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-25",
+      "source_id": "SRC-130",
+      "summary": "Direct rain, blessing, inspiration, peace and discord mutations.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 299,
+        "end_line": 345,
+        "source_lines": [
+          "function godPower(name, cell, r, s) {",
+          "  if (!(cell >= 0 && cell < GRID.N)) return false;",
+          "  const cx = cell % GRID.W, cy = (cell / GRID.W) | 0, st = stateOf(cell);",
+          "  r = Math.max(0.6, r || 2); s = s || 1;",
+          "  if (name === 'rain') {                                   // благодатный дождь: гасит пожары, поит землю пару лет",
+          "    _around(cx, cy, r, (i, k) => { if (W.isWater[i]) return; W.pAnom[i] = Math.max(W.pAnom[i], 1.3 + 0.5 * s * k); W.fire[i] = 0; W.capDirty[i] = 1; });",
+          "    return true;",
+          "  }",
+          "  if (name === 'bless') {                                  // благословение: плодородие, здоровье, покой",
+          "    _around(cx, cy, r, (i, k) => { if (W.isWater[i]) return; W.volcanic[i] = Math.max(W.volcanic[i], 0.5 * k * s); W.unrest[i] *= 1 - 0.8 * k; W.disease[i] = 0; W.ruin[i] *= 1 - 0.8 * k; W.fallout[i] *= 1 - 0.7 * k; W.eco[i] = clamp01(W.eco[i] + 0.3 * k); W.capDirty[i] = 1; });",
+          "    return true;",
+          "  }",
+          "  if (!st) return false;",
+          "  if (name === 'inspire') {                                // озарение: рывок в науке и золотой век",
+          "    st.tech = Math.min(CIV.TECH_CAP, st.tech + 0.35 * s); civShock(st, 'golden', 0.8);",
+          "    logEvent('player', TF('Воля творца: державу {0} посетило озарение — наступает золотой век', 'The will of the maker: {0} is touched by inspiration — a golden age begins', st.name), { s: [st.id], cell, imp: 1 });",
+          "    return true;",
+          "  }",
+          "  // мир и раздор у самой границы — точечно, только с этим соседом (локальный конфликт, просьба тестера); в глубине державы — со всеми",
+          "  const nb = (name === 'peace' || name === 'discord') ? _powerNb(st, cx, cy) : null;",
+          "  if (nb && name === 'peace') {",
+          "    const w = warOf(st, nb); if (w) endWar(w, 'white');",
+          "    civBond(st, nb, 0.3); st.exhaust *= 0.6; nb.exhaust *= 0.6;",
+          "    logEvent('player', w ? TF('Воля творца: {0} и {1} заключили мир', 'The will of the maker: {0} and {1} made peace', st.name, nb.name) : TF('Воля творца: между державами {0} и {1} установилось согласие', 'The will of the maker: concord settles between {0} and {1}', st.name, nb.name), { s: [st.id, nb.id], cell, imp: 1 });",
+          "    return true;",
+          "  }",
+          "  if (nb && name === 'discord') {",
+          "    civBond(st, nb, -0.6); st.truce.delete(nb.id); nb.truce.delete(st.id);",
+          "    logEvent('player', TF('Воля творца: между державами {0} и {1} посеян раздор', 'The will of the maker: discord is sown between {0} and {1}', st.name, nb.name), { s: [st.id, nb.id], cell, imp: 1 });",
+          "    return true;",
+          "  }",
+          "  if (name === 'peace') {                                  // мир: все войны державы кончаются ничьей",
+          "    let n = 0;",
+          "    for (const w of wars.slice()) { if (warSide(w, 0).indexOf(st) >= 0 || warSide(w, 1).indexOf(st) >= 0) { endWar(w, 'white'); n++; } }",
+          "    st.exhaust *= 0.3; st.stability = clamp01(st.stability + 0.15);",
+          "    if (st._nb) for (const [nid] of st._nb) civBond(st, states[nid], 0.3);",
+          "    logEvent('player', n ? TF('Воля творца: {0} сложила оружие — войны окончены', 'The will of the maker: {0} laid down its arms — the wars are over', st.name) : TF('Воля творца: на державу {0} снизошёл покой', 'The will of the maker: calm descends on {0}', st.name), { s: [st.id], cell, imp: 1 });",
+          "    return true;",
+          "  }",
+          "  if (name === 'discord') {                                // раздор: ссора со всеми соседями и смута внутри",
+          "    if (st._nb) for (const [nid] of st._nb) { const o = states[nid]; civBond(st, o, -0.6); if (o) { st.truce.delete(nid); o.truce.delete(st.id); } }",
+          "    st.stability = clamp01(st.stability - 0.2);",
+          "    logEvent('player', TF('Воля творца: между державой {0} и её соседями посеян раздор', 'The will of the maker: discord is sown between {0} and its neighbours', st.name), { s: [st.id], cell, imp: 1 });",
+          "    return true;",
+          "  }",
+          "  return false;",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-26",
+      "source_id": "SRC-130",
+      "summary": "Golden-age and bilateral relations helpers.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 322,
+        "end_line": 335,
+        "source_lines": [
+          "function civShock(st, kind, amt) {",
+          "  if (!st || !st.alive) return;",
+          "  amt = clamp01(amt || 0.3);",
+          "  if (kind === 'golden') { st.stability = clamp01(st.stability + 0.25 * amt); st._golden = Math.min(2, (st._golden || 0) + amt); return; }",
+          "  st.stability = clamp01(st.stability - 0.45 * amt);",
+          "  if (kind === 'succession' || kind === 'coup') st.cells.forEach(i => { W.unrest[i] = clamp01(W.unrest[i] + 0.25 * amt); });",
+          "}",
+          "// сближение/охлаждение двух держав на d (−1..1): династический брак, оскорбление, общая беда",
+          "function civBond(a, b, d) {",
+          "  if (!a || !b || a === b || !a.alive || !b.alive) return;",
+          "  const v = clamp((a.relations.get(b.id) || 0) + d, -1, 1);",
+          "  a.relations.set(b.id, v); b.relations.set(a.id, v);",
+          "}",
+          ""
+        ]
+      }
+    },
+    {
+      "id": "DD-27",
+      "source_id": "SRC-130",
+      "summary": "Primary war vs opposite sides including allies.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 490,
+        "end_line": 513,
+        "source_lines": [
+          "function warBetween(a, b) {",
+          "  if (!a || !b) return null;",
+          "  for (const w of wars) if ((w.a === a.id && w.b === b.id) || (w.a === b.id && w.b === a.id)) return w;",
+          "  return null;",
+          "}",
+          "// на чьей стороне войны w держава st: 0 — зачинщика, 1 — обороняющегося, −1 — не воюет в ней.",
+          "// Сверяем uid, а не слот: слот погибшей державы мог достаться новой, к этой войне непричастной",
+          "function warSideOf(w, st) {",
+          "  if (!w || !st) return -1;",
+          "  if (w.a === st.id && w.aUid === st.uid) return 0;",
+          "  if (w.b === st.id && w.bUid === st.uid) return 1;",
+          "  if (w.allies && w.allies.a.indexOf(st.uid) >= 0) return 0;",
+          "  if (w.allies && w.allies.b.indexOf(st.uid) >= 0) return 1;",
+          "  return -1;",
+          "}",
+          "// война, в которой a и b — по разные стороны (с учётом союзников). warBetween находит только войну двух главных",
+          "// держав: союзник в чужой войне получал null, и окно битвы показывало первую попавшуюся войну",
+          "function warOf(a, b) {",
+          "  if (!a || !b || a === b) return null;",
+          "  for (const w of wars) { const sa = warSideOf(w, a); if (sa >= 0 && warSideOf(w, b) === 1 - sa) return w; }",
+          "  return null;",
+          "}",
+          "// Дальность торгового рейса (клеток морского пути) по эпохе владельца судна: до AT_SEA_NEAR в море не выходят,",
+          "// до океанского плавания (AT_SEA_FAR) — каботаж в пределах SEA_TRADE_NEAR, дальше — весь океан."
+        ]
+      }
+    },
+    {
+      "id": "DD-28",
+      "source_id": "SRC-130",
+      "summary": "Direct declaration, guards, alliances and first chronicle entry.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 1199,
+        "end_line": 1248,
+        "source_lines": [
+          "function declareWar(att, def, cause) {",
+          "  if (!att || !def || att === def || !att.alive || !def.alive || warBetween(att, def)) return null;",
+          "  const w = {",
+          "    id: ++_warSeq, name: att.name + ' — ' + def.name, a: att.id, b: def.id, aUid: att.uid, bUid: def.uid,",
+          "    aName: att.name, bName: def.name, aColor: att.color.slice(), bColor: def.color.slice(),",
+          "    allies: { a: [], b: [] }, start: W.simYear, end: null, casA: 0, casB: 0, cellsA: 0, cellsB: 0, battles: 0,",
+          "    navA: 0, navB: 0, sunkA: 0, sunkB: 0,   // победы сторон на море и их потопленные корабли (в сейвах 2.0 полей нет — читаем как 0)",
+          "    cause: cause || 'border', result: null, areaA0: att.area, areaB0: def.area, goal: 0,",
+          "  };",
+          "  // цель войны: сколько земель зачинщик хочет отнять. Добился — мир; раньше война шла до полного",
+          "  // поглощения, и любой перевес сил кончался исчезновением соседа",
+          "  const gi = { border: 0, conquest: 1, holy: 2, colonial: 3, revenge: 4 }[w.cause];",
+          "  const area = Math.max(def.area, def.cells.size);",
+          "  w.goal = w.cause === 'independence' ? Math.max(2, Math.ceil(area * 0.5)) : area <= 4 ? area : clamp(Math.ceil(area * CIV.WAR_GOAL[gi === undefined ? 0 : gi]), 2, 60);",
+          "  // завоевание слабого сильным — до конца: так складываются империи (а рушит их потом собственный размер)",
+          "  if (w.cause === 'conquest' && powerOf(att) > powerOf(def) * CIV.TOTAL_WAR && def.overlord < 0) { w.total = 1; w.goal = area; }",
+          "  wars.push(w);",
+          "  att.relations.set(def.id, -0.85); def.relations.set(att.id, -0.85);",
+          "  att.warsTotal++; def.warsTotal++;",
+          "  att.truce.delete(def.id); def.truce.delete(att.id);",
+          "  if (!_landCells) stateCap();",
+          "  const hegemon = att.area > _landCells * 0.2 && att.area > def.area * 2;   // держава, подмявшая пятую часть суши, пугает всех",
+          "  // союзники: оборонительный союз обязывает, наступательный — как повезёт; вассалы идут за сюзереном всегда",
+          "  for (const x of states) {",
+          "    if (!x.alive || x === att || x === def) continue;",
+          "    const rd = x.relations.get(def.id) || 0, ra = x.relations.get(att.id) || 0;",
+          "    const vasD = x.overlord === def.id || def.overlord === x.id, vasA = x.overlord === att.id || att.overlord === x.id;",
+          "    if (vasD || (rd > CIV.ALLY_AT && ra <= CIV.ALLY_AT && Math.random() < 0.75)) { w.allies.b.push(x.uid); x.relations.set(att.id, Math.min(ra, -0.6)); att.relations.set(x.id, Math.min(ra, -0.6)); x.warsTotal++; }",
+          "    else if (vasA || (ra > CIV.ALLY_AT && rd <= CIV.ALLY_AT && Math.random() < 0.4)) { w.allies.a.push(x.uid); x.relations.set(def.id, Math.min(rd, -0.6)); def.relations.set(x.id, Math.min(rd, -0.6)); x.warsTotal++; }",
+          "    // баланс сил: против гегемона соседи сплачиваются, даже не будучи союзниками жертвы",
+          "    else if (hegemon && att._nb && att._nb.has(x.id) && ra < 0.2 && x.overlord < 0 && !x.atWar && Math.random() < 0.45) { w.allies.b.push(x.uid); x.relations.set(att.id, Math.min(ra, -0.6)); att.relations.set(x.id, Math.min(ra, -0.6)); x.warsTotal++; civBond(x, def, 0.3); }",
+          "  }",
+          "  rebuildFoes();",
+          "  const n = 2 + w.allies.a.length + w.allies.b.length;",
+          "  // «великая война» — когда в неё втянута половина человечества, а не просто много карликов. Коалиционные",
+          "  // войны при системе союзов идут постоянно; имя «великой» получает только одна из них за целую эпоху —",
+          "  // иначе к трёхсотому году счёт доходил до «Десятой великой войны» и слово ничего не значило",
+          "  let sh = 0; for (const s of warSide(w, 0)) sh += s.pop; for (const s of warSide(w, 1)) sh += s.pop; sh /= Math.max(_worldPop, 1);",
+          "  let txt, greatOn = false; for (const x of wars) if (x.great && x !== w) { greatOn = true; break; }",
+          "  if (n >= CIV.GREAT_WAR_N && sh >= CIV.GREAT_WAR_SHARE && !greatOn && W.simYear - _greatLast >= CIV.GREAT_WAR_GAP) {",
+          "    w.great = ++_greatWars; _greatLast = W.simYear;",
+          "    w.name = TF('{0} великая война', 'The {0} Great War', _greatOrd(_greatWars));",
+          "    txt = TF('{0}: {1} и союзники против {2} и союзников — {3}. Причина — {4}', '{0}: {1} and allies against {2} and allies — {3}. The cause — {4}', w.name, att.name, def.name, TNn(n, 'держава', 'державы', 'держав', 'nation', 'nations'), warCauseName(w.cause));",
+          "  } else txt = (w.total ? TF('Война на уничтожение: {0} идёт завоёвывать державу {1}', 'A war of conquest: {0} sets out to swallow {1} whole', att.name, def.name)",
+          "      : TF('Война: {0} против {1} — {2}', 'War: {0} against {1} — {2}', att.name, def.name, warCauseName(w.cause))) + (n > 2 ? TF(' (вступили союзники: {0})', ' (allies joined: {0})', n - 2) : '');",
+          "  w.share = sh;",
+          "  logEvent('war', txt, { s: [att.id, def.id], cell: def.capital, war: w.id, imp: w.great || sh > 0.3 ? 2 : 1 });",
+          "  simEmit('war', w);",
+          "  return w;",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-29",
+      "source_id": "SRC-130",
+      "summary": "Apply peace including the branch for a war without battles.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 1251,
+        "end_line": 1319,
+        "source_lines": [
+          "function endWar(w, res, how) {",
+          "  const k = wars.indexOf(w); if (k < 0) return;",
+          "  wars.splice(k, 1);",
+          "  const a = states[w.a], b = states[w.b];",
+          "  const aOk = a && a.alive && a.uid === w.aUid, bOk = b && b.alive && b.uid === w.bUid;",
+          "  if (!res) {",
+          "    const land = w.cellsA - w.cellsB, sc = land + ((w.navA | 0) - (w.navB | 0)) * CIV.SEA_SCORE;",
+          "    res = sc >= 3 ? 'a' : sc <= -3 ? 'b' : 'white';",
+          "    if (res !== 'white' && Math.abs(land) < 3) how = 'sea';          // по одним землям вышла бы ничья — войну выиграл флот",
+          "  }",
+          "  w.result = res; w.end = W.simYear;",
+          "  if (w.battles === 0 && aOk && bOk) {",
+          "    // «странная война»: объявили, но ни одного сражения (нет общего фронта). В летопись войн не идёт.",
+          "    a.relations.set(b.id, -0.3); b.relations.set(a.id, -0.3);",
+          "    const until0 = W.simYear + CIV.TRUCE_YEARS * 0.5; a.truce.set(b.id, until0); b.truce.set(a.id, until0);",
+          "    a.warsTotal = Math.max(0, a.warsTotal - 1); b.warsTotal = Math.max(0, b.warsTotal - 1);",
+          "    rebuildFoes(); simEmit('peace', w);",
+          "    return;",
+          "  }",
+          "  warLog.unshift(w); if (warLog.length > WAR_LOG_CAP) warLog.length = WAR_LOG_CAP;",
+          "  const yrs = Math.max(1, Math.round(w.end - w.start)), dead = Math.round(w.casA + w.casB);",
+          "  let txt;",
+          "  if (aOk && bOk) {",
+          "    a.relations.set(b.id, -0.25); b.relations.set(a.id, -0.25);",
+          "    const until = W.simYear + CIV.TRUCE_YEARS; a.truce.set(b.id, until); b.truce.set(a.id, until);",
+          "    const win = res === 'a' ? a : res === 'b' ? b : null, lose = res === 'a' ? b : res === 'b' ? a : null;",
+          "    if (win) {",
+          "      win.warsWon++; lose.warsLost++;",
+          "      const pay = lose.treasury * 0.25; lose.treasury -= pay; win.treasury += pay;         // контрибуция",
+          "      lose.stability = clamp01(lose.stability - 0.12); win.stability = clamp01(win.stability + 0.05);",
+          "      const area0 = res === 'a' ? w.areaB0 : w.areaA0, lostShare = area0 > 0 ? 1 - lose.area / area0 : 0;",
+          "      txt = how === 'sea' ? TF('Мир: {0} господствует на море — {1} признала поражение ({2} войны, погибло {3})', 'Peace: {0} rules the seas — {1} admits defeat ({2} of war, {3} dead)', win.name, lose.name, TNn(yrs, 'год', 'года', 'лет', 'year', 'years'), (typeof UI !== 'undefined' ? UI.fmt(dead) : dead))",
+          "        : TF('Мир: {0} победила {1} ({2} войны, погибло {3})', 'Peace: {0} defeated {1} ({2} of war, {3} dead)', win.name, lose.name, TNn(yrs, 'год', 'года', 'лет', 'year', 'years'), (typeof UI !== 'undefined' ? UI.fmt(dead) : dead));",
+          "      if (w.cause === 'independence' && res === 'a' && lose.parent === win.id && (lose.parentGen | 0) === (win.gen | 0) && lose.alive) {   // родитель — именно эта держава, а не новая в том же слоте",
+          "        // метрополия подавила восстание: мятежная держава возвращается в её состав",
+          "        rebuildFoes();",
+          "        logEvent('peace', TF('{0} подавила восстание: земли державы {1} возвращены', '{0} crushed the uprising: the lands of {1} are retaken', win.name, lose.name), { s: [win.id, lose.id], cell: lose.capital, war: w.id, imp: 1 });",
+          "        for (const i of Array.from(lose.cells)) setOwner(i, win);",
+          "        lose.cells.clear(); killState(lose, 'conquered', win); win._sites = null;",
+          "        simEmit('peace', w);",
+          "        return;",
+          "      }",
+          "      // разгромленный противник ранних эпох становится вассалом (в новое время побеждённых не вассалят — с них берут земли и деньги)",
+          "      if (lostShare > CIV.VASSAL_LOSS && lose.area >= 2 && win.era < CIV.AT_MODERN && lose.overlord < 0 && win.overlord !== lose.id) {",
+          "        lose.overlord = win.id;",
+          "        logEvent('vassal', TF('{0} признала себя вассалом державы {1}', '{0} became a vassal of {1}', lose.name, win.name), { s: [lose.id, win.id], cell: lose.capital, imp: 1 });",
+          "      }",
+          "    } else txt = TF('Мир: война {0} и {1} окончилась ничем ({2}, погибло {3})', 'Peace: the war between {0} and {1} ended in a stalemate ({2}, {3} dead)', a.name, b.name, TNn(yrs, 'год', 'года', 'лет', 'year', 'years'), (typeof UI !== 'undefined' ? UI.fmt(dead) : dead));",
+          "  } else {",
+          "    const surv = aOk ? a : bOk ? b : null;",
+          "    // «сокрушила» — только если врага добила именно она (его мог поглотить третий или он распался сам);",
+          "    // мёртвый противник ещё лежит в своём слоте, если слот не успел занять новорождённый",
+          "    const foe = aOk ? b : a, foeUid = aOk ? w.bUid : w.aUid, foeName = aOk ? w.bName : w.aName;",
+          "    const crushed = !!(surv && foe && !foe.alive && foe.uid === foeUid && foe.deathCause === 'conquered' && foe.killer === surv.id);",
+          "    txt = !surv ? TF('Война {0} и {1} угасла: обе державы исчезли', 'The war between {0} and {1} faded: both nations are gone', w.aName, w.bName)",
+          "      : crushed ? TF('Война окончена: {0} сокрушила {1}', 'The war is over: {0} crushed {1}', surv.name, foeName)",
+          "      : TF('Война окончена: противника державы {0} — {1} — больше нет', 'The war is over: the enemy of {0}, {1}, is no more', surv.name, foeName);",
+          "    if (crushed) surv.warsWon++;",
+          "  }",
+          "  // союзники расходятся по домам: с главным противником у них остаётся холодок, но не вражда",
+          "  for (const side of [0, 1]) {",
+          "    const foe = side ? a : b; if (!foe || !foe.alive) continue;",
+          "    for (const u of (side ? w.allies.b : w.allies.a)) { const x = stateByUid(u); if (x) { x.relations.set(foe.id, -0.2); foe.relations.set(x.id, -0.2); } }",
+          "  }",
+          "  rebuildFoes();",
+          "  const sides = []; if (aOk) sides.push(w.a); if (bOk) sides.push(w.b);   // погибшей стороны в записи нет: её слот мог уже достаться другой державе",
+          "  logEvent('peace', txt, { s: sides, cell: bOk ? b.capital : aOk ? a.capital : -1, war: w.id, imp: w.great || dead > _worldPop * 0.02 ? 2 : (w.share || 0) > 0.08 ? 1 : 0 });",
+          "  simEmit('peace', w);",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-30",
+      "source_id": "SRC-131",
+      "summary": "Initial controls and tool declarations.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "line": 5,
+        "end_line": 50,
+        "source_lines": [
+          "const uiState = { tool: 'inspect', group: 'land', dir: 1, biome: 'temperateDeciduous', res: 1, fauna: 'herb', brush: 3, layer: 'biome', speed: 1, strength: 5, persistentSrc: true, showCities: true };",
+          "let _painting = false, _terrainTouched = false, _currentTouched = false, _windTouched = false, _civTouched = false, _resTouched = false;",
+          "let _hoverCell = -1, _lastCX = 0, _lastCY = 0, _dragDX = 0, _dragDY = 0;",
+          "let _dwellTimer = null;   // подсказка у курсора всплывает только после «задержки» курсора (фидбек тестера)",
+          "let _pointLatch = false;  // точечный инструмент уже сработал в этом нажатии: один клик — одно бедствие, сколько ни тяни мышь",
+          "",
+          "// ---- таблица инструментов ----",
+          "// g — вкладка-группа слева; layer — слой карты, на который переключаемся (игрок должен видеть то, что меняет);",
+          "// str — нужен ползунок силы; dir — подписи пары «＋ / －»; point — точечный: кисть не нужна, один клик — одно действие;",
+          "// dis — стихийное бедствие (disasterTrigger); power — сила творца, обращённая к державе (godPower);",
+          "// area — сила творца, действующая на всю кисть разом; good — доброе дело (зелёный прицел вместо красного).",
+          "const TOOLS = {",
+          "  inspect:    { g: '' },",
+          "  walk:       { g: '', point: 1, good: 1 },",
+          "  terrain:    { g: 'land', layer: 'biome' },",
+          "  elevation:  { g: 'land', layer: 'biome', str: 1, dir: [T('Поднять', 'Raise'), T('Опустить', 'Lower')] },",
+          "  smooth:     { g: 'land', layer: 'biome', str: 1 },",
+          "  water:      { g: 'land', layer: 'biome', dir: [T('Залить водой', 'Flood'), T('Поднять сушу', 'Raise land')] },",
+          "  resource:   { g: 'land', layer: 'resources', dir: [T('Заложить', 'Place'), T('Убрать', 'Remove')] },",
+          "  eraser:     { g: 'land' },",
+          "  temp:       { g: 'climate', layer: 'temperature', str: 1, dir: [T('Нагрев', 'Heat'), T('Охлаждение', 'Cool')] },",
+          "  precip:     { g: 'climate', layer: 'humidity', str: 1, dir: [T('Увлажнить', 'Wetter'), T('Осушить', 'Drier')] },",
+          "  wind:       { g: 'climate', layer: 'wind', str: 1 },",
+          "  current:    { g: 'climate', layer: 'currents', str: 1 },",
+          "  rain:       { g: 'climate', layer: 'humidity', str: 1, area: 'rain', good: 1 },",
+          "  drought:    { g: 'climate', layer: 'humidity', str: 1, point: 1, dis: 'drought' },",
+          "  population: { g: 'life', layer: 'population', str: 1, dir: [T('Заселить', 'Settle'), T('Убрать', 'Remove')] },",
+          "  city:       { g: 'life', layer: 'political', point: 1, good: 1 },",
+          "  fauna:      { g: 'life', layer: 'fauna', str: 1, dir: [T('Подселить', 'Release'), T('Истребить', 'Wipe out')] },",
+          "  bless:      { g: 'life', str: 1, area: 'bless', good: 1 },",
+          "  inspire:    { g: 'life', layer: 'political', str: 1, point: 1, power: 'inspire', good: 1 },",
+          "  peace:      { g: 'life', layer: 'political', point: 1, power: 'peace', good: 1 },",
+          "  discord:    { g: 'life', layer: 'political', point: 1, power: 'discord' },",
+          "  plague:     { g: 'life', layer: 'disease', point: 1, dis: 'plague' },",
+          "  volcano:    { g: 'powers', str: 1, point: 1, dis: 'volcano' },",
+          "  quake:      { g: 'powers', str: 1, point: 1, dis: 'quake' },",
+          "  meteor:     { g: 'powers', str: 1, point: 1, dis: 'meteor' },",
+          "  tsunami:    { g: 'powers', str: 1, point: 1, dis: 'tsunami' },",
+          "  hurricane:  { g: 'powers', str: 1, point: 1, dis: 'hurricane' },",
+          "  fire:       { g: 'powers', str: 1, point: 1, dis: 'fire' },",
+          "  flood:      { g: 'powers', str: 1, point: 1, dis: 'flood' },",
+          "  blizzard:   { g: 'powers', str: 1, point: 1, dis: 'blizzard' },",
+          "  rocket:     { g: 'powers', layer: 'political', point: 1 },",
+          "  nuke:       { g: 'powers', layer: 'political', point: 1 },",
+          "};",
+          "// Подсказки: [строка под картой — «что делать», заметка в панели настроек — «к чему это приведёт»]."
+        ]
+      }
+    },
+    {
+      "id": "DD-31",
+      "source_id": "SRC-131",
+      "summary": "Preview radii, disaster strength and biome preset data.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "line": 137,
+        "end_line": 161,
+        "source_lines": [
+          "function _disRadius(type, p) {",
+          "  return type === 'volcano' ? 1.4 + p * 1.8 : type === 'quake' ? 1.8 + p * 2.2 : type === 'tsunami' ? 5 + p * 6 : type === 'hurricane' ? 2.2 + p * 1.4",
+          "    : type === 'fire' ? 1 + p * 1.5 : type === 'meteor' ? 2.6 + p * 2.2 : type === 'plague' ? 1.5 : type === 'drought' ? 4 + p * 4 : type === 'flood' ? 3 + p * 3 : type === 'blizzard' ? 5 + p * 4 : 0;",
+          "}",
+          "const _toolPower = () => clamp(uiState.strength / 10, 0.1, 1);   // ползунок силы 1..10 → сила бедствия 0.1..1",
+          "",
+          "// репрезентативные климат-точки биомов для кисти «рельеф»",
+          "const BIOME_PAINT = {",
+          "  deepOcean:        { water: true },",
+          "  tropRainforest:    { t: 26, p: 3000 },",
+          "  tropSeasonalForest:{ t: 25, p: 1400 },",
+          "  savanna:           { t: 24, p: 600 },",
+          "  mangrove:          { t: 25, p: 2000, low: true },",
+          "  temperateDeciduous:{ t: 12, p: 1000 },",
+          "  temperateRainforest:{ t: 10, p: 2600 },",
+          "  temperateGrassland:{ t: 12, p: 380 },",
+          "  marsh:             { t: 14, p: 1800, low: true },",
+          "  subtropicalDesert: { t: 29, p: 70 },",
+          "  coldDesert:        { t: 2,  p: 110 },",
+          "  borealForest:      { t: 2,  p: 600 },",
+          "  tundra:            { t: -8, p: 240 },",
+          "  iceSheet:          { t: -28, p: 90 },",
+          "  alpine:            { t: 1,  p: 800, mountain: true },",
+          "  barrenRock:        { t: 0,  p: 200, mountain: true },",
+          "};"
+        ]
+      }
+    },
+    {
+      "id": "DD-32",
+      "source_id": "SRC-131",
+      "summary": "Brush size and strength ranges in default UI.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a",
+        "line": 518,
+        "end_line": 530,
+        "source_lines": [
+          "        <div class=\"brush-row\">",
+          "          <input type=\"range\" id=\"brushSizeSlider\" min=\"0\" max=\"20\" value=\"3\">",
+          "          <span id=\"brush-badge\">3</span>",
+          "        </div>",
+          "      </div>",
+          "      <div class=\"fld hidden\" id=\"strength-field\">",
+          "        <label id=\"strength-label\" data-en=\"Strength\">Сила воздействия</label>",
+          "        <div class=\"brush-row\">",
+          "          <input type=\"range\" id=\"strengthSlider\" min=\"1\" max=\"10\" value=\"5\">",
+          "          <span id=\"strength-badge\">5</span>",
+          "        </div>",
+          "      </div>",
+          "      <div class=\"fld hidden\" id=\"persist-field\">"
+        ]
+      }
+    },
+    {
+      "id": "DD-33",
+      "source_id": "SRC-131",
+      "summary": "Tool selector, resource and fauna options and sliders.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "line": 169,
+        "end_line": 196,
+        "source_lines": [
+          "  document.querySelectorAll('#tool-groups [data-group]').forEach(el => el.addEventListener('click', () => setToolGroup(el.dataset.group)));",
+          "  document.querySelectorAll('#tool-dir [data-dir]').forEach(el => el.addEventListener('click', () => {",
+          "    uiState.dir = parseInt(el.dataset.dir);",
+          "    document.querySelectorAll('#tool-dir [data-dir]').forEach(b => b.classList.toggle('on', b === el));",
+          "  }));",
+          "  const terrainSel = document.getElementById('terrainType');",
+          "  terrainSel.addEventListener('change', () => { uiState.biome = terrainSel.value; setTool('terrain'); });",
+          "  uiState.biome = terrainSel.value || 'temperateDeciduous';",
+          "  const resSel = document.getElementById('resType');",
+          "  if (resSel) {",
+          "    for (let r = 1; r < RES.length; r++) { const o = document.createElement('option'); o.value = r; o.textContent = resName(r); resSel.appendChild(o); }",
+          "    resSel.addEventListener('change', () => { uiState.res = parseInt(resSel.value) || 1; });",
+          "  }",
+          "  const faunaSel = document.getElementById('faunaType');",
+          "  if (faunaSel) {",
+          "    _fillFaunaSelect(faunaSel); faunaSel.addEventListener('change', () => { uiState.fauna = faunaSel.value; });",
+          "    // виды из модов приходят позже bindUI (modsInit, а предметы Мастерской — ещё позже, асинхронно)",
+          "    if (typeof simOn === 'function') simOn('faunaSpecies', () => { const v = faunaSel.value; _fillFaunaSelect(faunaSel); faunaSel.value = v; });",
+          "  }",
+          "  document.getElementById('brushSizeSlider').addEventListener('input', e => { uiState.brush = parseInt(e.target.value); updateBrushBadge(); });",
+          "  const ss = document.getElementById('strengthSlider');",
+          "  if (ss) ss.addEventListener('input', e => { uiState.strength = parseInt(e.target.value); const b = document.getElementById('strength-badge'); if (b) b.textContent = uiState.strength; });",
+          "",
+          "  // --- переключатель постоянный/временный источник ---",
+          "  document.querySelectorAll('#persist-toggle [data-persist]').forEach(el => el.addEventListener('click', () => {",
+          "    uiState.persistentSrc = el.dataset.persist === '1';",
+          "    document.querySelectorAll('#persist-toggle [data-persist]').forEach(b => b.classList.toggle('on', b === el));",
+          "  }));"
+        ]
+      }
+    },
+    {
+      "id": "DD-34",
+      "source_id": "SRC-131",
+      "summary": "Tool locks and selection behavior.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "line": 488,
+        "end_line": 519,
+        "source_lines": [
+          "const _toolLocks = Object.create(null);",
+          "function uiLockTools(list, on) {",
+          "  for (const t of (list || [])) { if (on) _toolLocks[t] = 1; else delete _toolLocks[t]; }",
+          "  document.querySelectorAll('.tool[data-tool]').forEach(el => { const l = !!_toolLocks[el.dataset.tool]; el.classList.toggle('locked', l); if (l) el.title = T('Недоступно в этом сценарии', 'Unavailable in this scenario'); else el.removeAttribute('title'); });",
+          "  if (_toolLocks[uiState.tool]) setTool('inspect');",
+          "}",
+          "function _show(id, on) { const el = document.getElementById(id); if (el) el.classList.toggle('hidden', !on); }",
+          "function setTool(name) {",
+          "  const td = TOOLS[name]; if (!td) return;",
+          "  if (_toolLocks[name]) { if (typeof flash === 'function') flash(T('Этот инструмент недоступен в сценарии', 'This tool is unavailable in the scenario')); return; }",
+          "  uiState.tool = name; uiState.discordA = null;              // выбор первой державы раздора — только пока инструмент в руке",
+          "  if (td.g) setToolGroup(td.g);",
+          "  document.querySelectorAll('.tool[data-tool]').forEach(el => el.classList.toggle('active', el.dataset.tool === name));",
+          "  _show('tool-dir', !!td.dir); _show('biome-pick', name === 'terrain'); _show('res-pick', name === 'resource'); _show('fauna-pick', name === 'fauna'); _show('fauna-auto-field', name === 'fauna');",
+          "  _show('strength-field', !!td.str); _show('persist-field', name === 'temp');",
+          "  _show('brush-field', !td.point && name !== 'inspect');   // размер кисти не нужен в осмотре и точечным инструментам",
+          "  _show('walk-opts', name === 'walk');                     // выбор места для прогулки: слева её режим и «Отмена»",
+          "  const bw = document.getElementById('btn-walk'); if (bw) bw.classList.toggle('on', name === 'walk');",
+          "  if (name === 'walk') _syncWalkOpts();",
+          "  const sl = document.getElementById('strength-label'); if (sl) sl.textContent = td.dis ? T('Сила бедствия', 'Disaster strength') : T('Сила воздействия', 'Strength');",
+          "  // КАЖДЫЙ инструмент переключает карту на свой слой — стрелки ветра/оверлеи не «залипают» от предыдущего",
+          "  // (осмотр, ластик и стихии слой не трогают). Слоя из реестра может не быть (модуль отключён) — тогда остаёмся как есть.",
+          "  if (td.layer && (td.layer === 'biome' || _layerKnown(td.layer))) setLayer(td.layer);",
+          "  if (td.dir) {",
+          "    const bp = document.querySelector('#tool-dir [data-dir=\"1\"]'), bn = document.querySelector('#tool-dir [data-dir=\"-1\"]');",
+          "    if (bp) bp.textContent = '＋ ' + td.dir[0]; if (bn) bn.textContent = '－ ' + td.dir[1];",
+          "  }",
+          "  const tx = TOOL_TEXT[name] || ['', ''];",
+          "  const hint = document.getElementById('stage-hint'); if (hint) hint.textContent = tx[0];",
+          "  const note = document.getElementById('tool-note'); if (note) note.textContent = (tx[1] || '') + (name === 'wind' || name === 'current' ? ' ' + _flowHelp(name) : '');",
+          "  update3DHint();",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-35",
+      "source_id": "SRC-131",
+      "summary": "Brush dispatch and cell mutations.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "line": 599,
+        "end_line": 629,
+        "source_lines": [
+          "function applyTool(cx, cy) {",
+          "  _worldTouched = true;",
+          "  const tool = uiState.tool, td = TOOLS[tool];",
+          "  if (!td || tool === 'inspect' || !inB(cx, cy)) return;                 // режим осмотра — мир не меняем",
+          "  if (netLive() && !netExecuting()) { _toolSend(tool, td, cx, cy); return; }   // в комнате мазок — команда: применится у всех на границе одного хода",
+          "  if (td.point) { if (!_pointLatch) { _pointLatch = true; applyPointTool(tool, td, idx(cx, cy)); } return; }",
+          "  const r = uiState.brush, r2 = (r + 0.5) * (r + 0.5), dir = uiState.dir;",
+          "  const S = uiState.strength / 5;                 // сила кисти: 1..10 → 0.2x..2x",
+          "  if (td.area) { if (typeof godPower === 'function') godPower(td.area, idx(cx, cy), r + 0.5, S); return; }   // сила творца накрывает всю кисть разом",
+          "  for (let y = cy - r; y <= cy + r; y++) {",
+          "    for (let x = cx - r; x <= cx + r; x++) {",
+          "      if (!inB(x, y)) continue;",
+          "      const dx = x - cx, dy = y - cy; if (dx * dx + dy * dy > r2) continue;",
+          "      const i = idx(x, y);",
+          "      if (tool === 'terrain') paintBiome(i);",
+          "      else if (tool === 'temp') { const d = dir * 1.8 * S; if (uiState.persistentSrc) W.tempForce[i] = clamp(W.tempForce[i] + d, -60, 60); else W.tempPulse[i] = clamp(W.tempPulse[i] + d, -60, 60); W.temp[i] = clamp(W.temp[i] + d, -90, 90); if (W.isWater[i]) W.sst[i] = W.temp[i]; markCapDirty(i); }",
+          "      else if (tool === 'precip') { const f = dir > 0 ? 1 + 0.18 * S : 1 - 0.15 * S; W.precipMul[i] = clamp(W.precipMul[i] * f, 0.05, 12); W.precip[i] = clamp(W.precip[i] * f, 0, 6000); markCapDirty(i); }",
+          "      else if (tool === 'elevation') { W.elev[i] = clamp01(W.elev[i] + dir * 0.05 * S); _terrainTouched = true; }",
+          "      else if (tool === 'smooth') { let s = 0, n = 0; for (const o of NB8) { const nx = x + o[0], ny = y + o[1]; if (inB(nx, ny)) { s += W.elev[idx(nx, ny)]; n++; } } W.elev[i] = lerp(W.elev[i], s / n, clamp01(0.5 * S)); _terrainTouched = true; }",
+          "      else if (tool === 'water') { W.elev[i] = dir > 0 ? Math.min(W.elev[i], W.seaLevel - 0.07) : Math.max(W.elev[i], W.seaLevel + 0.05); _terrainTouched = true; }",
+          "      else if (tool === 'wind') { const m = Math.hypot(_dragDX, _dragDY); if (m > 0.001) { W.windAddU[i] = clamp(W.windAddU[i] + _dragDX / m * 0.07 * S, -1.6, 1.6); W.windAddV[i] = clamp(W.windAddV[i] + _dragDY / m * 0.07 * S, -1.6, 1.6); _windTouched = true; } }   // НАКАПЛИВАЕМ: можно усиливать существующий поток",
+          "      else if (tool === 'current') { if (W.isWater[i]) { const m = Math.hypot(_dragDX, _dragDY); if (m > 0.001) { const du = _dragDX / m * 0.5 * S, dv = _dragDY / m * 0.5 * S; W.curAddU[i] = clamp(W.curAddU[i] + du * 0.25, -2.5, 2.5); W.curAddV[i] = clamp(W.curAddV[i] + dv * 0.25, -2.5, 2.5); W.currentU[i] = clamp(W.currentU[i] + du * 0.25, -3, 3); W.currentV[i] = clamp(W.currentV[i] + dv * 0.25, -3, 3); _currentTouched = true; } } }",
+          "      else if (tool === 'population') { if (!W.isWater[i]) _popBrush(i, dir, S); }",
+          "      else if (tool === 'resource') { const v = dir > 0 ? uiState.res : 0; if (W.res[i] !== v) { W.res[i] = v; _resTouched = true; } }",
+          "      else if (tool === 'fauna') { if (dir > 0) { if (typeof faunaSeed === 'function') faunaSeed(i, uiState.fauna, 0.08 * S); } else if (typeof faunaHunt === 'function') faunaHunt(i, uiState.fauna, 0.2 * S); }",
+          "      else if (tool === 'eraser') { if (W.pop[i] > 0) _brushErased = true; W.pop[i] = 0; W.urban[i] = 0; W.industry[i] = 0; W.pollution[i] = 0; W.tempForce[i] = 0; W.tempPulse[i] = 0; W.precipMul[i] = 1; W.culture[i] = 0; W.religion[i] = 0; if (W.windAddU[i] !== 0 || W.windAddV[i] !== 0) { W.windAddU[i] = 0; W.windAddV[i] = 0; _windTouched = true; } if (W.isWater[i] && (W.stir[i] !== 0 || W.curAddU[i] !== 0 || W.curAddV[i] !== 0)) { W.stir[i] = 0; W.curAddU[i] = 0; W.curAddV[i] = 0; W.currentU[i] = 0; W.currentV[i] = 0; _currentTouched = true; } if (W.stateId[i] >= 0 && states[W.stateId[i]]) { _brushStates.add(W.stateId[i]); states[W.stateId[i]].cells.delete(i); _civTouched = true; } W.stateId[i] = -1; }",
+          "    }",
+          "  }",
+          "  if (tool === 'resource' || tool === 'fauna') _rOvDirty = true;   // слой данных под кистью перерисовать сразу",
+          "  if (_popWhy && _popWhy !== _popSaid && !netRemote()) { _popSaid = _popWhy; if (typeof flash === 'function') flash(_popMsg(_popWhy), 3200); }   // почему людям здесь плохо — сразу; за мазок — раз (и ещё раз, если дальше стало «не выжить»)",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-36",
+      "source_id": "SRC-131",
+      "summary": "Point latch, command handoff, Discord and population paint.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "line": 632,
+        "end_line": 691,
+        "source_lines": [
+          "const TOOL_HZ = 30;",
+          "let _toolSendT = 0, _strokeSent = false;",
+          "function _toolSend(tool, td, cx, cy) {",
+          "  if (td.point) {",
+          "    if (_pointLatch) return;",
+          "    _pointLatch = true;",
+          "    const i = idx(cx, cy);",
+          "    if (tool === 'walk' || td.power === 'discord') { applyPointTool(tool, td, i); return; }   // прогулка у каждого своя, раздор собирается из двух кликов и уходит отдельной командой",
+          "    if (!netCanEdit()) { netDeny(); return; }",
+          "    netDo('tool', tool, cx, cy, _toolParams(1));",
+          "    return;",
+          "  }",
+          "  if (!netCanEdit()) { netDeny(); return; }",
+          "  const now = performance.now(), gap = now - _toolSendT;",
+          "  if (gap < 1000 / TOOL_HZ) return;",
+          "  _toolSendT = now; _strokeSent = true;",
+          "  netDo('tool', tool, cx, cy, _toolParams(clamp(gap / 16.7, 1, 3)));",
+          "}",
+          "function _toolParams(k) { const u = uiState; return { b: u.brush, d: u.dir, s: u.strength * k, ps: u.persistentSrc ? 1 : 0, r: u.res, f: u.fauna, o: u.biome, dx: _dragDX, dy: _dragDY }; }",
+          "netAct('tool', (tool, cx, cy, o) => {",
+          "  const td = TOOLS[tool]; if (!td || tool === 'inspect' || tool === 'walk' || !inB(cx | 0, cy | 0) || !o) return;",
+          "  const u = uiState, keep = [u.tool, u.brush, u.dir, u.strength, u.persistentSrc, u.res, u.fauna, u.biome, _dragDX, _dragDY, _pointLatch];",
+          "  u.tool = tool; u.brush = clamp(o.b | 0, 0, 40); u.dir = o.d < 0 ? -1 : 1; u.strength = clamp(+o.s || 1, 0.1, 60); u.persistentSrc = !!o.ps; u.res = o.r | 0; u.fauna = String(o.f); u.biome = String(o.o); _dragDX = +o.dx || 0; _dragDY = +o.dy || 0; _pointLatch = false;",
+          "  // задел ли рельеф именно этот мазок (флаг держится до конца мазка — по нему его не узнать): 3D-карте перестроить его область сразу",
+          "  const tt0 = _terrainTouched; let tt = false; _terrainTouched = false;",
+          "  try { applyTool(cx | 0, cy | 0); tt = _terrainTouched; _terrainTouched = tt0 || tt; liveRecompute(); markDirty('base'); }",
+          "  finally { _terrainTouched = tt0 || _terrainTouched; [u.tool, u.brush, u.dir, u.strength, u.persistentSrc, u.res, u.fauna, u.biome, _dragDX, _dragDY, _pointLatch] = keep; }",
+          "  if (tt && typeof paint3DRemote === 'function') paint3DRemote(cx | 0, cy | 0, clamp(o.b | 0, 0, 40));",
+          "  if (td.point) { finishPaint(); if (netRemote() && typeof netUiToolNote === 'function') netUiToolNote(tool); }",
+          "});",
+          "netAct('toolEnd', () => finishPaint());",
+          "netAct('discord', (a, b) => {",
+          "  const A = stateByUid(a), B = b >= 0 ? stateByUid(b) : null; if (!A) return;",
+          "  const r = godDiscord(A, B);",
+          "  if (!netRemote()) { if (typeof flash === 'function') flash(r.msg, 4500); if (typeof SFX !== 'undefined' && SFX.click) SFX.click(); }",
+          "  _civTouched = true; renderStatePanel(selectedState, true);",
+          "});",
+          "// Кисть «Люди». Заселить: люди появляются на любой суше, и там, где им не выжить: в зное или стуже гибнут за несколько тиков",
+          "// (civ.js climateLethal), со скудной земли уходят и вымирают. Раньше на такой земле кисть молча ничего не делала, и казалось,",
+          "// что она сломана (автор, 2.1.2); почему людям здесь плохо — сообщение раз за мазок.",
+          "// Убрать: снимает людей и со скудной земли. Раньше клетки с почти нулевой пригодностью (пустыня, зимний снег, зной) кисть",
+          "// пропускала — мир нельзя было очистить до нуля («осталась клетка с 25 людьми»); крупный город теперь тает быстрее — доля",
+          "// от населения, а не только 500 человек за касание",
+          "let _popWhy = '', _popSaid = '';     // почему людям тут плохо (самое суровое под кистью: «не выжить» важнее «не прокормиться») и что уже сказано",
+          "const _brushStates = new Set();       // державы, с земель которых мазок снял людей: в конце мазка — не опустели ли (civ.js stateDropEmpty)",
+          "let _brushErased = false;             // мазок снимал людей (кисть «Убрать» или ластик): в конце — не опустел ли весь мир",
+          "function _popBrush(i, dir, S) {",
+          "  if (dir > 0) {",
+          "    W.pop[i] += 500 * S;",
+          "    if (_popWhy.indexOf('lethal') !== 0) {",
+          "      const lz = typeof climateLethal === 'function' ? climateLethal(i) : 0;",
+          "      if (lz) _popWhy = lz === 2 ? 'lethal-cold' : 'lethal-heat';",
+          "      else if (!_popWhy && W.hab[i] <= 0.02 && typeof habLimit === 'function') _popWhy = habLimit(i);",
+          "    }",
+          "    return;",
+          "  }",
+          "  const P = W.pop[i]; if (!(P > 0)) return;",
+          "  const np = P - (500 + 0.12 * P) * S;",
+          "  W.pop[i] = np > 0 ? np : 0; _brushErased = true;",
+          "  if (W.stateId[i] >= 0) _brushStates.add(W.stateId[i]);"
+        ]
+      }
+    },
+    {
+      "id": "DD-37",
+      "source_id": "SRC-131",
+      "summary": "Point targets, two-click choice, direct biome paint and finish.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "line": 730,
+        "end_line": 805,
+        "source_lines": [
+          "function applyPointTool(tool, td, i) {",
+          "  const deny = msg => { if (typeof flash === 'function' && !netRemote()) flash(msg); };",
+          "  if (tool === 'city') {",
+          "    if (W.isWater[i] || W.hab[i] <= 0.04) return deny(T('Здесь городу не выжить: нужна пригодная для жизни суша', 'A city cannot survive here: it needs habitable land'));",
+          "    foundCity(i);",
+          "  } else if (tool === 'rocket' || tool === 'nuke') firePlayerStrike(i, tool === 'nuke');",
+          "  else if (tool === 'walk') _walkStartAt(i);",
+          "  else if (td.dis) {",
+          "    if (typeof disasterTrigger !== 'function') return;",
+          "    if (td.dis === 'plague' && (W.isWater[i] || W.pop[i] < 200)) return deny(T('Мору нужны люди: выберите населённую клетку', 'A plague needs people: pick a populated cell'));",
+          "    disasterTrigger(td.dis, i, _toolPower(), true);",
+          "    _civTouched = true; if (typeof resDirty === 'function') resDirty();",
+          "    if (typeof achCount === 'function' && !netRemote()) achCount('disaster');",
+          "  } else if (td.power === 'discord' && typeof godDiscord === 'function') {",
+          "    // раздор в два клика: первая держава, затем вторая — война между ними; или та же ещё раз — раздор со всеми соседями. Раньше клик",
+          "    // только портил отношения, и войны могло не случиться вовсе (отзыв автора 2.1.1)",
+          "    const st = stateOf(i); if (!st) return deny(T('Здесь нет державы — кликните по её земле', 'No nation here — click on its land'));",
+          "    const A = uiState.discordA != null && performance.now() - (uiState.discordT || 0) < 45000 ? stateByUid(uiState.discordA) : null;",
+          "    if (!A) {",
+          "      uiState.discordA = st.uid; uiState.discordT = performance.now(); selectedState = st; renderStatePanel(st, true);",
+          "      if (typeof flash === 'function') flash(TF('Раздор: {0}. Теперь кликните по державе, с которой её поссорить, — или ещё раз по ней же: раздор со всеми соседями', 'Discord: {0}. Now click the nation to set it against — or click it again for discord with all its neighbours', st.name), 7000);",
+          "      if (typeof SFX !== 'undefined' && SFX.click) SFX.click();",
+          "      return;",
+          "    }",
+          "    uiState.discordA = null;",
+          "    netDo('discord', A.uid, st === A ? -1 : st.uid);",
+          "  } else if (td.power) {",
+          "    if (typeof godPower !== 'function') return;",
+          "    if (!stateOf(i)) return deny(T('Здесь нет державы — кликните по её земле', 'No nation here — click on its land'));",
+          "    godPower(td.power, i, 1, uiState.strength / 5);",
+          "    if (typeof SFX !== 'undefined' && SFX.click && !netRemote()) SFX.click();",
+          "    renderStatePanel(selectedState, true);   // результат силы виден сразу, без ожидания очередного обновления",
+          "  }",
+          "}",
+          "",
+          "function paintBiome(i) {",
+          "  const bp = BIOME_PAINT[uiState.biome]; if (!bp) return;",
+          "  if (bp.water) { W.elev[i] = Math.min(W.elev[i], W.seaLevel - 0.08); _terrainTouched = true; return; }",
+          "  // суша",
+          "  if (W.isWater[i]) { W.elev[i] = W.seaLevel + (1 - W.seaLevel) * (bp.mountain ? 0.6 : bp.low ? 0.03 : 0.12); _terrainTouched = true; }",
+          "  else if (bp.mountain && landH(i) < 0.5) { W.elev[i] = W.seaLevel + (1 - W.seaLevel) * 0.6; _terrainTouched = true; }",
+          "  else if (bp.low && landH(i) > 0.08) { W.elev[i] = W.seaLevel + (1 - W.seaLevel) * 0.03; _terrainTouched = true; }",
+          "  // форсируем климат к целевой точке (стабильно держит биом)",
+          "  W.tempForce[i] = clamp(bp.t - W.temp[i] + W.tempForce[i], -60, 60);",
+          "  const unforcedP = W.precip[i] / (W.precipMul[i] || 1);",
+          "  W.precipMul[i] = clamp(bp.p / Math.max(unforcedP, 30), 0.05, 10);",
+          "  W.temp[i] = bp.t; W.precip[i] = bp.p;",
+          "  W.biome[i] = BID[uiState.biome]; W.veg[i] = computeNPP(bp.t, bp.p); markCapDirty(i);",
+          "}",
+          "",
+          "function finishPaint() {",
+          "  if (netLive() && !netExecuting()) { _pointLatch = false; if (_strokeSent) { _strokeSent = false; netDo('toolEnd'); } return; }",
+          "  _pointLatch = false; _popWhy = ''; _popSaid = '';",
+          "  // мазок снял людей с земель держав: опустевшие клетки уходят сразу, держава без людей гибнет как обезлюдевшая (хроника,",
+          "  // её страница и династии — как при гибели на тике), столица опустевшего края переезжает",
+          "  if (_brushStates.size) {",
+          "    for (const id of _brushStates) { const st = states[id]; if (st && st.alive && typeof stateDropEmpty === 'function') { stateDropEmpty(st); _civTouched = true; } }",
+          "    _brushStates.clear();",
+          "    renderStatePanel(highlightedState || selectedState, true);",
+          "  }",
+          "  // мир стёрт целиком: знатные люди, которым некуда было бежать (изгнанники без державы), — тоже его население.",
+          "  // Иначе в «Династиях» жили бы правители и наследники мира, где нет ни одного человека",
+          "  if (_brushErased) {",
+          "    _brushErased = false;",
+          "    let any = false; for (let i = 0; i < GRID.N && !any; i++) if (W.pop[i] > 0) any = true;",
+          "    if (!any && typeof peopleKill === 'function' && typeof PEOPLE !== 'undefined') for (const p of PEOPLE) if (p && p.died === null) peopleKill(p, 'other');",
+          "  }",
+          "  if (typeof achCount === 'function' && !netRemote()) achCount('paint');   // счётчик мазков для достижения «Терраформер»",
+          "  if (_terrainTouched) { recomputeStatic(); climateStep(); ecologyStep(true); _terrainTouched = false; _windTouched = false; _currentTouched = false; _resTouched = true; }",
+          "  else if (_windTouched) { recomputeWinds(); computeUpwindMoisture(); computeCurrents(); _windTouched = false; }  // ветер влияет на дожди и течения",
+          "  else if (_currentTouched) { computeCurrents(); _currentTouched = false; }   // пересчёт функции тока",
+          "  if (_resTouched) { if (typeof resDirty === 'function') resDirty(); _resTouched = false; }   // шельфовые месторождения пересчитать за державами",
+          "  if (_civTouched) { if (typeof rebuildCities === 'function') rebuildCities(); _civTouched = false; }   // ластик/бедствие снесли город — обновить маркеры сразу",
+          "  markDirty('base'); markDirty('borders');",
+          "  if (typeof rUrgent === 'function') rUrgent();          // правка игрока: карту перепечь сразу, не дожидаясь планового срока",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-38",
+      "source_id": "SRC-131",
+      "summary": "Preview and live terrain/wind recompute.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "line": 1179,
+        "end_line": 1210,
+        "source_lines": [
+          "function moveCursor(e, rect) {",
+          "  const cur = document.getElementById('brush-cursor'), tool = uiState.tool, td = TOOLS[tool] || {};",
+          "  if (tool === 'inspect') { cur.style.opacity = 0; return; }   // осмотр ничего не рисует — круг кисти не нужен",
+          "  const cellDisp = rect.width / GRID.W;",
+          "  // точечные инструменты: прицел в одну клетку, а у бедствий — круг настоящего радиуса поражения (видно, кого заденет)",
+          "  const rr = td.dis ? _disRadius(td.dis, _toolPower()) : td.point ? 0.5 : uiState.brush + 0.5;",
+          "  const d = rr * 2 * cellDisp * (typeof view2d !== 'undefined' ? view2d.zoom : 1);",
+          "  cur.style.width = cur.style.height = `${d}px`;",
+          "  cur.style.left = `${e.clientX - rect.left}px`;",
+          "  cur.style.top = `${e.clientY - rect.top}px`;",
+          "  cur.style.opacity = 1;",
+          "  cur.classList.toggle('target', !!td.point);   // красный «прицел» на клетку удара",
+          "  cur.classList.toggle('good', !!td.good && !!td.point);",
+          "  let deny = false;",
+          "  if (_hoverCell >= 0) {",
+          "    const i = _hoverCell;",
+          "    if (tool === 'city') deny = W.isWater[i] || W.hab[i] <= 0.04;",
+          "    else if (tool === 'population') deny = !!W.isWater[i];   // на любой суше кисть работает (где не выжить — люди появятся и погибнут)",
+          "    else if (tool === 'current') deny = !W.isWater[i];",
+          "    else if (tool === 'walk') deny = !!W.isWater[i] && !_navalBattleNear(i);   // у морского боя вода — тоже вход в прогулку",
+          "    else if (tool === 'plague') deny = W.isWater[i] || W.pop[i] < 200;",
+          "    else if (td.power) deny = !stateOf(i);",
+          "  }",
+          "  cur.classList.toggle('deny', deny);",
+          "}",
+          "",
+          "// ---- живое обновление / подсказка у курсора ----",
+          "function liveRecompute() {",
+          "  if (_terrainTouched) recomputeStatic(true);   // рельеф/берег/вода обновляются сразу под ЛКМ",
+          "  if (_windTouched) recomputeWinds();            // ветер обновляется сразу",
+          "}",
+          "// вызывается из main: инфо под курсором обновляется само по ходу симуляции (не чаще 4 раз в секунду — это DOM)"
+        ]
+      }
+    },
+    {
+      "id": "DD-39",
+      "source_id": "SRC-131",
+      "summary": "Found city writes and ownership callback.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "line": 1402,
+        "end_line": 1408,
+        "source_lines": [
+          "}",
+          "function foundCity(i) {",
+          "  W.pop[i] = Math.max(W.pop[i], 14000); W.urban[i] = Math.max(W.urban[i], 9000); W.devLevel[i] = 200; W.hab[i] = Math.max(W.hab[i], 0.3);",
+          "  if (W.stateId[i] < 0 && typeof foundStateAt === 'function') foundStateAt(i);",
+          "  if (typeof rebuildCities === 'function') rebuildCities();",
+          "  markDirty('borders');",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-40",
+      "source_id": "SRC-132",
+      "summary": "Age of Disasters scenario defaults, locks and conditions.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250",
+        "line": 191,
+        "end_line": 204,
+        "source_lines": [
+          "  {",
+          "    id: 'wrath', ic: 'bolt', name: T('Эпоха бедствий', 'Age of Disasters'),",
+          "    desc: T('Планета неспокойна: вулканы, засухи, ураганы и мор приходят вчетверо чаще обычного, и унять их нельзя. Дождь и благословение — ваши инструменты: проведите людей сквозь беды.', 'A restless planet: volcanoes, droughts, hurricanes and plagues come four times as often, and they cannot be turned off. Rain and blessing are your tools: carry your people through.'),",
+          "    boot: { type: 'continents', disasters: 2 },",
+          "    lock: ['dis'],",
+          "    lockTools: ['inspire'],",
+          "    enforce: { disasters: 4 },                                        // вчетверо чаще обычного: на ползунке такого нет — только в этом испытании",
+          "    goals: [",
+          "      { id: 'liveW', text: T('Продержаться 350 лет', 'Survive for 350 years'), check: s => s.year / 350 },",
+          "      { id: 'popW', text: T('Население 8 млн', 'Population 8 million'), check: s => s.pop / 8e6 },",
+          "      { id: 'citiesW', text: T('Девяносто городов', 'Ninety cities'), check: () => (typeof cities !== 'undefined' ? cities.length : 0) / 90 },",
+          "    ],",
+          "    lose: (s, sc) => (s.year > 80 && sc._hadPeople && s.pop < 2000) ? T('Бедствия стёрли человечество с лица планеты.', 'The disasters wiped humanity off the planet.') : null,",
+          "  },"
+        ]
+      }
+    },
+    {
+      "id": "DD-41",
+      "source_id": "SRC-132",
+      "summary": "Scenario locks, restoration and enforcement.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250",
+        "line": 239,
+        "end_line": 301,
+        "source_lines": [
+          "const _LOCK_SLIDERS = { co2: 'co2Slider', solar: 'solarSlider', sea: 'seaLevelSlider', gtemp: 'globalTempSlider', tilt: 'tiltSlider', pace: 'paceSlider', dynsea: 'dynSeaChk' };",
+          "function _scnLocks(def) { const l = (def.lock || []).slice(); if (l.indexOf('pace') < 0) l.push('pace'); return l; }   // темп истории заперт всегда: цели рассчитаны на обычный",
+          "function _applyScenarioLocks(def, on) {",
+          "  const note = T('Недоступно в этом сценарии', 'Unavailable in this scenario');",
+          "  // своя подсказка элемента на время блокировки откладывается и потом возвращается (раньше она стиралась навсегда)",
+          "  const tip = (el) => { if (on) { if (el.dataset.tip0 === undefined) el.dataset.tip0 = el.title || ''; el.title = note; } else if (el.dataset.tip0 !== undefined) { el.title = el.dataset.tip0; delete el.dataset.tip0; } };",
+          "  for (const key of _scnLocks(def)) {",
+          "    if (key === 'dis') {",
+          "      document.querySelectorAll('#disaster-rate [data-rate]').forEach(b => { b.disabled = on; b.style.opacity = on ? '0.45' : ''; tip(b); });",
+          "      continue;",
+          "    }",
+          "    const el = document.getElementById(_LOCK_SLIDERS[key]); if (!el) continue;",
+          "    el.disabled = on;",
+          "    const row = el.closest('.psl') || el.closest('.psl-chk');",
+          "    if (row) { row.style.opacity = on ? '0.45' : ''; tip(row); }",
+          "  }",
+          "  if (typeof uiLockTools === 'function') uiLockTools(def.lockTools || [], on);",
+          "}",
+          "",
+          "// сценарий из мода Мастерской может ещё не приехать к моменту старта: пути подписок",
+          "// Steam отдаёт асинхронно. Запоминаем запрошенный id — mods.js повторит попытку,",
+          "// когда домодит список (иначе игрок, вернувшийся в сценарий мода, попадал бы в песочницу).",
+          "let _pendingScenarioId = null, _pendingScenarioState = null;",
+          "function startScenarioFromBoot(id, saved) {",
+          "  const def = SCENARIOS.find(s => s.id === id);",
+          "  if (!def) { _pendingScenarioId = id; _pendingScenarioState = saved || null; return; }",
+          "  saved = saved || _pendingScenarioState;",
+          "  _pendingScenarioId = null; _pendingScenarioState = null;",
+          "  activeScenario = { def, progress: {}, done: {}, won: false, lost: false, _hadPeople: false };",
+          "  if (saved) { for (const k in saved) if (k !== 'id') activeScenario[k] = saved[k]; if (!activeScenario.progress) activeScenario.progress = {}; if (!activeScenario.done) activeScenario.done = {}; }",
+          "  else W.pace = 1;",
+          "  const dock = document.getElementById('goals-dock'); if (dock) dock.classList.add('show');",
+          "  _applyScenarioLocks(def, true);        // глобальные климат-читы выключены — цели придётся достигать честно",
+          "  if (typeof syncPlanetSliders === 'function') syncPlanetSliders();",
+          "  renderGoalsDock();",
+          "}",
+          "",
+          "// завершить сценарий вручную (после победы/поражения) — мир остаётся, блокировки снимаются",
+          "function endScenario() {",
+          "  if (!activeScenario) return;",
+          "  _applyScenarioLocks(activeScenario.def, false);",
+          "  activeScenario = null;",
+          "  renderGoalsDock();",
+          "}",
+          "",
+          "// зовётся из главного цикла (main.js) каждый кадр при беге симуляции",
+          "function goalsTick() {",
+          "  if ((++_goalsTickCount & 15) !== 0) return;   // ~4 раза в секунду достаточно",
+          "  const stats = _gsWorldStats();",
+          "  if (typeof achCheck === 'function') achCheck(stats);",
+          "  const sc = activeScenario;",
+          "  if (!sc) return;",
+          "  if (stats.pop > 2000) sc._hadPeople = true;",
+          "  // страховка от обхода блокировок: солнце ничем кроме ползунка не меняется — держим сценарное значение.",
+          "  // CO₂ принудительно НЕ держим: ползунок заблокирован, а рост от заводов держав — честная стратегия обогрева.",
+          "  const enf = sc.def.enforce;",
+          "  if (enf && enf.solar !== undefined) W.solar = enf.solar;",
+          "  if (enf && enf.co2 !== undefined && W.co2 < enf.co2) { W.co2 = enf.co2; W.co2ppm = Math.round(280 * enf.co2); }   // парник сценария не рассасывается (выше — пожалуйста: это дело заводов)",
+          "  if (enf && enf.disasters !== undefined) W.disasterRate = enf.disasters;",
+          "  const locks = _scnLocks(sc.def);",
+          "  if (locks.indexOf('gtemp') >= 0 && W.globalForce !== 0) W.globalForce = 0;",
+          "  if (!sc.won && !sc.lost) W.pace = 1;",
+          "  if (locks.indexOf('dynsea') >= 0) W.dynSea = 0;"
+        ]
+      }
+    },
+    {
+      "id": "DD-42",
+      "source_id": "SRC-132",
+      "summary": "Planet rate handler bounds and interface sync.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "line": 1283,
+        "end_line": 1289,
+        "source_lines": [
+          "      break;",
+          "    case 'dynSea': W.dynSea = v ? 1 : 0; if (W.dynSea) { W.seaBase = W.seaLevel; W.seaRefT = 1e9; } break;",
+          "    case 'faunaAuto': W.faunaAuto = v ? 1 : 0; _syncFaunaAuto(); break;",
+          "    case 'disasterRate': W.disasterRate = clamp(v | 0, 0, 2); _syncDisasterRate(); break;",
+          "    default: return;",
+          "  }",
+          "  if (netRemote() && typeof syncPlanetSliders === 'function') syncPlanetSliders();"
+        ]
+      }
+    },
+    {
+      "id": "DD-43",
+      "source_id": "SRC-132",
+      "summary": "Declarative event action, effect and location registries.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90",
+        "line": 190,
+        "end_line": 196,
+        "source_lines": [
+          "const MOD_TOOLS = ['terrain', 'elevation', 'smooth', 'water', 'resource', 'eraser', 'temp', 'precip', 'wind', 'current', 'population', 'city', 'fauna', 'rocket', 'nuke', 'walk',",
+          "  'volcano', 'quake', 'tsunami', 'hurricane', 'fire', 'meteor', 'plague', 'drought', 'flood', 'blizzard', 'rain', 'bless', 'inspire', 'peace', 'discord'];",
+          "const MOD_DISASTERS = ['volcano', 'quake', 'tsunami', 'hurricane', 'fire', 'meteor', 'plague', 'drought', 'flood', 'blizzard'];",
+          "const MOD_POWERS = ['rain', 'bless', 'inspire', 'peace', 'discord'];",
+          "const MOD_EVENT_DO = ['disaster', 'power', 'climate', 'message'];",
+          "const MOD_EVENT_AT = ['random', 'capital', 'city', 'land', 'ocean'];",
+          "const MOD_EVENT_KINDS = ['dawn', 'found', 'collapse', 'era', 'war', 'peace', 'alliance', 'secede', 'colony', 'famine', 'exodus', 'ruler', 'dynasty', 'revolt', 'reform',"
+        ]
+      }
+    },
+    {
+      "id": "DD-44",
+      "source_id": "SRC-132",
+      "summary": "Event parsing, bounds and destination fields.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90",
+        "line": 593,
+        "end_line": 634,
+        "source_lines": [
+          "function _mEvents(list, log, lab, uidBase, src) {",
+          "  if (list === undefined) return [];",
+          "  if (!Array.isArray(list)) { _mw(log, lab, 'ожидался список событий', 'a list of events was expected'); return []; }",
+          "  if (list.length > MOD_MAX.events) _mw(log, lab, 'событий больше {0} — лишние отброшены', 'more than {0} events — the extra ones are dropped', MOD_MAX.events);",
+          "  const out = [];",
+          "  list.slice(0, MOD_MAX.events).forEach((e, k) => {",
+          "    const l = lab + '[' + (k + 1) + ']';",
+          "    if (!e || typeof e !== 'object' || Array.isArray(e)) { _mw(log, l, 'ожидался объект', 'an object was expected'); return; }",
+          "    const ev = { uid: uidBase + '#' + (k + 1), src: src || '', year: null, every: 0, when: null, chance: 1, once: true, act: null, text: '', kind: 'dawn', imp: 1 };",
+          "    if (e.year !== undefined) { if (_mIsNum(e.year)) ev.year = Math.round(_mNum(e.year, 0, -1e6, 1e6)); else _mw(log, l + '.year', 'не число', 'not a number'); }",
+          "    if (e.every !== undefined) { if (_mIsNum(e.every)) ev.every = Math.round(_mNum(e.every, 0, 1, 100000)); else _mw(log, l + '.every', 'не число', 'not a number'); }",
+          "    if (e.when !== undefined) {",
+          "      const w = e.when;",
+          "      if (!w || typeof w !== 'object' || Array.isArray(w)) _mw(log, l + '.when', 'ожидался объект { metric, above | below }', 'an object { metric, above | below } was expected');",
+          "      else {",
+          "        const m = _mMetric(w, log, l + '.when');",
+          "        const above = _mIsNum(w.above) ? _mNum(w.above, 0, -1e12, 1e12) : null, below = _mIsNum(w.below) ? _mNum(w.below, 0, -1e12, 1e12) : null;",
+          "        if (m && above === null && below === null) _mw(log, l + '.when', 'нужно above или below — порог условия', 'above or below is required — the threshold');",
+          "        else if (m) ev.when = { fn: m.fn, param: m.param, above, below };",
+          "        if (!ev.when) { _mw(log, l, 'условие не разобрано — событие пропущено', 'the condition could not be read — the event is skipped'); return; }",
+          "      }",
+          "    }",
+          "    if (ev.year === null && !ev.when) { _mw(log, l, 'нужен year или when — когда событию случиться', 'year or when is required — when the event should happen'); return; }",
+          "    ev.once = (e.once !== undefined) ? !!e.once : !(ev.every > 0);",
+          "    if (!ev.when && !(ev.every > 0)) ev.once = true;                       // один год наступает один раз",
+          "    if (e.chance !== undefined) ev.chance = _mNum(e.chance, 1, 0, 1);",
+          "    const act = { do: typeof e.do === 'string' ? e.do : '' };",
+          "    if (MOD_EVENT_DO.indexOf(act.do) < 0) { _mw(log, l + '.do', 'нет такого действия (есть: {0})', 'unknown action (available: {0})', MOD_EVENT_DO.join(', ')); return; }",
+          "    if (act.do === 'disaster' || act.do === 'power') {",
+          "      const types = act.do === 'disaster' ? MOD_DISASTERS : MOD_POWERS;",
+          "      if (types.indexOf(e.type) < 0) { _mw(log, l + '.type', 'нужен type из списка: {0}', 'type must be one of: {0}', types.join(', ')); return; }",
+          "      act.type = e.type;",
+          "      act.power = _mNum(e.power, act.do === 'disaster' ? 0.6 : 1, act.do === 'disaster' ? 0.1 : 0.2, act.do === 'disaster' ? 1 : 2);",
+          "      act.radius = _mNum(e.radius, 3, 0.6, 12);",
+          "      act.at = { mode: 'random' };",
+          "      if (Array.isArray(e.at)) {",
+          "        if (e.at.length === 2 && _mIsNum(e.at[0]) && _mIsNum(e.at[1])) act.at = { mode: 'xy', x: _mNum(e.at[0], 0.5, 0, 1), y: _mNum(e.at[1], 0.5, 0, 1) };",
+          "        else _mw(log, l + '.at', 'нужны два числа [x, y] — доли карты от 0 до 1', 'two numbers [x, y] are required — map fractions from 0 to 1');",
+          "      } else if (e.at !== undefined) {",
+          "        if (MOD_EVENT_AT.indexOf(e.at) >= 0) act.at = { mode: e.at };",
+          "        else _mw(log, l + '.at', 'место: [x, y] или одно из {0}', 'place: [x, y] or one of {0}', MOD_EVENT_AT.join(', '));",
+          "      }"
+        ]
+      }
+    },
+    {
+      "id": "DD-45",
+      "source_id": "SRC-132",
+      "summary": "Action counters, scheduling, target resolution and dispatch.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90",
+        "line": 656,
+        "end_line": 724,
+        "source_lines": [
+          "}",
+          "// ---- исполнение ----",
+          "let _mEvState = {};                    // состояние общих событий: uid → { n (сколько раз сработало), last, next, on }",
+          "let _mEvLate = false;                  // мир продолжается с середины (загрузка): прошедшие годы считаются прошедшими",
+          "function _mEvSt(store, ev, y, late) {",
+          "  let st = store[ev.uid];",
+          "  if (!st) {",
+          "    st = store[ev.uid] = { n: 0, last: -1e9, next: ev.year, on: false };",
+          "    if (late && ev.year !== null && ev.year < y) {",
+          "      if (ev.every > 0) st.next = ev.year + Math.ceil((y - ev.year) / ev.every) * ev.every;",
+          "      else if (!ev.when) st.n = 1;                                      // год события остался в прошлом до нас — считаем его состоявшимся",
+          "    }",
+          "  }",
+          "  return st;",
+          "}",
+          "function _mEventCheck(ev, y, store, sc, getStats, late) {",
+          "  const st = _mEvSt(store, ev, y, late);",
+          "  if (ev.once && st.n > 0) return false;",
+          "  if (ev.year !== null && y < (st.next === null ? ev.year : st.next)) return false;",
+          "  if (ev.when) {",
+          "    const v = +ev.when.fn(getStats(), sc, ev.when.param) || 0;",
+          "    const ok = (ev.when.above === null || v > ev.when.above) && (ev.when.below === null || v < ev.when.below);",
+          "    if (!ok) { st.on = false; return false; }",
+          "    if (st.on) return false;                                            // условие уже сработало и с тех пор не «отпускало»",
+          "    if (ev.every > 0 && y - st.last < ev.every) return false;",
+          "    st.on = true;",
+          "  } else if (ev.every > 0) {",
+          "    st.next = ev.year + (Math.floor((y - ev.year) / ev.every) + 1) * ev.every;",
+          "  }",
+          "  st.last = y;",
+          "  if (ev.chance < 1 && Math.random() >= ev.chance) { if (!ev.when && !(ev.every > 0)) st.n++; return false; }   // кость не выпала; разовый год второго шанса не даёт",
+          "  st.n++;",
+          "  _mEventFire(ev, sc);",
+          "  return true;",
+          "}",
+          "function _mEventCell(at, type) {",
+          "  if (at.mode === 'xy') return clamp(Math.floor(at.y * GRID.H), 0, GRID.H - 1) * GRID.W + clamp(Math.floor(at.x * GRID.W), 0, GRID.W - 1);",
+          "  if (at.mode === 'capital') { const t = _mTop(); if (t && t.capital >= 0) return t.capital; }",
+          "  if (at.mode === 'city' || at.mode === 'capital') {",
+          "    let best = -1, bp = -1;",
+          "    if (typeof cities !== 'undefined') for (const c of cities) if (c.pop > bp) { bp = c.pop; best = c.i; }",
+          "    if (best >= 0) return best;",
+          "  }",
+          "  // случайное место: урагану и цунами нужна вода, остальному — суша (по возможности обжитая: бедствие должно быть заметно)",
+          "  const sea = at.mode === 'ocean' || (at.mode === 'random' && (type === 'hurricane' || type === 'tsunami'));",
+          "  let best = -1, bs = -1;",
+          "  for (let t = 0; t < 120; t++) {",
+          "    const i = (Math.random() * GRID.N) | 0;",
+          "    if (!!W.isWater[i] !== sea) continue;",
+          "    const s = sea ? Math.random() : (W.pop[i] > 300 ? 1 : 0) + Math.random();",
+          "    if (s > bs) { bs = s; best = i; }",
+          "  }",
+          "  return best >= 0 ? best : ((Math.random() * GRID.N) | 0);",
+          "}",
+          "let _mNoDis = false;",
+          "function _mEventFire(ev, sc) {",
+          "  const a = ev.act; let cell = -1;",
+          "  try {",
+          "    if (a.do === 'disaster') {",
+          "      cell = _mEventCell(a.at, a.type);",
+          "      if (typeof disasterTrigger === 'function') disasterTrigger(a.type, cell, a.power, false);",
+          "      else if (!_mNoDis) { _mNoDis = true; console.warn('[mods] событие «' + ev.uid + '»: в игре нет модуля бедствий — действие пропущено'); }",
+          "    } else if (a.do === 'power') {",
+          "      cell = _mEventCell(a.at, a.type);",
+          "      if (typeof godPower === 'function') godPower(a.type, cell, a.radius, a.power);",
+          "    } else if (a.do === 'climate') _mClimateShift(a, sc);",
+          "  } catch (e) { try { console.warn('[mods] событие «' + ev.uid + '»: ' + (e && e.message)); } catch (e2) {} }",
+          "  if (ev.text) _mNotify(ev, cell);",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-46",
+      "source_id": "SRC-132",
+      "summary": "Global vs relative scenario event years and storage.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90",
+        "line": 757,
+        "end_line": 778,
+        "source_lines": [
+          "function _mYearTick(y) {",
+          "  const sc = (typeof activeScenario !== 'undefined') ? activeScenario : null;",
+          "  const scEv = (sc && sc.def && sc.def._mod && !sc.won && !sc.lost) ? sc.def.events : null;",
+          "  if (!MOD_EVENTS.length && !(scEv && scEv.length)) return;",
+          "  if (typeof W === 'undefined') return;",
+          "  let stats = null;",
+          "  const getStats = () => stats || (stats = (typeof _gsWorldStats === 'function') ? _gsWorldStats() : {});",
+          "  for (let k = 0; k < MOD_EVENTS.length; k++) _mEventCheck(MOD_EVENTS[k], y, _mEvState, sc, getStats, _mEvLate);",
+          "  if (scEv && scEv.length) {",
+          "    if (!sc._mInit) _mScenarioBegin(sc);",
+          "    const store = sc._mEv || (sc._mEv = {}), y0 = _mY0(sc);",
+          "    for (let k = 0; k < scEv.length; k++) _mEventCheck(scEv[k], y - y0, store, sc, getStats, false);",
+          "  }",
+          "}",
+          "// состояние событий переживает сохранение: «разовое» событие не должно повториться после загрузки",
+          "function _mEvSave(o) {",
+          "  if (!o) return; if (!o.ext) o.ext = {};",
+          "  const ev = {};",
+          "  for (const k in _mEvState) { const s = _mEvState[k]; ev[k] = [s.n, s.last > -1e8 ? s.last : null, s.next, s.on ? 1 : 0]; }",
+          "  o.ext.mods = { v: 1, ev };",
+          "}",
+          "function _mEvLoad(o) {"
+        ]
+      }
+    },
+    {
+      "id": "DD-47",
+      "source_id": "SRC-132",
+      "summary": "Boot application of world settings.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0",
+        "line": 124,
+        "end_line": 134,
+        "source_lines": [
+          "function _applyBootParams(cfg) {",
+          "  let re = false;",
+          "  if (typeof cfg.seaLevel === 'number') { W.seaLevel = cfg.seaLevel; re = true; }",
+          "  if (typeof cfg.co2 === 'number') { W.co2 = cfg.co2; W.co2ppm = Math.round(280 * cfg.co2); re = true; }   // HUD ppm сразу верный, не 280",
+          "  if (typeof cfg.solar === 'number') { W.solar = cfg.solar; re = true; }",
+          "  if (typeof cfg.precip === 'number') { const k = clamp(cfg.precip, 0.2, 3); for (let i = 0; i < GRID.N; i++) W.precipMul[i] = k; re = true; }   // засушливый (или дождливый) мир целиком",
+          "  // настройки истории из «Новой игры»: темп, бедствия, живой уровень моря (на климат старта не влияют)",
+          "  if (typeof cfg.pace === 'number') W.pace = clamp(cfg.pace, 0.3, 3);",
+          "  if (typeof cfg.disasters === 'number') W.disasterRate = clamp(cfg.disasters | 0, 0, 2);",
+          "  if (cfg.dynSea !== undefined) W.dynSea = cfg.dynSea ? 1 : 0;",
+          "  if (re) {   // пересчитать мир под выбранные параметры (уровень моря/CO₂/солнце)"
+        ]
+      }
+    },
+    {
+      "id": "DD-48",
+      "source_id": "SRC-133",
+      "summary": "Worldgen/reset and save/load disaster hooks.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/disasters.js",
+        "sha256": "7784f1758c18a56e0e2a4dccb12fe73e1bad214ab2dba527dd7988b988e480c9",
+        "line": 365,
+        "end_line": 374,
+        "source_lines": [
+          "// ---- новый мир, сохранение ----",
+          "simOn('worldgen', () => { DISASTERS.length = 0; _burning.clear(); });",
+          "simOn('reset', () => { DISASTERS.length = 0; });",
+          "simOn('save', o => { o.ext.disasters = { list: DISASTERS.slice(0, 40) }; });",
+          "simOn('load', o => {",
+          "  DISASTERS.length = 0; _burning.clear();",
+          "  const d = o.ext && o.ext.disasters;",
+          "  if (d && Array.isArray(d.list)) for (const x of d.list) if (x && typeof x.type === 'string') DISASTERS.push(x);",
+          "  for (let i = 0; i < GRID.N; i++) if (W.fire[i] > 0.06) _burning.add(i);",
+          "});"
+        ]
+      }
+    },
+    {
+      "id": "DD-49",
+      "source_id": "SRC-133",
+      "summary": "Scalar persistence and excluded arrays.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78",
+        "line": 9,
+        "end_line": 16,
+        "source_lines": [
+          "// ---------- сериализация мира ----------",
+          "const _SCAL_KEYS = ['co2', 'solar', 'seaLevel', 'globalForce', 'tiltMul', 'windMul', 'currentMul', 'poleCold',",
+          "  'co2ppm', 'globalEmissions', 'ecoGlobal', 'simYear', 'simTick', 'dayOfYear', 'seasonPhase', 'paused',",
+          "  'nukeWinter', 'pace', 'dynSea', 'seaBase', 'seaRefT', 'disasterRate', 'aerosol', 'faunaAuto', 'faunaRich'];",
+          "// производные/временные поля НЕ сохраняем: они пересчитываются при загрузке (recomputeStatic + первые шаги климата).",
+          "const _SKIP_ARRAYS = new Set(['_pIndex', '_scratch', '_scratch2', 'isWater', 'seaDepth', 'isCoast', 'slope',",
+          "  'distOcean', 'basinSide', 'upwindWet', 'windU', 'windV', 'currentU', 'currentV', 'npp', 'hab', 'habEff',",
+          "  'capacity', 'foodCap', 'capDirty', 'landmass']);"
+        ]
+      }
+    },
+    {
+      "id": "DD-50",
+      "source_id": "SRC-133",
+      "summary": "World serialization, typed buffers and legacy defaults.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78",
+        "line": 78,
+        "end_line": 109,
+        "source_lines": [
+          "function serializeWorld() {",
+          "  const save = { v: 3, app: GAME_VERSION, w: GRID.W, h: GRID.H, ts: Date.now(), seed: worldSeed, scal: {}, arrays: {}, states: [],",
+          "    stateSeq: (typeof _stateSeq !== 'undefined' ? _stateSeq : 0), events: (typeof worldEvents !== 'undefined' ? worldEvents.slice(0, EVENT_CAP) : []),",
+          "    cityNames: Object.assign({}, cityNames), cityMeta: Object.assign({}, cityMeta), wars, warLog, warSeq: _warSeq, ext: {} };",
+          "  for (const k of _SCAL_KEYS) save.scal[k] = W[k];",
+          "  // открытое меню само ставит мир на паузу — в сейв идёт состояние игры ДО меню, иначе «Продолжить» всегда начинало бы с паузы",
+          "  { const mm = document.getElementById('main-menu'); if (mm && mm.classList.contains('show')) save.scal.paused = !!_prevPaused; }",
+          "  for (const k in W) { const v = W[k]; if (ArrayBuffer.isView(v) && !_SKIP_ARRAYS.has(k)) save.arrays[k] = { t: v.constructor.name, b: _ab2b64(v) }; }",
+          "  if (typeof states !== 'undefined') for (const st of states) save.states.push(_packState(st));",
+          "  simEmit('save', save);                                           // подсистемы дописывают своё в save.ext.<имя>",
+          "  return save;",
+          "}",
+          "function applyLoadedSave(save) {",
+          "  if (typeof netScrub === 'function') netScrub(save, 0);           // сейвами делятся: разметка из чужого файла в окне игры сработала бы как код",
+          "  if (typeof save.seed === 'number') worldSeed = save.seed;        // от зерна зависят имена материков и весь «шум» мира",
+          "  const had = {};",
+          "  for (const k in save.arrays) {",
+          "    const a = save.arrays[k]; if (!W[k] || !ArrayBuffer.isView(W[k])) continue;",
+          "    const Ctor = _TYPED_CTORS[a.t]; if (!Ctor) continue;           // только типизированные массивы (защита от подделанного сейва)",
+          "    const arr = new Ctor(_b642ab(a.b));",
+          "    if (arr.length === W[k].length) { W[k].set(arr); had[k] = true; }",
+          "  }",
+          "  // поля 2.0, которых нет в старом сейве, обнуляем явно: загрузка идёт поверх мира, сгенерированного при старте",
+          "  for (const k of ['res', 'culture', 'religion', 'herb', 'pred', 'fish', 'ruin', 'fire', 'immune']) if (!had[k]) W[k].fill(0);",
+          "  if (!had.pAnom) W.pAnom.fill(1);",
+          "  W.pace = 1; W.dynSea = 0; W.disasterRate = 1; W.aerosol = 0; W.nukeWinter = 0; W.seaRefT = 1e9;",
+          "  W.faunaAuto = 1; W.faunaRich = 1;                                  // сейв до 2.1.3: звери расселяются сами, животный мир обычный — как было",
+          "  for (const k of _SCAL_KEYS) if (k in save.scal) W[k] = save.scal[k];",
+          "  if (!('seaBase' in save.scal)) W.seaBase = W.seaLevel;",
+          "  if (typeof states !== 'undefined') {",
+          "    states.length = 0;",
+          "    let maxId = -1; for (const ss of save.states) if (ss.id > maxId) maxId = ss.id;"
+        ]
+      }
+    },
+    {
+      "id": "DD-51",
+      "source_id": "SRC-133",
+      "summary": "Derived terrain/capacity update before load event.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78",
+        "line": 127,
+        "end_line": 137,
+        "source_lines": [
+          "  if (Array.isArray(save.wars)) for (const w of save.wars) wars.push(w);",
+          "  if (Array.isArray(save.warLog)) for (const w of save.warLog) warLog.push(w);",
+          "  _warSeq = save.warSeq || (wars.length + warLog.length);",
+          "  if (typeof recomputeStatic === 'function') recomputeStatic();      // полный пересчёт производных полей (вода/берег/склон/ветра/течения)",
+          "  if (!had.res) genResources();                                      // мир из версии 1.x: месторождений ещё не было — расставляем по его рельефу",
+          "  if (typeof rebuildCities === 'function') rebuildCities();",
+          "  if (typeof refreshCapacities === 'function') refreshCapacities();",
+          "  simEmit('load', save);                                             // подсистемы читают save.ext (или заводят состояние с нуля, если его там нет)",
+          "  if (typeof syncPlayGlyph === 'function') syncPlayGlyph();          // кнопка ⏸/▶ соответствует загруженному paused",
+          "  if (typeof syncPlanetSliders === 'function') syncPlanetSliders();  // ползунки «Планеты» = состояние загруженного мира",
+          "  markDirty('base'); markDirty('borders');"
+        ]
+      }
+    },
+    {
+      "id": "DD-52",
+      "source_id": "SRC-133",
+      "summary": "Erase Life cell mutations and reset hook.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435",
+        "line": 1070,
+        "end_line": 1092,
+        "source_lines": [
+          "netAct('resetLife', () => {",
+          "  if (typeof walkActive !== 'undefined' && walkActive && typeof walkExit === 'function') walkExit();",
+          "  // полный сброс жизни: люди, города, заводы, смог и все следы кистей населения — климат и рельеф остаются",
+          "  for (let i = 0; i < GRID.N; i++) {",
+          "    W.pop[i] = 0; W.urban[i] = 0; W.stateId[i] = -1; W.unrest[i] = 0; W.disease[i] = 0; W.devLevel[i] = 0;",
+          "    W.industry[i] = 0; W.pollution[i] = 0; W.adapt[i] = 0; W.rTier[i] = 255; W.foodCapS[i] = 0; W.fallout[i] = 0;",
+          "    W.culture[i] = 0; W.religion[i] = 0; W.ruin[i] = 0; W.fire[i] = 0; W.immune[i] = 0;",
+          "  }",
+          "  W.nukeWinter = 0;   // следы ядерных войн — тоже дело рук людей, сбрасываем",
+          "  states.length = 0; ships.length = 0; selectedState = null; highlightedState = null;",
+          "  wars.length = 0; warLog.length = 0;",
+          "  if (typeof battles !== 'undefined') battles.length = 0;",
+          "  if (typeof missiles !== 'undefined') { missiles.length = 0; explosions.length = 0; }",
+          "  if (typeof cities !== 'undefined') cities.length = 0;",
+          "  if (typeof worldEvents !== 'undefined') { worldEvents.length = 0; _eventsChanged = true; }",
+          "  if (typeof cityNames !== 'undefined') for (const k in cityNames) delete cityNames[k];",
+          "  if (typeof cityMeta !== 'undefined') for (const k in cityMeta) delete cityMeta[k];",
+          "  if (typeof refreshCapacities === 'function') refreshCapacities();",
+          "  renderStatePanel(null);",
+          "  markDirty('base'); markDirty('borders');",
+          "  if (typeof rUrgent === 'function') rUrgent();",
+          "  simEmit('reset');                       // люди, культуры, статистика и прочие подсистемы забывают прошлую жизнь",
+          "});"
+        ]
+      }
+    },
+    {
+      "id": "DD-53",
+      "source_id": "SRC-133",
+      "summary": "Generation clears fire, immune, anomalies and aerosol.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/core.js",
+        "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452",
+        "line": 1139,
+        "end_line": 1151,
+        "source_lines": [
+          "  carveRivers();",
+          "",
+          "  // 6. инициализация климата/экологии до равновесия, население — ноль",
+          "  W.dayOfYear = 80; W.seasonPhase = Math.sin(2 * Math.PI * W.dayOfYear / 360);",
+          "  for (let i = 0; i < GRID.N; i++) {",
+          "    W.pop[i] = 0; W.urban[i] = 0; W.foodCap[i] = 0; W.foodCapS[i] = 0; W.stateId[i] = -1; W.unrest[i] = 0; W.adapt[i] = 0;",
+          "    W.devLevel[i] = 0; W.disease[i] = 0; W.capacity[i] = 0; W.hab[i] = 0; W.habEff[i] = 0; W.veg[i] = 0; W.fallout[i] = 0;",
+          "    W.tempForce[i] = 0; W.tempPulse[i] = 0; W.precipMul[i] = 1; W.eco[i] = 1; W.pollution[i] = 0; W.industry[i] = 0; W.stir[i] = 0; W.curAddU[i] = 0; W.curAddV[i] = 0; W.windAddU[i] = 0; W.windAddV[i] = 0;",
+          "    W.rTier[i] = 255; W.biomeAge[i] = 0; W.iceAlbedo[i] = 0;   // сброс застройки/льда/возраста биома — иначе новый мир наследует артефакты прошлого",
+          "    W.culture[i] = 0; W.religion[i] = 0; W.herb[i] = 0; W.pred[i] = 0; W.fish[i] = 0; W.ruin[i] = 0; W.fire[i] = 0; W.volcanic[i] = 0;",
+          "    W.immune[i] = 0; W.pAnom[i] = 1;",
+          "  }",
+          "  genResources();                                    // месторождения — по уже готовому рельефу"
+        ]
+      }
+    },
+    {
+      "id": "DD-54",
+      "source_id": "SRC-133",
+      "summary": "Chronicle deduplication, metadata and event dispatch.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335",
+        "line": 38,
+        "end_line": 55,
+        "source_lines": [
+          "const EVENT_CAP = 600;",
+          "function logEvent(type, text, d) {",
+          "  const year = (typeof W !== 'undefined') ? Math.floor(W.simYear) : 0;",
+          "  const last = worldEvents[0];",
+          "  if (last && last.text === text && year - last.year < 4) return null;   // не дублируем подряд одно и то же",
+          "  const e = { year, type, text };",
+          "  if (d) {",
+          "    // рядом со слотами — сквозные номера держав: слот погибшей державы потом займёт другая, и «Показать»",
+          "    // по старой записи выбрало бы её. Потребители сверяют d.u (live-держава с тем же uid — та самая)",
+          "    if (Array.isArray(d.s) && !d.u) d.u = d.s.map(id => (states[id] ? states[id].uid : -1));",
+          "    e.d = d;",
+          "  }",
+          "  worldEvents.unshift(e);",
+          "  if (worldEvents.length > EVENT_CAP) worldEvents.length = EVENT_CAP;",
+          "  _eventsChanged = true;",
+          "  simEmit('event', e);",
+          "  return e;",
+          "}"
+        ]
+      }
+    },
+    {
+      "id": "DD-55",
+      "source_id": "SRC-133",
+      "summary": "Counting active objects by identity at yearly sample.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "line": 464,
+        "end_line": 482,
+        "source_lines": [
+          "  // Счёт бедствий — по объектам из DISASTERS: каждое учитывается один раз, когда мы впервые его видим",
+          "  // (ураган, например, пишет в хронику только о выходе на берег, а родился раньше). count = false —",
+          "  // просто запомнить уже идущие (после загрузки сейва они не новые).",
+          "  function pollDisasters(count) {",
+          "    if (typeof DISASTERS === 'undefined' || !DISASTERS || !DISASTERS.length) return;",
+          "    for (let k = 0; k < DISASTERS.length; k++) {",
+          "      const d = DISASTERS[k]; if (!d || typeof d !== 'object' || _disSeen.has(d)) continue;",
+          "      _disSeen.add(d);",
+          "      if (count === false) continue;",
+          "      HIST.dis.n++;",
+          "      if (d.type) HIST.dis.by[d.type] = (HIST.dis.by[d.type] || 0) + 1;",
+          "    }",
+          "  }",
+          "  function onYear(y) {",
+          "    pollDisasters();",
+          "    if (HIST.nextY - y > HIST.step) HIST.nextY = y;            // часы мира ушли назад — не ждём «будущего»",
+          "    if (y >= HIST.nextY) { sample(y); HIST.nextY = y + HIST.step; }",
+          "    const tl = HIST.tl;",
+          "    if (tl.nextY - y > tl.step) tl.nextY = y;"
+        ]
+      }
+    },
+    {
+      "id": "DD-56",
+      "source_id": "SRC-133",
+      "summary": "Chronicle-specific disaster history and statistics polling.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "line": 512,
+        "end_line": 523,
+        "source_lines": [
+          "    if (!e || !e.type) return;",
+          "    const d = e.d, imp = (d && typeof d.imp === 'number') ? d.imp : (EV_IMP[e.type] || 0);",
+          "    const dis = d && d.dis ? d.dis : (e.type === 'plague' ? 'plague' : e.type === 'famine' ? 'famine' : e.type === 'disaster' ? 'other' : '');",
+          "    if (dis) {",
+          "      // свежий объект бедствия уже лежит в DISASTERS — считаем его сразу (короткое не дожило бы до годового опроса).",
+          "      // Голод и бедствия без объекта считаем по самому событию.",
+          "      pollDisasters();",
+          "      if (typeof DISASTERS === 'undefined' || dis === 'famine' || dis === 'other') { HIST.dis.n++; HIST.dis.by[dis] = (HIST.dis.by[dis] || 0) + 1; }",
+          "      HIST.disLog.push([e.year, dis, String(e.text || ''), imp, (d && d.cell >= 0) ? d.cell : -1]);",
+          "      if (HIST.disLog.length > C.DIS_LOG) evict(HIST.disLog);",
+          "    }",
+          "    const us = [];"
+        ]
+      }
+    },
+    {
+      "id": "DD-57",
+      "source_id": "SRC-133",
+      "summary": "Restore counters and mark observed active objects.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "line": 731,
+        "end_line": 741,
+        "source_lines": [
+          "  function onLoad(o) {",
+          "    let ok = false;",
+          "    try { ok = unpack(o && o.ext && o.ext.stats); }",
+          "    catch (e) { try { console.warn('[stats] история в сейве не читается, начинаю заново:', e && e.message); } catch (e2) {} }",
+          "    if (!ok) bootstrap(false);                // сейв версии 1.x или битый раздел: история — с нынешнего момента",
+          "    else if (!(o.ext && o.ext.civ && o.ext.civ.ladder >= 2)) eraV1(); // сейв до 2.2: номера эпох в летописи — старые (шесть эпох)",
+          "    pollDisasters(false);                     // бедствия, идущие на момент сохранения, уже были сосчитаны",
+          "    // ряды науки на месте — civ.js восстанавливает по ним первооткрывателей вех, которых нет в сейве прежней версии",
+          "    if (typeof invBackfill === 'function') invBackfill();",
+          "    _dirty = true;",
+          "  }"
+        ]
+      }
+    },
+    {
+      "id": "DD-58",
+      "source_id": "SRC-133",
+      "summary": "Current disaster cards, per-type counts and history rows.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/stats.js",
+        "sha256": "961c1de9e2ebb5040df4e3559b2b216072ac6304f85bf350d57e88762fa72f17",
+        "line": 1968,
+        "end_line": 1977,
+        "source_lines": [
+          "      // бедствия: идущие сейчас, счёт по видам, лента",
+          "      const act = (typeof DISASTERS !== 'undefined' && DISASTERS) ? DISASTERS : [];",
+          "      setHTML(X.dnow, act.length ? `<div class='sx-chips'>` + act.slice(0, 12).map(d => { const cx = clamp(d.x | 0, 0, GRID.W - 1), cy = clamp(d.y | 0, 0, GRID.H - 1);",
+          "        return `<span class='ui-chip war' data-cell='${cy * GRID.W + cx}' title='${E(T('показать на карте', 'show on map'))}'>${IC(DIS_IC[d.type] || 'warn', 12)}${E(d.name ? String(d.name) : disName(d.type))}</span>`; }).join('') + `</div>`",
+          "        : `<div class='ui-muted' style='font-size:12px;margin-bottom:8px'>${E(T('Сейчас в мире спокойно', 'The world is calm right now'))}</div>`);",
+          "      const by = HIST.dis.by, keys = Object.keys(by).filter(k => by[k] > 0).sort((a, b) => by[b] - by[a]);",
+          "      bars2(X.dby, keys.slice(0, 11).map(k => ({ label: disName(k), value: by[k], color: [255, 150, 60] })), { fmt: v => String(v), empty: T('Бедствий пока не было', 'No disasters so far') });",
+          "      const lsig = HIST.disLog.length + '|' + (HIST.disLog.length ? HIST.disLog[HIST.disLog.length - 1][2] : '');",
+          "      if (force || lsig !== X._lsig) { X._lsig = lsig; X.dlog.innerHTML = HIST.disLog.length ? HIST.disLog.slice().reverse().map(e => evRow([e[0], 'disaster', e[2], e[3], e[4], -1], DIS_IC[e[1]] || 'warn', 'war')).join('') : empty(T('Бедствий пока не было', 'No disasters so far')); }",
+          "      // животные"
+        ]
+      }
+    },
+    {
+      "id": "DD-59",
+      "source_id": "SRC-133",
+      "summary": "Module order for climate, civil, disasters and people.",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a",
+        "line": 714,
+        "end_line": 722,
+        "source_lines": [
+          "<script src=\"climate.js?v=279\"></script>",
+          "<script src=\"ecology.js?v=279\"></script>",
+          "<script src=\"fauna.js?v=279\"></script>",
+          "<script src=\"civ.js?v=279\"></script>",
+          "<script src=\"society.js?v=279\"></script>",
+          "<script src=\"disasters.js?v=279\"></script>",
+          "<script src=\"people.js?v=279\"></script>",
+          "<script src=\"trade.js?v=279\"></script>",
+          "<script src=\"net.js?v=279\"></script>"
+        ]
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "NATURAL-ROLLS",
+      "evidence": [
+        "DD-01",
+        "DD-03",
+        "DD-05",
+        "DD-07"
+      ],
+      "probe_ids": [
+        "DD19",
+        "DD20",
+        "DD21",
+        "DD22",
+        "DD23",
+        "DD24",
+        "DD25",
+        "DD26",
+        "DD27",
+        "DD28",
+        "DD29",
+        "DD30"
+      ],
+      "conclusion": "Nine natural rolls have terrain and population gates. Tsunami enters through cascades or a direct invocation."
+    },
+    {
+      "id": "VOLCANO-AND-METEOR",
+      "evidence": [
+        "DD-02",
+        "DD-04",
+        "DD-07",
+        "DD-12"
+      ],
+      "probe_ids": [
+        "DD02",
+        "DD03",
+        "DD07",
+        "DD08",
+        "DD43"
+      ],
+      "conclusion": "A player volcano can raise a dry island. Meteor strength changes the radius, crater and dust while the same center fraction applies."
+    },
+    {
+      "id": "MARKERS-AND-FIELDS",
+      "evidence": [
+        "DD-06",
+        "DD-09",
+        "DD-10",
+        "DD-11",
+        "DD-13",
+        "DD-14",
+        "DD-19",
+        "DD-20"
+      ],
+      "probe_ids": [
+        "DD09",
+        "DD10",
+        "DD11",
+        "DD12",
+        "DD13",
+        "DD14",
+        "DD15"
+      ],
+      "conclusion": "Fire may outlive its marker. Hurricane moves before applying damage; drought and climate both write precipitation anomaly."
+    },
+    {
+      "id": "EPIDEMIC",
+      "evidence": [
+        "DD-08",
+        "DD-15",
+        "DD-17"
+      ],
+      "probe_ids": [
+        "DD16",
+        "DD17",
+        "DD18",
+        "DD25",
+        "DD28"
+      ],
+      "conclusion": "The event seeds disease and immunity. Spread and medicine are population rules. Manual and natural target gates differ."
+    },
+    {
+      "id": "DIRECT-POWERS",
+      "evidence": [
+        "DD-24",
+        "DD-25",
+        "DD-26",
+        "DD-27",
+        "DD-29"
+      ],
+      "probe_ids": [
+        "DD31",
+        "DD32",
+        "DD33",
+        "DD34",
+        "DD35"
+      ],
+      "conclusion": "Rain and blessing write cells; inspiration writes a nation. Boundary peace runs the normal peace handler and direct scenario discord changes relations."
+    },
+    {
+      "id": "TWO-CLICK-DISCORD",
+      "evidence": [
+        "DD-24",
+        "DD-28",
+        "DD-36",
+        "DD-37"
+      ],
+      "probe_ids": [
+        "DD36",
+        "DD37",
+        "DD38"
+      ],
+      "conclusion": "Interactive discord has a 45-second selection and starts up to four wars in the all-neighbors branch."
+    },
+    {
+      "id": "BRUSH-AND-RATE",
+      "evidence": [
+        "DD-30",
+        "DD-31",
+        "DD-34",
+        "DD-35",
+        "DD-36",
+        "DD-37",
+        "DD-40",
+        "DD-41",
+        "DD-42"
+      ],
+      "probe_ids": [
+        "DD39",
+        "DD40",
+        "DD41",
+        "DD42",
+        "DD49",
+        "DD50"
+      ],
+      "conclusion": "Brush and point paths have distinct dispatch. Wrath enforces frequency four with the scenario rate control disabled."
+    },
+    {
+      "id": "DECLARATIVE-INGRESS",
+      "evidence": [
+        "DD-43",
+        "DD-44",
+        "DD-45",
+        "DD-46"
+      ],
+      "probe_ids": [
+        "DD43",
+        "DD51"
+      ],
+      "conclusion": "A scheduled attempt uses base effect handlers. A rejected target can consume a one-shot attempt."
+    },
+    {
+      "id": "SAVE-AND-STATISTICS",
+      "evidence": [
+        "DD-48",
+        "DD-49",
+        "DD-50",
+        "DD-51",
+        "DD-52",
+        "DD-53",
+        "DD-54",
+        "DD-55",
+        "DD-56",
+        "DD-57"
+      ],
+      "probe_ids": [
+        "DD44",
+        "DD45",
+        "DD46",
+        "DD47"
+      ],
+      "conclusion": "Ordinary load rebuilds fire index and preserves existing counters. A short unlogged marker may expire before it is counted."
+    },
+    {
+      "id": "FAMINE-AND-COURT",
+      "evidence": [
+        "DD-16",
+        "DD-18",
+        "DD-22",
+        "DD-23"
+      ],
+      "probe_ids": [
+        "DD48"
+      ],
+      "conclusion": "Famine compares food-capacity snapshots. Court effects consume the active disaster list and cell disease through separate branches."
+    }
+  ],
+  "verification": {
+    "command": "node design-docs/tools/probe_disasters.cjs",
+    "report_path": ".research/wp-disasters/probe-results.json",
+    "test_copy_path": ".research/wp-disasters/test-copy/EarthSimulator",
+    "checks": [
+      {
+        "id": "DD01-dispatch-and-circle",
+        "status": "passed",
+        "observation": "Invalid index/type returns no event; defaults and explicit strength use the shipped clamp."
+      },
+      {
+        "id": "DD02-volcano-instant-fields",
+        "status": "passed",
+        "observation": "Earthwork, ash, casualties and burning fields checked in a synthetic center cell."
+      },
+      {
+        "id": "DD03-volcano-ocean-player-island",
+        "status": "passed",
+        "observation": true
+      },
+      {
+        "id": "DD04-quake-tsunami-cascade-and-log",
+        "status": "passed",
+        "observation": [
+          {
+            "type": "quake",
+            "life": 0.35
+          },
+          {
+            "type": "tsunami",
+            "life": 0.3
+          }
+        ]
+      },
+      {
+        "id": "DD05-dry-quake-cascade-roll",
+        "status": "passed",
+        "observation": "Dry coastal epicenter requires a roll below 0.5."
+      },
+      {
+        "id": "DD06-tsunami-coast-only",
+        "status": "passed",
+        "observation": "Only dry coast takes tsunami damage."
+      },
+      {
+        "id": "DD07-meteor-crater-ring-and-dust",
+        "status": "passed",
+        "observation": "Power scales the crater, radius and dust. The center population multiplier is 0.03."
+      },
+      {
+        "id": "DD08-water-meteor-tsunami",
+        "status": "passed",
+        "observation": "Water impact keeps elevation and spawns a full-strength tsunami."
+      },
+      {
+        "id": "DD09-fire-ignition-versus-marker",
+        "status": "passed",
+        "observation": "Fire preview uses initial ignition radius. Active marker has a separate radius."
+      },
+      {
+        "id": "DD10-fire-civ-tick-spread-and-loss",
+        "status": "passed",
+        "observation": [
+          0.7200000286102295,
+          0.800000011920929,
+          975,
+          0,
+          0.5600000023841858,
+          0.05000000074505806,
+          0.03999999910593033
+        ]
+      },
+      {
+        "id": "DD11-fire-rain-suppression-and-expiry",
+        "status": "passed",
+        "observation": "Cells burn independently of the expired visual event. Heavy rain damps fire and blocks spread."
+      },
+      {
+        "id": "DD12-hurricane-movement-and-landfall",
+        "status": "passed",
+        "observation": "Hurricane moves on the tick, loses 3.5× time over the old dry cell and announces landfall once."
+      },
+      {
+        "id": "DD13-drought-reapplies-and-relaxes",
+        "status": "passed",
+        "observation": "Drought refreshes anomaly during its last tick. Climate recovery continues after expiration."
+      },
+      {
+        "id": "DD14-flood-damage-filter-and-quench",
+        "status": "passed",
+        "observation": "Wetting and fire removal apply beyond the damage filter."
+      },
+      {
+        "id": "DD15-flash-freeze-pulse",
+        "status": "passed",
+        "observation": "Freeze writes the weather pulse. Climate decays it independently of the active marker."
+      },
+      {
+        "id": "DD16-epidemic-threshold-and-immunity",
+        "status": "passed",
+        "observation": "Manual epidemic accepts ≥200 dry residents. Area immunity is applied only above 300 people."
+      },
+      {
+        "id": "DD17-epidemic-demography-and-medicine",
+        "status": "passed",
+        "observation": [
+          892,
+          978.4000244140625
+        ]
+      },
+      {
+        "id": "DD18-epidemic-neighbor-demography",
+        "status": "passed",
+        "observation": "Adjacent target receives disease and immunity from the population pass."
+      },
+      {
+        "id": "DD19-annual-volcano",
+        "status": "passed",
+        "observation": [
+          "volcano"
+        ]
+      },
+      {
+        "id": "DD20-annual-quake",
+        "status": "passed",
+        "observation": [
+          "quake"
+        ]
+      },
+      {
+        "id": "DD21-annual-hurricane",
+        "status": "passed",
+        "observation": [
+          "hurricane"
+        ]
+      },
+      {
+        "id": "DD22-annual-drought",
+        "status": "passed",
+        "observation": [
+          "drought"
+        ]
+      },
+      {
+        "id": "DD23-annual-flood",
+        "status": "passed",
+        "observation": [
+          "flood"
+        ]
+      },
+      {
+        "id": "DD24-annual-fire",
+        "status": "passed",
+        "observation": [
+          "fire"
+        ]
+      },
+      {
+        "id": "DD25-annual-plague",
+        "status": "passed",
+        "observation": [
+          "plague"
+        ]
+      },
+      {
+        "id": "DD26-annual-meteor",
+        "status": "passed",
+        "observation": [
+          "meteor"
+        ]
+      },
+      {
+        "id": "DD27-annual-blizzard",
+        "status": "passed",
+        "observation": [
+          "blizzard"
+        ]
+      },
+      {
+        "id": "DD28-annual-selection-can-reject",
+        "status": "passed",
+        "observation": "A passed roll still needs eligible terrain/vegetation/river/city."
+      },
+      {
+        "id": "DD29-frequency-and-direct-invocation",
+        "status": "passed",
+        "observation": "Rate zero suppresses annual rolls. Direct game tools remain available."
+      },
+      {
+        "id": "DD30-annual-frequency-area-floor",
+        "status": "passed",
+        "observation": "All-water fixture still uses the 200-cell floor in roll scaling."
+      },
+      {
+        "id": "DD31-rain-area-fire-and-dirty",
+        "status": "passed",
+        "observation": "Direct rain mutates dry cell fields without creating an active disaster."
+      },
+      {
+        "id": "DD32-blessing-clears-disease-preserves-immunity",
+        "status": "passed",
+        "observation": [
+          0.5,
+          0,
+          33,
+          0.20000000298023224,
+          0.20000000298023224,
+          0.30000001192092896,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "DD33-inspiration-cap-and-golden-age",
+        "status": "passed",
+        "observation": "Inspiration needs an owner; it applies the real civilization golden-age helper."
+      },
+      {
+        "id": "DD34-peace-border-and-interior",
+        "status": "passed",
+        "observation": "Border peace closes one war; interior peace closes all wars involving the nation."
+      },
+      {
+        "id": "DD35-scenario-discord-relations-only",
+        "status": "passed",
+        "observation": "godPower discord changes relations, clears truces and can lower stability."
+      },
+      {
+        "id": "DD36-ui-twin-click-discord",
+        "status": "passed",
+        "observation": "Two targets enter godDiscord via the registered action and open a real game war."
+      },
+      {
+        "id": "DD37-ui-discord-selection-timeout",
+        "status": "passed",
+        "observation": "First choice expires at 45 seconds."
+      },
+      {
+        "id": "DD38-ui-repeat-nation-discord-limit",
+        "status": "passed",
+        "observation": [
+          6,
+          5,
+          4,
+          3
+        ]
+      },
+      {
+        "id": "DD39-ui-disaster-latch-and-strength",
+        "status": "passed",
+        "observation": "Point tool fires once until brush completion, using slider strength / 10."
+      },
+      {
+        "id": "DD40-ui-area-and-biome-brush",
+        "status": "passed",
+        "observation": "Area power covers the circular brush once. Biome tool writes climate, relief and current biome."
+      },
+      {
+        "id": "DD41-ui-eraser-keeps-natural-and-resource-fields",
+        "status": "passed",
+        "observation": "Eraser clears ownership and listed brush fields without removing deposits or ruin/fire/fallout."
+      },
+      {
+        "id": "DD42-scenario-tool-and-rate-locks",
+        "status": "passed",
+        "observation": "Scenario disables widgets, deselects an active banned tool, restores controls and can enforce rate."
+      },
+      {
+        "id": "DD43-scheduled-disaster-and-power-ingress",
+        "status": "passed",
+        "observation": "Scheduled events call the same game functions. Scheduled volcano passes byPlayer=false."
+      },
+      {
+        "id": "DD44-active-list-bound-and-save-load",
+        "status": "passed",
+        "observation": "JSON round trip restores active records, scalar and field state; burning cache is reconstructed."
+      },
+      {
+        "id": "DD45-reset-versus-worldgen",
+        "status": "passed",
+        "observation": "Reset preserves weather residue and the next tick drains its stale fire index. Generation clears both."
+      },
+      {
+        "id": "DD46-disaster-stats-object-and-chronicle",
+        "status": "passed",
+        "observation": "Counters deduplicate active objects across polling and load. Chronicle is a separate list."
+      },
+      {
+        "id": "DD47-short-unlogged-event-expires-before-count",
+        "status": "passed",
+        "observation": "Short marker with an empty event message can expire between statistics polls."
+      },
+      {
+        "id": "DD48-famine-detector-food-capacity-and-cooldown",
+        "status": "passed",
+        "observation": "Famine uses food-capacity history and a separate per-region event cooldown."
+      },
+      {
+        "id": "DD49-brush-water-current-and-deposit",
+        "status": "passed",
+        "observation": "Relief release advances climate. Manual currents require water; the resource brush can place iron in water."
+      },
+      {
+        "id": "DD50-population-brush-and-city-eligibility",
+        "status": "passed",
+        "observation": "Population can be painted on any dry surface. City requires suitability before creation."
+      },
+      {
+        "id": "DD51-scheduled-action-attempt-consumption",
+        "status": "passed",
+        "observation": "Scheduled attempt is recorded even when the game handler rejects the target."
+      }
+    ],
+    "probe_script_sha256": "0be5905ebe80edffd02671b06ef107d75410ec8660dc941de054f3d4d02db728",
+    "environment": {
+      "node": "v26.13.1",
+      "grid": [
+        24,
+        24
+      ],
+      "fixture": "Shipped classic scripts in Node VM, synthetic map/state, forced RNG where needed, DOM and command adapters, in-memory serialization. No game process."
+    },
+    "runtime_verified": false
+  },
+  "limitations": [
+    "VM checks execute game functions with a controlled RNG, synthetic geography and substituted desktop, DOM and command adapters.",
+    "No rendered game, synchronized room, audio pipeline, user save or Workshop add-on was observed.",
+    "Natural roll branches are forced by fixtures. Long-horizon frequency and secondary outcomes remain unmeasured.",
+    "Annual live sea is covered in WP-WORLD-NATURE. Mod and scenario references record the entry into base game effects."
+  ],
+  "next_package": "WP-MAP-INTERFACE"
+}
