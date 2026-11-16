@@ -1,5 +1,32 @@
 # Изменения исследовательской документации
 
+## 2026-11-16. WP-MODDING
+
+- Six features traced across 36 source ranges. Fifty isolated checks passed. Extracted data formats, code boot/patching, ModAPI, world sanitation, heightmaps, editor drafts and Workshop lifecycle. Status: `static_traced_runtime_pending`; `runtime_verified=false`. [Modding](topics/modding/data-code-editor.md) · [Evidence](research/extraction-modding.json) [SRC-243–249]
+- 24 statically extracted packages and 1368 isolated checks. Next: `WP-CUSTOMIZATION`.
+
+## 2026-11-16. Игрок в роли бога
+
+- Добавлены [механики № 101–200 по мотивам Populous](POPULOUS_DLC.md) и пример партии с самостоятельными решениями последователей.
+
+## 2026-11-16. Идеи для модов и DLC
+
+- Добавлены [100 предложений](EXPANSION_IDEAS.md) с привязкой к документации версии 2.1.4 и сверкой с публичными планами.
+
+## 2026-11-16. Публичная дорожная карта
+
+- Добавлен [анализ дорожной карты](ROADMAP.md) с зависимостями версий, рисками и предложенными критериями готовности. Публичные источники зарегистрированы как SRC-239 и SRC-240.
+
+## 2026-11-16. WP-SCENARIOS-PROFILE
+
+- Извлечены 13 встроенных сценариев с 45 целями, 32 достижения, 13 шагов обучения, 11 подсказок и расписание событий дополнений. Прослежены 68 диапазонов кода. Прошли 32 изолированные проверки. Статус `static_traced_runtime_pending`. [Сценарии](topics/menu/scenarios.md) · [Достижения](topics/menu/achievements.md) · [Обучение](topics/interface/onboarding.md) · [События](topics/menu/scripted-events.md) · [Машинный отчёт](research/extraction-scenarios-profile.json) [SRC-232–238]
+- Всего 23 статически извлечённых пакета и 1318 изолированных проверок. Далее `WP-MODDING`.
+
+## 2026-11-16. WP-LOCAL-MULTIPLAYER
+
+- Прослежены три фичи и 37 диапазонов кода. Прошли 24 изолированные проверки. Извлечены места гостей, действия на общей карте, раздельный ввод Steam, выбор держав и счёт соперничества. Статус `static_traced_runtime_pending`. [Локальная кооперация и соперничество](topics/network/local-coop-rivalry.md) · [Машинный отчёт](research/extraction-local-multiplayer.json) [SRC-226–231]
+- Всего 22 статически извлечённых пакета и 1286 изолированных проверок. Далее `WP-SCENARIOS-PROFILE`.
+
 ## 2026-11-15. WP-NETWORK-WALK
 
 - Прослежены две фичи и 45 диапазонов кода. Прошли 29 изолированных проверок. Извлечены присутствие, общий мир, действия гостей, PvP, часы и погода. Статус `static_traced_runtime_pending`. [Сетевая прогулка](topics/network/walk.md) · [Машинный отчёт](research/extraction-network-walk.json) [SRC-219–225]

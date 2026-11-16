@@ -4,6 +4,12 @@
 
 [JSON-каталог фичей и документов](catalog.json) · [Анализ структуры](ANALYSIS.md) · [Источники](SOURCES.md) · [Текущие вопросы](OPEN_QUESTIONS.md)
 
+Публичные планы релизов, зависимости и предложенные критерии готовности собраны в [анализе дорожной карты](ROADMAP.md).
+
+[100 идей для модов и DLC за пределами дорожной карты](EXPANSION_IDEAS.md).
+
+[«Земля слышит». Ещё 100 механик для игрока-бога по мотивам Populous](POPULOUS_DLC.md).
+
 [Полный план извлечения логики](EXTRACTION_PLAN.md) охватывает все обнаруженные системы. [Перечень 144 фичей](FEATURE_INVENTORY.md) и [JSON охвата](research/feature-scope.json) связывают их с 29 этапами и игровыми модулями.
 
 Исходный [дизайн-документ](Earth%20Simulator%20Дизайн%20Документ.md) сохранён без изменений. Нумерация старых разделов указана внутри тем и в JSON. Документы «Каркас исследования» отмечают пробелы, а не завершённые механики.
@@ -51,6 +57,10 @@ WP-WALK-AIR охватывает четыре фичи. Извлечены по�
 
 Прослежены две фичи и 45 диапазонов кода. Прошли 29 изолированных проверок. Извлечены присутствие, общий мир, действия гостей, PvP, часы и погода. Статус `static_traced_runtime_pending`. [Сетевая прогулка](topics/network/walk.md) · [Машинный отчёт](research/extraction-network-walk.json) [SRC-219–225]
 
+Прослежены три фичи и 37 диапазонов кода. Прошли 24 изолированные проверки. Извлечены места гостей, действия на общей карте, раздельный ввод Steam, выбор держав и счёт соперничества. Статус `static_traced_runtime_pending`. [Локальная кооперация и соперничество](topics/network/local-coop-rivalry.md) · [Машинный отчёт](research/extraction-local-multiplayer.json) [SRC-226–231]
+
+Извлечены 13 встроенных сценариев с 45 целями, 32 достижения, 13 шагов обучения, 11 подсказок и расписание событий дополнений. Прослежены 68 диапазонов кода. Прошли 32 изолированные проверки. Статус `static_traced_runtime_pending`. [Сценарии](topics/menu/scenarios.md) · [Достижения](topics/menu/achievements.md) · [Обучение](topics/interface/onboarding.md) · [События](topics/menu/scripted-events.md) · [Машинный отчёт](research/extraction-scenarios-profile.json) [SRC-232–238]
+
 ## Основы игры
 
 | Документ | Старые разделы | Содержание |
@@ -64,6 +74,7 @@ WP-WALK-AIR охватывает четыре фичи. Извлечены по�
 | [Главное меню и новости](topics/menu/lobby.md) | 1 | Пункты, пауза и лента |
 | [Жизненный цикл меню](topics/menu/lifecycle.md) | — | Boot, Continue, запись, сброс и выход |
 | [Создание мира: климат и история](topics/menu/new-game.md) | 1.1 | Тематический текст |
+| [События сценариев и дополнений](topics/menu/scripted-events.md) | — | Расписание, эффекты и комплектный пример |
 | [Сценарии: условия и цели](topics/menu/scenarios.md) | 1.2 | Тематический текст |
 | [Сетевая игра](topics/menu/multiplayer.md) | 1.3 | Тематический текст |
 | [Сохранение и загрузка](topics/menu/save-load.md) | 1.4, 1.5 | Тематический текст |
@@ -161,12 +172,15 @@ WP-WALK-AIR охватывает четыре фичи. Извлечены по�
 | --- | --- | --- |
 | [Сетевые комнаты, синхронизация и восстановление](topics/network/rooms-sync.md) | — | Подключение, роли, команды, снимки и переподключение |
 | [Сетевая прогулка, общий мир и PvP](topics/network/walk.md) | — | Общие акторы, действия гостей, PvP и часы комнаты |
-| [Конкуренция и сетевые прогулки](topics/network/competition-walk.md) | — | Каркас исследования |
+| [Локальная кооперация, Remote Play и соперничество](topics/network/local-coop-rivalry.md) | — | Общий экран, приглашения Steam и состязание держав |
+| [Конкуренция и сетевые прогулки](topics/network/competition-walk.md) | — | Связанные темы |
 
 ## Исследование и источники
 
 | Документ | Старые разделы | Содержание |
 | --- | --- | --- |
+| [Машинный отчёт WP-SCENARIOS-PROFILE](research/extraction-scenarios-profile.json) | — | Сценарии, достижения, подсказки, события и проверки |
+| [Машинный отчёт WP-LOCAL-MULTIPLAYER](research/extraction-local-multiplayer.json) | — | Диапазоны кода, параметры и изолированные проверки |
 | [Машинный отчёт WP-NETWORK-WALK](research/extraction-network-walk.json) | — | Источники, диапазоны, правила и изолированные проверки |
 | [Машинный отчёт WP-NETWORK](research/extraction-network.json) | — | Протокол, диапазоны, настройки и изолированные проверки |
 | [Машинный отчёт WP-WALK-CORE](research/extraction-walk-core.json) | — | Диапазоны кода, результаты VM и хеши источников |
@@ -177,3 +191,7 @@ WP-WALK-AIR охватывает четыре фичи. Извлечены по�
 | [Машинный отчёт WP-WALK-SEA](research/extraction-walk-sea.json) | — | Корпуса, настройки, исходные диапазоны и проверки |
 | [Машинный отчёт WP-WALK-AIR](research/extraction-walk-air.json) | — | Авиационные свойства, настройки, диапазоны кода и проверки |
 | [Исторические вопросы исходного документа](topics/research/legacy-questions.md) | 3 | Исторические вопросы |
+
+## WP-MODDING. Data, code, editor and Workshop
+
+Six features traced across 36 source ranges. Fifty isolated checks passed. Extracted data formats, code boot/patching, ModAPI, world sanitation, heightmaps, editor drafts and Workshop lifecycle. Status: `static_traced_runtime_pending`; `runtime_verified=false`. [Modding](topics/modding/data-code-editor.md) · [Evidence](research/extraction-modding.json) [SRC-243–249]

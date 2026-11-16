@@ -1,0 +1,2017 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-SCENARIOS-PROFILE",
+  "game_version": "2.1.4",
+  "date": "2026-11-16",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-SCENARIOS",
+    "FEAT-GLOBAL-GOALS",
+    "FEAT-ONBOARDING",
+    "FEAT-ACHIEVEMENTS",
+    "FEAT-SCRIPTED-EVENTS"
+  ],
+  "document_ids": [
+    "DOC-SCENARIOS",
+    "DOC-ACHIEVEMENTS",
+    "DOC-ONBOARDING",
+    "DOC-SCRIPTED-EVENTS",
+    "DOC-SCENARIOS-PROFILE-DATA"
+  ],
+  "source_ids": [
+    "SRC-232",
+    "SRC-233",
+    "SRC-234",
+    "SRC-235",
+    "SRC-236",
+    "SRC-237",
+    "SRC-238"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_verified": false
+  },
+  "source_files": [
+    {
+      "path": "EarthSimulator/achievements.js",
+      "bytes": 29070,
+      "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+    },
+    {
+      "path": "EarthSimulator/civ.js",
+      "bytes": 232072,
+      "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335"
+    },
+    {
+      "path": "EarthSimulator/climate.js",
+      "bytes": 36493,
+      "sha256": "1da3c5da09e84894511c9fe3f4a4677e6a9cf7954db63f8fdd83060db88619a0"
+    },
+    {
+      "path": "EarthSimulator/goals.js",
+      "bytes": 34942,
+      "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+    },
+    {
+      "path": "EarthSimulator/index.html",
+      "bytes": 71289,
+      "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+    },
+    {
+      "path": "EarthSimulator/main.js",
+      "bytes": 18207,
+      "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0"
+    },
+    {
+      "path": "EarthSimulator/menu.js",
+      "bytes": 153010,
+      "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+    },
+    {
+      "path": "EarthSimulator/mods.js",
+      "bytes": 196320,
+      "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+    },
+    {
+      "path": "EarthSimulator/steam.js",
+      "bytes": 29524,
+      "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+    },
+    {
+      "path": "EarthSimulator/tutorial.js",
+      "bytes": 32528,
+      "sha256": "f0a7a98e58288fd7a248e2de22023c508ee2fa8941d7758274a328d67bbf1c96"
+    },
+    {
+      "path": "EarthSimulator/ui.js",
+      "bytes": 137343,
+      "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+    },
+    {
+      "path": "EarthSimulator/mods/example-pack/mod.json",
+      "bytes": 8528,
+      "sha256": "313da97776b18fcb51d36cf6104af54f4fbd0eaeaca463a8a2d5f062dc61195c"
+    },
+    {
+      "path": "EarthSimulator/mods/example-pack/worlds/ash-isles.json.gz",
+      "bytes": 154051,
+      "sha256": "f0b8c6bee755aa09eb83a96032cd014b27700c48b7d3c6638c74d20f07d1768e"
+    }
+  ],
+  "declarations": {
+    "scenarios": [
+      {
+        "id": "cradle",
+        "name": "Колыбель жизни",
+        "boot": {
+          "type": "continents"
+        },
+        "locks": [
+          "pace"
+        ],
+        "tools": [
+          "inspire"
+        ],
+        "enforce": {},
+        "goals": [
+          {
+            "id": "pop1m",
+            "hold": false
+          },
+          {
+            "id": "st3",
+            "hold": false
+          },
+          {
+            "id": "city50",
+            "hold": false
+          },
+          {
+            "id": "era2",
+            "hold": false
+          }
+        ],
+        "hasTick": false,
+        "hasDefeat": false
+      },
+      {
+        "id": "iceage",
+        "name": "Ледниковый вызов",
+        "boot": {
+          "type": "continents",
+          "solar": 0.9,
+          "co2": 0.55
+        },
+        "locks": [
+          "co2",
+          "solar",
+          "gtemp",
+          "pace"
+        ],
+        "tools": [],
+        "enforce": {
+          "solar": 0.9
+        },
+        "goals": [
+          {
+            "id": "melt",
+            "hold": false
+          },
+          {
+            "id": "pop500k",
+            "hold": false
+          },
+          {
+            "id": "live150",
+            "hold": false
+          }
+        ],
+        "hasTick": false,
+        "hasDefeat": true
+      },
+      {
+        "id": "flood",
+        "name": "Великий потоп",
+        "boot": {
+          "type": "islands",
+          "seaLevel": 0.37,
+          "dynSea": 0
+        },
+        "locks": [
+          "sea",
+          "dynsea",
+          "pace"
+        ],
+        "tools": [],
+        "enforce": {},
+        "goals": [
+          {
+            "id": "pop1m",
+            "hold": false
+          },
+          {
+            "id": "live200",
+            "hold": false
+          },
+          {
+            "id": "cities5",
+            "hold": true
+          }
+        ],
+        "hasTick": true,
+        "hasDefeat": true
+      },
+      {
+        "id": "dune",
+        "name": "Пустынный мир",
+        "boot": {
+          "type": "pangea",
+          "solar": 1.09,
+          "co2": 1.3,
+          "precip": 0.5
+        },
+        "locks": [
+          "co2",
+          "solar",
+          "gtemp",
+          "pace"
+        ],
+        "tools": [],
+        "enforce": {
+          "solar": 1.09,
+          "co2": 1.3
+        },
+        "goals": [
+          {
+            "id": "green25",
+            "hold": false
+          },
+          {
+            "id": "pop700k",
+            "hold": false
+          },
+          {
+            "id": "eco70",
+            "hold": true
+          }
+        ],
+        "hasTick": false,
+        "hasDefeat": false
+      },
+      {
+        "id": "industrial",
+        "name": "Индустриальная дилемма",
+        "boot": {
+          "type": "continents"
+        },
+        "locks": [
+          "co2",
+          "gtemp",
+          "solar",
+          "pace"
+        ],
+        "tools": [
+          "inspire"
+        ],
+        "enforce": {},
+        "goals": [
+          {
+            "id": "era4",
+            "hold": false
+          },
+          {
+            "id": "cities10",
+            "hold": false
+          },
+          {
+            "id": "eco60",
+            "hold": true
+          },
+          {
+            "id": "co2",
+            "hold": true
+          }
+        ],
+        "hasTick": false,
+        "hasDefeat": true
+      },
+      {
+        "id": "hegemon",
+        "name": "Гегемон Пангеи",
+        "boot": {
+          "type": "pangea"
+        },
+        "locks": [
+          "pace"
+        ],
+        "tools": [
+          "inspire"
+        ],
+        "enforce": {},
+        "goals": [
+          {
+            "id": "area40",
+            "hold": false
+          },
+          {
+            "id": "era3",
+            "hold": false
+          },
+          {
+            "id": "st6",
+            "hold": false
+          }
+        ],
+        "hasTick": false,
+        "hasDefeat": false
+      },
+      {
+        "id": "ashes",
+        "name": "Пепел и надежда",
+        "boot": {
+          "type": "continents",
+          "solar": 0.93,
+          "co2": 1.5
+        },
+        "locks": [
+          "solar",
+          "gtemp",
+          "pace"
+        ],
+        "tools": [
+          "inspire"
+        ],
+        "enforce": {},
+        "goals": [
+          {
+            "id": "live300",
+            "hold": false
+          },
+          {
+            "id": "pop2m",
+            "hold": false
+          },
+          {
+            "id": "era3",
+            "hold": false
+          },
+          {
+            "id": "coldPop",
+            "hold": false
+          }
+        ],
+        "hasTick": true,
+        "hasDefeat": true
+      },
+      {
+        "id": "swings",
+        "name": "Климатические качели",
+        "boot": {
+          "type": "continents"
+        },
+        "locks": [
+          "solar",
+          "gtemp",
+          "pace"
+        ],
+        "tools": [],
+        "enforce": {},
+        "goals": [
+          {
+            "id": "live400",
+            "hold": false
+          },
+          {
+            "id": "pop3m",
+            "hold": false
+          },
+          {
+            "id": "bothPeaks",
+            "hold": false
+          },
+          {
+            "id": "cityBig",
+            "hold": false
+          }
+        ],
+        "hasTick": true,
+        "hasDefeat": true
+      },
+      {
+        "id": "homeworld",
+        "name": "Наследие Земли",
+        "boot": {
+          "type": "earth"
+        },
+        "locks": [
+          "pace"
+        ],
+        "tools": [
+          "inspire"
+        ],
+        "enforce": {},
+        "goals": [
+          {
+            "id": "pop12m",
+            "hold": false
+          },
+          {
+            "id": "era4",
+            "hold": false
+          },
+          {
+            "id": "cities60",
+            "hold": false
+          },
+          {
+            "id": "ecoHw",
+            "hold": true
+          }
+        ],
+        "hasTick": false,
+        "hasDefeat": false
+      },
+      {
+        "id": "genesis",
+        "name": "Своими руками",
+        "boot": {
+          "type": "empty"
+        },
+        "locks": [
+          "pace"
+        ],
+        "tools": [
+          "inspire"
+        ],
+        "enforce": {},
+        "goals": [
+          {
+            "id": "land1100",
+            "hold": false
+          },
+          {
+            "id": "popG",
+            "hold": false
+          },
+          {
+            "id": "citiesG",
+            "hold": false
+          },
+          {
+            "id": "eraG",
+            "hold": false
+          }
+        ],
+        "hasTick": false,
+        "hasDefeat": false
+      },
+      {
+        "id": "wrath",
+        "name": "Эпоха бедствий",
+        "boot": {
+          "type": "continents",
+          "disasters": 2
+        },
+        "locks": [
+          "dis",
+          "pace"
+        ],
+        "tools": [
+          "inspire"
+        ],
+        "enforce": {
+          "disasters": 4
+        },
+        "goals": [
+          {
+            "id": "liveW",
+            "hold": false
+          },
+          {
+            "id": "popW",
+            "hold": false
+          },
+          {
+            "id": "citiesW",
+            "hold": false
+          }
+        ],
+        "hasTick": false,
+        "hasDefeat": true
+      },
+      {
+        "id": "wild",
+        "name": "Заповедная планета",
+        "boot": {
+          "type": "continents"
+        },
+        "locks": [
+          "pace"
+        ],
+        "tools": [
+          "inspire"
+        ],
+        "enforce": {},
+        "goals": [
+          {
+            "id": "eraWild",
+            "hold": false
+          },
+          {
+            "id": "popWild",
+            "hold": false
+          },
+          {
+            "id": "species",
+            "hold": true
+          }
+        ],
+        "hasTick": false,
+        "hasDefeat": true
+      },
+      {
+        "id": "peace",
+        "name": "Долгий мир",
+        "boot": {
+          "type": "continents"
+        },
+        "locks": [
+          "pace"
+        ],
+        "tools": [
+          "inspire"
+        ],
+        "enforce": {},
+        "goals": [
+          {
+            "id": "stP",
+            "hold": false
+          },
+          {
+            "id": "eraP",
+            "hold": false
+          },
+          {
+            "id": "peaceP",
+            "hold": false
+          }
+        ],
+        "hasTick": false,
+        "hasDefeat": false
+      }
+    ],
+    "achievements": [
+      {
+        "id": "first_city",
+        "name": "Первый очаг"
+      },
+      {
+        "id": "first_state",
+        "name": "Колыбель цивилизации"
+      },
+      {
+        "id": "million",
+        "name": "Миллион"
+      },
+      {
+        "id": "hundred_million",
+        "name": "Человечество"
+      },
+      {
+        "id": "era_industrial",
+        "name": "Дым над городами"
+      },
+      {
+        "id": "era_space",
+        "name": "К звёздам"
+      },
+      {
+        "id": "terraformer",
+        "name": "Терраформер"
+      },
+      {
+        "id": "ice_age",
+        "name": "Ледниковый период"
+      },
+      {
+        "id": "hothouse",
+        "name": "Парниковый ад"
+      },
+      {
+        "id": "green_planet",
+        "name": "Зелёная планета"
+      },
+      {
+        "id": "world_war",
+        "name": "Мировая война"
+      },
+      {
+        "id": "atlantis",
+        "name": "Атлантида"
+      },
+      {
+        "id": "ark",
+        "name": "Ноев ковчег"
+      },
+      {
+        "id": "columbus",
+        "name": "Эпоха открытий"
+      },
+      {
+        "id": "pax",
+        "name": "Столетие мира"
+      },
+      {
+        "id": "conqueror",
+        "name": "Гегемон"
+      },
+      {
+        "id": "millennium",
+        "name": "Тысячелетие"
+      },
+      {
+        "id": "metropolis",
+        "name": "Мегаполис"
+      },
+      {
+        "id": "great_war",
+        "name": "Великая война"
+      },
+      {
+        "id": "world_faith",
+        "name": "Мировая вера"
+      },
+      {
+        "id": "long_dynasty",
+        "name": "Династия веков"
+      },
+      {
+        "id": "extinction",
+        "name": "Последний из рода"
+      },
+      {
+        "id": "domestication",
+        "name": "Лучший друг"
+      },
+      {
+        "id": "wrath",
+        "name": "Гнев творца"
+      },
+      {
+        "id": "walker",
+        "name": "Своими глазами"
+      },
+      {
+        "id": "scn_cradle",
+        "name": "Колыбель жизни"
+      },
+      {
+        "id": "scn_iceage",
+        "name": "Победитель холода"
+      },
+      {
+        "id": "scn_flood",
+        "name": "Против волн"
+      },
+      {
+        "id": "scn_dune",
+        "name": "Садовник пустыни"
+      },
+      {
+        "id": "scn_industrial",
+        "name": "Устойчивое развитие"
+      },
+      {
+        "id": "scn_hegemon",
+        "name": "Владыка Пангеи"
+      },
+      {
+        "id": "all_scenarios",
+        "name": "Покоритель стихий"
+      }
+    ],
+    "classicAchievements": [
+      "scn_cradle",
+      "scn_iceage",
+      "scn_flood",
+      "scn_dune",
+      "scn_industrial",
+      "scn_hegemon"
+    ],
+    "tutorial": {
+      "steps": [
+        {
+          "title": "Добро пожаловать, творец!",
+          "auto": false
+        },
+        {
+          "title": "Группа «Земля»: инструмент «Высота»",
+          "selector": "[data-tool=\"elevation\"]",
+          "auto": true
+        },
+        {
+          "title": "Группа «Жизнь»: заселите людей",
+          "selector": "[data-tool=\"population\"]",
+          "auto": true
+        },
+        {
+          "title": "Ускорьте время",
+          "selector": "#speed-control",
+          "auto": true
+        },
+        {
+          "title": "Слои карты",
+          "selector": "#layer-toggles",
+          "auto": true
+        },
+        {
+          "title": "Рождение держав",
+          "auto": true
+        },
+        {
+          "title": "Осмотр",
+          "selector": "[data-tool=\"inspect\"]",
+          "auto": true
+        },
+        {
+          "title": "Статистика, хроника, династии",
+          "selector": [
+            "#btn-stats",
+            "#btn-chronicle",
+            "#btn-people",
+            "#btn-wars"
+          ],
+          "auto": false
+        },
+        {
+          "title": "Стихии и силы творца",
+          "selector": "#tool-groups",
+          "auto": false
+        },
+        {
+          "title": "Мир в 3D",
+          "selector": "#btn-3d",
+          "auto": true
+        },
+        {
+          "title": "Прогулка",
+          "selector": "#btn-walk",
+          "auto": false
+        },
+        {
+          "title": "Цели и меню",
+          "selector": [
+            "#btn-goals",
+            "#btn-menu"
+          ],
+          "auto": false
+        },
+        {
+          "title": "Готово!",
+          "auto": false
+        }
+      ],
+      "hints": [
+        "firstState",
+        "firstCity",
+        "geoNames",
+        "firstRuler",
+        "firstWar",
+        "disaster",
+        "famine",
+        "extinct",
+        "era3",
+        "seaLevel",
+        "speed20"
+      ]
+    },
+    "metrics": [
+      "pop",
+      "year",
+      "states",
+      "era",
+      "cityMax",
+      "cities",
+      "eco",
+      "green",
+      "ice",
+      "avgT",
+      "co2ppm",
+      "land",
+      "areaShare",
+      "wars",
+      "gdp",
+      "gdpPc",
+      "techMax",
+      "literacy",
+      "happiness",
+      "lifeExp",
+      "stability",
+      "topPop",
+      "urban",
+      "warsTotal",
+      "vassals",
+      "speciesAlive",
+      "speciesExtinct",
+      "megacities",
+      "statesAtEra",
+      "statesWithGov",
+      "cultures",
+      "religions",
+      "inventions",
+      "dynasties",
+      "disasters"
+    ],
+    "events": {
+      "actions": [
+        "disaster",
+        "power",
+        "climate",
+        "message"
+      ],
+      "places": [
+        "random",
+        "capital",
+        "city",
+        "land",
+        "ocean"
+      ],
+      "kinds": [
+        "dawn",
+        "found",
+        "collapse",
+        "era",
+        "war",
+        "peace",
+        "alliance",
+        "secede",
+        "colony",
+        "famine",
+        "exodus",
+        "ruler",
+        "dynasty",
+        "revolt",
+        "reform",
+        "union",
+        "vassal",
+        "invention",
+        "wonder",
+        "religion",
+        "culture",
+        "disaster",
+        "plague",
+        "extinct",
+        "domestic",
+        "golden",
+        "capital",
+        "player",
+        "fauna"
+      ]
+    },
+    "example": {
+      "id": "example-pack",
+      "disabledByDefault": true,
+      "scenarios": [
+        {
+          "id": "volcano",
+          "boot": {
+            "type": "continents",
+            "solar": 0.94,
+            "co2": 1.6,
+            "disasterRate": 2,
+            "seedPop": 40
+          },
+          "goals": [
+            {
+              "metric": "year",
+              "target": 200
+            },
+            {
+              "metric": "pop",
+              "target": 1500000
+            },
+            {
+              "metric": "statesAtEra",
+              "target": 3,
+              "param": 2
+            },
+            {
+              "metric": "eco",
+              "target": 0.25,
+              "keep": true
+            }
+          ],
+          "events": [
+            {
+              "year": 60,
+              "do": "disaster",
+              "type": "volcano",
+              "at": "random",
+              "power": 0.8
+            },
+            {
+              "when": {
+                "metric": "pop",
+                "above": 500000
+              },
+              "do": "message",
+              "kind": "golden"
+            }
+          ]
+        },
+        {
+          "id": "isles",
+          "boot": {
+            "world": "worlds/ash-isles.json.gz",
+            "pace": 1.5
+          },
+          "goals": [
+            {
+              "metric": "era",
+              "target": 4
+            },
+            {
+              "metric": "megacities",
+              "target": 10,
+              "param": 100000
+            },
+            {
+              "metric": "speciesExtinct",
+              "target": 6,
+              "keep": true,
+              "below": true
+            }
+          ],
+          "events": [
+            {
+              "year": 25,
+              "do": "disaster",
+              "type": "volcano",
+              "at": "random",
+              "power": 0.7
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "year": 150,
+          "every": 250,
+          "chance": 0.6,
+          "do": "disaster",
+          "type": "volcano",
+          "at": "random",
+          "power": 0.6
+        },
+        {
+          "when": {
+            "metric": "avgT",
+            "below": 4
+          },
+          "every": 100,
+          "do": "message",
+          "kind": "disaster"
+        }
+      ],
+      "world": {
+        "w": 60,
+        "h": 40,
+        "year": 170.13333333336087,
+        "livingStates": 11
+      }
+    }
+  },
+  "rules": [
+    {
+      "id": "SCP-001",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 7,
+        "end_line": 38,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-002",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 45,
+        "end_line": 57,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-003",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 58,
+        "end_line": 70,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-004",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 71,
+        "end_line": 89,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-005",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 90,
+        "end_line": 101,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-006",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 102,
+        "end_line": 115,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-007",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 116,
+        "end_line": 126,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-008",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 127,
+        "end_line": 147,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-009",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 148,
+        "end_line": 165,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-010",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 166,
+        "end_line": 177,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-011",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 178,
+        "end_line": 189,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-012",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 190,
+        "end_line": 204,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-013",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 205,
+        "end_line": 216,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-014",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 217,
+        "end_line": 232,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-015",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "line": 176,
+        "end_line": 178,
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335"
+      }
+    },
+    {
+      "id": "SCP-016",
+      "source_id": "SRC-232",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "line": 214,
+        "end_line": 219,
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335"
+      }
+    },
+    {
+      "id": "SCP-017",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 235,
+        "end_line": 327,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-018",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/goals.js",
+        "line": 329,
+        "end_line": 399,
+        "sha256": "cfeaa0c983af2ea82281679e0c0a1e4ab6e21f4cd3ab80834d4111190f527250"
+      }
+    },
+    {
+      "id": "SCP-019",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 69,
+        "end_line": 94,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0"
+      }
+    },
+    {
+      "id": "SCP-020",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 124,
+        "end_line": 167,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0"
+      }
+    },
+    {
+      "id": "SCP-021",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 82,
+        "end_line": 90,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "SCP-022",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 129,
+        "end_line": 135,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "SCP-023",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 197,
+        "end_line": 214,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "SCP-024",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1509,
+        "end_line": 1523,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "SCP-025",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 488,
+        "end_line": 502,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "SCP-026",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 1069,
+        "end_line": 1092,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "SCP-027",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 568,
+        "end_line": 581,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "SCP-028",
+      "source_id": "SRC-233",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 742,
+        "end_line": 749,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "SCP-029",
+      "source_id": "SRC-234",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 7,
+        "end_line": 74,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "SCP-030",
+      "source_id": "SRC-234",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 116,
+        "end_line": 195,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "SCP-031",
+      "source_id": "SRC-234",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 734,
+        "end_line": 746,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "SCP-032",
+      "source_id": "SRC-234",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 781,
+        "end_line": 800,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "SCP-033",
+      "source_id": "SRC-234",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 1398,
+        "end_line": 1404,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "SCP-034",
+      "source_id": "SRC-234",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "line": 107,
+        "end_line": 107,
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335"
+      }
+    },
+    {
+      "id": "SCP-035",
+      "source_id": "SRC-234",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "line": 1232,
+        "end_line": 1246,
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335"
+      }
+    },
+    {
+      "id": "SCP-036",
+      "source_id": "SRC-235",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 48,
+        "end_line": 66,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "SCP-037",
+      "source_id": "SRC-235",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 76,
+        "end_line": 114,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "SCP-038",
+      "source_id": "SRC-235",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 197,
+        "end_line": 234,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "SCP-039",
+      "source_id": "SRC-235",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 264,
+        "end_line": 303,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "SCP-040",
+      "source_id": "SRC-235",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 895,
+        "end_line": 905,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "SCP-041",
+      "source_id": "SRC-235",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 59,
+        "end_line": 72,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "SCP-042",
+      "source_id": "SRC-235",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 143,
+        "end_line": 159,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "SCP-043",
+      "source_id": "SRC-235",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 224,
+        "end_line": 231,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "SCP-044",
+      "source_id": "SRC-235",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 259,
+        "end_line": 271,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "SCP-045",
+      "source_id": "SRC-235",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 305,
+        "end_line": 324,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "SCP-046",
+      "source_id": "SRC-236",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/tutorial.js",
+        "line": 7,
+        "end_line": 94,
+        "sha256": "f0a7a98e58288fd7a248e2de22023c508ee2fa8941d7758274a328d67bbf1c96"
+      }
+    },
+    {
+      "id": "SCP-047",
+      "source_id": "SRC-236",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/tutorial.js",
+        "line": 156,
+        "end_line": 197,
+        "sha256": "f0a7a98e58288fd7a248e2de22023c508ee2fa8941d7758274a328d67bbf1c96"
+      }
+    },
+    {
+      "id": "SCP-048",
+      "source_id": "SRC-236",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/tutorial.js",
+        "line": 257,
+        "end_line": 358,
+        "sha256": "f0a7a98e58288fd7a248e2de22023c508ee2fa8941d7758274a328d67bbf1c96"
+      }
+    },
+    {
+      "id": "SCP-049",
+      "source_id": "SRC-236",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 232,
+        "end_line": 241,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "SCP-050",
+      "source_id": "SRC-236",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 478,
+        "end_line": 478,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "SCP-051",
+      "source_id": "SRC-236",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 1166,
+        "end_line": 1171,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "SCP-052",
+      "source_id": "SRC-236",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1072,
+        "end_line": 1078,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "SCP-053",
+      "source_id": "SRC-236",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1165,
+        "end_line": 1170,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "SCP-054",
+      "source_id": "SRC-236",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 593,
+        "end_line": 616,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "SCP-055",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 122,
+        "end_line": 197,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-056",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 241,
+        "end_line": 283,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-057",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 285,
+        "end_line": 345,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-058",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 347,
+        "end_line": 414,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-059",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 437,
+        "end_line": 534,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-060",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 593,
+        "end_line": 658,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-061",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 660,
+        "end_line": 709,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-062",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 711,
+        "end_line": 789,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-063",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 2036,
+        "end_line": 2042,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-064",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 2105,
+        "end_line": 2128,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-065",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 2145,
+        "end_line": 2150,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-066",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 2420,
+        "end_line": 2454,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "SCP-067",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/climate.js",
+        "line": 230,
+        "end_line": 233,
+        "sha256": "1da3c5da09e84894511c9fe3f4a4677e6a9cf7954db63f8fdd83060db88619a0"
+      }
+    },
+    {
+      "id": "SCP-068",
+      "source_id": "SRC-237",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods/example-pack/mod.json",
+        "line": 1,
+        "end_line": 85,
+        "sha256": "313da97776b18fcb51d36cf6104af54f4fbd0eaeaca463a8a2d5f062dc61195c"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "SCENARIO",
+      "source_id": "SRC-232",
+      "summary": "All built-in scenario definitions, thresholds and world changes",
+      "evidence": [
+        "SCP-001",
+        "SCP-002",
+        "SCP-003",
+        "SCP-004",
+        "SCP-005",
+        "SCP-006",
+        "SCP-007",
+        "SCP-008",
+        "SCP-009",
+        "SCP-010",
+        "SCP-011",
+        "SCP-012",
+        "SCP-013",
+        "SCP-014",
+        "SCP-015",
+        "SCP-016"
+      ],
+      "checks": [
+        "scenario-goals-cradle",
+        "scenario-goals-iceage",
+        "scenario-goals-flood",
+        "scenario-goals-dune",
+        "scenario-goals-industrial",
+        "scenario-goals-hegemon",
+        "scenario-goals-ashes",
+        "scenario-goals-swings",
+        "scenario-goals-homeworld",
+        "scenario-goals-genesis",
+        "scenario-goals-wrath",
+        "scenario-goals-wild",
+        "scenario-goals-peace",
+        "scenario-peace-pause-and-reset",
+        "scenario-scripts"
+      ]
+    },
+    {
+      "id": "LIFECYCLE",
+      "source_id": "SRC-233",
+      "summary": "Scenario selection, locks, progress, result and persistence",
+      "evidence": [
+        "SCP-017",
+        "SCP-018",
+        "SCP-019",
+        "SCP-020",
+        "SCP-021",
+        "SCP-022",
+        "SCP-023",
+        "SCP-024",
+        "SCP-025",
+        "SCP-026",
+        "SCP-027",
+        "SCP-028"
+      ],
+      "checks": [
+        "lifecycle-latch-and-hold",
+        "lifecycle-defeat-precedes-win",
+        "lifecycle-outcome-and-profile",
+        "lifecycle-late-definition"
+      ]
+    },
+    {
+      "id": "PROFILE",
+      "source_id": "SRC-234",
+      "summary": "Achievement declarations, checks, counters and source events",
+      "evidence": [
+        "SCP-029",
+        "SCP-030",
+        "SCP-031",
+        "SCP-032",
+        "SCP-033",
+        "SCP-034",
+        "SCP-035"
+      ],
+      "checks": [
+        "profile-achievements-thresholds",
+        "profile-annual-and-flooding",
+        "profile-counters-and-demo"
+      ]
+    },
+    {
+      "id": "STEAM",
+      "source_id": "SRC-235",
+      "summary": "Profile storage, Steam union, statistics and leaderboards",
+      "evidence": [
+        "SCP-036",
+        "SCP-037",
+        "SCP-038",
+        "SCP-039",
+        "SCP-040",
+        "SCP-041",
+        "SCP-042",
+        "SCP-043",
+        "SCP-044",
+        "SCP-045"
+      ],
+      "checks": [
+        "steam-union-and-classic-meta"
+      ]
+    },
+    {
+      "id": "TUTORIAL",
+      "source_id": "SRC-236",
+      "summary": "Guide, all tutorial steps, profile hints and settings",
+      "evidence": [
+        "SCP-046",
+        "SCP-047",
+        "SCP-048",
+        "SCP-049",
+        "SCP-050",
+        "SCP-051",
+        "SCP-052",
+        "SCP-053",
+        "SCP-054"
+      ],
+      "checks": [
+        "tutorial-tour-advance-and-skip",
+        "tutorial-profile-hints-setting",
+        "tutorial-offer-and-hint-persistence"
+      ]
+    },
+    {
+      "id": "MODS",
+      "source_id": "SRC-237",
+      "summary": "Add-on objectives, events, saved schedules and bundled example",
+      "evidence": [
+        "SCP-055",
+        "SCP-056",
+        "SCP-057",
+        "SCP-058",
+        "SCP-059",
+        "SCP-060",
+        "SCP-061",
+        "SCP-062",
+        "SCP-063",
+        "SCP-064",
+        "SCP-065",
+        "SCP-066",
+        "SCP-067",
+        "SCP-068"
+      ],
+      "checks": [
+        "mods-bundled-scenarios",
+        "mods-relative-goal-and-defeat",
+        "mods-interval-chance-and-late-load",
+        "mods-edge-cooldown-and-persistence",
+        "mods-climate-shift",
+        "mods-scenario-events-use-elapsed-year"
+      ]
+    }
+  ],
+  "verification": {
+    "passed": 32,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "scenario-goals-cradle",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-iceage",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-flood",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-dune",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-industrial",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-hegemon",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-ashes",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-swings",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-homeworld",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-genesis",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-wrath",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-wild",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-goals-peace",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-peace-pause-and-reset",
+        "status": "passed"
+      },
+      {
+        "id": "scenario-scripts",
+        "status": "passed"
+      },
+      {
+        "id": "lifecycle-latch-and-hold",
+        "status": "passed"
+      },
+      {
+        "id": "lifecycle-defeat-precedes-win",
+        "status": "passed"
+      },
+      {
+        "id": "lifecycle-outcome-and-profile",
+        "status": "passed"
+      },
+      {
+        "id": "lifecycle-late-definition",
+        "status": "passed"
+      },
+      {
+        "id": "profile-achievements-thresholds",
+        "status": "passed"
+      },
+      {
+        "id": "profile-annual-and-flooding",
+        "status": "passed"
+      },
+      {
+        "id": "profile-counters-and-demo",
+        "status": "passed"
+      },
+      {
+        "id": "steam-union-and-classic-meta",
+        "status": "passed"
+      },
+      {
+        "id": "tutorial-tour-advance-and-skip",
+        "status": "passed"
+      },
+      {
+        "id": "tutorial-profile-hints-setting",
+        "status": "passed"
+      },
+      {
+        "id": "tutorial-offer-and-hint-persistence",
+        "status": "passed"
+      },
+      {
+        "id": "mods-bundled-scenarios",
+        "status": "passed"
+      },
+      {
+        "id": "mods-relative-goal-and-defeat",
+        "status": "passed"
+      },
+      {
+        "id": "mods-interval-chance-and-late-load",
+        "status": "passed"
+      },
+      {
+        "id": "mods-edge-cooldown-and-persistence",
+        "status": "passed"
+      },
+      {
+        "id": "mods-climate-shift",
+        "status": "passed"
+      },
+      {
+        "id": "mods-scenario-events-use-elapsed-year",
+        "status": "passed"
+      }
+    ],
+    "environment": {
+      "engine": "Node VM",
+      "node": "v26.13.1"
+    },
+    "runtime_verified": false
+  },
+  "limitations": [
+    "The VM runs goals.js, achievements.js, tutorial.js and selected mods.js functions with in-memory adapters.",
+    "Tutorial declarations are exposed for inventory. DOM, timers, storage, Steam, geography and effects use fixtures.",
+    "The bundled world header is read from gzip. Full scenario playthrough, rendering, Steam and real saves are unobserved."
+  ],
+  "next_package": "WP-MODDING"
+}

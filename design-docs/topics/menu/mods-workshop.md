@@ -30,3 +30,9 @@
 Собственное дополнение удаляется вместе с папкой на диске. Подписку Steam Workshop снимают на странице предмета: простое удаление файлов не предотвращает повторную загрузку Steam. Локальные моды размещаются в папке mods рядом с игрой; дополнение представляет собой папку с mod.json. Подписки подхватываются автоматически, но дополнение с кодом после подписки остаётся выключенным до ручного включения.
 
 [image9]: ../../assets/image09.png
+
+Условия сценариев, формат расписания, эффекты, сохранение и комплектный пример описаны отдельно. [События сценариев и дополнений](scripted-events.md) [SRC-237, SRC-238]
+
+## Extracted loader and editor rules
+
+The detailed format, load order, code guard, world import and editor/publication paths are documented in [Data, code, editor and Workshop](../modding/data-code-editor.md). The six modding features are statically traced; actual game restart and Steam results remain unobserved. [SRC-243–249]

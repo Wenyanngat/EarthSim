@@ -1,0 +1,741 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-LOCAL-MULTIPLAYER",
+  "game_version": "2.1.4",
+  "date": "2026-11-16",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-SHARED-SCREEN-COOP",
+    "FEAT-REMOTE-PLAY-TOGETHER",
+    "FEAT-COMPETITION"
+  ],
+  "document_ids": [
+    "DOC-LOCAL-MULTIPLAYER",
+    "DOC-LOCAL-MULTIPLAYER-DATA"
+  ],
+  "source_ids": [
+    "SRC-226",
+    "SRC-227",
+    "SRC-228",
+    "SRC-229",
+    "SRC-230",
+    "SRC-231"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_verified": false
+  },
+  "source_files": [
+    {
+      "path": "EarthSimulator/climate.js",
+      "bytes": 36493,
+      "sha256": "1da3c5da09e84894511c9fe3f4a4677e6a9cf7954db63f8fdd83060db88619a0"
+    },
+    {
+      "path": "EarthSimulator/civ.js",
+      "bytes": 232072,
+      "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335"
+    },
+    {
+      "path": "EarthSimulator/coop.js",
+      "bytes": 35398,
+      "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+    },
+    {
+      "path": "EarthSimulator/gamepad.js",
+      "bytes": 40232,
+      "sha256": "57575f19dad62a932b829691749f38e5173783ff32a283ec86b63d5a49fe0356"
+    },
+    {
+      "path": "EarthSimulator/index.html",
+      "bytes": 71289,
+      "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+    },
+    {
+      "path": "EarthSimulator/menu.js",
+      "bytes": 153010,
+      "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+    },
+    {
+      "path": "EarthSimulator/net.js",
+      "bytes": 69863,
+      "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+    },
+    {
+      "path": "EarthSimulator/netui.js",
+      "bytes": 79587,
+      "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+    },
+    {
+      "path": "EarthSimulator/rival.js",
+      "bytes": 25359,
+      "sha256": "e9664938b5d1ce37fe06f5f4c170fb2c87f94b44028ad79def5bd2de211dc655"
+    },
+    {
+      "path": "EarthSimulator/steam.js",
+      "bytes": 29524,
+      "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+    },
+    {
+      "path": "EarthSimulator/ui.js",
+      "bytes": 137343,
+      "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+    }
+  ],
+  "declarations": {
+    "seats": {
+      "MAX": 4,
+      "CURSOR": 950,
+      "HZ": 30,
+      "NET_HZ": 10,
+      "MOVE_PX": 2,
+      "LEAVE_S": 1.5,
+      "BRUSH_MAX": 12,
+      "REJOIN_MS": 1500,
+      "PAN_PX": 0.0016
+    },
+    "rivalry": {
+      "MAX": 8,
+      "YEARS": [
+        50,
+        100,
+        200,
+        500,
+        0
+      ],
+      "TOP_RANDOM": 8
+    }
+  },
+  "rules": [
+    {
+      "id": "LMP-001",
+      "source_id": "SRC-226",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 754,
+        "end_line": 759,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "LMP-002",
+      "source_id": "SRC-226",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 156,
+        "end_line": 168,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "LMP-003",
+      "source_id": "SRC-226",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 11,
+        "end_line": 69,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "LMP-004",
+      "source_id": "SRC-226",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 204,
+        "end_line": 255,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "LMP-005",
+      "source_id": "SRC-226",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 355,
+        "end_line": 377,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "LMP-006",
+      "source_id": "SRC-226",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 380,
+        "end_line": 426,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "LMP-007",
+      "source_id": "SRC-226",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gamepad.js",
+        "line": 309,
+        "end_line": 346,
+        "sha256": "57575f19dad62a932b829691749f38e5173783ff32a283ec86b63d5a49fe0356"
+      }
+    },
+    {
+      "id": "LMP-008",
+      "source_id": "SRC-226",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gamepad.js",
+        "line": 400,
+        "end_line": 407,
+        "sha256": "57575f19dad62a932b829691749f38e5173783ff32a283ec86b63d5a49fe0356"
+      }
+    },
+    {
+      "id": "LMP-009",
+      "source_id": "SRC-227",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 71,
+        "end_line": 95,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "LMP-010",
+      "source_id": "SRC-227",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 97,
+        "end_line": 174,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "LMP-011",
+      "source_id": "SRC-227",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 176,
+        "end_line": 202,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "LMP-012",
+      "source_id": "SRC-227",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 651,
+        "end_line": 668,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "LMP-013",
+      "source_id": "SRC-227",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 248,
+        "end_line": 264,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "LMP-014",
+      "source_id": "SRC-227",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 409,
+        "end_line": 416,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "LMP-015",
+      "source_id": "SRC-228",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 709,
+        "end_line": 711,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "LMP-016",
+      "source_id": "SRC-228",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 35,
+        "end_line": 57,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "LMP-017",
+      "source_id": "SRC-228",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 89,
+        "end_line": 104,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "LMP-018",
+      "source_id": "SRC-228",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 137,
+        "end_line": 145,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "LMP-019",
+      "source_id": "SRC-228",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 232,
+        "end_line": 235,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "LMP-020",
+      "source_id": "SRC-228",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 30,
+        "end_line": 38,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "LMP-021",
+      "source_id": "SRC-228",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 257,
+        "end_line": 314,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "LMP-022",
+      "source_id": "SRC-228",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 402,
+        "end_line": 407,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "LMP-023",
+      "source_id": "SRC-229",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/rival.js",
+        "line": 9,
+        "end_line": 59,
+        "sha256": "e9664938b5d1ce37fe06f5f4c170fb2c87f94b44028ad79def5bd2de211dc655"
+      }
+    },
+    {
+      "id": "LMP-024",
+      "source_id": "SRC-229",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/rival.js",
+        "line": 105,
+        "end_line": 142,
+        "sha256": "e9664938b5d1ce37fe06f5f4c170fb2c87f94b44028ad79def5bd2de211dc655"
+      }
+    },
+    {
+      "id": "LMP-025",
+      "source_id": "SRC-229",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/rival.js",
+        "line": 179,
+        "end_line": 216,
+        "sha256": "e9664938b5d1ce37fe06f5f4c170fb2c87f94b44028ad79def5bd2de211dc655"
+      }
+    },
+    {
+      "id": "LMP-026",
+      "source_id": "SRC-229",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 248,
+        "end_line": 264,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "LMP-027",
+      "source_id": "SRC-229",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 296,
+        "end_line": 305,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "LMP-028",
+      "source_id": "SRC-229",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 409,
+        "end_line": 417,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "LMP-029",
+      "source_id": "SRC-229",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 752,
+        "end_line": 758,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "LMP-030",
+      "source_id": "SRC-229",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 809,
+        "end_line": 815,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "LMP-031",
+      "source_id": "SRC-229",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "line": 1016,
+        "end_line": 1016,
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335"
+      }
+    },
+    {
+      "id": "LMP-032",
+      "source_id": "SRC-230",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/rival.js",
+        "line": 43,
+        "end_line": 103,
+        "sha256": "e9664938b5d1ce37fe06f5f4c170fb2c87f94b44028ad79def5bd2de211dc655"
+      }
+    },
+    {
+      "id": "LMP-033",
+      "source_id": "SRC-230",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/rival.js",
+        "line": 219,
+        "end_line": 286,
+        "sha256": "e9664938b5d1ce37fe06f5f4c170fb2c87f94b44028ad79def5bd2de211dc655"
+      }
+    },
+    {
+      "id": "LMP-034",
+      "source_id": "SRC-230",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/climate.js",
+        "line": 230,
+        "end_line": 233,
+        "sha256": "1da3c5da09e84894511c9fe3f4a4677e6a9cf7954db63f8fdd83060db88619a0"
+      }
+    },
+    {
+      "id": "LMP-035",
+      "source_id": "SRC-230",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 82,
+        "end_line": 89,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "LMP-036",
+      "source_id": "SRC-230",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 129,
+        "end_line": 135,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "LMP-037",
+      "source_id": "SRC-230",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 204,
+        "end_line": 220,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "SEATS",
+      "source_id": "SRC-226",
+      "summary": "Shared screen, seats, controller assignment and departure",
+      "evidence": [
+        "LMP-001",
+        "LMP-002",
+        "LMP-003",
+        "LMP-004",
+        "LMP-005",
+        "LMP-006",
+        "LMP-007",
+        "LMP-008"
+      ],
+      "checks": [
+        "seats-limit-and-reuse",
+        "seats-second-pad-joins",
+        "seats-start-and-disconnect",
+        "seats-hold-back",
+        "seats-all-pads-option"
+      ]
+    },
+    {
+      "id": "TOOL",
+      "source_id": "SRC-227",
+      "summary": "Per-seat tools, shared camera and world commands",
+      "evidence": [
+        "LMP-009",
+        "LMP-010",
+        "LMP-011",
+        "LMP-012",
+        "LMP-013",
+        "LMP-014"
+      ],
+      "checks": [
+        "tool-per-seat-parameters",
+        "tool-local-stroke-frequency",
+        "tool-room-stroke-frequency",
+        "tool-room-permissions",
+        "tool-walk-blocks-input",
+        "tool-discord-per-guest"
+      ]
+    },
+    {
+      "id": "STEAM",
+      "source_id": "SRC-228",
+      "summary": "Remote Play Together sessions, bridge and guest input",
+      "evidence": [
+        "LMP-015",
+        "LMP-016",
+        "LMP-017",
+        "LMP-018",
+        "LMP-019",
+        "LMP-020",
+        "LMP-021",
+        "LMP-022"
+      ],
+      "checks": [
+        "steam-session-lifecycle",
+        "steam-absolute-coordinate-and-key"
+      ]
+    },
+    {
+      "id": "RIVALRY",
+      "source_id": "SRC-229",
+      "summary": "Seat keys, nation selection and authority",
+      "evidence": [
+        "LMP-023",
+        "LMP-024",
+        "LMP-025",
+        "LMP-026",
+        "LMP-027",
+        "LMP-028",
+        "LMP-029",
+        "LMP-030",
+        "LMP-031"
+      ],
+      "checks": [
+        "rivalry-room-seat-keys",
+        "rivalry-unique-nation-and-seat-owner",
+        "rivalry-two-nations-and-valid-duration",
+        "rivalry-host-command-registration",
+        "rivalry-guest-map-selection",
+        "rivalry-random-free-nation"
+      ]
+    },
+    {
+      "id": "SCORE",
+      "source_id": "SRC-230",
+      "summary": "Annual scoring, finish conditions, persistence and presentation",
+      "evidence": [
+        "LMP-032",
+        "LMP-033",
+        "LMP-034",
+        "LMP-035",
+        "LMP-036",
+        "LMP-037"
+      ],
+      "checks": [
+        "score-deadline-tie",
+        "score-last-nation",
+        "score-no-survivors",
+        "score-stop-uses-stored-score",
+        "score-save-load-and-reset"
+      ]
+    }
+  ],
+  "verification": {
+    "passed": 24,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "seats-limit-and-reuse",
+        "status": "passed"
+      },
+      {
+        "id": "seats-second-pad-joins",
+        "status": "passed"
+      },
+      {
+        "id": "seats-start-and-disconnect",
+        "status": "passed"
+      },
+      {
+        "id": "seats-hold-back",
+        "status": "passed"
+      },
+      {
+        "id": "seats-all-pads-option",
+        "status": "passed"
+      },
+      {
+        "id": "tool-per-seat-parameters",
+        "status": "passed"
+      },
+      {
+        "id": "tool-local-stroke-frequency",
+        "status": "passed"
+      },
+      {
+        "id": "tool-room-stroke-frequency",
+        "status": "passed"
+      },
+      {
+        "id": "tool-room-permissions",
+        "status": "passed"
+      },
+      {
+        "id": "tool-walk-blocks-input",
+        "status": "passed"
+      },
+      {
+        "id": "tool-discord-per-guest",
+        "status": "passed"
+      },
+      {
+        "id": "steam-session-lifecycle",
+        "status": "passed"
+      },
+      {
+        "id": "steam-absolute-coordinate-and-key",
+        "status": "passed"
+      },
+      {
+        "id": "rivalry-room-seat-keys",
+        "status": "passed"
+      },
+      {
+        "id": "rivalry-unique-nation-and-seat-owner",
+        "status": "passed"
+      },
+      {
+        "id": "rivalry-two-nations-and-valid-duration",
+        "status": "passed"
+      },
+      {
+        "id": "score-deadline-tie",
+        "status": "passed"
+      },
+      {
+        "id": "score-last-nation",
+        "status": "passed"
+      },
+      {
+        "id": "score-no-survivors",
+        "status": "passed"
+      },
+      {
+        "id": "score-stop-uses-stored-score",
+        "status": "passed"
+      },
+      {
+        "id": "score-save-load-and-reset",
+        "status": "passed"
+      },
+      {
+        "id": "rivalry-host-command-registration",
+        "status": "passed"
+      },
+      {
+        "id": "rivalry-guest-map-selection",
+        "status": "passed"
+      },
+      {
+        "id": "rivalry-random-free-nation",
+        "status": "passed"
+      }
+    ],
+    "environment": {
+      "engine": "Node VM",
+      "node": "v26.13.1"
+    },
+    "runtime_verified": false
+  },
+  "limitations": [
+    "The VM runs the shipped coop.js and rival.js with event, command and input adapters.",
+    "Rendering, DOM refresh, Steam bridge, clock, gamepads and world state use in-memory fixtures.",
+    "Steam transport, physical gamepads, map rendering, network turns and complete disk save/load remain unobserved."
+  ],
+  "next_package": "WP-SCENARIOS-PROFILE"
+}

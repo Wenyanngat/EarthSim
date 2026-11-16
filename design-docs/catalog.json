@@ -3,7 +3,7 @@
   "schema_version": "1.0.0",
   "title": "Earth Simulator: каталог фичей и документации",
   "language": "ru",
-  "updated_at": "2026-11-15",
+  "updated_at": "2026-11-16",
   "game_version": "2.1.4",
   "path_base": "repository_root",
   "source_registry_path": "design-docs/SOURCES.md",
@@ -77,6 +77,63 @@
     }
   ],
   "documents": [
+    {
+      "id": "DOC-POPULOUS-DLC",
+      "title": "«Земля слышит». 100 механик для DLC симулятора бога",
+      "path": "design-docs/POPULOUS_DLC.md",
+      "kind": "analysis",
+      "category": "research",
+      "documentation_status": "reference",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-070",
+        "SRC-081",
+        "SRC-131",
+        "SRC-239",
+        "SRC-241",
+        "SRC-242"
+      ],
+      "feature_ids": [],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-EXPANSION-IDEAS",
+      "title": "100 идей для модов и DLC Earth Simulator",
+      "path": "design-docs/EXPANSION_IDEAS.md",
+      "kind": "analysis",
+      "category": "research",
+      "documentation_status": "reference",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-239",
+        "SRC-240"
+      ],
+      "feature_ids": [],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-PUBLIC-ROADMAP",
+      "title": "Дорожная карта Earth Simulator",
+      "path": "design-docs/ROADMAP.md",
+      "kind": "analysis",
+      "category": "research",
+      "documentation_status": "reference",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-239",
+        "SRC-240",
+        "SRC-211",
+        "SRC-212",
+        "SRC-213",
+        "SRC-214",
+        "SRC-215",
+        "SRC-216",
+        "SRC-217",
+        "SRC-218"
+      ],
+      "feature_ids": [],
+      "image_paths": []
+    },
     {
       "id": "DOC-OVERVIEW",
       "title": "Обзор игры и игровой цикл",
@@ -190,7 +247,14 @@
       "source_ids": [
         "SRC-012",
         "SRC-132",
-        "SRC-134"
+        "SRC-134",
+        "SRC-232",
+        "SRC-233",
+        "SRC-234",
+        "SRC-235",
+        "SRC-236",
+        "SRC-237",
+        "SRC-238"
       ],
       "feature_ids": [
         "FEAT-SCENARIOS",
@@ -231,7 +295,13 @@
         "SRC-222",
         "SRC-223",
         "SRC-224",
-        "SRC-225"
+        "SRC-225",
+        "SRC-226",
+        "SRC-227",
+        "SRC-228",
+        "SRC-229",
+        "SRC-230",
+        "SRC-231"
       ],
       "feature_ids": [
         "FEAT-MULTIPLAYER",
@@ -317,7 +387,11 @@
         "1.6"
       ],
       "source_ids": [
-        "SRC-012"
+        "SRC-012",
+        "SRC-233",
+        "SRC-234",
+        "SRC-235",
+        "SRC-238"
       ],
       "feature_ids": [
         "FEAT-ACHIEVEMENTS",
@@ -340,7 +414,16 @@
       ],
       "source_ids": [
         "SRC-003",
-        "SRC-012"
+        "SRC-012",
+        "SRC-237",
+        "SRC-238",
+        "SRC-243",
+        "SRC-244",
+        "SRC-245",
+        "SRC-246",
+        "SRC-247",
+        "SRC-248",
+        "SRC-249"
       ],
       "feature_ids": [
         "FEAT-MODS",
@@ -425,7 +508,9 @@
         "2"
       ],
       "source_ids": [
-        "SRC-012"
+        "SRC-012",
+        "SRC-236",
+        "SRC-238"
       ],
       "feature_ids": [
         "FEAT-ONBOARDING",
@@ -569,7 +654,8 @@
         "SRC-140",
         "SRC-141",
         "SRC-142",
-        "SRC-143"
+        "SRC-143",
+        "SRC-233"
       ],
       "feature_ids": [
         "FEAT-GEOGRAPHIC-NAMES",
@@ -1689,9 +1775,9 @@
       "id": "DOC-COMPETITION-NETWORK-WALK",
       "title": "Конкуренция и сетевые прогулки",
       "path": "design-docs/topics/network/competition-walk.md",
-      "kind": "research_stub",
+      "kind": "navigation",
       "category": "network",
-      "documentation_status": "stub",
+      "documentation_status": "reference",
       "legacy_sections": [],
       "source_ids": [
         "SRC-002",
@@ -1708,7 +1794,13 @@
         "SRC-222",
         "SRC-223",
         "SRC-224",
-        "SRC-225"
+        "SRC-225",
+        "SRC-226",
+        "SRC-227",
+        "SRC-228",
+        "SRC-229",
+        "SRC-230",
+        "SRC-231"
       ],
       "feature_ids": [
         "FEAT-COMPETITION",
@@ -5152,6 +5244,151 @@
         "FEAT-NETWORK-WALK"
       ],
       "image_paths": []
+    },
+    {
+      "id": "DOC-LOCAL-MULTIPLAYER",
+      "title": "Локальная кооперация, Remote Play и соперничество",
+      "path": "design-docs/topics/network/local-coop-rivalry.md",
+      "kind": "topic",
+      "category": "network",
+      "documentation_status": "detailed",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-226",
+        "SRC-227",
+        "SRC-228",
+        "SRC-229",
+        "SRC-230",
+        "SRC-231"
+      ],
+      "feature_ids": [
+        "FEAT-SHARED-SCREEN-COOP",
+        "FEAT-REMOTE-PLAY-TOGETHER",
+        "FEAT-COMPETITION"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-LOCAL-MULTIPLAYER-DATA",
+      "title": "Машинный отчёт WP-LOCAL-MULTIPLAYER",
+      "path": "design-docs/research/extraction-local-multiplayer.json",
+      "kind": "research_coverage",
+      "category": "research",
+      "documentation_status": "reference",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-226",
+        "SRC-227",
+        "SRC-228",
+        "SRC-229",
+        "SRC-230",
+        "SRC-231"
+      ],
+      "feature_ids": [
+        "FEAT-SHARED-SCREEN-COOP",
+        "FEAT-REMOTE-PLAY-TOGETHER",
+        "FEAT-COMPETITION"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-SCRIPTED-EVENTS",
+      "title": "События сценариев и дополнений",
+      "path": "design-docs/topics/menu/scripted-events.md",
+      "kind": "topic",
+      "category": "menu",
+      "documentation_status": "detailed",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-233",
+        "SRC-237",
+        "SRC-238"
+      ],
+      "feature_ids": [
+        "FEAT-SCENARIOS",
+        "FEAT-SCRIPTED-EVENTS"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-SCENARIOS-PROFILE-DATA",
+      "title": "Машинный отчёт WP-SCENARIOS-PROFILE",
+      "path": "design-docs/research/extraction-scenarios-profile.json",
+      "kind": "research_coverage",
+      "category": "research",
+      "documentation_status": "reference",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-232",
+        "SRC-233",
+        "SRC-234",
+        "SRC-235",
+        "SRC-236",
+        "SRC-237",
+        "SRC-238"
+      ],
+      "feature_ids": [
+        "FEAT-SCENARIOS",
+        "FEAT-GLOBAL-GOALS",
+        "FEAT-ONBOARDING",
+        "FEAT-ACHIEVEMENTS",
+        "FEAT-SCRIPTED-EVENTS"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-MODDING",
+      "title": "Data, code, editor and Workshop",
+      "path": "design-docs/topics/modding/data-code-editor.md",
+      "kind": "topic",
+      "category": "menu",
+      "documentation_status": "detailed",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-243",
+        "SRC-244",
+        "SRC-245",
+        "SRC-246",
+        "SRC-247",
+        "SRC-248",
+        "SRC-249"
+      ],
+      "feature_ids": [
+        "FEAT-MODS",
+        "FEAT-DATA-MODS",
+        "FEAT-CODE-MODS",
+        "FEAT-MOD-EDITOR",
+        "FEAT-MOD-WORLDS-HEIGHTMAPS",
+        "FEAT-WORKSHOP-LIFECYCLE"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-MODDING-DATA",
+      "title": "Modding extraction evidence",
+      "path": "design-docs/research/extraction-modding.json",
+      "kind": "research_coverage",
+      "category": "research",
+      "documentation_status": "reference",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-243",
+        "SRC-244",
+        "SRC-245",
+        "SRC-246",
+        "SRC-247",
+        "SRC-248",
+        "SRC-249"
+      ],
+      "feature_ids": [
+        "FEAT-MODS",
+        "FEAT-DATA-MODS",
+        "FEAT-CODE-MODS",
+        "FEAT-MOD-EDITOR",
+        "FEAT-MOD-WORLDS-HEIGHTMAPS",
+        "FEAT-WORKSHOP-LIFECYCLE"
+      ],
+      "image_paths": []
     }
   ],
   "features": [
@@ -5309,7 +5546,9 @@
       "document_ids": [
         "DOC-SCENARIOS",
         "DOC-WORLD-GENERATION",
-        "DOC-FEATURE-INVENTORY"
+        "DOC-FEATURE-INVENTORY",
+        "DOC-SCRIPTED-EVENTS",
+        "DOC-SCENARIOS-PROFILE-DATA"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -5320,7 +5559,11 @@
       "source_ids": [
         "SRC-012",
         "SRC-024",
-        "SRC-056"
+        "SRC-056",
+        "SRC-232",
+        "SRC-233",
+        "SRC-237",
+        "SRC-238"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -5328,8 +5571,7 @@
         "EarthSimulator/menu.js"
       ],
       "open_questions": [
-        "Исполняемые условия победы, поражения и экран прогресса.",
-        "Извлечь условия каждого сценария, удерживаемый прогресс, поражение и продолжение мира после результата."
+        "Пройти сценарий в полной игре и проверить победу, поражение, продолжение и восстановление."
       ]
     },
     {
@@ -5412,17 +5654,21 @@
       "document_ids": [
         "DOC-ACHIEVEMENTS",
         "DOC-SCENARIOS",
-        "DOC-FEATURE-INVENTORY"
+        "DOC-FEATURE-INVENTORY",
+        "DOC-SCENARIOS-PROFILE-DATA"
       ],
       "documentation_status": "detailed",
-      "research_status": "not_researched",
+      "research_status": "partial",
       "evidence_levels": [
         "original_document",
         "static_code"
       ],
       "source_ids": [
         "SRC-012",
-        "SRC-056"
+        "SRC-056",
+        "SRC-234",
+        "SRC-235",
+        "SRC-238"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -5430,18 +5676,19 @@
         "EarthSimulator/menu.js"
       ],
       "open_questions": [
-        "Алгоритмы выдачи, статистика и таблицы лидеров.",
-        "Проверить все 32 условия, длительные трекеры, перенос профиля, деморежим и историю счётчиков."
+        "Сверить полный цикл открытия и обмена в запущенной игре со Steam."
       ]
     },
     {
       "id": "FEAT-MODS",
       "title": "Моды и Steam Workshop",
       "category": "menu",
-      "summary": "Управление дополнениями, локальный mod.json и выключенный официальный пример.",
+      "summary": "Local and Workshop discovery, data application, enable states and restart requirements.",
       "document_ids": [
         "DOC-MODS",
-        "DOC-FEATURE-INVENTORY"
+        "DOC-FEATURE-INVENTORY",
+        "DOC-MODDING",
+        "DOC-MODDING-DATA"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -5452,7 +5699,14 @@
       "source_ids": [
         "SRC-003",
         "SRC-012",
-        "SRC-056"
+        "SRC-056",
+        "SRC-243",
+        "SRC-244",
+        "SRC-245",
+        "SRC-246",
+        "SRC-247",
+        "SRC-248",
+        "SRC-249"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -5461,8 +5715,7 @@
         "EarthSimulator/mods.js"
       ],
       "open_questions": [
-        "Загрузка, хуки, конфликты, публикация и фактическая активация.",
-        "Проследить все разделы, порядок, совместимость, пределы и влияние на формулы базовой игры."
+        "Observe activation and conflicts after a real game restart, including late Workshop downloads."
       ]
     },
     {
@@ -5536,17 +5789,20 @@
       "document_ids": [
         "DOC-ONBOARDING",
         "DOC-SETTINGS",
-        "DOC-FEATURE-INVENTORY"
+        "DOC-FEATURE-INVENTORY",
+        "DOC-SCENARIOS-PROFILE-DATA"
       ],
       "documentation_status": "detailed",
-      "research_status": "not_researched",
+      "research_status": "partial",
       "evidence_levels": [
         "original_document",
         "static_code"
       ],
       "source_ids": [
         "SRC-012",
-        "SRC-056"
+        "SRC-056",
+        "SRC-236",
+        "SRC-238"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -5554,8 +5810,7 @@
         "EarthSimulator/tutorial.js"
       ],
       "open_questions": [
-        "Полный маршрут обучения и условия появления подсказок.",
-        "Извлечь шаги, условия завершения, пропуск/повтор, подсветку интерфейса и постоянные флаги подсказок."
+        "Пройти обучение с реальным вводом и проверить сохранение отметок подсказок."
       ]
     },
     {
@@ -5984,22 +6239,26 @@
       "document_ids": [
         "DOC-OBSERVATION",
         "DOC-SCENARIOS",
-        "DOC-FEATURE-INVENTORY"
+        "DOC-FEATURE-INVENTORY",
+        "DOC-SCENARIOS-PROFILE-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "original_document"
       ],
       "source_ids": [
-        "SRC-012"
+        "SRC-012",
+        "SRC-232",
+        "SRC-233",
+        "SRC-238"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
         "EarthSimulator/goals.js"
       ],
       "open_questions": [
-        "Содержимое окна и обновление прогресса."
+        "Проверить реальные полосы прогресса, окно итога и кнопку снятия блокировок."
       ]
     },
     {
@@ -7727,16 +7986,21 @@
       "summary": "Найдены интерфейс соперничества, назначение держав, сетевые команды, годовая проверка результата и сохранение; полный алгоритм и запуск требуют проверки.",
       "document_ids": [
         "DOC-COMPETITION-NETWORK-WALK",
-        "DOC-FEATURE-INVENTORY"
+        "DOC-FEATURE-INVENTORY",
+        "DOC-LOCAL-MULTIPLAYER",
+        "DOC-LOCAL-MULTIPLAYER-DATA"
       ],
-      "documentation_status": "stub",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
         "SRC-002",
-        "SRC-056"
+        "SRC-056",
+        "SRC-229",
+        "SRC-230",
+        "SRC-231"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -7744,8 +8008,7 @@
         "EarthSimulator/rival.js"
       ],
       "open_questions": [
-        "Извлечь правила назначения, сроков, счёта, ничьей и выбывания.",
-        "Проверить UI и результат в локальной и сетевой партии."
+        "Проверить выбор держав, итог, уход гостя и загрузку матча в полной игре."
       ]
     },
     {
@@ -9567,24 +9830,27 @@
       "summary": "До четырёх дополнительных гостей получают собственные курсоры, инструменты и кисти на общей карте.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-MULTIPLAYER"
+        "DOC-MULTIPLAYER",
+        "DOC-LOCAL-MULTIPLAYER",
+        "DOC-LOCAL-MULTIPLAYER-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-226",
+        "SRC-227",
+        "SRC-231"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
         "EarthSimulator/coop.js"
       ],
       "open_questions": [
-        "Как подключаются и отключаются гостевые контроллеры?",
-        "Как взаимодействуют права комнаты, сценарные блокировки и кисти гостей?",
-        "Какие действия остаются у первого игрока и почему ввод гостей блокируется в меню/прогулке?"
+        "Проверить физические контроллеры, назначение мест и общую камеру."
       ]
     },
     {
@@ -9594,15 +9860,20 @@
       "summary": "Отдельный путь маршрутизирует мышь, клавиатуру и контроллеры гостей Steam на общем экране.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-MULTIPLAYER"
+        "DOC-MULTIPLAYER",
+        "DOC-LOCAL-MULTIPLAYER",
+        "DOC-LOCAL-MULTIPLAYER-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-226",
+        "SRC-228",
+        "SRC-231"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -9610,9 +9881,7 @@
         "EarthSimulator/steam.js"
       ],
       "open_questions": [
-        "Как различаются локальный контроллер и гость Remote Play?",
-        "Как преобразуются координаты и кому принадлежит ввод?",
-        "Какие возможности доступны без нативного моста Steam?"
+        "Наблюдать реальное приглашение Steam и ввод гостя с разными размерами окон."
       ]
     },
     {
@@ -9650,97 +9919,111 @@
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
         "DOC-MODS",
-        "DOC-SCENARIOS"
+        "DOC-SCENARIOS",
+        "DOC-SCRIPTED-EVENTS",
+        "DOC-SCENARIOS-PROFILE-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-237",
+        "SRC-238"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
         "EarthSimulator/mods.js"
       ],
       "open_questions": [
-        "Как задаются условия, сроки, повторы и выбор цели?",
-        "Какие эффекты меняют мир и как сохраняется история выполнения?"
+        "Наблюдать эффекты и расписание после загрузки мира с включённым дополнением."
       ]
     },
     {
       "id": "FEAT-DATA-MODS",
       "title": "Дополнения с данными и балансом",
       "category": "menu",
-      "summary": "Загрузчик применяет баланс, эпохи, биомы, виды животных, названия, модели, здания, транспорт, текстуры и звук.",
+      "summary": "Manifest sections, bounded data overrides, naming pools, eras, biomes, species and media resources.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-MODS"
+        "DOC-MODS",
+        "DOC-MODDING",
+        "DOC-MODDING-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-243",
+        "SRC-249"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
         "EarthSimulator/mods.js"
       ],
       "open_questions": [
-        "Как валидируются и по порядку применяются все разделы mod.json?",
-        "Какие параметры допускают переопределение и какие данные зависят от эпох/биомов?",
-        "Как обрабатываются конфликты, несовместимость, лимиты и отсутствующие файлы?"
+        "Observe actual image decoding, geometry rendering and coupled simulation changes from a data pack."
       ]
     },
     {
       "id": "FEAT-MOD-WORLDS-HEIGHTMAPS",
       "title": "Миры дополнений и импорт карт высот",
       "category": "menu",
-      "summary": "Есть упаковка и проверка готовых миров, запуск через boot-конфигурацию и преобразование изображений в рельеф.",
+      "summary": "Checked world saves, ownership sanitation, temporary boot storage and pixel-to-elevation import.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
         "DOC-MODS",
         "DOC-NEW-GAME",
-        "DOC-SAVE-LOAD"
+        "DOC-SAVE-LOAD",
+        "DOC-MODDING",
+        "DOC-MODDING-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-244",
+        "SRC-247",
+        "SRC-249"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
         "EarthSimulator/mods.js"
       ],
       "open_questions": [
-        "Какие поля мира валидируются и как применяются стартовые государства?",
-        "Как работают размер, маска, сглаживание, инверсия и уровень моря при импорте изображения?",
-        "Как передаются данные через перезапуск и очищаются временные сохранения?"
+        "Observe real image import, world restart and temporary-save cleanup on disk."
       ]
     },
     {
       "id": "FEAT-CODE-MODS",
       "title": "Кодовые дополнения и ModAPI",
       "category": "menu",
-      "summary": "Перед загрузкой игровых скриптов поддерживаются вставки, патчи, обёртки функций, события и защита от сбоя дополнения.",
+      "summary": "Script placement, anchored patches with per-pack rollback, boot guard and ModAPI fallback behavior.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-MODS"
+        "DOC-MODS",
+        "DOC-MODDING",
+        "DOC-MODDING-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-245",
+        "SRC-246",
+        "SRC-248",
+        "SRC-249"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -9748,54 +10031,59 @@
         "EarthSimulator/mods.js"
       ],
       "open_questions": [
-        "Какие форматы патчей, версии и точки вставки поддерживаются?",
-        "Как активируются и приостанавливаются дополнения после ошибки?",
-        "Как действуют on/walkOn/before/after/ready/started и fallback обёртки?"
+        "Observe successful and failed full-game code boot, guard recovery and legacy compatibility."
       ]
     },
     {
       "id": "FEAT-MOD-EDITOR",
       "title": "Редактор дополнений",
       "category": "menu",
-      "summary": "Редактор охватывает сценарии, миры, события, баланс, эпохи, названия, животных, внешний вид и файлы.",
+      "summary": "Thirteen editor tabs, normalization, drafts, validation, files, test restart and publication.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-MODS"
+        "DOC-MODS",
+        "DOC-MODDING",
+        "DOC-MODDING-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-247",
+        "SRC-249"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
         "EarthSimulator/modedit.js"
       ],
       "open_questions": [
-        "Как создаются шаблоны, импорт, копии, черновики и предпросмотр ресурсов?",
-        "Как соотносятся проверка формы, сохранение на диск, тестовый запуск и публикация?",
-        "Как действуют ограничения демоверсии и предупреждения об утрате правок?"
+        "Observe editor rendering, file permissions, folder rename/import and save/test flow in a separate installation."
       ]
     },
     {
       "id": "FEAT-WORKSHOP-LIFECYCLE",
       "title": "Установка, обновление и публикация в Мастерской",
       "category": "menu",
-      "summary": "Разделены локальные моды, подписки Steam, включение, публикация и обновление существующей записи.",
+      "summary": "Subscription discovery, explicit code enable, publication identity and create/update callbacks.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-MODS"
+        "DOC-MODS",
+        "DOC-MODDING",
+        "DOC-MODDING-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-247",
+        "SRC-248",
+        "SRC-249"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -9804,9 +10092,7 @@
         "EarthSimulator/modedit.js"
       ],
       "open_questions": [
-        "Каковы состояния загрузки, отключения, обновления и удаления?",
-        "Как хранятся published ID, права автора и результат публикации?",
-        "Чем удаление локальной папки отличается от отписки?"
+        "Observe authenticated download, publish/update retry, ownership errors and unsubscribe behavior."
       ]
     },
     {

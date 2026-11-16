@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "title": "Полный охват плана извлечения логики Earth Simulator",
-  "updated_at": "2026-11-15",
+  "updated_at": "2026-11-16",
   "game_version": "2.1.4",
   "path_base": "repository_root",
   "catalog_path": "design-docs/catalog.json",
@@ -1366,13 +1366,32 @@
         "WP-BASELINE"
       ],
       "outputs": [
-        "topics/network/local-coop-rivalry.md"
+        "topics/network/local-coop-rivalry.md",
+        "research/extraction-local-multiplayer.json"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "completion": "Данные и правила прослежены до записи состояния; исключения и источники записаны; численные/сценарные проверки имеют отдельные статусы.",
       "priority": "normal",
       "priority_rank": 14,
-      "required_pre_read": false
+      "required_pre_read": false,
+      "verification": {
+        "source_ids": [
+          "SRC-226",
+          "SRC-227",
+          "SRC-228",
+          "SRC-229",
+          "SRC-230",
+          "SRC-231"
+        ],
+        "static_trace": "completed_with_scoped_limitations",
+        "isolated_checks": {
+          "passed": 24,
+          "failed": 0,
+          "report_path": "design-docs/research/extraction-local-multiplayer.json"
+        },
+        "runtime_verified": false,
+        "runtime_status": "not_performed"
+      }
     },
     {
       "id": "WP-SCENARIOS-PROFILE",
@@ -1398,14 +1417,36 @@
         "WP-BASELINE"
       ],
       "outputs": [
-        "Таблицы сценариев и достижений",
-        "Дополнения документов сценариев и обучения"
+        "topics/menu/scenarios.md",
+        "topics/menu/achievements.md",
+        "topics/interface/onboarding.md",
+        "topics/menu/scripted-events.md",
+        "research/extraction-scenarios-profile.json"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "completion": "Данные и правила прослежены до записи состояния; исключения и источники записаны; численные/сценарные проверки имеют отдельные статусы.",
       "priority": "normal",
       "priority_rank": 15,
-      "required_pre_read": false
+      "required_pre_read": false,
+      "verification": {
+        "source_ids": [
+          "SRC-232",
+          "SRC-233",
+          "SRC-234",
+          "SRC-235",
+          "SRC-236",
+          "SRC-237",
+          "SRC-238"
+        ],
+        "static_trace": "completed_with_scoped_limitations",
+        "isolated_checks": {
+          "passed": 32,
+          "failed": 0,
+          "report_path": "design-docs/research/extraction-scenarios-profile.json"
+        },
+        "runtime_verified": false,
+        "runtime_status": "not_performed"
+      }
     },
     {
       "id": "WP-MODDING",
@@ -1432,13 +1473,32 @@
       ],
       "outputs": [
         "topics/modding/data-code-editor.md",
-        "Схемы жизненного цикла дополнений"
+        "research/extraction-modding.json"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "completion": "Данные и правила прослежены до записи состояния; исключения и источники записаны; численные/сценарные проверки имеют отдельные статусы.",
       "priority": "normal",
       "priority_rank": 16,
-      "required_pre_read": false
+      "required_pre_read": false,
+      "verification": {
+        "source_ids": [
+          "SRC-243",
+          "SRC-244",
+          "SRC-245",
+          "SRC-246",
+          "SRC-247",
+          "SRC-248",
+          "SRC-249"
+        ],
+        "static_trace": "completed_with_scoped_limitations",
+        "isolated_checks": {
+          "passed": 50,
+          "failed": 0,
+          "report_path": "design-docs/research/extraction-modding.json"
+        },
+        "runtime_verified": false,
+        "runtime_status": "not_performed"
+      }
     },
     {
       "id": "WP-CUSTOMIZATION",
@@ -1745,7 +1805,11 @@
       "source_ids": [
         "SRC-012",
         "SRC-024",
-        "SRC-056"
+        "SRC-056",
+        "SRC-232",
+        "SRC-233",
+        "SRC-237",
+        "SRC-238"
       ],
       "anchors": [
         {
@@ -1783,7 +1847,7 @@
         "Исполняемые условия победы, поражения и экран прогресса.",
         "Извлечь условия каждого сценария, удерживаемый прогресс, поражение и продолжение мира после результата."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 15
@@ -1920,7 +1984,10 @@
       ],
       "source_ids": [
         "SRC-012",
-        "SRC-056"
+        "SRC-056",
+        "SRC-234",
+        "SRC-235",
+        "SRC-238"
       ],
       "anchors": [
         {
@@ -1958,7 +2025,7 @@
         "Алгоритмы выдачи, статистика и таблицы лидеров.",
         "Проверить все 32 условия, длительные трекеры, перенос профиля, деморежим и историю счётчиков."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 15
@@ -1978,7 +2045,14 @@
       "source_ids": [
         "SRC-003",
         "SRC-012",
-        "SRC-056"
+        "SRC-056",
+        "SRC-243",
+        "SRC-244",
+        "SRC-245",
+        "SRC-246",
+        "SRC-247",
+        "SRC-248",
+        "SRC-249"
       ],
       "anchors": [
         {
@@ -2010,7 +2084,7 @@
         "Загрузка, хуки, конфликты, публикация и фактическая активация.",
         "Проследить все разделы, порядок, совместимость, пределы и влияние на формулы базовой игры."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 16
@@ -2075,7 +2149,9 @@
       ],
       "source_ids": [
         "SRC-012",
-        "SRC-056"
+        "SRC-056",
+        "SRC-236",
+        "SRC-238"
       ],
       "anchors": [
         {
@@ -2113,7 +2189,7 @@
         "Полный маршрут обучения и условия появления подсказок.",
         "Извлечь шаги, условия завершения, пропуск/повтор, подсветку интерфейса и постоянные флаги подсказок."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 15
@@ -2528,13 +2604,16 @@
         "EarthSimulator/goals.js"
       ],
       "source_ids": [
-        "SRC-012"
+        "SRC-012",
+        "SRC-232",
+        "SRC-233",
+        "SRC-238"
       ],
       "anchors": [],
       "extraction_questions": [
         "Содержимое окна и обновление прогресса."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 15
@@ -4582,7 +4661,10 @@
       ],
       "source_ids": [
         "SRC-002",
-        "SRC-056"
+        "SRC-056",
+        "SRC-229",
+        "SRC-230",
+        "SRC-231"
       ],
       "anchors": [
         {
@@ -4632,7 +4714,7 @@
         "Извлечь правила назначения, сроков, счёта, ничьей и выбывания.",
         "Проверить UI и результат в локальной и сетевой партии."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 14
@@ -7796,7 +7878,10 @@
         "EarthSimulator/coop.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-226",
+        "SRC-227",
+        "SRC-231"
       ],
       "anchors": [
         {
@@ -7847,7 +7932,7 @@
         "Как взаимодействуют права комнаты, сценарные блокировки и кисти гостей?",
         "Какие действия остаются у первого игрока и почему ввод гостей блокируется в меню/прогулке?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 14
@@ -7864,7 +7949,10 @@
         "EarthSimulator/steam.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-226",
+        "SRC-228",
+        "SRC-231"
       ],
       "anchors": [
         {
@@ -7903,7 +7991,7 @@
         "Как преобразуются координаты и кому принадлежит ввод?",
         "Какие возможности доступны без нативного моста Steam?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 14
@@ -7980,7 +8068,9 @@
         "EarthSimulator/mods.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-237",
+        "SRC-238"
       ],
       "anchors": [
         {
@@ -8030,7 +8120,7 @@
         "Как задаются условия, сроки, повторы и выбор цели?",
         "Какие эффекты меняют мир и как сохраняется история выполнения?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 15
@@ -8046,7 +8136,9 @@
         "EarthSimulator/mods.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-243",
+        "SRC-249"
       ],
       "anchors": [
         {
@@ -8115,7 +8207,7 @@
         "Какие параметры допускают переопределение и какие данные зависят от эпох/биомов?",
         "Как обрабатываются конфликты, несовместимость, лимиты и отсутствующие файлы?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 16
@@ -8131,7 +8223,10 @@
         "EarthSimulator/mods.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-244",
+        "SRC-247",
+        "SRC-249"
       ],
       "anchors": [
         {
@@ -8182,7 +8277,7 @@
         "Как работают размер, маска, сглаживание, инверсия и уровень моря при импорте изображения?",
         "Как передаются данные через перезапуск и очищаются временные сохранения?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 16
@@ -8199,7 +8294,11 @@
         "EarthSimulator/mods.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-245",
+        "SRC-246",
+        "SRC-248",
+        "SRC-249"
       ],
       "anchors": [
         {
@@ -8256,7 +8355,7 @@
         "Как активируются и приостанавливаются дополнения после ошибки?",
         "Как действуют on/walkOn/before/after/ready/started и fallback обёртки?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 16
@@ -8272,7 +8371,9 @@
         "EarthSimulator/modedit.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-247",
+        "SRC-249"
       ],
       "anchors": [
         {
@@ -8335,7 +8436,7 @@
         "Как соотносятся проверка формы, сохранение на диск, тестовый запуск и публикация?",
         "Как действуют ограничения демоверсии и предупреждения об утрате правок?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 16
@@ -8353,7 +8454,10 @@
         "EarthSimulator/modedit.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-247",
+        "SRC-248",
+        "SRC-249"
       ],
       "anchors": [
         {
@@ -8404,7 +8508,7 @@
         "Как хранятся published ID, права автора и результат публикации?",
         "Чем удаление локальной папки отличается от отписки?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 16

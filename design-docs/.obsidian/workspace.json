@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "GAME_DESIGN.md",
+                "file": "EXTRACTION_PLAN.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GAME_DESIGN"
+              "title": "EXTRACTION_PLAN"
             }
           }
         ]
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "GAME_DESIGN.md",
+                "file": "EXTRACTION_PLAN.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -201,6 +201,17 @@
   },
   "active": "4c67115ff747e0db",
   "lastOpenFiles": [
+    "research/extraction-modding.json",
+    "topics/modding/data-code-editor.md",
+    "topics/modding",
+    "POPULOUS_DLC.md",
+    "EXPANSION_IDEAS.md",
+    "ROADMAP.md",
+    "GAME_DESIGN.md",
+    "research/extraction-scenarios-profile.json",
+    "topics/menu/scripted-events.md",
+    "research/extraction-local-multiplayer.json",
+    "topics/network/local-coop-rivalry.md",
     "SOURCES.md",
     "topics/simulation/baseline.md",
     "research/extraction-network-walk.json",
@@ -214,10 +225,7 @@
     "tools/probe_walk_world_effects.cjs",
     "tools/probe_walk_world_effects_combat.cjs",
     "tools/probe_walk_world_effects_strike.cjs",
-    "tools/probe_walk_world_effects_trade.cjs",
     "topics/walk/sea.md",
-    "research/extraction-walk-sea.json",
-    "tools/extract_walk_sea.py",
     "topics/walk/air.md",
     "topics/simulation/demography-cities.md",
     "topics/menu/lobby.md",
@@ -229,14 +237,6 @@
     "topics/simulation/real-earth.md",
     "topics/society/commoner-families.md",
     "topics/society/cultures-religions.md",
-    "topics/states/economy.md",
-    "topics/states/history.md",
-    "topics/states/navigation.md",
-    "topics/states/strategic-weapons.md",
-    "topics/states/rulers.md",
-    "topics/states/war-mechanics.md",
-    "topics/walk/player-life.md",
-    "topics/walk/palace-audience.md",
     "assets/image35.png"
   ]
 }

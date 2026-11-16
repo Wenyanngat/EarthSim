@@ -1,5 +1,7 @@
 # Открытые вопросы и противоречия
 
+Вопросы к будущим релизам, включая границы 3.0 и состав 4.0, собраны в [анализе дорожной карты](ROADMAP.md#что-уточнить-в-публичном-плане).
+
 Сначала закрывать вопросы восьми высокоприоритетных этапов пользователя: база, фауна, демография, экономика, политика, династии, торговля, войны и территории. Точная очередь и необходимые входы находятся в [плане](EXTRACTION_PLAN.md) и `execution_policy` [JSON охвата](research/feature-scope.json).
 
 Порядок дальнейшего извлечения формул и проверки этих вопросов: [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md). Полный объём — [144 фичи](FEATURE_INVENTORY.md), связанные с 29 этапами в [JSON охвата](research/feature-scope.json). Точки входа перечислены отдельно от доказанных правил.
@@ -223,3 +225,30 @@ runtime_verified=false. Следующий — WP-WORLD-WARS-TERRITORY.
 - Проверить передачу машины, смерть правителя, охоту редактора и зрителя, задания и разделку туши в общей партии. [SRC-222]
 
 [Сетевая прогулка](topics/network/walk.md) · [Машинный отчёт](research/extraction-network-walk.json) [SRC-219–225] · [Точка продолжения](RESEARCH_STATE.md)
+
+## WP-LOCAL-MULTIPLAYER после статического прохода
+
+- Подключить контроллеры разных типов и проверить выбор первого устройства, вход гостя, выход и повторное назначение места. [SRC-226]
+- Наблюдать кисти, общую камеру, меню, прогулку и права редактирования в комнате. [SRC-227]
+- Проверить Steam-приглашение, раздельную мышь и клавиатуру, относительные координаты и масштабирование окна. [SRC-228]
+- Провести выбор держав, годовой и досрочный итог, повторное занятие места гостя и восстановление матча после загрузки и сетевого снимка. [SRC-229, SRC-230]
+
+[Локальная кооперация и соперничество](topics/network/local-coop-rivalry.md) · [Машинный отчёт](research/extraction-local-multiplayer.json) [SRC-226–231] · [Точка продолжения](RESEARCH_STATE.md)
+
+## WP-SCENARIOS-PROFILE после статического прохода
+
+- Наблюдать победу и поражение, цели с удержанием, снятие блокировок и восстановление прогресса в сохранении. [SRC-232, SRC-233]
+- Проверить справку, показ тура, переходы по реальному вводу, подсказки после смены мира и сохранение их отметок. [SRC-236]
+- Сверить открытия, галерею, счётчики и таблицы на реальном профиле Steam. [SRC-234, SRC-235]
+- В отдельной копии включить комплектный пример, загрузить «Пепельные острова» и проследить события после сохранения и повторной загрузки. [SRC-237, SRC-238]
+
+[Сценарии](topics/menu/scenarios.md) · [Достижения](topics/menu/achievements.md) · [Обучение](topics/interface/onboarding.md) · [События](topics/menu/scripted-events.md) · [Машинный отчёт](research/extraction-scenarios-profile.json) [SRC-232–238] · [Точка продолжения](RESEARCH_STATE.md)
+
+## WP-MODDING after static extraction
+
+- Observe data/code activation, conflicting packs, failed startup and boot-guard recovery in a separate installation. [SRC-243, SRC-245]
+- Exercise all editor tabs, manifest rename, file import, drafts, real image decoding and world/test restart. [SRC-244, SRC-247]
+- Observe actual Steam subscription download, pending refresh, item ownership, publish/update retry and unsubscribe. [SRC-248]
+- Compare a modded multiplayer session and actual resource rendering against the source-level boundaries. [SRC-243, SRC-248]
+
+[Modding](topics/modding/data-code-editor.md) · [Evidence](research/extraction-modding.json) · [Continuation](RESEARCH_STATE.md)

@@ -1,5 +1,7 @@
 # Контрольная точка исследования установленной версии 2.1.4
 
+[Дорожная карта](ROADMAP.md) содержит отдельный анализ публичных планов и зависимостей релизов [SRC-239, SRC-240].
+
 ## Навигация после разделения документации
 
 Рабочие тексты находятся в `topics/`; [GAME_DESIGN.md](GAME_DESIGN.md) — указатель. [catalog.json](catalog.json) связывает фичи, документы, источники и вопросы. См. [ANALYSIS.md](ANALYSIS.md). Разделение не добавило новых наблюдений и не изменило точку продолжения исследования ниже.
@@ -97,11 +99,23 @@
 
 Прослежены две фичи и 45 диапазонов кода. Прошли 29 изолированных проверок. Извлечены присутствие, общий мир, действия гостей, PvP, часы и погода. Статус `static_traced_runtime_pending`. [Сетевая прогулка](topics/network/walk.md) · [Машинный отчёт](research/extraction-network-walk.json) [SRC-219–225]
 
+## WP-LOCAL-MULTIPLAYER. Общий экран, Remote Play и соперничество
+
+Прослежены три фичи и 37 диапазонов кода. Прошли 24 изолированные проверки. Извлечены места гостей, действия на общей карте, раздельный ввод Steam, выбор держав и счёт соперничества. Статус `static_traced_runtime_pending`. [Локальная кооперация и соперничество](topics/network/local-coop-rivalry.md) · [Машинный отчёт](research/extraction-local-multiplayer.json) [SRC-226–231]
+
+## WP-SCENARIOS-PROFILE. Сценарии, обучение и профиль
+
+Извлечены 13 встроенных сценариев с 45 целями, 32 достижения, 13 шагов обучения, 11 подсказок и расписание событий дополнений. Прослежены 68 диапазонов кода. Прошли 32 изолированные проверки. Статус `static_traced_runtime_pending`. [Сценарии](topics/menu/scenarios.md) · [Достижения](topics/menu/achievements.md) · [Обучение](topics/interface/onboarding.md) · [События](topics/menu/scripted-events.md) · [Машинный отчёт](research/extraction-scenarios-profile.json) [SRC-232–238]
+
+## WP-MODDING. Data, code, editor and Workshop
+
+Six features traced across 36 source ranges. Fifty isolated checks passed. Extracted data formats, code boot/patching, ModAPI, world sanitation, heightmaps, editor drafts and Workshop lifecycle. Status: `static_traced_runtime_pending`; `runtime_verified=false`. [Modding](topics/modding/data-code-editor.md) · [Evidence](research/extraction-modding.json) [SRC-243–249]
+
 ## Текущая система и точка продолжения
 
-Восемь основных и тринадцать отложенных пакетов статически извлечены. Суммарно 1262 изолированные проверки, у всех `runtime_verified=false`. Каталог содержит 144 фичи и 108 документов, план 29 пакетов.
+24 packages are statically extracted, including eight primary and sixteen deferred packages. The isolated checks total 1368; every package retains `runtime_verified=false`. The catalog contains 144 features and 117 documents; the plan contains 29 packages.
 
-Следующий пакет `WP-LOCAL-MULTIPLAYER`, четырнадцатый этап `execution_policy.deferred_queue`. Извлечь совместную игру на одной карте, ввод гостей Steam Remote Play и соперничество. [План](EXTRACTION_PLAN.md) · [Область фичей](research/feature-scope.json)
+Next package: `WP-CUSTOMIZATION`, deferred queue rank 17. Trace names, place names, flags and their save/network paths. [Plan](EXTRACTION_PLAN.md) · [Feature scope](research/feature-scope.json)
 
 ## Нерешённые вопросы и ограничения
 
