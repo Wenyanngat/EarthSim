@@ -364,7 +364,13 @@
         "SRC-114",
         "SRC-115",
         "SRC-116",
-        "SRC-117"
+        "SRC-117",
+        "SRC-256",
+        "SRC-257",
+        "SRC-258",
+        "SRC-259",
+        "SRC-260",
+        "SRC-261"
       ],
       "feature_ids": [
         "FEAT-SAVE-LOAD",
@@ -391,7 +397,12 @@
         "SRC-233",
         "SRC-234",
         "SRC-235",
-        "SRC-238"
+        "SRC-238",
+        "SRC-262",
+        "SRC-263",
+        "SRC-264",
+        "SRC-265",
+        "SRC-266"
       ],
       "feature_ids": [
         "FEAT-ACHIEVEMENTS",
@@ -655,7 +666,11 @@
         "SRC-141",
         "SRC-142",
         "SRC-143",
-        "SRC-233"
+        "SRC-233",
+        "SRC-252",
+        "SRC-253",
+        "SRC-254",
+        "SRC-255"
       ],
       "feature_ids": [
         "FEAT-GEOGRAPHIC-NAMES",
@@ -761,7 +776,11 @@
         "SRC-082",
         "SRC-083",
         "SRC-084",
-        "SRC-085"
+        "SRC-085",
+        "SRC-250",
+        "SRC-251",
+        "SRC-254",
+        "SRC-255"
       ],
       "feature_ids": [
         "FEAT-STATE-FORMATION",
@@ -5389,6 +5408,134 @@
         "FEAT-WORKSHOP-LIFECYCLE"
       ],
       "image_paths": []
+    },
+    {
+      "id": "DOC-CUSTOMIZATION",
+      "title": "Names, geography and flags",
+      "path": "design-docs/topics/interface/customization.md",
+      "kind": "topic",
+      "category": "interface",
+      "documentation_status": "detailed",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-250",
+        "SRC-251",
+        "SRC-252",
+        "SRC-253",
+        "SRC-254",
+        "SRC-255"
+      ],
+      "feature_ids": [
+        "FEAT-ENTITY-RENAMING",
+        "FEAT-FLAG-EDITOR",
+        "FEAT-GEOGRAPHIC-NAMES"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-CUSTOMIZATION-DATA",
+      "title": "Customization extraction evidence",
+      "path": "design-docs/research/extraction-customization.json",
+      "kind": "research_coverage",
+      "category": "research",
+      "documentation_status": "reference",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-250",
+        "SRC-251",
+        "SRC-252",
+        "SRC-253",
+        "SRC-254",
+        "SRC-255"
+      ],
+      "feature_ids": [
+        "FEAT-ENTITY-RENAMING",
+        "FEAT-FLAG-EDITOR",
+        "FEAT-GEOGRAPHIC-NAMES"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-DEMO-EDITION",
+      "title": "Trial edition",
+      "path": "design-docs/topics/menu/demo-edition.md",
+      "kind": "topic",
+      "category": "menu",
+      "documentation_status": "detailed",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-259",
+        "SRC-260",
+        "SRC-261"
+      ],
+      "feature_ids": [
+        "FEAT-DEMO-EDITION"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-STORAGE-EDITIONS-DATA",
+      "title": "Storage and editions extraction evidence",
+      "path": "design-docs/research/extraction-storage-editions.json",
+      "kind": "research_coverage",
+      "category": "research",
+      "documentation_status": "reference",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-256",
+        "SRC-257",
+        "SRC-258",
+        "SRC-259",
+        "SRC-260",
+        "SRC-261"
+      ],
+      "feature_ids": [
+        "FEAT-SAVE-LOAD",
+        "FEAT-DEMO-EDITION"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-STEAM-PLATFORM",
+      "title": "Steam integration, statistics and records",
+      "path": "design-docs/topics/platform/steam.md",
+      "kind": "topic",
+      "category": "menu",
+      "documentation_status": "detailed",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-262",
+        "SRC-263",
+        "SRC-264",
+        "SRC-265",
+        "SRC-266"
+      ],
+      "feature_ids": [
+        "FEAT-STEAM-INTEGRATION",
+        "FEAT-STEAM-STATS-LEADERBOARDS"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-STEAM-PLATFORM-DATA",
+      "title": "Steam platform extraction evidence",
+      "path": "design-docs/research/extraction-steam-platform.json",
+      "kind": "research_coverage",
+      "category": "research",
+      "documentation_status": "reference",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-262",
+        "SRC-263",
+        "SRC-264",
+        "SRC-265",
+        "SRC-266"
+      ],
+      "feature_ids": [
+        "FEAT-STEAM-INTEGRATION",
+        "FEAT-STEAM-STATS-LEADERBOARDS"
+      ],
+      "image_paths": []
     }
   ],
   "features": [
@@ -5618,10 +5765,11 @@
       "id": "FEAT-SAVE-LOAD",
       "title": "Сохранение, загрузка и расширения",
       "category": "menu",
-      "summary": "Слоты, файлы, миры дополнений, формат v3 и события save/load подсистем.",
+      "summary": "World format v3, disk and browser slots, separate metadata writes, legacy migration and continuation.",
       "document_ids": [
         "DOC-SAVE-LOAD",
-        "DOC-FEATURE-INVENTORY"
+        "DOC-FEATURE-INVENTORY",
+        "DOC-STORAGE-EDITIONS-DATA"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -5632,7 +5780,11 @@
       "source_ids": [
         "SRC-012",
         "SRC-018",
-        "SRC-056"
+        "SRC-056",
+        "SRC-256",
+        "SRC-257",
+        "SRC-258",
+        "SRC-261"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -5641,9 +5793,8 @@
         "EarthSimulator/savestore.js"
       ],
       "open_questions": [
-        "Дисковый формат, атомарность, ошибки, удаление и восстановление.",
-        "Проверить частичные ошибки между записью payload и метаданных, коллизии имён, квоты, миграцию и отдельные папки демо.",
-        "Не объявлять всю пару файлов атомарной или Steam Cloud действующим по одному комментарию."
+        "Observe OS-level interruptions and migrate an actual 1.x profile in a separate installation.",
+        "Verify whether Steam Cloud synchronizes the disk save files."
       ]
     },
     {
@@ -5984,7 +6135,7 @@
       "id": "FEAT-GEOGRAPHIC-NAMES",
       "title": "Названия земель",
       "category": "interface",
-      "summary": "Пользовательские и автоматически присвоенные географические имена.",
+      "summary": "Player labels, cultural automatic names and real-Earth labels share region resolution and 2D/3D layout consumers.",
       "document_ids": [
         "DOC-TOOLS",
         "DOC-OBSERVATION",
@@ -5992,7 +6143,9 @@
         "DOC-FEATURE-INVENTORY",
         "DOC-REAL-EARTH",
         "DOC-NATURE-DATA",
-        "DOC-MAP-DATA"
+        "DOC-MAP-DATA",
+        "DOC-CUSTOMIZATION",
+        "DOC-CUSTOMIZATION-DATA"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -6011,7 +6164,11 @@
         "SRC-136",
         "SRC-137",
         "SRC-138",
-        "SRC-143"
+        "SRC-143",
+        "SRC-252",
+        "SRC-253",
+        "SRC-254",
+        "SRC-255"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -6020,7 +6177,7 @@
         "EarthSimulator/ui.js"
       ],
       "open_questions": [
-        "Проверить наложение имён и перемещение подписи между 2D и 3D."
+        "Observe long cultural claims, moving coasts, hit boxes and overlap/placement across 2D and 3D."
       ]
     },
     {
@@ -9888,18 +10045,23 @@
       "id": "FEAT-STEAM-STATS-LEADERBOARDS",
       "title": "Статистика Steam и таблицы лидеров",
       "category": "menu",
-      "summary": "Код определяет пять накопительных показателей и две таблицы рекордов с асинхронной загрузкой.",
+      "summary": "Five cumulative Steam counters, two world leaderboards, asynchronous rows and per-board request queues.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-ACHIEVEMENTS"
+        "DOC-ACHIEVEMENTS",
+        "DOC-STEAM-PLATFORM",
+        "DOC-STEAM-PLATFORM-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-263",
+        "SRC-264",
+        "SRC-266"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -9907,8 +10069,7 @@
         "EarthSimulator/steam.js"
       ],
       "open_questions": [
-        "Каковы единицы, накопление и отправка каждого показателя и рекорда?",
-        "Как обрабатываются ранги, загрузка, таймауты и отсутствие Steam?"
+        "Observe actual Steam persistence, rankings, service timeouts and acceptance of submitted records."
       ]
     },
     {
@@ -10099,74 +10260,88 @@
       "id": "FEAT-ENTITY-RENAMING",
       "title": "Переименование сущностей мира",
       "category": "interface",
-      "summary": "Общий интерфейс правит названия стран, строя, городов, персон, домов, народов и вер с восстановлением исходного имени.",
+      "summary": "Seven target kinds with cleaned names, original-name restoration, stable identity and shared actions.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
         "DOC-STATE-OVERVIEW",
         "DOC-CITIES",
-        "DOC-RULERS"
+        "DOC-RULERS",
+        "DOC-CUSTOMIZATION",
+        "DOC-CUSTOMIZATION-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-250",
+        "SRC-254",
+        "SRC-255"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
         "EarthSimulator/custom.js"
       ],
       "open_questions": [
-        "Какие сущности и роли разрешено переименовывать?",
-        "Как выполняются очистка, предел длины, восстановление имени, сетевой обмен и сохранение?"
+        "Observe real dialogs, boundary Unicode rendering, restored names and simultaneous edits by two editors."
       ]
     },
     {
       "id": "FEAT-FLAG-EDITOR",
       "title": "Редактор флага государства",
       "category": "interface",
-      "summary": "Пиксельный редактор 24×16 хранит палитру и изображение по uid страны; поддерживает шаблоны и отмену.",
+      "summary": "Palette-indexed flags by state UID, pixel tools/templates, bounded validation, undo, cache invalidation and save/load.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-STATE-OVERVIEW"
+        "DOC-STATE-OVERVIEW",
+        "DOC-CUSTOMIZATION",
+        "DOC-CUSTOMIZATION-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-251",
+        "SRC-254",
+        "SRC-255"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
         "EarthSimulator/custom.js"
       ],
       "open_questions": [
-        "Как работают инструменты, шаблоны, палитра, отмена и возврат автоматического флага?",
-        "Как валидируются и сохраняются флаги, меняются кэши и передаются правки в сеть?"
+        "Observe all tools/templates, undo, actual canvas/URI rendering and save/network restoration."
       ]
     },
     {
       "id": "FEAT-STEAM-INTEGRATION",
       "title": "Интеграция с платформой Steam",
       "category": "menu",
-      "summary": "Нативный мост предоставляет профиль, присутствие, приглашения, вход, билет, оверлей, временную шкалу и экранную клавиатуру.",
+      "summary": "NW.js helper lifecycle, local profile, Workshop, account, presence, invites, timeline and platform input.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
         "DOC-ACHIEVEMENTS",
         "DOC-MULTIPLAYER",
-        "DOC-MODS"
+        "DOC-MODS",
+        "DOC-STEAM-PLATFORM",
+        "DOC-STEAM-PLATFORM-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-262",
+        "SRC-263",
+        "SRC-265",
+        "SRC-266"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10174,28 +10349,32 @@
         "EarthSimulator/netui.js"
       ],
       "open_questions": [
-        "Как работают запуск моста, протокол, очередь, таймауты и отсутствие Steam?",
-        "Как обработаны приглашения, вход до/после запуска, владение игрой, оверлей и клавиатура?",
-        "Какие утверждения требуют отдельного разбора steam_ach.exe?"
+        "Observe the native helper and Steam responses in an authenticated installation.",
+        "Verify overlay, Workshop, Remote Play, account authorization and Steam Cloud in their target environments."
       ]
     },
     {
       "id": "FEAT-DEMO-EDITION",
       "title": "Ограничения демоверсии",
       "category": "menu",
-      "summary": "При GAME_DEMO учитывается активное время мира, сохраняется лимит, выводятся предупреждения и блокируется исчерпавшая время сессия.",
+      "summary": "Conditional 15-minute trial clock with persisted active time, expiry controls and edition gates.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
         "DOC-SETTINGS",
-        "DOC-SAVE-LOAD"
+        "DOC-SAVE-LOAD",
+        "DOC-STORAGE-EDITIONS-DATA",
+        "DOC-DEMO-EDITION"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-259",
+        "SRC-260",
+        "SRC-261"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10205,9 +10384,8 @@
         "EarthSimulator/achievements.js"
       ],
       "open_questions": [
-        "Когда считается время и как объединяются записи лимита на диске и в localStorage?",
-        "Как ограничиваются достижения, загрузка модов, редактор, ввод, продолжение и покупка?",
-        "Как различаются полная сборка и условно активируемая демосборка?"
+        "Compare packaged full and trial editions on disk and in the UI.",
+        "Observe real app focus, expiry controls and the full-game purchase action."
       ]
     },
     {

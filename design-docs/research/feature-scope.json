@@ -1518,13 +1518,32 @@
         "WP-BASELINE"
       ],
       "outputs": [
-        "topics/interface/customization.md"
+        "topics/interface/customization.md",
+        "research/extraction-customization.json"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "completion": "Данные и правила прослежены до записи состояния; исключения и источники записаны; численные/сценарные проверки имеют отдельные статусы.",
       "priority": "normal",
       "priority_rank": 17,
-      "required_pre_read": false
+      "required_pre_read": false,
+      "verification": {
+        "source_ids": [
+          "SRC-250",
+          "SRC-251",
+          "SRC-252",
+          "SRC-253",
+          "SRC-254",
+          "SRC-255"
+        ],
+        "static_trace": "completed_with_scoped_limitations",
+        "isolated_checks": {
+          "passed": 53,
+          "failed": 0,
+          "report_path": "design-docs/research/extraction-customization.json"
+        },
+        "runtime_verified": false,
+        "runtime_status": "not_performed"
+      }
     },
     {
       "id": "WP-STORAGE-EDITIONS",
@@ -1549,14 +1568,33 @@
         "WP-BASELINE"
       ],
       "outputs": [
-        "Дополнения документа сохранений",
-        "topics/menu/demo-edition.md"
+        "topics/menu/save-load.md",
+        "topics/menu/demo-edition.md",
+        "research/extraction-storage-editions.json"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "completion": "Данные и правила прослежены до записи состояния; исключения и источники записаны; численные/сценарные проверки имеют отдельные статусы.",
       "priority": "normal",
       "priority_rank": 18,
-      "required_pre_read": false
+      "required_pre_read": false,
+      "verification": {
+        "source_ids": [
+          "SRC-256",
+          "SRC-257",
+          "SRC-258",
+          "SRC-259",
+          "SRC-260",
+          "SRC-261"
+        ],
+        "static_trace": "completed_with_scoped_limitations",
+        "isolated_checks": {
+          "passed": 28,
+          "failed": 0,
+          "report_path": "design-docs/research/extraction-storage-editions.json"
+        },
+        "runtime_verified": false,
+        "runtime_status": "not_performed"
+      }
     },
     {
       "id": "WP-STEAM-PLATFORM",
@@ -1579,13 +1617,31 @@
         "WP-BASELINE"
       ],
       "outputs": [
-        "topics/platform/steam.md"
+        "topics/platform/steam.md",
+        "research/extraction-steam-platform.json"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "completion": "Данные и правила прослежены до записи состояния; исключения и источники записаны; численные/сценарные проверки имеют отдельные статусы.",
       "priority": "normal",
       "priority_rank": 19,
-      "required_pre_read": false
+      "required_pre_read": false,
+      "verification": {
+        "source_ids": [
+          "SRC-262",
+          "SRC-263",
+          "SRC-264",
+          "SRC-265",
+          "SRC-266"
+        ],
+        "static_trace": "completed_with_scoped_limitations",
+        "isolated_checks": {
+          "passed": 27,
+          "failed": 0,
+          "report_path": "design-docs/research/extraction-steam-platform.json"
+        },
+        "runtime_verified": false,
+        "runtime_status": "not_performed"
+      }
     },
     {
       "id": "WP-INPUT-ACCESS",
@@ -1927,7 +1983,11 @@
       "source_ids": [
         "SRC-012",
         "SRC-018",
-        "SRC-056"
+        "SRC-056",
+        "SRC-256",
+        "SRC-257",
+        "SRC-258",
+        "SRC-261"
       ],
       "anchors": [
         {
@@ -1966,7 +2026,7 @@
         "Проверить частичные ошибки между записью payload и метаданных, коллизии имён, квоты, миграцию и отдельные папки демо.",
         "Не объявлять всю пару файлов атомарной или Steam Cloud действующим по одному комментарию."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 18
@@ -2355,7 +2415,11 @@
         "SRC-136",
         "SRC-137",
         "SRC-138",
-        "SRC-143"
+        "SRC-143",
+        "SRC-252",
+        "SRC-253",
+        "SRC-254",
+        "SRC-255"
       ],
       "anchors": [
         {
@@ -8008,7 +8072,10 @@
         "EarthSimulator/steam.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-263",
+        "SRC-264",
+        "SRC-266"
       ],
       "anchors": [
         {
@@ -8052,7 +8119,7 @@
         "Каковы единицы, накопление и отправка каждого показателя и рекорда?",
         "Как обрабатываются ранги, загрузка, таймауты и отсутствие Steam?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 19
@@ -8524,7 +8591,10 @@
         "EarthSimulator/custom.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-250",
+        "SRC-254",
+        "SRC-255"
       ],
       "anchors": [
         {
@@ -8556,7 +8626,7 @@
         "Какие сущности и роли разрешено переименовывать?",
         "Как выполняются очистка, предел длины, восстановление имени, сетевой обмен и сохранение?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 17
@@ -8572,7 +8642,10 @@
         "EarthSimulator/custom.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-251",
+        "SRC-254",
+        "SRC-255"
       ],
       "anchors": [
         {
@@ -8616,7 +8689,7 @@
         "Как работают инструменты, шаблоны, палитра, отмена и возврат автоматического флага?",
         "Как валидируются и сохраняются флаги, меняются кэши и передаются правки в сеть?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 17
@@ -8633,7 +8706,11 @@
         "EarthSimulator/netui.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-262",
+        "SRC-263",
+        "SRC-265",
+        "SRC-266"
       ],
       "anchors": [
         {
@@ -8684,7 +8761,7 @@
         "Как обработаны приглашения, вход до/после запуска, владение игрой, оверлей и клавиатура?",
         "Какие утверждения требуют отдельного разбора steam_ach.exe?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 19
@@ -8703,7 +8780,10 @@
         "EarthSimulator/achievements.js"
       ],
       "source_ids": [
-        "SRC-056"
+        "SRC-056",
+        "SRC-259",
+        "SRC-260",
+        "SRC-261"
       ],
       "anchors": [
         {
@@ -8772,7 +8852,7 @@
         "Как ограничиваются достижения, загрузка модов, редактор, ввод, продолжение и покупка?",
         "Как различаются полная сборка и условно активируемая демосборка?"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 18

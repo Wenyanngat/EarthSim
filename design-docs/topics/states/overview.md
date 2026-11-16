@@ -64,3 +64,7 @@
 ## Политический цикл [SRC-079–085]
 
 [Основание/строй/стабильность/упадок](formation-politics.md), [народы и вера](../society/cultures-religions.md), [владение/отделение](territory.md) и [дипломатические условия](diplomacy.md) статически извлечены. Блок/вассал/федерация — разные связи; полные династии и войны остаются далее. 59 изолированных проверок пакета, runtime не наблюдался.
+
+## Custom names and flags
+
+The [customization reference](../interface/customization.md) traces state/government name overrides, original-name restoration, flag pixels, editing and persistence. Stable state UIDs remain the target identity. [SRC-250, SRC-251, SRC-254, SRC-255]

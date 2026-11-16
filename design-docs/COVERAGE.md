@@ -134,3 +134,15 @@ WP-WALK-AIR охватывает четыре фичи, 73 диапазона и
 ## WP-MODDING. Data, code, editor and Workshop
 
 Six features traced across 36 source ranges. Fifty isolated checks passed. Extracted data formats, code boot/patching, ModAPI, world sanitation, heightmaps, editor drafts and Workshop lifecycle. Status: `static_traced_runtime_pending`; `runtime_verified=false`. [Modding](topics/modding/data-code-editor.md) · [Evidence](research/extraction-modding.json) [SRC-243–249]
+
+## WP-CUSTOMIZATION. Names, geography and flags
+
+Three features traced across 20 source ranges; 53 isolated checks passed. Extracted seven rename targets, flag validation/editor behavior, player and cultural geography, persistence and editor-role command dispatch. Status: `static_traced_runtime_pending`; `runtime_verified=false`. [Customization](topics/interface/customization.md) · [Evidence](research/extraction-customization.json) [SRC-250–255]
+
+## WP-STORAGE-EDITIONS. Saves and trial edition
+
+Two features traced across 31 source ranges. 28 isolated checks passed. Disk and browser saves, partial writes, legacy migration, the trial clock and edition gates are documented. Full-game runtime remains pending. [Saves](topics/menu/save-load.md) · [Trial edition](topics/menu/demo-edition.md) · [Evidence](research/extraction-storage-editions.json) [SRC-256–261]
+
+## WP-STEAM-PLATFORM. Steam, statistics and records
+
+Two features traced across 40 source ranges. 27 isolated checks passed. The Steam helper lifecycle, local profile union, counters, records and platform callbacks are documented. Full-game runtime remains pending. [Steam integration](topics/platform/steam.md) · [Evidence](research/extraction-steam-platform.json) [SRC-262–266]

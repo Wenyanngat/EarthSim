@@ -1,0 +1,881 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-CUSTOMIZATION",
+  "game_version": "2.1.4",
+  "date": "2026-11-16",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-ENTITY-RENAMING",
+    "FEAT-FLAG-EDITOR",
+    "FEAT-GEOGRAPHIC-NAMES"
+  ],
+  "document_ids": [
+    "DOC-CUSTOMIZATION",
+    "DOC-CUSTOMIZATION-DATA"
+  ],
+  "source_ids": [
+    "SRC-250",
+    "SRC-251",
+    "SRC-252",
+    "SRC-253",
+    "SRC-254",
+    "SRC-255"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_verified": false
+  },
+  "source_files": [
+    {
+      "path": "EarthSimulator/custom.js",
+      "bytes": 161884,
+      "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+    },
+    {
+      "path": "EarthSimulator/flags.js",
+      "bytes": 26317,
+      "sha256": "47d7afd4912fa7bec028388d946ed42c17119972904f4531d2e99393c9877881"
+    },
+    {
+      "path": "EarthSimulator/core.js",
+      "bytes": 115078,
+      "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452"
+    },
+    {
+      "path": "EarthSimulator/ui.js",
+      "bytes": 137343,
+      "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+    },
+    {
+      "path": "EarthSimulator/net.js",
+      "bytes": 69863,
+      "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+    },
+    {
+      "path": "EarthSimulator/menu.js",
+      "bytes": 153010,
+      "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+    },
+    {
+      "path": "EarthSimulator/civ.js",
+      "bytes": 232072,
+      "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335"
+    },
+    {
+      "path": "EarthSimulator/society.js",
+      "bytes": 34368,
+      "sha256": "888a0d1a3fee212f2646c5d73be684148805d50d47e4781f14e1cb16f711030d"
+    },
+    {
+      "path": "EarthSimulator/people.js",
+      "bytes": 237839,
+      "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2"
+    },
+    {
+      "path": "EarthSimulator/render.js",
+      "bytes": 164795,
+      "sha256": "50e6d0ab46250f2de2faa24d8c80649a7690ab1311ba250e99b79b99836beef3"
+    },
+    {
+      "path": "EarthSimulator/world3d.js",
+      "bytes": 580225,
+      "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+    },
+    {
+      "path": "EarthSimulator/earthdata.js",
+      "bytes": 527280,
+      "sha256": "1e6711b145108b51155c7e581c693fc3f7988fcc7afd1fe5ce7749185395df0c"
+    }
+  ],
+  "declarations": {
+    "constants": {
+      "NAME_MAX": 32,
+      "FLAG_W": 24,
+      "FLAG_H": 16,
+      "FLAG_PAL_MAX": 32,
+      "FLAG_SAVE_MAX": 300,
+      "FLAG_SCALE": 4,
+      "UNDO": 16,
+      "CELL_PX": 20,
+      "GEO_MAX": 200,
+      "GEO_REANCHOR": 2,
+      "GEO_OCEAN": 0.05,
+      "GEO_OCEAN_MIN": 300,
+      "GEO_SEA": 0.008,
+      "GEO_SEA_MIN": 40,
+      "GEO_LOCAL_CAP": 6,
+      "GEO_LOCAL_K": 0.22,
+      "GEO_SPLIT_MIN": 30,
+      "GEO_FIT_K": 10,
+      "GEO_FS": [
+        9.5,
+        40,
+        10.5,
+        24
+      ],
+      "GEO_MARK_FS": [
+        11.5,
+        14.5,
+        19.5
+      ],
+      "GEO_CAPS": 14,
+      "GEO_PIECE": 0.25,
+      "GEO_PIECE_MIN": 12,
+      "REAL_FS": {
+        "c": [
+          14.5,
+          22
+        ],
+        "o": [
+          16,
+          24
+        ],
+        "s": [
+          10.5,
+          13.5
+        ],
+        "l": [
+          10.5,
+          12.5
+        ],
+        "i": [
+          10.5,
+          16
+        ]
+      },
+      "AUTO_EVERY": 5,
+      "AUTO_POP": 300,
+      "AUTO_ISLE": 0.0015,
+      "AUTO_ISLE_MIN": 6,
+      "AUTO_LAKE": 0.0005,
+      "AUTO_LAKE_MIN": 5,
+      "AUTO_MERGE": 0.5,
+      "AUTO_CORE": 6,
+      "AUTO_OCEAN_BIG": 0.12,
+      "AUTO_KIND_HYST": 1.2,
+      "AUTO_DOM": 0.65,
+      "AUTO_RENAME_Y": 150,
+      "AUTO_KEEP_Y": 400,
+      "AUTO_MAX": 160,
+      "AUTO_FS": 0.92
+    },
+    "actions": [
+      "rename",
+      "flag",
+      "geoList"
+    ],
+    "events": [
+      "save",
+      "load",
+      "worldgen",
+      "reset",
+      "govChange",
+      "year"
+    ],
+    "rename_kinds": [
+      "state",
+      "gov",
+      "city",
+      "person",
+      "dyn",
+      "cul",
+      "rel"
+    ],
+    "palette": [
+      "#ffffff",
+      "#101010",
+      "#d0201c",
+      "#8a1a1a",
+      "#f08a1c",
+      "#f5cf2a",
+      "#d4a72c",
+      "#2a9d4a",
+      "#0f5f33",
+      "#5ab4ee",
+      "#1f5fbf",
+      "#14306a",
+      "#7a3ca8",
+      "#e57aa8",
+      "#6b4426",
+      "#8a8f98"
+    ],
+    "geographic_style": {
+      "font": "Georgia,\"Times New Roman\",sans-serif",
+      "w": 600,
+      "capsW": 600,
+      "ls": 0.03,
+      "capsLs": 0.26,
+      "halo": 0.22,
+      "capsFs": 14,
+      "minFs": 10.5,
+      "minArea": 0.25,
+      "land": {
+        "fill": "rgba(248,239,218,0.96)",
+        "halo": "rgba(14,12,10,0.62)"
+      },
+      "water": {
+        "fill": "rgba(150,206,255,0.97)",
+        "halo": "rgba(2,14,34,0.66)"
+      },
+      "auto": {
+        "w": 400,
+        "capsW": 400,
+        "land": {
+          "fill": "rgba(236,226,203,0.86)",
+          "halo": "rgba(14,12,10,0.56)"
+        },
+        "water": {
+          "fill": "rgba(170,214,252,0.88)",
+          "halo": "rgba(2,14,34,0.6)"
+        }
+      }
+    },
+    "flag_templates": [
+      {
+        "id": "hb",
+        "ru": "Полосы",
+        "en": "Stripes"
+      },
+      {
+        "id": "vb",
+        "ru": "Вертикали",
+        "en": "Vertical"
+      },
+      {
+        "id": "cross",
+        "ru": "Крест",
+        "en": "Cross"
+      },
+      {
+        "id": "nord",
+        "ru": "Скандинавский",
+        "en": "Nordic"
+      },
+      {
+        "id": "canton",
+        "ru": "Кантон",
+        "en": "Canton"
+      },
+      {
+        "id": "diag",
+        "ru": "Диагональ",
+        "en": "Diagonal"
+      },
+      {
+        "id": "sun",
+        "ru": "Круг",
+        "en": "Disc"
+      },
+      {
+        "id": "star",
+        "ru": "Звезда",
+        "en": "Star"
+      },
+      {
+        "id": "moon",
+        "ru": "Полумесяц",
+        "en": "Crescent"
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "CUS-001",
+      "source_id": "SRC-250",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/custom.js",
+        "line": 10,
+        "end_line": 263,
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+      }
+    },
+    {
+      "id": "CUS-002",
+      "source_id": "SRC-250",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/people.js",
+        "line": 536,
+        "end_line": 555,
+        "sha256": "45fd7d1ddfab62d1090204717e36ef2eeb306ea28ccaa4074ad8119f804214b2"
+      }
+    },
+    {
+      "id": "CUS-003",
+      "source_id": "SRC-250",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/civ.js",
+        "line": 313,
+        "end_line": 314,
+        "sha256": "7f759a8cf9840c0e675a212e5e4e8b7a77fae19bb3777f71e11a88664c10e335"
+      }
+    },
+    {
+      "id": "CUS-004",
+      "source_id": "SRC-250",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/society.js",
+        "line": 325,
+        "end_line": 336,
+        "sha256": "888a0d1a3fee212f2646c5d73be684148805d50d47e4781f14e1cb16f711030d"
+      }
+    },
+    {
+      "id": "CUS-005",
+      "source_id": "SRC-250",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 934,
+        "end_line": 947,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "CUS-006",
+      "source_id": "SRC-251",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/custom.js",
+        "line": 264,
+        "end_line": 599,
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+      }
+    },
+    {
+      "id": "CUS-007",
+      "source_id": "SRC-251",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 1420,
+        "end_line": 1430,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "CUS-008",
+      "source_id": "SRC-252",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/custom.js",
+        "line": 600,
+        "end_line": 1032,
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+      }
+    },
+    {
+      "id": "CUS-009",
+      "source_id": "SRC-252",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/custom.js",
+        "line": 1033,
+        "end_line": 1275,
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+      }
+    },
+    {
+      "id": "CUS-010",
+      "source_id": "SRC-252",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/render.js",
+        "line": 1240,
+        "end_line": 1328,
+        "sha256": "50e6d0ab46250f2de2faa24d8c80649a7690ab1311ba250e99b79b99836beef3"
+      }
+    },
+    {
+      "id": "CUS-011",
+      "source_id": "SRC-252",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 4400,
+        "end_line": 4450,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "CUS-012",
+      "source_id": "SRC-252",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/core.js",
+        "line": 278,
+        "end_line": 278,
+        "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452"
+      }
+    },
+    {
+      "id": "CUS-013",
+      "source_id": "SRC-252",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/core.js",
+        "line": 662,
+        "end_line": 666,
+        "sha256": "d1c512cb8a34c2f464103dd6ab8913496c38f62b13ba8a0a63fc76de07691452"
+      }
+    },
+    {
+      "id": "CUS-014",
+      "source_id": "SRC-253",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/custom.js",
+        "line": 1276,
+        "end_line": 1783,
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+      }
+    },
+    {
+      "id": "CUS-015",
+      "source_id": "SRC-254",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/custom.js",
+        "line": 219,
+        "end_line": 219,
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+      }
+    },
+    {
+      "id": "CUS-016",
+      "source_id": "SRC-254",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/custom.js",
+        "line": 306,
+        "end_line": 337,
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+      }
+    },
+    {
+      "id": "CUS-017",
+      "source_id": "SRC-254",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/custom.js",
+        "line": 1224,
+        "end_line": 1275,
+        "sha256": "d33f1bb59dbbea1f0a2482354a65667551ddbd4cc63dc0f5bd19f9f0a9730deb"
+      }
+    },
+    {
+      "id": "CUS-018",
+      "source_id": "SRC-254",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 245,
+        "end_line": 252,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "CUS-019",
+      "source_id": "SRC-254",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 317,
+        "end_line": 320,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "CUS-020",
+      "source_id": "SRC-254",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 409,
+        "end_line": 415,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "RENAME",
+      "source_id": "SRC-250",
+      "summary": "Entity names, original-name restoration and stable target identity",
+      "evidence": [
+        "CUS-001",
+        "CUS-002",
+        "CUS-003",
+        "CUS-004",
+        "CUS-005"
+      ],
+      "checks": [
+        "rename-clean-markup-and-space",
+        "rename-clean-empty",
+        "rename-clean-length-limit",
+        "rename-clean-null-and-number",
+        "rename-clean-controls",
+        "rename-utf16-boundary",
+        "rename-state-original-and-restore",
+        "rename-state-original-value-clears-override",
+        "rename-stable-uid-and-missing-target",
+        "rename-live-war-generated-title",
+        "rename-government-label-and-change-event",
+        "rename-government-built-in-removes-label",
+        "rename-city-site-and-restore",
+        "rename-person-delegation",
+        "rename-person-original-lookup-accepts-object",
+        "rename-dynasty-delegation",
+        "rename-cul-restore-and-zero",
+        "rename-rel-restore-and-zero"
+      ]
+    },
+    {
+      "id": "FLAG",
+      "source_id": "SRC-251",
+      "summary": "Flag representation, validation, painting, templates and cache invalidation",
+      "evidence": [
+        "CUS-006",
+        "CUS-007"
+      ],
+      "checks": [
+        "flag-initial-version",
+        "flag-valid-shape-and-lowercase-palette",
+        "flag-dimension-boundaries",
+        "flag-palette-and-pixel-rejections",
+        "flag-bitwise-number-coercion",
+        "flag-action-rejects-bad-and-null-restores",
+        "flag-version-advances",
+        "flag-action-does-not-require-live-state",
+        "flag-save-load-roundtrip",
+        "flag-load-rejects-malformed-records",
+        "flag-save-cap-favors-live-state",
+        "flag-worldgen-and-reset-clear",
+        "flag-template-hb",
+        "flag-template-vb",
+        "flag-template-cross",
+        "flag-template-nord",
+        "flag-template-canton",
+        "flag-template-diag",
+        "flag-template-sun",
+        "flag-template-star",
+        "flag-template-moon"
+      ]
+    },
+    {
+      "id": "GEO",
+      "source_id": "SRC-252",
+      "summary": "Player geography, connected regions, anchoring, label layout and consumers",
+      "evidence": [
+        "CUS-008",
+        "CUS-009",
+        "CUS-010",
+        "CUS-011",
+        "CUS-012",
+        "CUS-013"
+      ],
+      "checks": [
+        "geo-reset-retains-player-worldgen-clears",
+        "geo-mark-exact-anchor"
+      ]
+    },
+    {
+      "id": "AUTO",
+      "source_id": "SRC-253",
+      "summary": "Cultural automatic names, claims, retention and real-Earth labels",
+      "evidence": [
+        "CUS-014"
+      ],
+      "checks": [
+        "auto-reader-missing-data",
+        "auto-reader-invalid-suffix-data-clears-old",
+        "auto-reader-valid-record-and-clamps",
+        "auto-reader-invalid-indices-and-count",
+        "auto-save-and-reset"
+      ]
+    },
+    {
+      "id": "NETWORK",
+      "source_id": "SRC-254",
+      "summary": "Customization state, serialization, reset and command dispatch",
+      "evidence": [
+        "CUS-015",
+        "CUS-016",
+        "CUS-017",
+        "CUS-018",
+        "CUS-019",
+        "CUS-020"
+      ],
+      "checks": [
+        "network-action-registry",
+        "network-geo-validates-and-replaces-list",
+        "network-geo-rejects-invalid-rows",
+        "network-geo-count-cap",
+        "network-geo-nonarray-does-not-clear",
+        "network-geo-echo-guard",
+        "network-geographic-save-load"
+      ]
+    }
+  ],
+  "verification": {
+    "passed": 53,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "rename-clean-markup-and-space",
+        "status": "passed"
+      },
+      {
+        "id": "rename-clean-empty",
+        "status": "passed"
+      },
+      {
+        "id": "rename-clean-length-limit",
+        "status": "passed"
+      },
+      {
+        "id": "rename-clean-null-and-number",
+        "status": "passed"
+      },
+      {
+        "id": "rename-clean-controls",
+        "status": "passed"
+      },
+      {
+        "id": "rename-utf16-boundary",
+        "status": "passed"
+      },
+      {
+        "id": "rename-state-original-and-restore",
+        "status": "passed"
+      },
+      {
+        "id": "rename-state-original-value-clears-override",
+        "status": "passed"
+      },
+      {
+        "id": "rename-stable-uid-and-missing-target",
+        "status": "passed"
+      },
+      {
+        "id": "rename-live-war-generated-title",
+        "status": "passed"
+      },
+      {
+        "id": "rename-government-label-and-change-event",
+        "status": "passed"
+      },
+      {
+        "id": "rename-government-built-in-removes-label",
+        "status": "passed"
+      },
+      {
+        "id": "rename-city-site-and-restore",
+        "status": "passed"
+      },
+      {
+        "id": "rename-person-delegation",
+        "status": "passed"
+      },
+      {
+        "id": "rename-person-original-lookup-accepts-object",
+        "status": "passed"
+      },
+      {
+        "id": "rename-dynasty-delegation",
+        "status": "passed"
+      },
+      {
+        "id": "rename-cul-restore-and-zero",
+        "status": "passed"
+      },
+      {
+        "id": "rename-rel-restore-and-zero",
+        "status": "passed"
+      },
+      {
+        "id": "flag-initial-version",
+        "status": "passed"
+      },
+      {
+        "id": "flag-valid-shape-and-lowercase-palette",
+        "status": "passed"
+      },
+      {
+        "id": "flag-dimension-boundaries",
+        "status": "passed"
+      },
+      {
+        "id": "flag-palette-and-pixel-rejections",
+        "status": "passed"
+      },
+      {
+        "id": "flag-bitwise-number-coercion",
+        "status": "passed"
+      },
+      {
+        "id": "flag-action-rejects-bad-and-null-restores",
+        "status": "passed"
+      },
+      {
+        "id": "flag-version-advances",
+        "status": "passed"
+      },
+      {
+        "id": "flag-action-does-not-require-live-state",
+        "status": "passed"
+      },
+      {
+        "id": "flag-save-load-roundtrip",
+        "status": "passed"
+      },
+      {
+        "id": "flag-load-rejects-malformed-records",
+        "status": "passed"
+      },
+      {
+        "id": "flag-save-cap-favors-live-state",
+        "status": "passed"
+      },
+      {
+        "id": "flag-worldgen-and-reset-clear",
+        "status": "passed"
+      },
+      {
+        "id": "flag-template-hb",
+        "status": "passed"
+      },
+      {
+        "id": "flag-template-vb",
+        "status": "passed"
+      },
+      {
+        "id": "flag-template-cross",
+        "status": "passed"
+      },
+      {
+        "id": "flag-template-nord",
+        "status": "passed"
+      },
+      {
+        "id": "flag-template-canton",
+        "status": "passed"
+      },
+      {
+        "id": "flag-template-diag",
+        "status": "passed"
+      },
+      {
+        "id": "flag-template-sun",
+        "status": "passed"
+      },
+      {
+        "id": "flag-template-star",
+        "status": "passed"
+      },
+      {
+        "id": "flag-template-moon",
+        "status": "passed"
+      },
+      {
+        "id": "network-action-registry",
+        "status": "passed"
+      },
+      {
+        "id": "network-geo-validates-and-replaces-list",
+        "status": "passed"
+      },
+      {
+        "id": "network-geo-rejects-invalid-rows",
+        "status": "passed"
+      },
+      {
+        "id": "network-geo-count-cap",
+        "status": "passed"
+      },
+      {
+        "id": "network-geo-nonarray-does-not-clear",
+        "status": "passed"
+      },
+      {
+        "id": "network-geo-echo-guard",
+        "status": "passed"
+      },
+      {
+        "id": "network-geographic-save-load",
+        "status": "passed"
+      },
+      {
+        "id": "geo-reset-retains-player-worldgen-clears",
+        "status": "passed"
+      },
+      {
+        "id": "geo-mark-exact-anchor",
+        "status": "passed"
+      },
+      {
+        "id": "auto-reader-missing-data",
+        "status": "passed"
+      },
+      {
+        "id": "auto-reader-invalid-suffix-data-clears-old",
+        "status": "passed"
+      },
+      {
+        "id": "auto-reader-valid-record-and-clamps",
+        "status": "passed"
+      },
+      {
+        "id": "auto-reader-invalid-indices-and-count",
+        "status": "passed"
+      },
+      {
+        "id": "auto-save-and-reset",
+        "status": "passed"
+      }
+    ],
+    "environment": {
+      "node": "v26.13.1",
+      "platform": "win32",
+      "execution": "Full custom.js and flags.js in isolated node:vm with finite browser/network fixtures"
+    },
+    "runtime_verified": false,
+    "probe_sha256": "a987f85dcc679ab387c403f1d77801b730e23e455a04ebb5fe4ce64de98dec74",
+    "extractor_sha256": "fe2cbbdbd1399a93ffcae5e52541e2c7fbca1ed5c168e913067786c0625e1a0a",
+    "negative_control": {
+      "mutation": "Reduce the name limit to one character in an isolated VM",
+      "detected_by": [
+        "rename-clean-markup-and-space",
+        "rename-clean-length-limit",
+        "rename-clean-null-and-number",
+        "rename-clean-controls",
+        "rename-utf16-boundary",
+        "rename-state-original-and-restore",
+        "rename-state-original-value-clears-override",
+        "rename-live-war-generated-title",
+        "rename-government-label-and-change-event",
+        "rename-government-built-in-removes-label",
+        "rename-city-site-and-restore",
+        "rename-person-delegation",
+        "rename-person-original-lookup-accepts-object",
+        "rename-dynasty-delegation",
+        "network-geo-validates-and-replaces-list",
+        "network-geographic-save-load",
+        "geo-mark-exact-anchor"
+      ]
+    }
+  },
+  "limitations": [
+    "Full custom.js and flags.js execute with finite browser, canvas, entity and network adapters.",
+    "Person and dynasty rename internals are traced statically; this package uses fixture callbacks for those modules.",
+    "Canvas calls and DOM state do not establish rendered 2D/3D appearance or real input behavior.",
+    "Registered action callbacks and save/load events are exercised locally; actual host/client transport is unobserved.",
+    "Full-game long-term cultural naming and real-Earth label placement remain unobserved."
+  ],
+  "next_package": "WP-STORAGE-EDITIONS"
+}

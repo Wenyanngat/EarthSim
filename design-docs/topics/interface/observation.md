@@ -49,3 +49,7 @@
 Рис. 15\. Управление временем, навигация и сведения о клетке.
 
 [image16]: ../../assets/image16.png
+
+## Geographic naming reference
+
+[Names, geography and flags](customization.md) covers player records, automatic cultural names, real-Earth precedence, layout, save/reset behavior and shared editing. Rendering in a running game remains unobserved. [SRC-252–255]

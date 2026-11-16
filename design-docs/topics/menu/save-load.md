@@ -25,7 +25,7 @@
 
 «Отмена» и крестик закрывают окно. Наличие подтверждения перезаписи на изображении не показано; его следует проверить перед окончательным описанием этого действия.
 
-**Проверено по реализации [SRC-018]:** структура сохраняемой партии имеет номер формата `v: 3`, версию приложения, размер карты, текущее зерно, скалярные поля, типизированные массивы состояния карты, державы, войны, историю событий и метаданные городов. Событие `save` даёт подключённым подсистемам записать свои данные в `ext`. Если сохранение открыто поверх главного меню, в запись попадает состояние паузы **до открытия меню**, а не пауза меню. Сама запись в хранилище возвращает имя при успехе и `null` при ошибке; точный формат на диске и атомарность требуют проверки `SaveStore`.
+**Проверено по реализации [SRC-018]:** структура сохраняемой партии имеет номер формата `v: 3`, версию приложения, размер карты, текущее зерно, скалярные поля, типизированные массивы состояния карты, державы, войны, историю событий и метаданные городов. Событие `save` даёт подключённым подсистемам записать свои данные в `ext`. Если сохранение открыто поверх главного меню, в запись попадает состояние паузы **до открытия меню**, а не пауза меню. Сама запись в хранилище возвращает имя при успехе и `null` при ошибке. [Порядок записи и частичные ошибки](#write-order-partial-errors-and-migration) описаны ниже. [SRC-256, SRC-261]
 
 ### Что важно для игрока
 
@@ -71,3 +71,34 @@
 ## Точки входа из меню
 
 Успех записи нужен для продолжения импорта и для «Сохранить и создать» внутри карты. «Новая игра» из меню может перезагрузиться после неудачной попытки автосохранения. Изолированные проверки покрывают браузерное хранилище в памяти. [Жизненный цикл меню](lifecycle.md) [SRC-110, SRC-113–114, SRC-117]
+
+## Storage backends and slot discovery
+
+`SaveStore` selects disk storage when Node modules and a usable data directory are available. The directory is `saves` under the location two levels above the NW.js profile. The Windows fallback uses `%LOCALAPPDATA%/earth-simulator/saves` or the corresponding `earth-simulator-demo` directory. An unavailable backend falls back to browser storage. The APIs are synchronous: list, read, write, remove, migrate, exists and dir. The `kind` field identifies the selected backend. [SRC-256]
+
+Disk slots use a gzip JSON payload in `.esave` and a separate `.meta.json` sidecar. Discovery requires parseable metadata and a matching payload file. The logical name is stored in the sidecar. File stems replace Windows-invalid characters, trim trailing dots or spaces, cap the base at 80 characters and handle reserved device names. Case-insensitive collisions between discovered stems use numeric suffixes starting at `_2`. Overwriting the same logical slot reuses its discovered stem. [SRC-256]
+
+Browser saves use `earthsim.save.<name>` for JSON and `earthsim.savemeta.<name>` for metadata. The list includes browser slots with readable or absent metadata. It combines both backends, gives disk precedence on a duplicate logical name, and sorts by descending metadata timestamp. The reader detects gzip using its header and accepts old plain JSON payloads. If the selected disk payload fails to decode or parse, the read returns null and stops there. [SRC-256, SRC-261]
+
+## Write order, partial errors and migration
+
+| Operation | Result |
+| --- | --- |
+| Disk write | gzip at level 6, write temporary payload, rename over the slot payload, then write the sidecar. |
+| New disk slot, sidecar failure | The write reports failure. The payload can already be on disk and missing from slot discovery. |
+| Disk overwrite, sidecar failure | The write reports failure. The replacement payload can coexist with the prior sidecar if the original metadata survives. |
+| Browser payload failure | The write reports `quota` for a storage exception. The game applies no fixed byte quota. |
+| Browser sidecar failure | The payload has been saved and the write reports success. The sidecar update can be missing. |
+| Remove a discovered slot | The code attempts to remove the disk pair and the browser keys, ignoring individual cleanup errors. |
+
+Rename applies to the payload only. Metadata uses a separate write. The reported `bytes` value is the uncompressed JSON string length in JavaScript. [SRC-256, SRC-261]
+
+Migration runs when disk storage is available. A discovered disk slot takes precedence over a same-name legacy browser slot, so the duplicate browser keys are removed. A valid legacy JSON payload with no discovered disk duplicate is written through the disk backend. A successful write clears the source browser keys and increments the migration count. Invalid payloads and failed disk writes are skipped. A sidecar failure can therefore leave both a disk payload and the retained browser entry. [SRC-257, SRC-261]
+
+## World format and continuation
+
+The world serializer emits `v:3`, application version, dimensions, timestamp, seed, scalar fields, encoded typed arrays, states, chronicle, wars and city metadata. Subscribers store their own data under `ext` through the save event. The loader checks for arrays and matching grid dimensions, permits known typed-array constructors and matching lengths, and restores older structures before emitting load. Compatibility branches include 1.x collection conversions, defaults for missing map arrays and sea baseline, and fauna defaults for older saves. [SRC-018, SRC-258]
+
+Save metadata includes timestamp, dimensions, simulation year, population, living states, era, thumbnail and scenario. Continue selects the newest slot with dimension metadata that is absent from the bad-save list. A failed boot load falls back to generation and records the failed name in a list capped at 20. Ordinary file export downloads world JSON with dimensions and year in its filename. The menu and import paths are documented in [the lifecycle trace](lifecycle.md). [SRC-113, SRC-258]
+
+The disk cases above ran against an isolated filesystem adapter with real gzip. Operating-system interruption, actual old profiles and Steam Cloud synchronization remain unobserved. The [trial edition](demo-edition.md) describes the separate timer record and edition gates. [SRC-259–261]

@@ -1,0 +1,693 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-STORAGE-EDITIONS",
+  "game_version": "2.1.4",
+  "date": "2026-11-16",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-SAVE-LOAD",
+    "FEAT-DEMO-EDITION"
+  ],
+  "document_ids": [
+    "DOC-SAVE-LOAD",
+    "DOC-DEMO-EDITION",
+    "DOC-STORAGE-EDITIONS-DATA"
+  ],
+  "source_ids": [
+    "SRC-256",
+    "SRC-257",
+    "SRC-258",
+    "SRC-259",
+    "SRC-260",
+    "SRC-261"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_verified": false
+  },
+  "source_files": [
+    {
+      "path": "EarthSimulator/savestore.js",
+      "bytes": 8260,
+      "sha256": "44c6aada66ae2a82d57e07e15fcbc8180dcc5dcf98105f9c2a41efce3da23fcc"
+    },
+    {
+      "path": "EarthSimulator/demomode.js",
+      "bytes": 27449,
+      "sha256": "73b749c57173a581b3521fb7d0054e59ea95ca92a2bdc22ac4ba587f9e6e413b"
+    },
+    {
+      "path": "EarthSimulator/main.js",
+      "bytes": 18207,
+      "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0"
+    },
+    {
+      "path": "EarthSimulator/menu.js",
+      "bytes": 153010,
+      "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+    },
+    {
+      "path": "EarthSimulator/index.html",
+      "bytes": 71289,
+      "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+    },
+    {
+      "path": "EarthSimulator/package.json",
+      "bytes": 460,
+      "sha256": "9827eebab03661a4a3c7c08b7a6488e6d9919eb3d47218e428ba6b96a5d744d8"
+    },
+    {
+      "path": "EarthSimulator/mods.js",
+      "bytes": 196320,
+      "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+    },
+    {
+      "path": "EarthSimulator/modedit.js",
+      "bytes": 325312,
+      "sha256": "46942a346886207a70ec174c442687e14f745dc862e4a1f89a4e88eb0693f21e"
+    },
+    {
+      "path": "EarthSimulator/achievements.js",
+      "bytes": 29070,
+      "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+    },
+    {
+      "path": "EarthSimulator/steam.js",
+      "bytes": 29524,
+      "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+    },
+    {
+      "path": "EarthSimulator/ui.js",
+      "bytes": 137343,
+      "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+    }
+  ],
+  "declarations": {
+    "storage_methods": [
+      "list",
+      "read",
+      "write",
+      "remove",
+      "migrate",
+      "exists",
+      "dir",
+      "kind"
+    ],
+    "default_demo_minutes": 15,
+    "default_demo_warning_seconds": [
+      300,
+      60
+    ],
+    "save_format_version": 3,
+    "payload_extension": ".esave",
+    "metadata_extension": ".meta.json"
+  },
+  "rules": [
+    {
+      "id": "STO-001",
+      "source_id": "SRC-256",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/savestore.js",
+        "line": 11,
+        "end_line": 29,
+        "sha256": "44c6aada66ae2a82d57e07e15fcbc8180dcc5dcf98105f9c2a41efce3da23fcc"
+      }
+    },
+    {
+      "id": "STO-002",
+      "source_id": "SRC-256",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/savestore.js",
+        "line": 30,
+        "end_line": 65,
+        "sha256": "44c6aada66ae2a82d57e07e15fcbc8180dcc5dcf98105f9c2a41efce3da23fcc"
+      }
+    },
+    {
+      "id": "STO-003",
+      "source_id": "SRC-256",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/savestore.js",
+        "line": 66,
+        "end_line": 85,
+        "sha256": "44c6aada66ae2a82d57e07e15fcbc8180dcc5dcf98105f9c2a41efce3da23fcc"
+      }
+    },
+    {
+      "id": "STO-004",
+      "source_id": "SRC-256",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/savestore.js",
+        "line": 87,
+        "end_line": 110,
+        "sha256": "44c6aada66ae2a82d57e07e15fcbc8180dcc5dcf98105f9c2a41efce3da23fcc"
+      }
+    },
+    {
+      "id": "STO-005",
+      "source_id": "SRC-256",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/savestore.js",
+        "line": 129,
+        "end_line": 130,
+        "sha256": "44c6aada66ae2a82d57e07e15fcbc8180dcc5dcf98105f9c2a41efce3da23fcc"
+      }
+    },
+    {
+      "id": "STO-006",
+      "source_id": "SRC-257",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/savestore.js",
+        "line": 112,
+        "end_line": 127,
+        "sha256": "44c6aada66ae2a82d57e07e15fcbc8180dcc5dcf98105f9c2a41efce3da23fcc"
+      }
+    },
+    {
+      "id": "STO-007",
+      "source_id": "SRC-258",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 67,
+        "end_line": 145,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "STO-008",
+      "source_id": "SRC-258",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 167,
+        "end_line": 195,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "STO-009",
+      "source_id": "SRC-258",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 731,
+        "end_line": 740,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "STO-010",
+      "source_id": "SRC-258",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1602,
+        "end_line": 1637,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "STO-011",
+      "source_id": "SRC-258",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 147,
+        "end_line": 174,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0"
+      }
+    },
+    {
+      "id": "STO-012",
+      "source_id": "SRC-258",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/modedit.js",
+        "line": 2466,
+        "end_line": 2478,
+        "sha256": "46942a346886207a70ec174c442687e14f745dc862e4a1f89a4e88eb0693f21e"
+      }
+    },
+    {
+      "id": "STO-013",
+      "source_id": "SRC-258",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 1866,
+        "end_line": 1873,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "STO-014",
+      "source_id": "SRC-259",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/demomode.js",
+        "line": 18,
+        "end_line": 70,
+        "sha256": "73b749c57173a581b3521fb7d0054e59ea95ca92a2bdc22ac4ba587f9e6e413b"
+      }
+    },
+    {
+      "id": "STO-015",
+      "source_id": "SRC-259",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/demomode.js",
+        "line": 81,
+        "end_line": 103,
+        "sha256": "73b749c57173a581b3521fb7d0054e59ea95ca92a2bdc22ac4ba587f9e6e413b"
+      }
+    },
+    {
+      "id": "STO-016",
+      "source_id": "SRC-259",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/demomode.js",
+        "line": 173,
+        "end_line": 196,
+        "sha256": "73b749c57173a581b3521fb7d0054e59ea95ca92a2bdc22ac4ba587f9e6e413b"
+      }
+    },
+    {
+      "id": "STO-017",
+      "source_id": "SRC-259",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/demomode.js",
+        "line": 201,
+        "end_line": 236,
+        "sha256": "73b749c57173a581b3521fb7d0054e59ea95ca92a2bdc22ac4ba587f9e6e413b"
+      }
+    },
+    {
+      "id": "STO-018",
+      "source_id": "SRC-259",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/demomode.js",
+        "line": 248,
+        "end_line": 254,
+        "sha256": "73b749c57173a581b3521fb7d0054e59ea95ca92a2bdc22ac4ba587f9e6e413b"
+      }
+    },
+    {
+      "id": "STO-019",
+      "source_id": "SRC-259",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/demomode.js",
+        "line": 313,
+        "end_line": 324,
+        "sha256": "73b749c57173a581b3521fb7d0054e59ea95ca92a2bdc22ac4ba587f9e6e413b"
+      }
+    },
+    {
+      "id": "STO-020",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/demomode.js",
+        "line": 1,
+        "end_line": 17,
+        "sha256": "73b749c57173a581b3521fb7d0054e59ea95ca92a2bdc22ac4ba587f9e6e413b"
+      }
+    },
+    {
+      "id": "STO-021",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/demomode.js",
+        "line": 256,
+        "end_line": 303,
+        "sha256": "73b749c57173a581b3521fb7d0054e59ea95ca92a2bdc22ac4ba587f9e6e413b"
+      }
+    },
+    {
+      "id": "STO-022",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 698,
+        "end_line": 769,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "STO-023",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/package.json",
+        "line": 1,
+        "end_line": 17,
+        "sha256": "9827eebab03661a4a3c7c08b7a6488e6d9919eb3d47218e428ba6b96a5d744d8"
+      }
+    },
+    {
+      "id": "STO-024",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 645,
+        "end_line": 654,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "STO-025",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1330,
+        "end_line": 1333,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "STO-026",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 46,
+        "end_line": 64,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "STO-027",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 197,
+        "end_line": 214,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "STO-028",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 295,
+        "end_line": 301,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "STO-029",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 26,
+        "end_line": 53,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STO-030",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 2388,
+        "end_line": 2408,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "STO-031",
+      "source_id": "SRC-260",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/modedit.js",
+        "line": 2737,
+        "end_line": 2738,
+        "sha256": "46942a346886207a70ec174c442687e14f745dc862e4a1f89a4e88eb0693f21e"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "BACKENDS",
+      "source_id": "SRC-256",
+      "summary": "Storage selection, listing, reads, file ordering and partial write failures",
+      "evidence": [
+        "STO-001",
+        "STO-002",
+        "STO-003",
+        "STO-004",
+        "STO-005"
+      ],
+      "checks": [
+        "local-round-trip-and-metadata",
+        "local-metadata-write-failure",
+        "local-payload-quota-failure",
+        "local-sort-and-remove",
+        "disk-gzip-payload-before-sidecar",
+        "disk-sidecar-failure-keeps-payload",
+        "disk-overwrite-sidecar-failure-keeps-old-listing",
+        "disk-payload-rename-failure",
+        "disk-plain-json-and-bad-payload",
+        "disk-corrupt-preferred-copy-has-no-local-retry",
+        "disk-case-insensitive-stems-and-overwrite",
+        "disk-malformed-or-unpaired-sidecar-is-skipped",
+        "disk-backend-falls-back-after-directory-failure",
+        "disk-profile-root-and-edition-fallback"
+      ]
+    },
+    {
+      "id": "MIGRATION",
+      "source_id": "SRC-257",
+      "summary": "Legacy browser saves, duplicates and write-dependent cleanup",
+      "evidence": [
+        "STO-006"
+      ],
+      "checks": [
+        "migration-valid-local-save",
+        "migration-failed-write-retains-local-copy",
+        "migration-skips-invalid-payload",
+        "migration-duplicate-disk-wins",
+        "migration-unavailable-in-browser"
+      ]
+    },
+    {
+      "id": "WORLD",
+      "source_id": "SRC-258",
+      "summary": "World save format, metadata, compatibility and menu entry points",
+      "evidence": [
+        "STO-007",
+        "STO-008",
+        "STO-009",
+        "STO-010",
+        "STO-011",
+        "STO-012",
+        "STO-013"
+      ],
+      "checks": [
+        "local-round-trip-and-metadata",
+        "disk-plain-json-and-bad-payload"
+      ]
+    },
+    {
+      "id": "DEMO-CLOCK",
+      "source_id": "SRC-259",
+      "summary": "Conditional trial clock, state merge, warnings and expiry",
+      "evidence": [
+        "STO-014",
+        "STO-015",
+        "STO-016",
+        "STO-017",
+        "STO-018",
+        "STO-019"
+      ],
+      "checks": [
+        "demo-full-build-inactive",
+        "demo-default-and-configured-duration",
+        "demo-warning-defaults-and-custom-order",
+        "demo-active-paused-world-and-menu-gate",
+        "demo-visibility-focus-and-delta-clamp",
+        "demo-merges-local-and-disk-state",
+        "demo-corrupt-local-state-uses-valid-disk-copy",
+        "demo-flush-independent-of-local-write-error",
+        "demo-expiration-persists-and-pauses"
+      ]
+    },
+    {
+      "id": "EDITIONS",
+      "source_id": "SRC-260",
+      "summary": "Edition marker and gates for menus, Workshop, Steam and achievements",
+      "evidence": [
+        "STO-020",
+        "STO-021",
+        "STO-022",
+        "STO-023",
+        "STO-024",
+        "STO-025",
+        "STO-026",
+        "STO-027",
+        "STO-028",
+        "STO-029",
+        "STO-030",
+        "STO-031"
+      ],
+      "checks": [
+        "demo-full-build-inactive",
+        "demo-default-and-configured-duration"
+      ]
+    }
+  ],
+  "verification": {
+    "passed": 28,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "local-round-trip-and-metadata",
+        "status": "passed"
+      },
+      {
+        "id": "local-metadata-write-failure",
+        "status": "passed"
+      },
+      {
+        "id": "local-payload-quota-failure",
+        "status": "passed"
+      },
+      {
+        "id": "local-sort-and-remove",
+        "status": "passed"
+      },
+      {
+        "id": "disk-gzip-payload-before-sidecar",
+        "status": "passed"
+      },
+      {
+        "id": "disk-sidecar-failure-keeps-payload",
+        "status": "passed"
+      },
+      {
+        "id": "disk-overwrite-sidecar-failure-keeps-old-listing",
+        "status": "passed"
+      },
+      {
+        "id": "disk-payload-rename-failure",
+        "status": "passed"
+      },
+      {
+        "id": "disk-plain-json-and-bad-payload",
+        "status": "passed"
+      },
+      {
+        "id": "disk-corrupt-preferred-copy-has-no-local-retry",
+        "status": "passed"
+      },
+      {
+        "id": "disk-case-insensitive-stems-and-overwrite",
+        "status": "passed"
+      },
+      {
+        "id": "disk-malformed-or-unpaired-sidecar-is-skipped",
+        "status": "passed"
+      },
+      {
+        "id": "disk-backend-falls-back-after-directory-failure",
+        "status": "passed"
+      },
+      {
+        "id": "disk-profile-root-and-edition-fallback",
+        "status": "passed"
+      },
+      {
+        "id": "migration-valid-local-save",
+        "status": "passed"
+      },
+      {
+        "id": "migration-failed-write-retains-local-copy",
+        "status": "passed"
+      },
+      {
+        "id": "migration-skips-invalid-payload",
+        "status": "passed"
+      },
+      {
+        "id": "migration-duplicate-disk-wins",
+        "status": "passed"
+      },
+      {
+        "id": "migration-unavailable-in-browser",
+        "status": "passed"
+      },
+      {
+        "id": "demo-full-build-inactive",
+        "status": "passed"
+      },
+      {
+        "id": "demo-default-and-configured-duration",
+        "status": "passed"
+      },
+      {
+        "id": "demo-warning-defaults-and-custom-order",
+        "status": "passed"
+      },
+      {
+        "id": "demo-active-paused-world-and-menu-gate",
+        "status": "passed"
+      },
+      {
+        "id": "demo-visibility-focus-and-delta-clamp",
+        "status": "passed"
+      },
+      {
+        "id": "demo-merges-local-and-disk-state",
+        "status": "passed"
+      },
+      {
+        "id": "demo-corrupt-local-state-uses-valid-disk-copy",
+        "status": "passed"
+      },
+      {
+        "id": "demo-flush-independent-of-local-write-error",
+        "status": "passed"
+      },
+      {
+        "id": "demo-expiration-persists-and-pauses",
+        "status": "passed"
+      }
+    ],
+    "environment": {
+      "node": "v26.13.1",
+      "platform": "win32",
+      "execution": "Storage and demo modules in node:vm with finite filesystem, browser and timer adapters and real gzip"
+    },
+    "runtime_verified": false,
+    "probe_sha256": "5072baa1696d2598f20f0e7dbf00174a056b3cef22553864f03df66f5593ace2",
+    "extractor_sha256": "271cba87086d0121a5b40411a0a8d51381d3ac427f4ca2c3037aee593c345170"
+  },
+  "limitations": [
+    "The source disk branch runs with a finite filesystem adapter and real Node gzip.",
+    "Timing and expiry use an artificial clock and a finite DOM adapter.",
+    "Menu, world compatibility, startup and edition feature gates outside these modules are traced statically.",
+    "Full installations, OS-level interruption and Steam Cloud synchronization remain unobserved."
+  ],
+  "next_package": "WP-STEAM-PLATFORM"
+}

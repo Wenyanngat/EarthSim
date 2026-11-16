@@ -111,11 +111,23 @@
 
 Six features traced across 36 source ranges. Fifty isolated checks passed. Extracted data formats, code boot/patching, ModAPI, world sanitation, heightmaps, editor drafts and Workshop lifecycle. Status: `static_traced_runtime_pending`; `runtime_verified=false`. [Modding](topics/modding/data-code-editor.md) · [Evidence](research/extraction-modding.json) [SRC-243–249]
 
+## WP-CUSTOMIZATION. Names, geography and flags
+
+Three features traced across 20 source ranges; 53 isolated checks passed. Extracted seven rename targets, flag validation/editor behavior, player and cultural geography, persistence and editor-role command dispatch. Status: `static_traced_runtime_pending`; `runtime_verified=false`. [Customization](topics/interface/customization.md) · [Evidence](research/extraction-customization.json) [SRC-250–255]
+
+## WP-STORAGE-EDITIONS. Saves and trial edition
+
+Two features traced across 31 source ranges. 28 isolated checks passed. Disk and browser saves, partial writes, legacy migration, the trial clock and edition gates are documented. Full-game runtime remains pending. [Saves](topics/menu/save-load.md) · [Trial edition](topics/menu/demo-edition.md) · [Evidence](research/extraction-storage-editions.json) [SRC-256–261]
+
+## WP-STEAM-PLATFORM. Steam, statistics and records
+
+Two features traced across 40 source ranges. 27 isolated checks passed. The Steam helper lifecycle, local profile union, counters, records and platform callbacks are documented. Full-game runtime remains pending. [Steam integration](topics/platform/steam.md) · [Evidence](research/extraction-steam-platform.json) [SRC-262–266]
+
 ## Текущая система и точка продолжения
 
-24 packages are statically extracted, including eight primary and sixteen deferred packages. The isolated checks total 1368; every package retains `runtime_verified=false`. The catalog contains 144 features and 117 documents; the plan contains 29 packages.
+27 packages are statically extracted, including eight primary and nineteen deferred packages. The isolated checks total 1476. Every package retains `runtime_verified=false`. The catalog contains 144 features and 123 documents. The plan contains 29 packages.
 
-Next package: `WP-CUSTOMIZATION`, deferred queue rank 17. Trace names, place names, flags and their save/network paths. [Plan](EXTRACTION_PLAN.md) · [Feature scope](research/feature-scope.json)
+Next package: `WP-INPUT-ACCESS`, deferred queue rank 20. Trace input, controllers, localization and units. [Plan](EXTRACTION_PLAN.md) · [Feature scope](research/feature-scope.json)
 
 ## Нерешённые вопросы и ограничения
 

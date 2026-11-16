@@ -1,0 +1,809 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-STEAM-PLATFORM",
+  "game_version": "2.1.4",
+  "date": "2026-11-16",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-STEAM-INTEGRATION",
+    "FEAT-STEAM-STATS-LEADERBOARDS"
+  ],
+  "document_ids": [
+    "DOC-STEAM-PLATFORM",
+    "DOC-STEAM-PLATFORM-DATA",
+    "DOC-ACHIEVEMENTS"
+  ],
+  "source_ids": [
+    "SRC-262",
+    "SRC-263",
+    "SRC-264",
+    "SRC-265",
+    "SRC-266"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_verified": false
+  },
+  "source_files": [
+    {
+      "path": "EarthSimulator/steam.js",
+      "bytes": 29524,
+      "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+    },
+    {
+      "path": "EarthSimulator/achievements.js",
+      "bytes": 29070,
+      "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+    },
+    {
+      "path": "EarthSimulator/netui.js",
+      "bytes": 79587,
+      "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+    },
+    {
+      "path": "EarthSimulator/coop.js",
+      "bytes": 35398,
+      "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+    },
+    {
+      "path": "EarthSimulator/menu.js",
+      "bytes": 153010,
+      "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+    },
+    {
+      "path": "EarthSimulator/net.js",
+      "bytes": 69863,
+      "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+    },
+    {
+      "path": "EarthSimulator/main.js",
+      "bytes": 18207,
+      "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0"
+    },
+    {
+      "path": "EarthSimulator/index.html",
+      "bytes": 71289,
+      "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+    },
+    {
+      "path": "EarthSimulator/package.json",
+      "bytes": 460,
+      "sha256": "9827eebab03661a4a3c7c08b7a6488e6d9919eb3d47218e428ba6b96a5d744d8"
+    },
+    {
+      "path": "EarthSimulator/mods.js",
+      "bytes": 196320,
+      "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+    },
+    {
+      "path": "EarthSimulator/modedit.js",
+      "bytes": 325312,
+      "sha256": "46942a346886207a70ec174c442687e14f745dc862e4a1f89a4e88eb0693f21e"
+    }
+  ],
+  "declarations": {
+    "bridge_methods": [
+      "available",
+      "appId",
+      "unlock",
+      "unlockedInSteam",
+      "workshopItems",
+      "workshopSettled",
+      "workshopRefresh",
+      "workshopPublish",
+      "me",
+      "richPresence",
+      "richClear",
+      "invite",
+      "stat",
+      "storeStats",
+      "score",
+      "boardRows",
+      "boardRank",
+      "stats",
+      "country",
+      "timeline",
+      "timelineMode",
+      "ticket",
+      "statAdd",
+      "rpInvite",
+      "rpDirect",
+      "rpCursor",
+      "rpList",
+      "keyboard",
+      "keyboardOff",
+      "bigPicture",
+      "openOverlay"
+    ],
+    "counters": [
+      "years_simulated",
+      "disasters_sent",
+      "brush_strokes",
+      "walk_minutes",
+      "net_minutes"
+    ],
+    "boards": [
+      "world_years",
+      "world_peak_population"
+    ]
+  },
+  "rules": [
+    {
+      "id": "STM-001",
+      "source_id": "SRC-262",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 1,
+        "end_line": 62,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-002",
+      "source_id": "SRC-262",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 87,
+        "end_line": 118,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-003",
+      "source_id": "SRC-262",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 165,
+        "end_line": 180,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-004",
+      "source_id": "SRC-262",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 331,
+        "end_line": 338,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-005",
+      "source_id": "SRC-262",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 698,
+        "end_line": 769,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "STM-006",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 60,
+        "end_line": 62,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-007",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 124,
+        "end_line": 125,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-008",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 146,
+        "end_line": 151,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-009",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 205,
+        "end_line": 206,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-010",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 218,
+        "end_line": 220,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-011",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 231,
+        "end_line": 231,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-012",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 255,
+        "end_line": 271,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-013",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 303,
+        "end_line": 324,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-014",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 46,
+        "end_line": 107,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "STM-015",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 227,
+        "end_line": 234,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "STM-016",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 264,
+        "end_line": 273,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "STM-017",
+      "source_id": "SRC-263",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 903,
+        "end_line": 905,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "STM-018",
+      "source_id": "SRC-264",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 71,
+        "end_line": 85,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-019",
+      "source_id": "SRC-264",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 128,
+        "end_line": 134,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-020",
+      "source_id": "SRC-264",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 205,
+        "end_line": 218,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-021",
+      "source_id": "SRC-264",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 312,
+        "end_line": 324,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-022",
+      "source_id": "SRC-264",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 231,
+        "end_line": 235,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "STM-023",
+      "source_id": "SRC-264",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/achievements.js",
+        "line": 275,
+        "end_line": 303,
+        "sha256": "5590e4fb0da4623a80fd914ef34acb52755750fdc5cb737bc39a0ad2ac60ca2d"
+      }
+    },
+    {
+      "id": "STM-024",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 90,
+        "end_line": 97,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-025",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 117,
+        "end_line": 123,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-026",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 126,
+        "end_line": 127,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-027",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 135,
+        "end_line": 145,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-028",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 152,
+        "end_line": 164,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-029",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 181,
+        "end_line": 204,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-030",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 221,
+        "end_line": 254,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-031",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 272,
+        "end_line": 311,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-032",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 325,
+        "end_line": 335,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "STM-033",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 60,
+        "end_line": 64,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "STM-034",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/netui.js",
+        "line": 704,
+        "end_line": 735,
+        "sha256": "01af1009a51061b254b24226517f27bd5cc8931a8c763c8afc11d0577708f14f"
+      }
+    },
+    {
+      "id": "STM-035",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 342,
+        "end_line": 350,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "STM-036",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 503,
+        "end_line": 511,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "STM-037",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 257,
+        "end_line": 313,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "STM-038",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/coop.js",
+        "line": 382,
+        "end_line": 406,
+        "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+      }
+    },
+    {
+      "id": "STM-039",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1107,
+        "end_line": 1109,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "STM-040",
+      "source_id": "SRC-265",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1483,
+        "end_line": 1496,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "BRIDGE",
+      "source_id": "SRC-262",
+      "summary": "Desktop prerequisites, launch, framing, readiness and failure",
+      "evidence": [
+        "STM-001",
+        "STM-002",
+        "STM-003",
+        "STM-004",
+        "STM-005"
+      ],
+      "checks": [
+        "bridge-browser-has-no-helper",
+        "bridge-trial-has-no-helper-and-keeps-full-app-id",
+        "bridge-readiness-buffers-lines-and-flushes-unlock",
+        "bridge-app-id-priority",
+        "bridge-child-exit-settles-workshop-and-stops-commands",
+        "bridge-missing-native-files-and-launch-exception",
+        "bridge-generic-command-queue-cap",
+        "bridge-rich-presence-deduplicates",
+        "bridge-overlay-adapter"
+      ]
+    },
+    {
+      "id": "PROFILE-STATS",
+      "source_id": "SRC-263",
+      "summary": "Local achievement union, five accumulators and flush cadence",
+      "evidence": [
+        "STM-006",
+        "STM-007",
+        "STM-008",
+        "STM-009",
+        "STM-010",
+        "STM-011",
+        "STM-012",
+        "STM-013",
+        "STM-014",
+        "STM-015",
+        "STM-016",
+        "STM-017"
+      ],
+      "checks": [
+        "profile-local-unlock-survives-without-Steam",
+        "profile-merge-pushes-local-and-pulls-Steam",
+        "profile-trial-blocks-local-unlock-and-merge",
+        "profile-helper-list-completes-and-merges",
+        "stats-pending-addition-awaits-base-and-first-value-wins",
+        "stats-invalid-values-and-unknown-counters-ignored",
+        "stats-achievement-bridge-uses-paint-and-disaster-counters",
+        "stats-minute-tick-accumulates-and-unload-flushes-known-bases",
+        "stats-year-hook-counts-years-and-submits-at-gated-cadence",
+        "stats-hidden-minute-tick-skips-accumulation"
+      ]
+    },
+    {
+      "id": "BOARDS",
+      "source_id": "SRC-264",
+      "summary": "Score units, request queues, row decoding and gallery display",
+      "evidence": [
+        "STM-018",
+        "STM-019",
+        "STM-020",
+        "STM-021",
+        "STM-022",
+        "STM-023"
+      ],
+      "checks": [
+        "board-results-parse-rank-self-country-and-clean-name",
+        "board-coalesces-identical-requests-and-serializes-other-modes",
+        "board-timeout-yields-empty-rows-and-clamps-row-count",
+        "board-per-board-waiting-cap"
+      ]
+    },
+    {
+      "id": "PLATFORM",
+      "source_id": "SRC-265",
+      "summary": "Presence, joins, Workshop, timeline and input integration",
+      "evidence": [
+        "STM-024",
+        "STM-025",
+        "STM-026",
+        "STM-027",
+        "STM-028",
+        "STM-029",
+        "STM-030",
+        "STM-031",
+        "STM-032",
+        "STM-033",
+        "STM-034",
+        "STM-035",
+        "STM-036",
+        "STM-037",
+        "STM-038",
+        "STM-039",
+        "STM-040"
+      ],
+      "checks": [
+        "bridge-overlay-adapter",
+        "platform-workshop-list-settles-at-terminator",
+        "platform-remote-play-forwards-ordinary-session-line",
+        "platform-remote-invite-timeout",
+        "platform-keyboard-mode-and-timeout"
+      ]
+    }
+  ],
+  "verification": {
+    "passed": 27,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "bridge-browser-has-no-helper",
+        "status": "passed"
+      },
+      {
+        "id": "bridge-trial-has-no-helper-and-keeps-full-app-id",
+        "status": "passed"
+      },
+      {
+        "id": "bridge-readiness-buffers-lines-and-flushes-unlock",
+        "status": "passed"
+      },
+      {
+        "id": "bridge-app-id-priority",
+        "status": "passed"
+      },
+      {
+        "id": "bridge-child-exit-settles-workshop-and-stops-commands",
+        "status": "passed"
+      },
+      {
+        "id": "bridge-missing-native-files-and-launch-exception",
+        "status": "passed"
+      },
+      {
+        "id": "bridge-generic-command-queue-cap",
+        "status": "passed"
+      },
+      {
+        "id": "bridge-rich-presence-deduplicates",
+        "status": "passed"
+      },
+      {
+        "id": "bridge-overlay-adapter",
+        "status": "passed"
+      },
+      {
+        "id": "profile-local-unlock-survives-without-Steam",
+        "status": "passed"
+      },
+      {
+        "id": "profile-merge-pushes-local-and-pulls-Steam",
+        "status": "passed"
+      },
+      {
+        "id": "profile-trial-blocks-local-unlock-and-merge",
+        "status": "passed"
+      },
+      {
+        "id": "profile-helper-list-completes-and-merges",
+        "status": "passed"
+      },
+      {
+        "id": "stats-pending-addition-awaits-base-and-first-value-wins",
+        "status": "passed"
+      },
+      {
+        "id": "stats-invalid-values-and-unknown-counters-ignored",
+        "status": "passed"
+      },
+      {
+        "id": "stats-achievement-bridge-uses-paint-and-disaster-counters",
+        "status": "passed"
+      },
+      {
+        "id": "stats-minute-tick-accumulates-and-unload-flushes-known-bases",
+        "status": "passed"
+      },
+      {
+        "id": "stats-year-hook-counts-years-and-submits-at-gated-cadence",
+        "status": "passed"
+      },
+      {
+        "id": "stats-hidden-minute-tick-skips-accumulation",
+        "status": "passed"
+      },
+      {
+        "id": "board-results-parse-rank-self-country-and-clean-name",
+        "status": "passed"
+      },
+      {
+        "id": "board-coalesces-identical-requests-and-serializes-other-modes",
+        "status": "passed"
+      },
+      {
+        "id": "board-timeout-yields-empty-rows-and-clamps-row-count",
+        "status": "passed"
+      },
+      {
+        "id": "board-per-board-waiting-cap",
+        "status": "passed"
+      },
+      {
+        "id": "platform-workshop-list-settles-at-terminator",
+        "status": "passed"
+      },
+      {
+        "id": "platform-remote-play-forwards-ordinary-session-line",
+        "status": "passed"
+      },
+      {
+        "id": "platform-remote-invite-timeout",
+        "status": "passed"
+      },
+      {
+        "id": "platform-keyboard-mode-and-timeout",
+        "status": "passed"
+      }
+    ],
+    "environment": {
+      "node": "v26.13.1",
+      "platform": "win32",
+      "execution": "Unmodified steam.js and achievements.js in node:vm with a simulated child, browser and clock"
+    },
+    "runtime_verified": false,
+    "probe_sha256": "36f5a83e2c732238aa8cc53d250a8bf98986c9a89489e7803b011fe9299000f0",
+    "extractor_sha256": "7462f9a47dd49367e3d64c0e8c117d7986ccd758efd594833288139d24361a5e"
+  },
+  "limitations": [
+    "The bridge and achievements modules execute with a simulated child process and clock.",
+    "Room authorization, direct-input consumers and other callers are traced statically.",
+    "Native helper internals and the Steam service were not exercised.",
+    "No account, external service, native device or live game was used."
+  ],
+  "next_package": "WP-INPUT-ACCESS"
+}

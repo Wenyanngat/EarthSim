@@ -252,3 +252,28 @@ runtime_verified=false. Следующий — WP-WORLD-WARS-TERRITORY.
 - Compare a modded multiplayer session and actual resource rendering against the source-level boundaries. [SRC-243, SRC-248]
 
 [Modding](topics/modding/data-code-editor.md) · [Evidence](research/extraction-modding.json) · [Continuation](RESEARCH_STATE.md)
+
+## WP-CUSTOMIZATION after static extraction
+
+- Observe all rename dialogs, government-change cleanup and UTF-16 boundary rendering on real labels. [SRC-250]
+- Exercise brush/fill/eraser/picker, all flag templates, undo and restored automatic artwork in the running editor. [SRC-251]
+- Observe cultural claims across 150 years, 400-year sleeping retention, changing coasts and label placement/hit boxes in both views. [SRC-252, SRC-253]
+- Save/load the resulting world on disk and edit from two real editor clients, including full-list geographic replacement. [SRC-254]
+
+[Customization](topics/interface/customization.md) · [Evidence](research/extraction-customization.json) · [Continuation](RESEARCH_STATE.md)
+
+## WP-STORAGE-EDITIONS after static extraction
+
+- Observe file replacement and discovery after actual interrupted writes and permission failures on disk. [SRC-256]
+- Migrate an actual old profile and load an old world through the menu in a separate installation. [SRC-257, SRC-258]
+- Compare packaged full and trial editions, follow focus and expiry behavior, and verify Steam Cloud separately. [SRC-259, SRC-260]
+
+[Saves](topics/menu/save-load.md) · [Trial edition](topics/menu/demo-edition.md) · [Evidence](research/extraction-storage-editions.json)
+
+## WP-STEAM-PLATFORM after static extraction
+
+- Observe helper launch and exit, real Steam service errors and recovery. [SRC-262]
+- Confirm counter persistence, record acceptance, ranking and empty states on actual Steam boards. [SRC-263, SRC-264]
+- Observe Workshop, room authorization, Remote Play, keyboard, overlay and timeline through Steam. [SRC-265]
+
+[Steam integration](topics/platform/steam.md) · [Evidence](research/extraction-steam-platform.json)

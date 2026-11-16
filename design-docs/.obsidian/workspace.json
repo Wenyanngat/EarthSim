@@ -201,6 +201,13 @@
   },
   "active": "4c67115ff747e0db",
   "lastOpenFiles": [
+    "research/extraction-steam-platform.json",
+    "topics/platform/steam.md",
+    "topics/platform",
+    "research/extraction-storage-editions.json",
+    "topics/menu/demo-edition.md",
+    "research/extraction-customization.json",
+    "topics/interface/customization.md",
     "research/extraction-modding.json",
     "topics/modding/data-code-editor.md",
     "topics/modding",
@@ -220,11 +227,7 @@
     "research/extraction-network.json",
     "topics/walk/combat.md",
     "research/extraction-walk-world-effects.json",
-    "tools/extract_walk_world_effects.py",
     "topics/walk/world-effects.md",
-    "tools/probe_walk_world_effects.cjs",
-    "tools/probe_walk_world_effects_combat.cjs",
-    "tools/probe_walk_world_effects_strike.cjs",
     "topics/walk/sea.md",
     "topics/walk/air.md",
     "topics/simulation/demography-cities.md",
@@ -234,9 +237,6 @@
     "topics/menu/save-load.md",
     "topics/simulation/clock-population.md",
     "topics/research/legacy-questions.md",
-    "topics/simulation/real-earth.md",
-    "topics/society/commoner-families.md",
-    "topics/society/cultures-religions.md",
     "assets/image35.png"
   ]
 }

@@ -67,3 +67,5 @@
 Статистика Steam включает годы симуляции, бедствия игрока, завершения кисти, минуты прогулки и сетевой игры. Минуты добавляются по таймеру раз в 60 секунд, когда мост готов, документ видим и нужный режим активен. Годы добавляются по годовому событию. Рейтинги передают наибольший целый год мира и пик населения в тысячах, округлённых до целого. Запрос таблиц получает 10 верхних строк и соседей игрока, одинаковые места из второй выборки пропускаются. Запрос повторяется не раньше минуты, если обе таблицы уже получены. [SRC-235]
 
 [Правила сценариев](scenarios.md) · [Машинный отчёт](../../research/extraction-scenarios-profile.json) [SRC-232–238]
+
+See the [Steam integration trace](../platform/steam.md) for helper readiness, counter flushing, score units and leaderboard requests. The minute timer accumulates counts. The year hook and unload handle flushing. [SRC-262–266]
