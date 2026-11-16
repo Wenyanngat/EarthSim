@@ -201,6 +201,10 @@
   },
   "active": "4c67115ff747e0db",
   "lastOpenFiles": [
+    "research/extraction-presentation.json",
+    "topics/interface/graphics-audio.md",
+    "research/extraction-input-access.json",
+    "topics/interface/input-localization.md",
     "research/extraction-steam-platform.json",
     "topics/platform/steam.md",
     "topics/platform",
@@ -224,9 +228,7 @@
     "research/extraction-network-walk.json",
     "topics/network/walk.md",
     "topics/network/rooms-sync.md",
-    "research/extraction-network.json",
     "topics/walk/combat.md",
-    "research/extraction-walk-world-effects.json",
     "topics/walk/world-effects.md",
     "topics/walk/sea.md",
     "topics/walk/air.md",
@@ -235,8 +237,6 @@
     "topics/menu/mods-workshop.md",
     "topics/menu/multiplayer.md",
     "topics/menu/save-load.md",
-    "topics/simulation/clock-population.md",
-    "topics/research/legacy-questions.md",
     "assets/image35.png"
   ]
 }

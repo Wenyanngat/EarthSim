@@ -1669,13 +1669,33 @@
         "WP-BASELINE"
       ],
       "outputs": [
-        "topics/interface/input-localization.md"
+        "topics/interface/input-localization.md",
+        "research/extraction-input-access.json"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "completion": "Данные и правила прослежены до записи состояния; исключения и источники записаны; численные/сценарные проверки имеют отдельные статусы.",
       "priority": "normal",
       "priority_rank": 20,
-      "required_pre_read": false
+      "required_pre_read": false,
+      "verification": {
+        "source_ids": [
+          "SRC-267",
+          "SRC-268",
+          "SRC-269",
+          "SRC-270",
+          "SRC-271",
+          "SRC-272",
+          "SRC-273"
+        ],
+        "static_trace": "completed_with_scoped_limitations",
+        "isolated_checks": {
+          "passed": 32,
+          "failed": 0,
+          "report_path": "design-docs/research/extraction-input-access.json"
+        },
+        "runtime_verified": false,
+        "runtime_status": "not_performed"
+      }
     },
     {
       "id": "WP-PRESENTATION",
@@ -1705,13 +1725,32 @@
         "WP-BASELINE"
       ],
       "outputs": [
-        "topics/interface/graphics-audio.md"
+        "topics/interface/graphics-audio.md",
+        "research/extraction-presentation.json"
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "completion": "Данные и правила прослежены до записи состояния; исключения и источники записаны; численные/сценарные проверки имеют отдельные статусы.",
       "priority": "normal",
       "priority_rank": 21,
-      "required_pre_read": false
+      "required_pre_read": false,
+      "verification": {
+        "source_ids": [
+          "SRC-274",
+          "SRC-275",
+          "SRC-276",
+          "SRC-277",
+          "SRC-278",
+          "SRC-279"
+        ],
+        "static_trace": "completed_with_scoped_limitations",
+        "isolated_checks": {
+          "passed": 22,
+          "failed": 0,
+          "report_path": "design-docs/research/extraction-presentation.json"
+        },
+        "runtime_verified": false,
+        "runtime_status": "not_performed"
+      }
     }
   ],
   "features": [
@@ -2161,13 +2200,17 @@
         "EarthSimulator/main.js"
       ],
       "source_ids": [
-        "SRC-012"
+        "SRC-012",
+        "SRC-275",
+        "SRC-277",
+        "SRC-278",
+        "SRC-279"
       ],
       "anchors": [],
       "extraction_questions": [
         "Нижние настройки, отмена и переназначение клавиш."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 21
@@ -2265,13 +2308,16 @@
         "EarthSimulator/ui.js"
       ],
       "source_ids": [
-        "SRC-012"
+        "SRC-012",
+        "SRC-267",
+        "SRC-268",
+        "SRC-273"
       ],
       "anchors": [],
       "extraction_questions": [
         "Переназначение, точное соответствие цифр инструментам."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 20
@@ -2349,13 +2395,15 @@
       ],
       "source_ids": [
         "SRC-012",
-        "SRC-039"
+        "SRC-039",
+        "SRC-274",
+        "SRC-279"
       ],
       "anchors": [],
       "extraction_questions": [
         "Полное соответствие отображения и слоёв 2D/3D."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 21
@@ -8869,7 +8917,10 @@
         "EarthSimulator/ui.js"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-267",
+        "SRC-268",
+        "SRC-273"
       ],
       "anchors": [
         {
@@ -8889,7 +8940,7 @@
         "Порядок перехвата и контексты карты, окон, прогулки и транспорта.",
         "Конфликты, сброс, сохранение и обновление подсказок."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 20
@@ -8906,7 +8957,9 @@
         "EarthSimulator/keys.js"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-269",
+        "SRC-273"
       ],
       "anchors": [
         {
@@ -8926,7 +8979,7 @@
         "Мёртвые зоны, курсор, инверсия, раскладки Xbox/PlayStation и переназначение.",
         "Подключение, отключение и разделение контроллеров основного игрока и гостей."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 20
@@ -8943,7 +8996,9 @@
         "EarthSimulator/gamepad.js"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-270",
+        "SRC-273"
       ],
       "anchors": [
         {
@@ -8968,7 +9023,7 @@
       "extraction_questions": [
         "Отказ платформенной клавиатуры, фокус, раскладки, ввод и подтверждение."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 20
@@ -8985,7 +9040,9 @@
         "EarthSimulator/i18n.js"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-272",
+        "SRC-273"
       ],
       "anchors": [
         {
@@ -9005,7 +9062,7 @@
         "Все преобразования и округления, включая разность температур и массу.",
         "Проверить границу между показом, сохранением и балансными параметрами."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 20
@@ -9022,7 +9079,9 @@
         "EarthSimulator/menu.js"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-271",
+        "SRC-273"
       ],
       "anchors": [
         {
@@ -9048,7 +9107,7 @@
         "Выбор языка, перезагрузка, отсутствующий перевод и формы множественного числа.",
         "Проверить сохранение кодированных имён между языками."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 20
@@ -9066,7 +9125,10 @@
         "EarthSimulator/menu.js"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-275",
+        "SRC-276",
+        "SRC-279"
       ],
       "anchors": [
         {
@@ -9092,7 +9154,7 @@
         "Немедленное применение, сохранение, отмена и восстановление повреждённых настроек.",
         "Влияние на отрисовку, производительность и отсутствие/наличие влияния на симуляцию."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 21
@@ -9109,7 +9171,9 @@
         "EarthSimulator/ui.js"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-277",
+        "SRC-279"
       ],
       "anchors": [
         {
@@ -9135,7 +9199,7 @@
         "События, сцены, дистанция, громкость, ограничения браузера и восстановление контекста.",
         "Точки замены звуков дополнениями и ошибки загрузки."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 21
@@ -9153,7 +9217,9 @@
         "EarthSimulator/menu.js"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-278",
+        "SRC-279"
       ],
       "anchors": [
         {
@@ -9185,7 +9251,7 @@
         "Выбор по эпохе, войне, опасности, местности и паузе; переходы и воспроизводимость.",
         "Встроенные треки, ручной выбор и приоритет музыки дополнения."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 21
@@ -9301,7 +9367,9 @@
         "EarthSimulator/render.js"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-276",
+        "SRC-279"
       ],
       "anchors": [
         {
@@ -9333,7 +9401,7 @@
         "Генерация поселений и дорог, масштаб, кэш, уровень детализации, выбор клетки и правки из 3D.",
         "Отделить декоративный транспорт/застройку от объектов с экономическим или военным состоянием."
       ],
-      "status": "planned",
+      "status": "static_traced_runtime_pending",
       "runtime_verified": false,
       "priority": "normal",
       "priority_rank": 21

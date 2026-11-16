@@ -277,3 +277,19 @@ runtime_verified=false. Следующий — WP-WORLD-WARS-TERRITORY.
 - Observe Workshop, room authorization, Remote Play, keyboard, overlay and timeline through Steam. [SRC-265]
 
 [Steam integration](topics/platform/steam.md) · [Evidence](research/extraction-steam-platform.json)
+
+## WP-INPUT-ACCESS after static extraction
+
+- Observe remapping, fullscreen and save/restore with a real keyboard and running 2D, 3D and walk modes. [SRC-267, SRC-268]
+- Observe primary and guest controller assignment, focus, and both Steam and local keyboards. [SRC-269, SRC-270]
+- Verify translation coverage and layout under every visible language, with locale-aware numbers and units. [SRC-271, SRC-272]
+
+[Input and localization](topics/interface/input-localization.md) · [Evidence](research/extraction-input-access.json)
+
+## WP-PRESENTATION after static extraction
+
+- Observe 2D, 3D and walk transitions and compare quality, frame time and memory on supported GPUs. Exercise shader or context failure and check the visible fallback. [SRC-274, SRC-275, SRC-276]
+- Verify what Apply and Cancel do in the running settings menu, including rain, snow and audio controls. [SRC-275, SRC-277]
+- Listen to effects, ambience and music across scene changes. Test resume after device or focus changes, tier changes under load and mod music playback and error recovery. [SRC-277, SRC-278]
+
+[Graphics, sound and music](topics/interface/graphics-audio.md) · [Evidence](research/extraction-presentation.json)

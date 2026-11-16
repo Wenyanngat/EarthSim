@@ -127,7 +127,7 @@
 
 Извлечены 13 встроенных сценариев с 45 целями, 32 достижения, 13 шагов обучения, 11 подсказок и расписание событий дополнений. Прослежены 68 диапазонов кода. Прошли 32 изолированные проверки. Статус `static_traced_runtime_pending`. [Сценарии](topics/menu/scenarios.md) · [Достижения](topics/menu/achievements.md) · [Обучение](topics/interface/onboarding.md) · [События](topics/menu/scripted-events.md) · [Машинный отчёт](research/extraction-scenarios-profile.json) [SRC-232–238]
 
-Next package: `WP-INPUT-ACCESS`.
+The static queue is complete. Full-game observations are tracked in [Open questions](OPEN_QUESTIONS.md).
 
 ## 1. Исходное состояние
 
@@ -423,8 +423,8 @@ REA разобрал как неисполняемый текст четыре �
 | 25 | `WP-CUSTOMIZATION`: Names, geography and flags | Static trace complete; runtime pending | Display edits, automatic names, identities, network permissions and persistence [SRC-250–255] |
 | 26 | `WP-STORAGE-EDITIONS` · Saves and trial edition | Static trace complete | Storage backends, migration, partial writes and trial behavior [SRC-256–261] |
 | 27 | `WP-STEAM-PLATFORM` · Steam, statistics and records | Static trace complete | Helper lifecycle, counters, boards and external service boundaries [SRC-262–266] |
-| 28      | `WP-INPUT-ACCESS` — Клавиши, контроллеры, клавиатура, язык и меры             | После приоритетной очереди                                 | Контексты, приоритеты, раскладки, конфликты и хранение настроек. Локализация, запасные строки, числа, единицы и сохранённые имена.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| 29      | `WP-PRESENTATION` — Отрисовка, качество, звуки и музыка                       | После приоритетной очереди                                 | Граница визуального эффекта и изменения мира; поселения, дороги, транспорт, погода и производительность. Управление качеством, звуком, треками; модовые ресурсы и восстановление после ошибок.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| 28 | `WP-INPUT-ACCESS` · Input, language and units | Static trace complete | Keyboard, controller, text input, locale and units [SRC-267–273] |
+| 29 | `WP-PRESENTATION` · Graphics, sound and music | Static trace complete | Display modes, quality controls, scenery, audio and music [SRC-274–279] |
 
 ### Обязательные результаты каждого этапа
 
@@ -452,7 +452,7 @@ python design-docs/tools/validate_feature_scope.py
 
 Six features traced across 36 source ranges. Fifty isolated checks passed. Extracted data formats, code boot/patching, ModAPI, world sanitation, heightmaps, editor drafts and Workshop lifecycle. Status: `static_traced_runtime_pending`; `runtime_verified=false`. [Modding](topics/modding/data-code-editor.md) · [Evidence](research/extraction-modding.json) [SRC-243–249]
 
-Next package: `WP-INPUT-ACCESS`.
+The static queue is complete. Full-game observations are tracked in [Open questions](OPEN_QUESTIONS.md).
 
 ## WP-CUSTOMIZATION. Names, geography and flags
 
@@ -465,3 +465,11 @@ Two features traced across 31 source ranges. 28 isolated checks passed. Disk and
 ## WP-STEAM-PLATFORM. Steam, statistics and records
 
 Two features traced across 40 source ranges. 27 isolated checks passed. The Steam helper lifecycle, local profile union, counters, records and platform callbacks are documented. Full-game runtime remains pending. [Steam integration](topics/platform/steam.md) · [Evidence](research/extraction-steam-platform.json) [SRC-262–266]
+
+## WP-INPUT-ACCESS. Input, language and units
+
+Six features traced across 41 source ranges. 32 isolated checks passed. Keyboard, controller, on-screen text input, dictionaries and units are documented. Full-game runtime remains pending. [Input and localization](topics/interface/input-localization.md) · [Evidence](research/extraction-input-access.json) [SRC-267–273]
+
+## WP-PRESENTATION. Graphics, sound and music
+
+Six features traced across 64 source ranges. 22 isolated checks passed. The 2D and 3D maps, walk rendering, quality and settings, sound effects, ambience and procedural music are documented. Full-game runtime remains pending. [Graphics, sound and music](topics/interface/graphics-audio.md) · [Evidence](research/extraction-presentation.json) [SRC-274–279]

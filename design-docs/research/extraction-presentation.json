@@ -1,0 +1,1439 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-PRESENTATION",
+  "game_version": "2.1.4",
+  "date": "2026-11-16",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-VIEW-MODES",
+    "FEAT-SETTINGS",
+    "FEAT-GRAPHICS-QUALITY",
+    "FEAT-THREE-D-WORLD-DETAIL",
+    "FEAT-PROCEDURAL-AUDIO",
+    "FEAT-PROCEDURAL-MUSIC"
+  ],
+  "document_ids": [
+    "DOC-GRAPHICS-AUDIO",
+    "DOC-PRESENTATION-DATA",
+    "DOC-SETTINGS"
+  ],
+  "source_ids": [
+    "SRC-274",
+    "SRC-275",
+    "SRC-276",
+    "SRC-277",
+    "SRC-278",
+    "SRC-279"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_verified": false
+  },
+  "source_files": [
+    {
+      "path": "EarthSimulator/gfx.js",
+      "bytes": 9928,
+      "sha256": "0d8f78e61bbc619af735b84f0c066ac34ab5bcf8579fb1108a822a497fd6fbb2"
+    },
+    {
+      "path": "EarthSimulator/gfx3d.js",
+      "bytes": 123241,
+      "sha256": "f6b4a33e0bb3a992b2dd87ccdf7d32c31a9615ae7cfa758e4c122d6194755bd3"
+    },
+    {
+      "path": "EarthSimulator/audio.js",
+      "bytes": 102422,
+      "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+    },
+    {
+      "path": "EarthSimulator/music.js",
+      "bytes": 123121,
+      "sha256": "6415c2b61121a68b68cde541286caff2a0bb31bedb4da67179dd9a3c82420baf"
+    },
+    {
+      "path": "EarthSimulator/render.js",
+      "bytes": 164795,
+      "sha256": "50e6d0ab46250f2de2faa24d8c80649a7690ab1311ba250e99b79b99836beef3"
+    },
+    {
+      "path": "EarthSimulator/world3d.js",
+      "bytes": 580225,
+      "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+    },
+    {
+      "path": "EarthSimulator/textures.js",
+      "bytes": 1245514,
+      "sha256": "68d07c5e2548389ab261ef0f7e3bf3c66e8dc6cc384ccc3c886a042efea1f57c"
+    },
+    {
+      "path": "EarthSimulator/ui.js",
+      "bytes": 137343,
+      "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+    },
+    {
+      "path": "EarthSimulator/menu.js",
+      "bytes": 153010,
+      "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+    },
+    {
+      "path": "EarthSimulator/walk.js",
+      "bytes": 165453,
+      "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73"
+    },
+    {
+      "path": "EarthSimulator/main.js",
+      "bytes": 18207,
+      "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0"
+    },
+    {
+      "path": "EarthSimulator/mods.js",
+      "bytes": 196320,
+      "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+    },
+    {
+      "path": "EarthSimulator/net.js",
+      "bytes": 69863,
+      "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+    },
+    {
+      "path": "EarthSimulator/index.html",
+      "bytes": 71289,
+      "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+    },
+    {
+      "path": "EarthSimulator/package.json",
+      "bytes": 460,
+      "sha256": "9827eebab03661a4a3c7c08b7a6488e6d9919eb3d47218e428ba6b96a5d744d8"
+    }
+  ],
+  "declarations": {
+    "graphics_presets": {
+      "fast": {
+        "water": 0.5,
+        "base": 1,
+        "tex3d": false,
+        "bake3d": 12,
+        "shadows": 0,
+        "post": false,
+        "water3d": 0,
+        "clouds": false,
+        "detail": 0,
+        "aa": 0,
+        "scale": 1
+      },
+      "medium": {
+        "water": 0.5,
+        "base": 1,
+        "tex3d": true,
+        "bake3d": 16,
+        "shadows": 1,
+        "post": true,
+        "water3d": 1,
+        "clouds": true,
+        "detail": 1,
+        "aa": 1,
+        "scale": 1
+      },
+      "high": {
+        "water": 1,
+        "base": 2,
+        "tex3d": true,
+        "bake3d": 28,
+        "shadows": 2,
+        "post": true,
+        "water3d": 2,
+        "clouds": true,
+        "detail": 2,
+        "aa": 1,
+        "scale": 1
+      },
+      "ultra": {
+        "water": 1,
+        "base": 2,
+        "tex3d": true,
+        "bake3d": 32,
+        "shadows": 2,
+        "post": true,
+        "water3d": 2,
+        "clouds": true,
+        "detail": 3,
+        "aa": 2,
+        "scale": 1
+      }
+    },
+    "graphics_defaults": {
+      "preset": "medium",
+      "night": true,
+      "water": 0.5,
+      "base": 1,
+      "tex3d": true,
+      "bake3d": 16,
+      "shadows": 1,
+      "post": true,
+      "water3d": 1,
+      "clouds": true,
+      "detail": 1,
+      "aa": 1,
+      "scale": 1
+    },
+    "graphics_3d_parameters": {
+      "DAY_LEN": 420,
+      "NIGHT_SHARE": 0.24,
+      "TOD_START": 0.58,
+      "TOD_FIXED": 0.596,
+      "SUN_AZ": -32.5,
+      "EXPOSURE": 0.64,
+      "SUN_POWER": 1,
+      "AMB_POWER": 1.22,
+      "MOON_POWER": 0.34,
+      "FOG_DENS": 0.0052,
+      "FOG_FALL": 0.085,
+      "FOG_MAX": 0.97,
+      "BLOOM_THRESH": 0.88,
+      "BLOOM_KNEE": 0.12,
+      "BLOOM_GAIN": 0.85,
+      "VIGNETTE": 0.22,
+      "SATURATION": 1.08,
+      "CONTRAST": 1.04,
+      "CLOUD_H": 16,
+      "CLOUD_COVER": 0.44,
+      "CLOUD_ALPHA": 0.62,
+      "CLOUD_SHADOW": 0.38,
+      "CLOUD_SCALE": 0.021,
+      "CLOUD_SPEED": 0.05,
+      "WATER_RIPPLE": 0.34,
+      "WATER_GLINT": 2.6,
+      "SHORE_LIP": [
+        0.003,
+        0.012
+      ],
+      "SHORE_FOAM": 0.6,
+      "SHADOW_RES": [
+        0,
+        0,
+        2048,
+        3072
+      ],
+      "PART_MAX": [
+        600,
+        1600,
+        3200,
+        5000
+      ],
+      "AREA_WARP": 0.3,
+      "AREA_WARP_GAIN": 1.5,
+      "AREA_WARP_SCALE": 0.08,
+      "AREA_TENT": 0.3,
+      "AREA_RIM": 0.3
+    },
+    "rain_menu_levels": [
+      1,
+      0.6,
+      0.3,
+      0
+    ],
+    "world_detail_budgets": {
+      "DETAIL_MAX": 1.1,
+      "DIST_MAX": 220,
+      "BLD_MAX": [
+        6500,
+        22000,
+        36000,
+        56000
+      ],
+      "TREE_MAX": [
+        6000,
+        14000,
+        24000,
+        36000
+      ],
+      "TREE3D_MAX": [
+        0,
+        1800,
+        4500,
+        9000
+      ],
+      "PEOPLE_MAX": [
+        120,
+        260,
+        380,
+        520
+      ],
+      "FAUNA_MAX": [
+        0,
+        220,
+        400,
+        640
+      ],
+      "SEA_REBUILD": 0.0004,
+      "CITY_LOD": [
+        26,
+        60,
+        120
+      ],
+      "TOWER_HMAX": 1.2,
+      "BRIDGE_MAX": 1.2,
+      "PORT_MAX": 90,
+      "AIR_MAX": 60,
+      "MOV_LAND_INTER": 40,
+      "MOV_LAND": 80,
+      "MOV_SEA": 120,
+      "MOV_AIR": 60,
+      "MOV_RAIL": 40,
+      "MOV_GS": {
+        "sea": 20,
+        "land": 12,
+        "air": 3,
+        "rail": 8
+      },
+      "LANE_SHIPS_MAX": 4,
+      "NAV_MAX": [
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    "audio_defaults": {
+      "on": true,
+      "music": true,
+      "vol": 0.8,
+      "mvol": 0.6
+    },
+    "audio_parameters": {
+      "SFX_GAIN": 0.9,
+      "AMB_GAIN": 0.5,
+      "REV_SEC": 1.9,
+      "REV_RETURN": 0.75,
+      "LIMIT_DB": -1.5,
+      "MAX_VOICES": 24,
+      "EVENT_POLL_MS": 600,
+      "EVENT_GAP_MS": 900,
+      "EVENT_GAP_FAST": 3,
+      "CLICK_GAP_MS": 40,
+      "PAINT_GAP_MS": 90,
+      "STEP_GAP_MS": 70,
+      "AMB_POLL_MS": 1200,
+      "AMB_WIND": 0.055,
+      "AMB_SEA": 0.07,
+      "AMB_RAIN": 0.06,
+      "AMB_CITY": 0.05,
+      "AMB_BIRDS": 0.05,
+      "AMB_NIGHT": 0.012,
+      "AMB_MENU": 0.4,
+      "AMB_WALK": 1.3,
+      "RAIN_MM": 1300,
+      "DANGER_YEARS": 12,
+      "ICE_SHARE": 0.5,
+      "WAR_SHARE": 0.34,
+      "ENGINES": 3,
+      "SIRENS": 2,
+      "LATENCY": "balanced",
+      "LATENCY_WEAK": "playback",
+      "MAX_SRC": 64,
+      "SRC_PRIO": 16,
+      "SAME_MS": 100,
+      "SAME_N": 1,
+      "SAME_PRIO_N": 2,
+      "SAME_TIER": [
+        1,
+        1.5,
+        2.5
+      ],
+      "REV_SEC_WEAK": 0.9,
+      "TIER_SCALE": [
+        1,
+        0.75,
+        0.5
+      ],
+      "LOAD_UP": 5,
+      "LOAD_TAU": 20,
+      "LOAD_STEP_S": 15,
+      "LOAD_CALM_S": 120,
+      "LAG_S": 0.35,
+      "LAG_SCORE": 0.4,
+      "LOAD_REBUILD_S": 40
+    },
+    "sound_registry": [
+      "step",
+      "shot",
+      "hit",
+      "hurt",
+      "horn",
+      "animal",
+      "thunder",
+      "quake",
+      "eruption",
+      "explosion",
+      "splash",
+      "door",
+      "talk",
+      "coin",
+      "sword",
+      "thud",
+      "take",
+      "swing",
+      "shout",
+      "scream",
+      "reload",
+      "empty",
+      "draw",
+      "crash",
+      "battle",
+      "alarm",
+      "gallop",
+      "oar",
+      "siren",
+      "hover",
+      "engine",
+      "rain"
+    ],
+    "stock_tracks": [
+      {
+        "id": "menu",
+        "name": "Cradle of the World"
+      },
+      {
+        "id": "dawn",
+        "name": "First Fire"
+      },
+      {
+        "id": "agrarian",
+        "name": "Fields and Rivers"
+      },
+      {
+        "id": "classical",
+        "name": "Marble and Laurel"
+      },
+      {
+        "id": "industrial",
+        "name": "Iron and Steam"
+      },
+      {
+        "id": "modern",
+        "name": "City Lights"
+      },
+      {
+        "id": "space",
+        "name": "To the Stars"
+      },
+      {
+        "id": "war",
+        "name": "Drums of War"
+      },
+      {
+        "id": "winter",
+        "name": "The Long Winter"
+      },
+      {
+        "id": "calm",
+        "name": "Breath of the Planet"
+      },
+      {
+        "id": "trail",
+        "name": "The Trail"
+      },
+      {
+        "id": "streets",
+        "name": "Streets"
+      }
+    ],
+    "music_parameters": {
+      "LOOK": 0.3,
+      "TICK_MS": 50,
+      "GAP": [
+        10,
+        25
+      ],
+      "GAP_MENU": [
+        5,
+        10
+      ],
+      "XFADE": 3.5,
+      "MIN_SWITCH": 60,
+      "START_DELAY": 0.5,
+      "SCENE_HOLD": 1.6,
+      "OUT_GAIN": 0.8,
+      "COMP_THR": -14,
+      "COMP_KNEE": 8,
+      "COMP_RATIO": 6,
+      "HALL_SEC": 2.3,
+      "HALL_WET": 1,
+      "HALL_STEREO": 0,
+      "AIR_DB": 6,
+      "MAX_VOICES": 84,
+      "HUMAN_MS": 8,
+      "HUMAN_VEL": 0.07,
+      "DANGER_AT": 0.6,
+      "WAR_AT": 0.6,
+      "PAUSE_CALM": 25,
+      "KS_CACHE": 3500000,
+      "HALL_SEC_WEAK": 1.5,
+      "TIER_VOICES": [
+        1,
+        0.75,
+        0.5
+      ],
+      "LOOK_WEAK": 0.5
+    }
+  },
+  "rules": [
+    {
+      "id": "PRE-001",
+      "source_id": "SRC-274",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 715,
+        "end_line": 745,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "PRE-002",
+      "source_id": "SRC-274",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/main.js",
+        "line": 80,
+        "end_line": 110,
+        "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0"
+      }
+    },
+    {
+      "id": "PRE-003",
+      "source_id": "SRC-274",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/render.js",
+        "line": 35,
+        "end_line": 72,
+        "sha256": "50e6d0ab46250f2de2faa24d8c80649a7690ab1311ba250e99b79b99836beef3"
+      }
+    },
+    {
+      "id": "PRE-004",
+      "source_id": "SRC-274",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/render.js",
+        "line": 970,
+        "end_line": 1011,
+        "sha256": "50e6d0ab46250f2de2faa24d8c80649a7690ab1311ba250e99b79b99836beef3"
+      }
+    },
+    {
+      "id": "PRE-005",
+      "source_id": "SRC-274",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 130,
+        "end_line": 131,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-006",
+      "source_id": "SRC-274",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 990,
+        "end_line": 1047,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-007",
+      "source_id": "SRC-274",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 6051,
+        "end_line": 6056,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-008",
+      "source_id": "SRC-274",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walk.js",
+        "line": 51,
+        "end_line": 124,
+        "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73"
+      }
+    },
+    {
+      "id": "PRE-009",
+      "source_id": "SRC-275",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gfx.js",
+        "line": 1,
+        "end_line": 110,
+        "sha256": "0d8f78e61bbc619af735b84f0c066ac34ab5bcf8579fb1108a822a497fd6fbb2"
+      }
+    },
+    {
+      "id": "PRE-010",
+      "source_id": "SRC-275",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gfx3d.js",
+        "line": 1,
+        "end_line": 57,
+        "sha256": "f6b4a33e0bb3a992b2dd87ccdf7d32c31a9615ae7cfa758e4c122d6194755bd3"
+      }
+    },
+    {
+      "id": "PRE-011",
+      "source_id": "SRC-275",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gfx3d.js",
+        "line": 452,
+        "end_line": 495,
+        "sha256": "f6b4a33e0bb3a992b2dd87ccdf7d32c31a9615ae7cfa758e4c122d6194755bd3"
+      }
+    },
+    {
+      "id": "PRE-012",
+      "source_id": "SRC-275",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gfx3d.js",
+        "line": 1602,
+        "end_line": 1662,
+        "sha256": "f6b4a33e0bb3a992b2dd87ccdf7d32c31a9615ae7cfa758e4c122d6194755bd3"
+      }
+    },
+    {
+      "id": "PRE-013",
+      "source_id": "SRC-275",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 5865,
+        "end_line": 5890,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-014",
+      "source_id": "SRC-275",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 773,
+        "end_line": 839,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "PRE-015",
+      "source_id": "SRC-275",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1040,
+        "end_line": 1103,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "PRE-016",
+      "source_id": "SRC-275",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1166,
+        "end_line": 1246,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "PRE-017",
+      "source_id": "SRC-275",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1282,
+        "end_line": 1294,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "PRE-018",
+      "source_id": "SRC-275",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1608,
+        "end_line": 1637,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "PRE-019",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 1,
+        "end_line": 144,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-020",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 180,
+        "end_line": 200,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-021",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 251,
+        "end_line": 280,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-022",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 591,
+        "end_line": 647,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-023",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 734,
+        "end_line": 985,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-024",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 1700,
+        "end_line": 1800,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-025",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 2318,
+        "end_line": 2455,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-026",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 3740,
+        "end_line": 3753,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-027",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 3841,
+        "end_line": 3950,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-028",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 4150,
+        "end_line": 4230,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-029",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 5550,
+        "end_line": 5615,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-030",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 5900,
+        "end_line": 5945,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-031",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/world3d.js",
+        "line": 5978,
+        "end_line": 6050,
+        "sha256": "15c9661e407e2acfb85a882deda61e6a031feba5efc08dfd2ea850cc59eae23f"
+      }
+    },
+    {
+      "id": "PRE-032",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/render.js",
+        "line": 565,
+        "end_line": 692,
+        "sha256": "50e6d0ab46250f2de2faa24d8c80649a7690ab1311ba250e99b79b99836beef3"
+      }
+    },
+    {
+      "id": "PRE-033",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gfx3d.js",
+        "line": 190,
+        "end_line": 252,
+        "sha256": "f6b4a33e0bb3a992b2dd87ccdf7d32c31a9615ae7cfa758e4c122d6194755bd3"
+      }
+    },
+    {
+      "id": "PRE-034",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gfx3d.js",
+        "line": 690,
+        "end_line": 717,
+        "sha256": "f6b4a33e0bb3a992b2dd87ccdf7d32c31a9615ae7cfa758e4c122d6194755bd3"
+      }
+    },
+    {
+      "id": "PRE-035",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gfx3d.js",
+        "line": 812,
+        "end_line": 831,
+        "sha256": "f6b4a33e0bb3a992b2dd87ccdf7d32c31a9615ae7cfa758e4c122d6194755bd3"
+      }
+    },
+    {
+      "id": "PRE-036",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gfx3d.js",
+        "line": 867,
+        "end_line": 889,
+        "sha256": "f6b4a33e0bb3a992b2dd87ccdf7d32c31a9615ae7cfa758e4c122d6194755bd3"
+      }
+    },
+    {
+      "id": "PRE-037",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gfx3d.js",
+        "line": 1003,
+        "end_line": 1008,
+        "sha256": "f6b4a33e0bb3a992b2dd87ccdf7d32c31a9615ae7cfa758e4c122d6194755bd3"
+      }
+    },
+    {
+      "id": "PRE-038",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walk.js",
+        "line": 565,
+        "end_line": 580,
+        "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73"
+      }
+    },
+    {
+      "id": "PRE-039",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walk.js",
+        "line": 689,
+        "end_line": 761,
+        "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73"
+      }
+    },
+    {
+      "id": "PRE-040",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/textures.js",
+        "line": 1,
+        "end_line": 4,
+        "sha256": "68d07c5e2548389ab261ef0f7e3bf3c66e8dc6cc384ccc3c886a042efea1f57c"
+      }
+    },
+    {
+      "id": "PRE-041",
+      "source_id": "SRC-276",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 1348,
+        "end_line": 1393,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "PRE-042",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/audio.js",
+        "line": 1,
+        "end_line": 62,
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+      }
+    },
+    {
+      "id": "PRE-043",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/audio.js",
+        "line": 78,
+        "end_line": 101,
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+      }
+    },
+    {
+      "id": "PRE-044",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/audio.js",
+        "line": 167,
+        "end_line": 232,
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+      }
+    },
+    {
+      "id": "PRE-045",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/audio.js",
+        "line": 349,
+        "end_line": 357,
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+      }
+    },
+    {
+      "id": "PRE-046",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/audio.js",
+        "line": 467,
+        "end_line": 497,
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+      }
+    },
+    {
+      "id": "PRE-047",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/audio.js",
+        "line": 785,
+        "end_line": 872,
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+      }
+    },
+    {
+      "id": "PRE-048",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/audio.js",
+        "line": 876,
+        "end_line": 1053,
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+      }
+    },
+    {
+      "id": "PRE-049",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/audio.js",
+        "line": 1054,
+        "end_line": 1104,
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+      }
+    },
+    {
+      "id": "PRE-050",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/audio.js",
+        "line": 1106,
+        "end_line": 1216,
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+      }
+    },
+    {
+      "id": "PRE-051",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 790,
+        "end_line": 800,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "PRE-052",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1058,
+        "end_line": 1072,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "PRE-053",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 1348,
+        "end_line": 1393,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "PRE-054",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/net.js",
+        "line": 54,
+        "end_line": 54,
+        "sha256": "451c63843cba3140dc4074063c923cb0e392232425925c22e30097bcbf5d3ab9"
+      }
+    },
+    {
+      "id": "PRE-055",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 722,
+        "end_line": 741,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "PRE-056",
+      "source_id": "SRC-277",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/package.json",
+        "line": 16,
+        "end_line": 16,
+        "sha256": "9827eebab03661a4a3c7c08b7a6488e6d9919eb3d47218e428ba6b96a5d744d8"
+      }
+    },
+    {
+      "id": "PRE-057",
+      "source_id": "SRC-278",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/music.js",
+        "line": 1,
+        "end_line": 242,
+        "sha256": "6415c2b61121a68b68cde541286caff2a0bb31bedb4da67179dd9a3c82420baf"
+      }
+    },
+    {
+      "id": "PRE-058",
+      "source_id": "SRC-278",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/music.js",
+        "line": 542,
+        "end_line": 1217,
+        "sha256": "6415c2b61121a68b68cde541286caff2a0bb31bedb4da67179dd9a3c82420baf"
+      }
+    },
+    {
+      "id": "PRE-059",
+      "source_id": "SRC-278",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/music.js",
+        "line": 1218,
+        "end_line": 1309,
+        "sha256": "6415c2b61121a68b68cde541286caff2a0bb31bedb4da67179dd9a3c82420baf"
+      }
+    },
+    {
+      "id": "PRE-060",
+      "source_id": "SRC-278",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/music.js",
+        "line": 1310,
+        "end_line": 1471,
+        "sha256": "6415c2b61121a68b68cde541286caff2a0bb31bedb4da67179dd9a3c82420baf"
+      }
+    },
+    {
+      "id": "PRE-061",
+      "source_id": "SRC-278",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/audio.js",
+        "line": 1106,
+        "end_line": 1149,
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+      }
+    },
+    {
+      "id": "PRE-062",
+      "source_id": "SRC-278",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/audio.js",
+        "line": 1151,
+        "end_line": 1174,
+        "sha256": "1ce9115b4b4d691662c7308f089edf848666d97c48b2ce804a2ecc60020d5c04"
+      }
+    },
+    {
+      "id": "PRE-063",
+      "source_id": "SRC-278",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 797,
+        "end_line": 797,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    },
+    {
+      "id": "PRE-064",
+      "source_id": "SRC-278",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/mods.js",
+        "line": 1373,
+        "end_line": 1393,
+        "sha256": "363cff76997a97122a1534122f5015b7f727d972f50ab81eb7f8f1ba07bc5b90"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "VIEWS",
+      "source_id": "SRC-274",
+      "summary": "2D, 3D and walk dispatch, availability and display state",
+      "evidence": [
+        "PRE-001",
+        "PRE-002",
+        "PRE-003",
+        "PRE-004",
+        "PRE-005",
+        "PRE-006",
+        "PRE-007",
+        "PRE-008"
+      ],
+      "checks": [
+        "views-unavailable-Three-keeps-2D",
+        "views-detail-helper-reads-quality",
+        "views-3D-pixel-ratio-caps-and-scales"
+      ]
+    },
+    {
+      "id": "QUALITY",
+      "source_id": "SRC-275",
+      "summary": "Quality presets, live settings, render size and post-processing fallback",
+      "evidence": [
+        "PRE-009",
+        "PRE-010",
+        "PRE-011",
+        "PRE-012",
+        "PRE-013",
+        "PRE-014",
+        "PRE-015",
+        "PRE-016",
+        "PRE-017",
+        "PRE-018"
+      ],
+      "checks": [
+        "quality-default-is-medium",
+        "quality-four-presets-apply-and-persist",
+        "quality-customizes-known-key-and-clamps-detail",
+        "quality-texture-and-post-controls-update-dependent-fields",
+        "quality-loads-old-high-preset-with-current-defaults",
+        "quality-rain-density-clamps-and-persists",
+        "quality-preset-keeps-night-and-rain-separate",
+        "quality-apply-rebuilds-display-without-replacing-world",
+        "quality-post-failure-falls-back-and-latches"
+      ]
+    },
+    {
+      "id": "WORLD-ART",
+      "source_id": "SRC-276",
+      "summary": "Terrain, settlements, routes, traffic, weather, cache and texture overrides",
+      "evidence": [
+        "PRE-019",
+        "PRE-020",
+        "PRE-021",
+        "PRE-022",
+        "PRE-023",
+        "PRE-024",
+        "PRE-025",
+        "PRE-026",
+        "PRE-027",
+        "PRE-028",
+        "PRE-029",
+        "PRE-030",
+        "PRE-031",
+        "PRE-032",
+        "PRE-033",
+        "PRE-034",
+        "PRE-035",
+        "PRE-036",
+        "PRE-037",
+        "PRE-038",
+        "PRE-039",
+        "PRE-040",
+        "PRE-041"
+      ],
+      "checks": [
+        "quality-default-is-medium",
+        "quality-four-presets-apply-and-persist",
+        "quality-customizes-known-key-and-clamps-detail",
+        "quality-texture-and-post-controls-update-dependent-fields",
+        "quality-loads-old-high-preset-with-current-defaults",
+        "quality-rain-density-clamps-and-persists",
+        "quality-preset-keeps-night-and-rain-separate",
+        "quality-apply-rebuilds-display-without-replacing-world",
+        "quality-post-failure-falls-back-and-latches",
+        "views-detail-helper-reads-quality"
+      ]
+    },
+    {
+      "id": "AUDIO",
+      "source_id": "SRC-277",
+      "summary": "Web Audio lifecycle, SFX registry, event and ambience mixing, media recovery",
+      "evidence": [
+        "PRE-042",
+        "PRE-043",
+        "PRE-044",
+        "PRE-045",
+        "PRE-046",
+        "PRE-047",
+        "PRE-048",
+        "PRE-049",
+        "PRE-050",
+        "PRE-051",
+        "PRE-052",
+        "PRE-053",
+        "PRE-054",
+        "PRE-055",
+        "PRE-056"
+      ],
+      "checks": [
+        "audio-default-gates-and-clamped-volume",
+        "audio-unsupported-context-does-not-play",
+        "audio-gesture-starts-mixer-and-visibility-wakes-it",
+        "audio-master-and-music-gates-operate-independently",
+        "audio-fast-graphics-selects-reduced-mixer-tier"
+      ]
+    },
+    {
+      "id": "MUSIC",
+      "source_id": "SRC-278",
+      "summary": "Built-in themes, scene and mood pools, arrangement, scheduling and mod replacement",
+      "evidence": [
+        "PRE-057",
+        "PRE-058",
+        "PRE-059",
+        "PRE-060",
+        "PRE-061",
+        "PRE-062",
+        "PRE-063",
+        "PRE-064"
+      ],
+      "checks": [
+        "music-stock-track-catalog",
+        "music-mod-list-is-separate-from-stock-tracks",
+        "music-scene-pools-choose-contextual-themes",
+        "music-manual-track-needs-context",
+        "music-manual-selection-reports-track-and-schedules-notes"
+      ]
+    }
+  ],
+  "verification": {
+    "passed": 22,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "quality-default-is-medium",
+        "status": "passed"
+      },
+      {
+        "id": "quality-four-presets-apply-and-persist",
+        "status": "passed"
+      },
+      {
+        "id": "quality-customizes-known-key-and-clamps-detail",
+        "status": "passed"
+      },
+      {
+        "id": "quality-texture-and-post-controls-update-dependent-fields",
+        "status": "passed"
+      },
+      {
+        "id": "quality-loads-old-high-preset-with-current-defaults",
+        "status": "passed"
+      },
+      {
+        "id": "quality-rain-density-clamps-and-persists",
+        "status": "passed"
+      },
+      {
+        "id": "quality-preset-keeps-night-and-rain-separate",
+        "status": "passed"
+      },
+      {
+        "id": "quality-apply-rebuilds-display-without-replacing-world",
+        "status": "passed"
+      },
+      {
+        "id": "quality-post-failure-falls-back-and-latches",
+        "status": "passed"
+      },
+      {
+        "id": "views-unavailable-Three-keeps-2D",
+        "status": "passed"
+      },
+      {
+        "id": "views-detail-helper-reads-quality",
+        "status": "passed"
+      },
+      {
+        "id": "views-3D-pixel-ratio-caps-and-scales",
+        "status": "passed"
+      },
+      {
+        "id": "audio-default-gates-and-clamped-volume",
+        "status": "passed"
+      },
+      {
+        "id": "audio-unsupported-context-does-not-play",
+        "status": "passed"
+      },
+      {
+        "id": "audio-gesture-starts-mixer-and-visibility-wakes-it",
+        "status": "passed"
+      },
+      {
+        "id": "audio-master-and-music-gates-operate-independently",
+        "status": "passed"
+      },
+      {
+        "id": "audio-fast-graphics-selects-reduced-mixer-tier",
+        "status": "passed"
+      },
+      {
+        "id": "music-stock-track-catalog",
+        "status": "passed"
+      },
+      {
+        "id": "music-mod-list-is-separate-from-stock-tracks",
+        "status": "passed"
+      },
+      {
+        "id": "music-scene-pools-choose-contextual-themes",
+        "status": "passed"
+      },
+      {
+        "id": "music-manual-track-needs-context",
+        "status": "passed"
+      },
+      {
+        "id": "music-manual-selection-reports-track-and-schedules-notes",
+        "status": "passed"
+      }
+    ],
+    "environment": {
+      "node": "v26.13.1",
+      "platform": "win32",
+      "execution": "Shipped presentation modules in node:vm with finite browser and Web Audio adapters"
+    },
+    "runtime_verified": false,
+    "probe_sha256": "0af37f9861087da37510fdfb1432967c4719f199cf8f124a2b9dd46598f325bc",
+    "extractor_sha256": "091e9d6808259a08b1ffbe6b9e08875f1bd17b24a869838a116ca5b86e63edc3"
+  },
+  "limitations": [
+    "Presentation modules use a synthetic world and finite browser and audio adapters.",
+    "Rendered output, real GPU load, audio playback and hardware-dependent behavior remain unobserved.",
+    "World detail construction is traced statically. Configuration and selected fallback paths are checked in isolation."
+  ],
+  "next_package": null
+}

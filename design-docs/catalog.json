@@ -461,7 +461,20 @@
         "1.8"
       ],
       "source_ids": [
-        "SRC-012"
+        "SRC-012",
+        "SRC-267",
+        "SRC-268",
+        "SRC-269",
+        "SRC-270",
+        "SRC-271",
+        "SRC-272",
+        "SRC-273",
+        "SRC-274",
+        "SRC-275",
+        "SRC-276",
+        "SRC-277",
+        "SRC-278",
+        "SRC-279"
       ],
       "feature_ids": [
         "FEAT-SETTINGS",
@@ -5536,6 +5549,112 @@
         "FEAT-STEAM-STATS-LEADERBOARDS"
       ],
       "image_paths": []
+    },
+    {
+      "id": "DOC-INPUT-LOCALIZATION",
+      "title": "Input, language and measurement units",
+      "path": "design-docs/topics/interface/input-localization.md",
+      "kind": "topic",
+      "category": "interface",
+      "documentation_status": "detailed",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-267",
+        "SRC-268",
+        "SRC-269",
+        "SRC-270",
+        "SRC-271",
+        "SRC-272",
+        "SRC-273"
+      ],
+      "feature_ids": [
+        "FEAT-MAP-HOTKEYS",
+        "FEAT-KEY-REBIND",
+        "FEAT-GAMEPAD",
+        "FEAT-ONSCREEN-KEYBOARD",
+        "FEAT-LOCALIZATION",
+        "FEAT-MEASUREMENT-UNITS"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-INPUT-LOCALIZATION-DATA",
+      "title": "Input and localization extraction evidence",
+      "path": "design-docs/research/extraction-input-access.json",
+      "kind": "research_coverage",
+      "category": "research",
+      "documentation_status": "reference",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-267",
+        "SRC-268",
+        "SRC-269",
+        "SRC-270",
+        "SRC-271",
+        "SRC-272",
+        "SRC-273"
+      ],
+      "feature_ids": [
+        "FEAT-MAP-HOTKEYS",
+        "FEAT-KEY-REBIND",
+        "FEAT-GAMEPAD",
+        "FEAT-ONSCREEN-KEYBOARD",
+        "FEAT-LOCALIZATION",
+        "FEAT-MEASUREMENT-UNITS"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-GRAPHICS-AUDIO",
+      "title": "Graphics, sound and music",
+      "path": "design-docs/topics/interface/graphics-audio.md",
+      "kind": "topic",
+      "category": "interface",
+      "documentation_status": "detailed",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-274",
+        "SRC-275",
+        "SRC-276",
+        "SRC-277",
+        "SRC-278",
+        "SRC-279"
+      ],
+      "feature_ids": [
+        "FEAT-VIEW-MODES",
+        "FEAT-SETTINGS",
+        "FEAT-GRAPHICS-QUALITY",
+        "FEAT-THREE-D-WORLD-DETAIL",
+        "FEAT-PROCEDURAL-AUDIO",
+        "FEAT-PROCEDURAL-MUSIC"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-PRESENTATION-DATA",
+      "title": "Presentation extraction evidence",
+      "path": "design-docs/research/extraction-presentation.json",
+      "kind": "research_coverage",
+      "category": "research",
+      "documentation_status": "reference",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-274",
+        "SRC-275",
+        "SRC-276",
+        "SRC-277",
+        "SRC-278",
+        "SRC-279"
+      ],
+      "feature_ids": [
+        "FEAT-VIEW-MODES",
+        "FEAT-SETTINGS",
+        "FEAT-GRAPHICS-QUALITY",
+        "FEAT-THREE-D-WORLD-DETAIL",
+        "FEAT-PROCEDURAL-AUDIO",
+        "FEAT-PROCEDURAL-MUSIC"
+      ],
+      "image_paths": []
     }
   ],
   "features": [
@@ -5873,18 +5992,24 @@
       "id": "FEAT-SETTINGS",
       "title": "Язык, звук, графика и автосохранение",
       "category": "menu",
-      "summary": "Вкладки настроек, единицы, качество, громкость и интервал автосохранения.",
+      "summary": "Live graphics, audio and interface controls with an opening snapshot for Cancel.",
       "document_ids": [
         "DOC-SETTINGS",
-        "DOC-FEATURE-INVENTORY"
+        "DOC-FEATURE-INVENTORY",
+        "DOC-GRAPHICS-AUDIO",
+        "DOC-PRESENTATION-DATA"
       ],
       "documentation_status": "detailed",
-      "research_status": "not_researched",
+      "research_status": "partial",
       "evidence_levels": [
         "original_document"
       ],
       "source_ids": [
-        "SRC-012"
+        "SRC-012",
+        "SRC-275",
+        "SRC-277",
+        "SRC-278",
+        "SRC-279"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -5892,7 +6017,7 @@
         "EarthSimulator/main.js"
       ],
       "open_questions": [
-        "Нижние настройки, отмена и переназначение клавиш."
+        "Observe the relevant rendering, settings or audio path in the running build."
       ]
     },
     {
@@ -5968,25 +6093,30 @@
       "id": "FEAT-MAP-HOTKEYS",
       "title": "Клавиши и расположение интерфейса карты",
       "category": "interface",
-      "summary": "Быстрые команды, панели и переход между осмотром и вмешательством.",
+      "summary": "Map tools, time, layers, view shortcuts and dispatch priority.",
       "document_ids": [
         "DOC-ONBOARDING",
-        "DOC-FEATURE-INVENTORY"
+        "DOC-FEATURE-INVENTORY",
+        "DOC-INPUT-LOCALIZATION",
+        "DOC-INPUT-LOCALIZATION-DATA"
       ],
       "documentation_status": "detailed",
-      "research_status": "not_researched",
+      "research_status": "partial",
       "evidence_levels": [
         "original_document"
       ],
       "source_ids": [
-        "SRC-012"
+        "SRC-012",
+        "SRC-267",
+        "SRC-268",
+        "SRC-273"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
         "EarthSimulator/ui.js"
       ],
       "open_questions": [
-        "Переназначение, точное соответствие цифр инструментам."
+        "Observe this behavior in the full build across its supported contexts and devices."
       ]
     },
     {
@@ -6068,12 +6198,14 @@
       "id": "FEAT-VIEW-MODES",
       "title": "Карта 2D, 3D и переход в прогулку",
       "category": "interface",
-      "summary": "Кнопки вида и исследование мира от первого лица.",
+      "summary": "2D canvas, 3D map and walk dispatch, renderer reuse and 3D fallback.",
       "document_ids": [
         "DOC-WORLD-STATUS",
         "DOC-ONBOARDING",
         "DOC-WALK-CONTROLS",
-        "DOC-FEATURE-INVENTORY"
+        "DOC-FEATURE-INVENTORY",
+        "DOC-GRAPHICS-AUDIO",
+        "DOC-PRESENTATION-DATA"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -6083,7 +6215,9 @@
       ],
       "source_ids": [
         "SRC-012",
-        "SRC-039"
+        "SRC-039",
+        "SRC-274",
+        "SRC-279"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -6091,7 +6225,7 @@
         "EarthSimulator/walk.js"
       ],
       "open_questions": [
-        "Полное соответствие отображения и слоёв 2D/3D."
+        "Observe the relevant rendering, settings or audio path in the running build."
       ]
     },
     {
@@ -10392,19 +10526,24 @@
       "id": "FEAT-KEY-REBIND",
       "title": "Переназначение клавиш",
       "category": "interface",
-      "summary": "Контекстные назначения действий, конфликты, подписи и хранение пользовательских клавиш.",
+      "summary": "Physical-key overrides, context conflicts, aliases and persisted settings.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
         "DOC-SETTINGS",
-        "DOC-ONBOARDING"
+        "DOC-ONBOARDING",
+        "DOC-INPUT-LOCALIZATION",
+        "DOC-INPUT-LOCALIZATION-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-267",
+        "SRC-268",
+        "SRC-273"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10412,27 +10551,30 @@
         "EarthSimulator/ui.js"
       ],
       "open_questions": [
-        "Порядок перехвата и контексты карты, окон, прогулки и транспорта.",
-        "Конфликты, сброс, сохранение и обновление подсказок."
+        "Observe this behavior in the full build across its supported contexts and devices."
       ]
     },
     {
       "id": "FEAT-GAMEPAD",
       "title": "Управление контроллером",
       "category": "interface",
-      "summary": "Контроллер управляет картой, окнами, прогулкой и транспортом через контекстные действия.",
+      "summary": "Controller assignment, analog response, virtual cursor and contextual bindings.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
         "DOC-SETTINGS",
-        "DOC-WALK-CONTROLS"
+        "DOC-WALK-CONTROLS",
+        "DOC-INPUT-LOCALIZATION",
+        "DOC-INPUT-LOCALIZATION-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-269",
+        "SRC-273"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10440,26 +10582,29 @@
         "EarthSimulator/keys.js"
       ],
       "open_questions": [
-        "Мёртвые зоны, курсор, инверсия, раскладки Xbox/PlayStation и переназначение.",
-        "Подключение, отключение и разделение контроллеров основного игрока и гостей."
+        "Observe this behavior in the full build across its supported contexts and devices."
       ]
     },
     {
       "id": "FEAT-ONSCREEN-KEYBOARD",
       "title": "Экранная клавиатура",
       "category": "interface",
-      "summary": "Ввод текста через Steam-клавиатуру с локальным запасным вариантом и управлением контроллером.",
+      "summary": "Steam and local keyboards, focus-aware fallback and text editing.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-SETTINGS"
+        "DOC-SETTINGS",
+        "DOC-INPUT-LOCALIZATION",
+        "DOC-INPUT-LOCALIZATION-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-270",
+        "SRC-273"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10467,26 +10612,30 @@
         "EarthSimulator/gamepad.js"
       ],
       "open_questions": [
-        "Отказ платформенной клавиатуры, фокус, раскладки, ввод и подтверждение."
+        "Observe this behavior in the full build across its supported contexts and devices."
       ]
     },
     {
       "id": "FEAT-MEASUREMENT-UNITS",
       "title": "Единицы измерения и формат чисел",
       "category": "interface",
-      "summary": "Переключение температуры и системы мер изменяет отображение значений.",
+      "summary": "Independent temperature and length choices with display conversions.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
         "DOC-SETTINGS",
-        "DOC-WORLD-STATUS"
+        "DOC-WORLD-STATUS",
+        "DOC-INPUT-LOCALIZATION",
+        "DOC-INPUT-LOCALIZATION-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-272",
+        "SRC-273"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10494,26 +10643,29 @@
         "EarthSimulator/i18n.js"
       ],
       "open_questions": [
-        "Все преобразования и округления, включая разность температур и массу.",
-        "Проверить границу между показом, сохранением и балансными параметрами."
+        "Observe this behavior in the full build across its supported contexts and devices."
       ]
     },
     {
       "id": "FEAT-LOCALIZATION",
       "title": "Языки и локализация",
       "category": "interface",
-      "summary": "Выбор языка, словари, запасные строки, множественные формы и локальный формат чисел.",
+      "summary": "Language selection, dictionary and inline fallback, plurals and number formatting.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-SETTINGS"
+        "DOC-SETTINGS",
+        "DOC-INPUT-LOCALIZATION",
+        "DOC-INPUT-LOCALIZATION-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-271",
+        "SRC-273"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10521,26 +10673,30 @@
         "EarthSimulator/menu.js"
       ],
       "open_questions": [
-        "Выбор языка, перезагрузка, отсутствующий перевод и формы множественного числа.",
-        "Проверить сохранение кодированных имён между языками."
+        "Observe this behavior in the full build across its supported contexts and devices."
       ]
     },
     {
       "id": "FEAT-GRAPHICS-QUALITY",
       "title": "Качество графики и плотность осадков",
       "category": "interface",
-      "summary": "Предустановки, отдельные параметры и плотность визуальных дождя/снега.",
+      "summary": "Four graphics presets, custom controls and independent precipitation density.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-SETTINGS"
+        "DOC-SETTINGS",
+        "DOC-GRAPHICS-AUDIO",
+        "DOC-PRESENTATION-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-275",
+        "SRC-276",
+        "SRC-279"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10549,26 +10705,29 @@
         "EarthSimulator/menu.js"
       ],
       "open_questions": [
-        "Немедленное применение, сохранение, отмена и восстановление повреждённых настроек.",
-        "Влияние на отрисовку, производительность и отсутствие/наличие влияния на симуляцию."
+        "Observe the relevant rendering, settings or audio path in the running build."
       ]
     },
     {
       "id": "FEAT-PROCEDURAL-AUDIO",
       "title": "Звуковая среда и эффекты",
       "category": "interface",
-      "summary": "WebAudio-эффекты интерфейса, мира и прогулки, сценический микшер и заменяемые модами звуки.",
+      "summary": "Synthesized effects and ambience, event cues, mixer recovery and mod sound overrides.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-SETTINGS"
+        "DOC-SETTINGS",
+        "DOC-GRAPHICS-AUDIO",
+        "DOC-PRESENTATION-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-277",
+        "SRC-279"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10576,26 +10735,29 @@
         "EarthSimulator/ui.js"
       ],
       "open_questions": [
-        "События, сцены, дистанция, громкость, ограничения браузера и восстановление контекста.",
-        "Точки замены звуков дополнениями и ошибки загрузки."
+        "Observe the relevant rendering, settings or audio path in the running build."
       ]
     },
     {
       "id": "FEAT-PROCEDURAL-MUSIC",
       "title": "Процедурная и адаптивная музыка",
       "category": "interface",
-      "summary": "Музыкальный движок выбирает и синтезирует темы по состоянию сцены; доступны выбор трека и музыка модов.",
+      "summary": "Twelve procedural tracks, contextual selection, scheduling and mod playlists.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
-        "DOC-SETTINGS"
+        "DOC-SETTINGS",
+        "DOC-GRAPHICS-AUDIO",
+        "DOC-PRESENTATION-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-278",
+        "SRC-279"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10604,8 +10766,7 @@
         "EarthSimulator/menu.js"
       ],
       "open_questions": [
-        "Выбор по эпохе, войне, опасности, местности и паузе; переходы и воспроизводимость.",
-        "Встроенные треки, ручной выбор и приоритет музыки дополнения."
+        "Observe the relevant rendering, settings or audio path in the running build."
       ]
     },
     {
@@ -10675,19 +10836,23 @@
       "id": "FEAT-THREE-D-WORLD-DETAIL",
       "title": "Процедурный мир в 3D",
       "category": "interface",
-      "summary": "Рельеф, вода, города по эпохам, растительность, дороги и движущиеся объекты визуализируют состояние мира.",
+      "summary": "Terrain materials, settlements, vegetation, transport, weather and detail budgets.",
       "document_ids": [
         "DOC-FEATURE-INVENTORY",
         "DOC-WORLD-STATUS",
-        "DOC-MAP-LAYERS"
+        "DOC-MAP-LAYERS",
+        "DOC-GRAPHICS-AUDIO",
+        "DOC-PRESENTATION-DATA"
       ],
-      "documentation_status": "mentioned",
-      "research_status": "not_researched",
+      "documentation_status": "detailed",
+      "research_status": "partial",
       "evidence_levels": [
         "static_code"
       ],
       "source_ids": [
-        "SRC-057"
+        "SRC-057",
+        "SRC-276",
+        "SRC-279"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10697,8 +10862,7 @@
         "EarthSimulator/render.js"
       ],
       "open_questions": [
-        "Генерация поселений и дорог, масштаб, кэш, уровень детализации, выбор клетки и правки из 3D.",
-        "Отделить декоративный транспорт/застройку от объектов с экономическим или военным состоянием."
+        "Observe the relevant rendering, settings or audio path in the running build."
       ]
     }
   ]

@@ -27,7 +27,7 @@
 
 Предустановки качества: «Быстро», «Обычное», «Высокое», «Предельное». Для 2D видны настройки рельефа в полном разрешении экрана и детальной воды. Для 3D и прогулки — фототекстуры рельефа, постобработка и облака с тенями. Под качеством указано, что оно применяется сразу без потери мира.
 
-Блок «Дополнительные действия» содержит «Открыть справку» и «Пройти обучение». Внизу — «Применить» и «Отмена». Поскольку качество применяется сразу, точный эффект отмены для разных настроек требует проверки.
+Блок «Дополнительные действия» содержит «Открыть справку» и «Пройти обучение». Внизу — «Применить» и «Отмена».
 
 ## 1.8. Настройки · Вид экрана
 
@@ -36,3 +36,13 @@
 Рис. 9\. Видимая часть основных настроек.
 
 [image10]: ../../assets/image10.png
+
+See [Input, language and measurement units](../interface/input-localization.md) for key and controller defaults, binding conflicts, text input, dictionary fallback and unit conversion. [SRC-267–273]
+
+## Settings behavior in 2.1.4
+
+Graphics, sound, fullscreen, hints, startup help, notifications and autosave respond to their controls immediately. Cancel restores their opening values. It also restores captured key and controller settings. Precipitation density is saved by its own control and is absent from the opening snapshot. Apply sets measurement units and any pending language change. [SRC-275, SRC-277]
+
+The autosave preference defaults to 10 minutes. The periodic save path waits while the simulation is paused or the interval is zero. [SRC-275]
+
+[Graphics, sound and music](../interface/graphics-audio.md) · [Extraction evidence](../../research/extraction-presentation.json)

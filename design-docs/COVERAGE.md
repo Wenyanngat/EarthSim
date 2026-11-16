@@ -146,3 +146,11 @@ Two features traced across 31 source ranges. 28 isolated checks passed. Disk and
 ## WP-STEAM-PLATFORM. Steam, statistics and records
 
 Two features traced across 40 source ranges. 27 isolated checks passed. The Steam helper lifecycle, local profile union, counters, records and platform callbacks are documented. Full-game runtime remains pending. [Steam integration](topics/platform/steam.md) · [Evidence](research/extraction-steam-platform.json) [SRC-262–266]
+
+## WP-INPUT-ACCESS. Input, language and units
+
+Six features traced across 41 source ranges. 32 isolated checks passed. Keyboard, controller, on-screen text input, dictionaries and units are documented. Full-game runtime remains pending. [Input and localization](topics/interface/input-localization.md) · [Evidence](research/extraction-input-access.json) [SRC-267–273]
+
+## WP-PRESENTATION. Graphics, sound and music
+
+Six features traced across 64 source ranges. 22 isolated checks passed. The 2D and 3D maps, walk rendering, quality and settings, sound effects, ambience and procedural music are documented. Full-game runtime remains pending. [Graphics, sound and music](topics/interface/graphics-audio.md) · [Evidence](research/extraction-presentation.json) [SRC-274–279]

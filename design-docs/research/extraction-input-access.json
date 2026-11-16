@@ -1,0 +1,2299 @@
+{
+  "format_version": "1.0.0",
+  "work_package_id": "WP-INPUT-ACCESS",
+  "game_version": "2.1.4",
+  "date": "2026-11-16",
+  "path_base": "repository_root",
+  "feature_ids": [
+    "FEAT-MAP-HOTKEYS",
+    "FEAT-KEY-REBIND",
+    "FEAT-GAMEPAD",
+    "FEAT-ONSCREEN-KEYBOARD",
+    "FEAT-LOCALIZATION",
+    "FEAT-MEASUREMENT-UNITS"
+  ],
+  "document_ids": [
+    "DOC-INPUT-LOCALIZATION",
+    "DOC-INPUT-LOCALIZATION-DATA",
+    "DOC-SETTINGS"
+  ],
+  "source_ids": [
+    "SRC-267",
+    "SRC-268",
+    "SRC-269",
+    "SRC-270",
+    "SRC-271",
+    "SRC-272",
+    "SRC-273"
+  ],
+  "status": {
+    "declarations": "extracted",
+    "static_chains": "traced",
+    "isolated_checks": "passed",
+    "runtime_verified": false
+  },
+  "source_files": [
+    {
+      "path": "EarthSimulator/i18n.js",
+      "bytes": 19346,
+      "sha256": "125716e5af130dd5d64520953ef5a4dee013cba358669359cabe236c02f6f74e"
+    },
+    {
+      "path": "EarthSimulator/units.js",
+      "bytes": 9071,
+      "sha256": "dba62d2c7218e0d9f10218eb4b2fa2804599a157bbac9244a800f53f7054838a"
+    },
+    {
+      "path": "EarthSimulator/keys.js",
+      "bytes": 40536,
+      "sha256": "7852e660c5f546c10bd54f6f65a3e31b3461c93550479e02988464d3c975eac7"
+    },
+    {
+      "path": "EarthSimulator/gamepad.js",
+      "bytes": 40232,
+      "sha256": "57575f19dad62a932b829691749f38e5173783ff32a283ec86b63d5a49fe0356"
+    },
+    {
+      "path": "EarthSimulator/osk.js",
+      "bytes": 7997,
+      "sha256": "dde718702edcd49836f14158db84f07a4de4ef9e98cfd22681e7e529bda7c3dd"
+    },
+    {
+      "path": "EarthSimulator/lang/cs.js",
+      "bytes": 618405,
+      "sha256": "407fc9273d83b1e8cdf92a300ac802637defb3de67b2bf2aea256b6df018a138"
+    },
+    {
+      "path": "EarthSimulator/lang/de.js",
+      "bytes": 640176,
+      "sha256": "fe98fd5ae5eb21b476f136945f08191f248ceef418b6d050866eb9a9644b137f"
+    },
+    {
+      "path": "EarthSimulator/lang/es.js",
+      "bytes": 636321,
+      "sha256": "7cdb0351d4cd5d2d2c9a57d4be0c9c5843ed858ce997e62e240df413338647b6"
+    },
+    {
+      "path": "EarthSimulator/lang/fr.js",
+      "bytes": 649881,
+      "sha256": "dbb557075b36148ffc5ecbe391842eded78869b63ba6413dd4a79d96142a6a8e"
+    },
+    {
+      "path": "EarthSimulator/lang/it.js",
+      "bytes": 634531,
+      "sha256": "63d552acabad09c90480267fac6f0e3612bda1137f62138caeec954cfb93a9d3"
+    },
+    {
+      "path": "EarthSimulator/lang/ja.js",
+      "bytes": 657549,
+      "sha256": "1b1e233d12cc21719b8bc8daf5b14ac3f9cc66ed91653ea16f6973406c8cb425"
+    },
+    {
+      "path": "EarthSimulator/lang/ko.js",
+      "bytes": 641131,
+      "sha256": "e594e7affa11691c5328bafd6bf138e59b73bcdd85f5a9a07b49efcf34d1666f"
+    },
+    {
+      "path": "EarthSimulator/lang/pl.js",
+      "bytes": 624690,
+      "sha256": "6d618baf62d6029f540923ca1c59b3309a0aee5deb344d9fef0bb52d77b9d603"
+    },
+    {
+      "path": "EarthSimulator/lang/pt-BR.js",
+      "bytes": 630224,
+      "sha256": "ffe211d8af274a007a3d34c77b25f0a3709dc35731f946ea81982a46085079e7"
+    },
+    {
+      "path": "EarthSimulator/lang/th.js",
+      "bytes": 904781,
+      "sha256": "dd22c686b22b47e1266744dff9afe7c8f0c8cb45ea7bc893e2e74cdc58139cdd"
+    },
+    {
+      "path": "EarthSimulator/lang/tr.js",
+      "bytes": 618879,
+      "sha256": "4ca23a6fcef31d68e1f6d7238c70ca0b272621c6f1a31b413211541a6a9fe165"
+    },
+    {
+      "path": "EarthSimulator/lang/uk.js",
+      "bytes": 757604,
+      "sha256": "52a8da380fa9bb96856c35266103ef8f5a924a0f00c3212fef84cd102e03dddb"
+    },
+    {
+      "path": "EarthSimulator/lang/vi.js",
+      "bytes": 676619,
+      "sha256": "4fd54042cf533fec709087a0b34d31c519207ee6ca3525fafdddebabf3f4105f"
+    },
+    {
+      "path": "EarthSimulator/lang/zh-CN.js",
+      "bytes": 594381,
+      "sha256": "605ce94bb1dcf9f5bc103b1a9c4d07809602a33506f364bd74d57b0f55b6ccb7"
+    },
+    {
+      "path": "EarthSimulator/lang/zh-TW.js",
+      "bytes": 597873,
+      "sha256": "1eacf4ba0694cd10e723c1f4768ecd0562115e710cbb8b8224db3a22860862d0"
+    },
+    {
+      "path": "EarthSimulator/ui.js",
+      "bytes": 137343,
+      "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+    },
+    {
+      "path": "EarthSimulator/menu.js",
+      "bytes": 153010,
+      "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+    },
+    {
+      "path": "EarthSimulator/walk.js",
+      "bytes": 165453,
+      "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73"
+    },
+    {
+      "path": "EarthSimulator/coop.js",
+      "bytes": 35398,
+      "sha256": "ef427355d31eca5798d85c0b98187b9c1d3015b23310f6d844a898c1040ac94b"
+    },
+    {
+      "path": "EarthSimulator/steam.js",
+      "bytes": 29524,
+      "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+    },
+    {
+      "path": "EarthSimulator/main.js",
+      "bytes": 18207,
+      "sha256": "c8a0896343f17b9ea5ccd4bcb4500a517dd40660cdc26aaf202b89d3e99a85c0"
+    },
+    {
+      "path": "EarthSimulator/index.html",
+      "bytes": 71289,
+      "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+    }
+  ],
+  "declarations": {
+    "language_catalog": [
+      {
+        "id": "ru",
+        "name": "Русский",
+        "en": "Russian",
+        "steam": "russian",
+        "loc": "ru-RU",
+        "dec": true
+      },
+      {
+        "id": "en",
+        "name": "English",
+        "en": "English",
+        "steam": "english",
+        "loc": "en-US"
+      },
+      {
+        "id": "zh-CN",
+        "name": "简体中文",
+        "en": "Chinese (Simplified)",
+        "steam": "schinese",
+        "loc": "zh-CN"
+      },
+      {
+        "id": "zh-TW",
+        "name": "繁體中文",
+        "en": "Chinese (Traditional)",
+        "steam": "tchinese",
+        "loc": "zh-TW"
+      },
+      {
+        "id": "ja",
+        "name": "日本語",
+        "en": "Japanese",
+        "steam": "japanese",
+        "loc": "ja-JP"
+      },
+      {
+        "id": "ko",
+        "name": "한국어",
+        "en": "Korean",
+        "steam": "koreana",
+        "loc": "ko-KR"
+      },
+      {
+        "id": "de",
+        "name": "Deutsch",
+        "en": "German",
+        "steam": "german",
+        "loc": "de-DE",
+        "dec": true
+      },
+      {
+        "id": "fr",
+        "name": "Français",
+        "en": "French",
+        "steam": "french",
+        "loc": "fr-FR",
+        "dec": true
+      },
+      {
+        "id": "es",
+        "name": "Español",
+        "en": "Spanish",
+        "steam": "spanish",
+        "loc": "es-ES",
+        "dec": true
+      },
+      {
+        "id": "pt-BR",
+        "name": "Português (Brasil)",
+        "en": "Portuguese (Brazil)",
+        "steam": "brazilian",
+        "loc": "pt-BR",
+        "dec": true
+      },
+      {
+        "id": "pl",
+        "name": "Polski",
+        "en": "Polish",
+        "steam": "polish",
+        "loc": "pl-PL",
+        "dec": true
+      },
+      {
+        "id": "tr",
+        "name": "Türkçe",
+        "en": "Turkish",
+        "steam": "turkish",
+        "loc": "tr-TR",
+        "dec": true
+      },
+      {
+        "id": "it",
+        "name": "Italiano",
+        "en": "Italian",
+        "steam": "italian",
+        "loc": "it-IT",
+        "dec": true
+      },
+      {
+        "id": "uk",
+        "name": "Українська",
+        "en": "Ukrainian",
+        "steam": "ukrainian",
+        "loc": "uk-UA",
+        "dec": true
+      },
+      {
+        "id": "cs",
+        "name": "Čeština",
+        "en": "Czech",
+        "steam": "czech",
+        "loc": "cs-CZ",
+        "dec": true
+      },
+      {
+        "id": "th",
+        "name": "ไทย",
+        "en": "Thai",
+        "steam": "thai",
+        "loc": "th-TH"
+      },
+      {
+        "id": "vi",
+        "name": "Tiếng Việt",
+        "en": "Vietnamese",
+        "steam": "vietnamese",
+        "loc": "vi-VN",
+        "dec": true
+      },
+      {
+        "id": "qps",
+        "name": "qps (тест покрытия)",
+        "en": "Pseudo-locale",
+        "steam": "english",
+        "loc": "en-US",
+        "hidden": true
+      }
+    ],
+    "dictionary_files": [
+      "lang/cs.js",
+      "lang/de.js",
+      "lang/es.js",
+      "lang/fr.js",
+      "lang/it.js",
+      "lang/ja.js",
+      "lang/ko.js",
+      "lang/pl.js",
+      "lang/pt-BR.js",
+      "lang/th.js",
+      "lang/tr.js",
+      "lang/uk.js",
+      "lang/vi.js",
+      "lang/zh-CN.js",
+      "lang/zh-TW.js"
+    ],
+    "default_bindings": [
+      {
+        "id": "pause",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Пауза / пуск",
+          "Pause / play"
+        ],
+        "def": "Space",
+        "alts": []
+      },
+      {
+        "id": "step",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Один шаг времени",
+          "Single time step"
+        ],
+        "def": "KeyS",
+        "alts": []
+      },
+      {
+        "id": "speedUp",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Быстрее",
+          "Faster"
+        ],
+        "def": "Equal",
+        "alts": [
+          "NumpadAdd"
+        ]
+      },
+      {
+        "id": "speedDn",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Медленнее",
+          "Slower"
+        ],
+        "def": "Minus",
+        "alts": [
+          "NumpadSubtract"
+        ]
+      },
+      {
+        "id": "brushDn",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Кисть меньше",
+          "Smaller brush"
+        ],
+        "def": "BracketLeft",
+        "alts": []
+      },
+      {
+        "id": "brushUp",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Кисть больше",
+          "Bigger brush"
+        ],
+        "def": "BracketRight",
+        "alts": []
+      },
+      {
+        "id": "toggle3d",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Переключить 2D / 3D",
+          "Toggle 2D / 3D"
+        ],
+        "def": "Tab",
+        "alts": []
+      },
+      {
+        "id": "inspect",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: осмотр",
+          "Tool: inspect"
+        ],
+        "def": "KeyI",
+        "alts": [
+          "KeyQ"
+        ]
+      },
+      {
+        "id": "tool_terrain",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: биом",
+          "Tool: biome"
+        ],
+        "def": "Digit1",
+        "alts": []
+      },
+      {
+        "id": "tool_elevation",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: высота",
+          "Tool: elevation"
+        ],
+        "def": "Digit2",
+        "alts": []
+      },
+      {
+        "id": "tool_smooth",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: сгладить",
+          "Tool: smooth"
+        ],
+        "def": "Digit3",
+        "alts": []
+      },
+      {
+        "id": "tool_water",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: вода",
+          "Tool: water"
+        ],
+        "def": "Digit4",
+        "alts": []
+      },
+      {
+        "id": "tool_temp",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: тепло",
+          "Tool: heat"
+        ],
+        "def": "Digit5",
+        "alts": []
+      },
+      {
+        "id": "tool_precip",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: влага",
+          "Tool: moisture"
+        ],
+        "def": "Digit6",
+        "alts": []
+      },
+      {
+        "id": "tool_current",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: течение",
+          "Tool: current"
+        ],
+        "def": "Digit7",
+        "alts": []
+      },
+      {
+        "id": "tool_wind",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: ветер",
+          "Tool: wind"
+        ],
+        "def": "Digit8",
+        "alts": []
+      },
+      {
+        "id": "tool_population",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: люди",
+          "Tool: people"
+        ],
+        "def": "Digit9",
+        "alts": []
+      },
+      {
+        "id": "tool_eraser",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: ластик",
+          "Tool: eraser"
+        ],
+        "def": "Digit0",
+        "alts": []
+      },
+      {
+        "id": "geoNames",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Инструмент: названия земель",
+          "Tool: land names"
+        ],
+        "def": "KeyN",
+        "alts": []
+      },
+      {
+        "id": "layer_biome",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Слой: биомы",
+          "Layer: biomes"
+        ],
+        "def": "KeyB",
+        "alts": []
+      },
+      {
+        "id": "layer_temperature",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Слой: температура",
+          "Layer: temperature"
+        ],
+        "def": "KeyT",
+        "alts": []
+      },
+      {
+        "id": "layer_humidity",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Слой: осадки",
+          "Layer: precipitation"
+        ],
+        "def": "KeyH",
+        "alts": []
+      },
+      {
+        "id": "layer_currents",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Слой: течения",
+          "Layer: currents"
+        ],
+        "def": "KeyC",
+        "alts": []
+      },
+      {
+        "id": "layer_wind",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Слой: ветер",
+          "Layer: wind"
+        ],
+        "def": "KeyW",
+        "alts": []
+      },
+      {
+        "id": "layer_political",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Слой: державы",
+          "Layer: nations"
+        ],
+        "def": "KeyG",
+        "alts": []
+      },
+      {
+        "id": "layer_population",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Слой: население",
+          "Layer: population"
+        ],
+        "def": "KeyP",
+        "alts": []
+      },
+      {
+        "id": "layer_eco",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Слой: экология",
+          "Layer: ecology"
+        ],
+        "def": "KeyE",
+        "alts": []
+      },
+      {
+        "id": "layer_pollution",
+        "ctx": "map",
+        "group": "map",
+        "l": [
+          "Слой: загрязнение",
+          "Layer: pollution"
+        ],
+        "def": "KeyZ",
+        "alts": []
+      },
+      {
+        "id": "stats",
+        "ctx": "map",
+        "group": "win",
+        "l": [
+          "Статистика мира и держав",
+          "World and nation statistics"
+        ],
+        "def": "F2",
+        "alts": []
+      },
+      {
+        "id": "chronicle",
+        "ctx": "map",
+        "group": "win",
+        "l": [
+          "Хроника",
+          "Chronicle"
+        ],
+        "def": "KeyL",
+        "alts": []
+      },
+      {
+        "id": "people",
+        "ctx": "map",
+        "group": "win",
+        "l": [
+          "Династии и родословные",
+          "Dynasties and family trees"
+        ],
+        "def": "KeyD",
+        "alts": []
+      },
+      {
+        "id": "wars",
+        "ctx": "map",
+        "group": "win",
+        "l": [
+          "Войны",
+          "Wars"
+        ],
+        "def": "KeyV",
+        "alts": []
+      },
+      {
+        "id": "regen",
+        "ctx": "map",
+        "group": "win",
+        "l": [
+          "Новый мир (дважды подряд)",
+          "New world (press twice)"
+        ],
+        "def": "KeyR",
+        "alts": []
+      },
+      {
+        "id": "quickSave",
+        "ctx": "map",
+        "group": "win",
+        "l": [
+          "Быстрое сохранение",
+          "Quick save"
+        ],
+        "def": "F5",
+        "alts": []
+      },
+      {
+        "id": "quickLoad",
+        "ctx": "map",
+        "group": "win",
+        "l": [
+          "Быстрая загрузка",
+          "Quick load"
+        ],
+        "def": "F9",
+        "alts": []
+      },
+      {
+        "id": "journal",
+        "ctx": "walk",
+        "group": "win",
+        "l": [
+          "Прогулка: журнал заданий",
+          "Walk: quest journal"
+        ],
+        "def": "KeyJ",
+        "alts": []
+      },
+      {
+        "id": "wmap",
+        "ctx": "walk",
+        "group": "win",
+        "l": [
+          "Прогулка: карта мира",
+          "Walk: world map"
+        ],
+        "def": "KeyM",
+        "alts": []
+      },
+      {
+        "id": "camF",
+        "ctx": "cam",
+        "group": "cam",
+        "l": [
+          "Камера вперёд",
+          "Camera forward"
+        ],
+        "def": "KeyW",
+        "alts": []
+      },
+      {
+        "id": "camB",
+        "ctx": "cam",
+        "group": "cam",
+        "l": [
+          "Камера назад",
+          "Camera back"
+        ],
+        "def": "KeyS",
+        "alts": []
+      },
+      {
+        "id": "camL",
+        "ctx": "cam",
+        "group": "cam",
+        "l": [
+          "Камера влево",
+          "Camera left"
+        ],
+        "def": "KeyA",
+        "alts": []
+      },
+      {
+        "id": "camR",
+        "ctx": "cam",
+        "group": "cam",
+        "l": [
+          "Камера вправо",
+          "Camera right"
+        ],
+        "def": "KeyD",
+        "alts": []
+      },
+      {
+        "id": "camQL",
+        "ctx": "cam",
+        "group": "cam",
+        "l": [
+          "Повернуть влево",
+          "Rotate left"
+        ],
+        "def": "KeyQ",
+        "alts": []
+      },
+      {
+        "id": "camQR",
+        "ctx": "cam",
+        "group": "cam",
+        "l": [
+          "Повернуть вправо",
+          "Rotate right"
+        ],
+        "def": "KeyE",
+        "alts": []
+      },
+      {
+        "id": "fwd",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Вперёд",
+          "Forward"
+        ],
+        "def": "KeyW",
+        "alts": []
+      },
+      {
+        "id": "back",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Назад",
+          "Back"
+        ],
+        "def": "KeyS",
+        "alts": []
+      },
+      {
+        "id": "left",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Влево",
+          "Left"
+        ],
+        "def": "KeyA",
+        "alts": []
+      },
+      {
+        "id": "right",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Вправо",
+          "Right"
+        ],
+        "def": "KeyD",
+        "alts": []
+      },
+      {
+        "id": "run",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Бег",
+          "Run"
+        ],
+        "def": "ShiftLeft",
+        "alts": [
+          "ShiftRight"
+        ]
+      },
+      {
+        "id": "jump",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Прыжок",
+          "Jump"
+        ],
+        "def": "Space",
+        "alts": []
+      },
+      {
+        "id": "crouch",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Присесть, в воде — нырнуть",
+          "Crouch; in water — dive"
+        ],
+        "def": "ControlLeft",
+        "alts": [
+          "ControlRight",
+          "KeyC"
+        ]
+      },
+      {
+        "id": "use",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Действие: говорить, брать, обыскать",
+          "Use: talk, pick up, search"
+        ],
+        "def": "KeyE",
+        "alts": []
+      },
+      {
+        "id": "vehicle",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Сесть в транспорт / выйти",
+          "Enter / leave a vehicle"
+        ],
+        "def": "KeyF",
+        "alts": []
+      },
+      {
+        "id": "reload",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Перезарядка",
+          "Reload"
+        ],
+        "def": "KeyR",
+        "alts": []
+      },
+      {
+        "id": "view",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Вид: от 1-го / 3-го лица",
+          "View: first / third person"
+        ],
+        "def": "KeyV",
+        "alts": []
+      },
+      {
+        "id": "torch",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Факел / фонарь",
+          "Torch / flashlight"
+        ],
+        "def": "KeyL",
+        "alts": []
+      },
+      {
+        "id": "drop",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Бросить груз подработки",
+          "Drop the job load"
+        ],
+        "def": "KeyG",
+        "alts": []
+      },
+      {
+        "id": "quitjob",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Бросить подработку",
+          "Quit the odd job"
+        ],
+        "def": "KeyX",
+        "alts": []
+      },
+      {
+        "id": "heal",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Быстро подлечиться",
+          "Heal quickly"
+        ],
+        "def": "KeyB",
+        "alts": []
+      },
+      {
+        "id": "time",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Ход времени мира",
+          "World time"
+        ],
+        "def": "KeyT",
+        "alts": []
+      },
+      {
+        "id": "hideui",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Скрыть интерфейс (при розыске — сдаться)",
+          "Hide the interface (when wanted — surrender)"
+        ],
+        "def": "KeyH",
+        "alts": []
+      },
+      {
+        "id": "wpn1",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Оружие {0}",
+          "Weapon {0}"
+        ],
+        "def": "Digit1",
+        "alts": [],
+        "num": 1
+      },
+      {
+        "id": "wpn2",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Оружие {0}",
+          "Weapon {0}"
+        ],
+        "def": "Digit2",
+        "alts": [],
+        "num": 2
+      },
+      {
+        "id": "wpn3",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Оружие {0}",
+          "Weapon {0}"
+        ],
+        "def": "Digit3",
+        "alts": [],
+        "num": 3
+      },
+      {
+        "id": "wpn4",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Оружие {0}",
+          "Weapon {0}"
+        ],
+        "def": "Digit4",
+        "alts": [],
+        "num": 4
+      },
+      {
+        "id": "wpn5",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Оружие {0}",
+          "Weapon {0}"
+        ],
+        "def": "Digit5",
+        "alts": [],
+        "num": 5
+      },
+      {
+        "id": "wpn6",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Оружие {0}",
+          "Weapon {0}"
+        ],
+        "def": "Digit6",
+        "alts": [],
+        "num": 6
+      },
+      {
+        "id": "wpn7",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Оружие {0}",
+          "Weapon {0}"
+        ],
+        "def": "Digit7",
+        "alts": [],
+        "num": 7
+      },
+      {
+        "id": "wpn8",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Оружие {0}",
+          "Weapon {0}"
+        ],
+        "def": "Digit8",
+        "alts": [],
+        "num": 8
+      },
+      {
+        "id": "wpn9",
+        "ctx": "walk",
+        "group": "foot",
+        "l": [
+          "Оружие {0}",
+          "Weapon {0}"
+        ],
+        "def": "Digit9",
+        "alts": [],
+        "num": 9
+      },
+      {
+        "id": "horn",
+        "ctx": "walk",
+        "group": "veh",
+        "l": [
+          "Сигнал, гудок",
+          "Horn"
+        ],
+        "def": "KeyQ",
+        "alts": []
+      },
+      {
+        "id": "v_fwd",
+        "alias": "fwd",
+        "group": "veh",
+        "l": [
+          "Газ, ход вперёд",
+          "Throttle, forward"
+        ]
+      },
+      {
+        "id": "v_back",
+        "alias": "back",
+        "group": "veh",
+        "l": [
+          "Тормоз, назад",
+          "Brake, reverse"
+        ]
+      },
+      {
+        "id": "v_left",
+        "alias": "left",
+        "group": "veh",
+        "l": [
+          "Руль влево",
+          "Steer left"
+        ]
+      },
+      {
+        "id": "v_right",
+        "alias": "right",
+        "group": "veh",
+        "l": [
+          "Руль вправо",
+          "Steer right"
+        ]
+      },
+      {
+        "id": "v_stop",
+        "alias": "jump",
+        "group": "veh",
+        "l": [
+          "Стоп (ручной тормоз)",
+          "Stop (handbrake)"
+        ]
+      },
+      {
+        "id": "v_view",
+        "alias": "view",
+        "group": "veh",
+        "l": [
+          "Вид: кабина / сзади",
+          "View: cab / chase"
+        ]
+      },
+      {
+        "id": "v_exit",
+        "alias": "vehicle",
+        "group": "veh",
+        "l": [
+          "Сесть / сойти",
+          "Get in / get off"
+        ]
+      },
+      {
+        "id": "v_rev",
+        "alias": "reload",
+        "group": "veh",
+        "l": [
+          "Поезд: обратный ход",
+          "Train: reverse"
+        ]
+      },
+      {
+        "id": "v_swl",
+        "alias": "left",
+        "group": "veh",
+        "l": [
+          "Поезд: стрелка налево",
+          "Train: switch left"
+        ]
+      },
+      {
+        "id": "v_swr",
+        "alias": "right",
+        "group": "veh",
+        "l": [
+          "Поезд: стрелка направо",
+          "Train: switch right"
+        ]
+      },
+      {
+        "id": "a_thr",
+        "alias": "fwd",
+        "group": "air",
+        "l": [
+          "Газ: больше",
+          "Throttle up"
+        ]
+      },
+      {
+        "id": "a_thd",
+        "alias": "back",
+        "group": "air",
+        "l": [
+          "Газ: меньше",
+          "Throttle down"
+        ]
+      },
+      {
+        "id": "a_gear",
+        "alias": "quitjob",
+        "group": "air",
+        "l": [
+          "Шасси; у дирижабля — балласт",
+          "Landing gear; airship — ballast"
+        ]
+      },
+      {
+        "id": "a_gas",
+        "alias": "reload",
+        "group": "air",
+        "l": [
+          "Дирижабль: стравить газ",
+          "Airship: valve gas"
+        ]
+      },
+      {
+        "id": "a_chute",
+        "alias": "drop",
+        "group": "air",
+        "l": [
+          "Прыжок с парашютом",
+          "Bail out with a parachute"
+        ]
+      },
+      {
+        "id": "a_brake",
+        "alias": "jump",
+        "group": "air",
+        "l": [
+          "Тормоз; у вертолёта — выше",
+          "Brake; helicopter — up"
+        ]
+      },
+      {
+        "id": "a_look",
+        "alias": "crouch",
+        "group": "air",
+        "l": [
+          "Осмотреться; у вертолёта — ниже",
+          "Look around; helicopter — down"
+        ]
+      },
+      {
+        "id": "t_hull",
+        "alias": "run",
+        "group": "tank",
+        "l": [
+          "Корпус за взглядом (держать)",
+          "Hull follows the gaze (hold)"
+        ]
+      },
+      {
+        "id": "t_gun",
+        "alias": "view",
+        "group": "tank",
+        "l": [
+          "Вид наводчика / из башни",
+          "Gunner sight / turret view"
+        ]
+      },
+      {
+        "id": "t_exit",
+        "alias": "vehicle",
+        "group": "tank",
+        "l": [
+          "Выйти из машины",
+          "Leave the vehicle"
+        ]
+      }
+    ],
+    "gamepad_buttons": {
+      "A": 0,
+      "B": 1,
+      "X": 2,
+      "Y": 3,
+      "LB": 4,
+      "RB": 5,
+      "LT": 6,
+      "RT": 7,
+      "BACK": 8,
+      "START": 9,
+      "L3": 10,
+      "R3": 11,
+      "UP": 12,
+      "DOWN": 13,
+      "LEFT": 14,
+      "RIGHT": 15
+    },
+    "gamepad_default_bindings": {
+      "foot": [
+        [
+          "attack",
+          7,
+          1
+        ],
+        [
+          "aim",
+          6,
+          1
+        ],
+        [
+          "wnext",
+          5
+        ],
+        [
+          "wprev",
+          4
+        ],
+        [
+          "jump",
+          0,
+          1
+        ],
+        [
+          "crouch",
+          1,
+          1
+        ],
+        [
+          "use",
+          2
+        ],
+        [
+          "vehicle",
+          3
+        ],
+        [
+          "run",
+          10
+        ],
+        [
+          "view",
+          11
+        ],
+        [
+          "torch",
+          12
+        ],
+        [
+          "reload",
+          13
+        ],
+        [
+          "heal",
+          14
+        ],
+        [
+          "journal",
+          15
+        ],
+        [
+          "wmap",
+          8
+        ],
+        [
+          "drop",
+          34
+        ],
+        [
+          "quitjob",
+          35
+        ],
+        [
+          "time",
+          32
+        ],
+        [
+          "hideui",
+          33
+        ]
+      ],
+      "veh": [
+        [
+          "v_fwd",
+          7,
+          1
+        ],
+        [
+          "v_back",
+          6,
+          1
+        ],
+        [
+          "fire",
+          5,
+          1
+        ],
+        [
+          "aim2",
+          4,
+          1
+        ],
+        [
+          "v_stop",
+          0,
+          1
+        ],
+        [
+          "a_look",
+          1,
+          1
+        ],
+        [
+          "use",
+          2
+        ],
+        [
+          "v_exit",
+          3
+        ],
+        [
+          "horn",
+          10
+        ],
+        [
+          "v_view",
+          11
+        ],
+        [
+          "a_gear",
+          12
+        ],
+        [
+          "v_rev",
+          13
+        ],
+        [
+          "a_chute",
+          14
+        ],
+        [
+          "journal",
+          15
+        ],
+        [
+          "wmap",
+          8
+        ],
+        [
+          "torch",
+          34
+        ],
+        [
+          "heal",
+          35
+        ],
+        [
+          "time",
+          32
+        ],
+        [
+          "hideui",
+          33
+        ]
+      ],
+      "map": [
+        [
+          "click",
+          0,
+          1
+        ],
+        [
+          "back",
+          1
+        ],
+        [
+          "pause",
+          2
+        ],
+        [
+          "toggle3d",
+          3
+        ],
+        [
+          "zoomIn",
+          7,
+          1
+        ],
+        [
+          "zoomOut",
+          6,
+          1
+        ],
+        [
+          "rotR",
+          5,
+          1
+        ],
+        [
+          "rotL",
+          4,
+          1
+        ],
+        [
+          "speedDn",
+          14
+        ],
+        [
+          "speedUp",
+          15
+        ],
+        [
+          "stats",
+          12
+        ],
+        [
+          "chronicle",
+          13
+        ]
+      ]
+    },
+    "gamepad_contexts": [
+      "foot",
+      "veh",
+      "map"
+    ],
+    "gamepad_parameters": {
+      "DEAD": 0.18,
+      "CURSOR": 1000,
+      "LOOK": 1050,
+      "STICK_KEY": 0.35,
+      "TRIG": 0.3,
+      "PAN": 1.15,
+      "PAN2D": 900,
+      "ROT": 1.5,
+      "ZOOM": 1.9,
+      "SCROLL": 1100,
+      "POINTER": 9173,
+      "CAP_MS": 9000
+    },
+    "default_units": {
+      "temp": "c",
+      "len": "metric"
+    }
+  },
+  "rules": [
+    {
+      "id": "INP-001",
+      "source_id": "SRC-267",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/keys.js",
+        "line": 26,
+        "end_line": 131,
+        "sha256": "7852e660c5f546c10bd54f6f65a3e31b3461c93550479e02988464d3c975eac7"
+      }
+    },
+    {
+      "id": "INP-002",
+      "source_id": "SRC-267",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 280,
+        "end_line": 280,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "INP-003",
+      "source_id": "SRC-267",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/ui.js",
+        "line": 1115,
+        "end_line": 1170,
+        "sha256": "db71219cbc1f7e84e6753730a6e4913c2316b9e4735a461bea3fa24256da6435"
+      }
+    },
+    {
+      "id": "INP-004",
+      "source_id": "SRC-267",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walk.js",
+        "line": 790,
+        "end_line": 811,
+        "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73"
+      }
+    },
+    {
+      "id": "INP-005",
+      "source_id": "SRC-267",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/walk.js",
+        "line": 893,
+        "end_line": 893,
+        "sha256": "ae90c6c4567c40ddf0196ea4de291aa9c5ff67b8563cbba215c48d1b65bfbf73"
+      }
+    },
+    {
+      "id": "INP-006",
+      "source_id": "SRC-268",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/keys.js",
+        "line": 139,
+        "end_line": 241,
+        "sha256": "7852e660c5f546c10bd54f6f65a3e31b3461c93550479e02988464d3c975eac7"
+      }
+    },
+    {
+      "id": "INP-007",
+      "source_id": "SRC-268",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/keys.js",
+        "line": 242,
+        "end_line": 304,
+        "sha256": "7852e660c5f546c10bd54f6f65a3e31b3461c93550479e02988464d3c975eac7"
+      }
+    },
+    {
+      "id": "INP-008",
+      "source_id": "SRC-268",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/keys.js",
+        "line": 397,
+        "end_line": 469,
+        "sha256": "7852e660c5f546c10bd54f6f65a3e31b3461c93550479e02988464d3c975eac7"
+      }
+    },
+    {
+      "id": "INP-009",
+      "source_id": "SRC-269",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gamepad.js",
+        "line": 1,
+        "end_line": 74,
+        "sha256": "57575f19dad62a932b829691749f38e5173783ff32a283ec86b63d5a49fe0356"
+      }
+    },
+    {
+      "id": "INP-010",
+      "source_id": "SRC-269",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gamepad.js",
+        "line": 75,
+        "end_line": 204,
+        "sha256": "57575f19dad62a932b829691749f38e5173783ff32a283ec86b63d5a49fe0356"
+      }
+    },
+    {
+      "id": "INP-011",
+      "source_id": "SRC-269",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gamepad.js",
+        "line": 205,
+        "end_line": 289,
+        "sha256": "57575f19dad62a932b829691749f38e5173783ff32a283ec86b63d5a49fe0356"
+      }
+    },
+    {
+      "id": "INP-012",
+      "source_id": "SRC-269",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gamepad.js",
+        "line": 290,
+        "end_line": 359,
+        "sha256": "57575f19dad62a932b829691749f38e5173783ff32a283ec86b63d5a49fe0356"
+      }
+    },
+    {
+      "id": "INP-013",
+      "source_id": "SRC-269",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/gamepad.js",
+        "line": 360,
+        "end_line": 424,
+        "sha256": "57575f19dad62a932b829691749f38e5173783ff32a283ec86b63d5a49fe0356"
+      }
+    },
+    {
+      "id": "INP-014",
+      "source_id": "SRC-270",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/osk.js",
+        "line": 1,
+        "end_line": 102,
+        "sha256": "dde718702edcd49836f14158db84f07a4de4ef9e98cfd22681e7e529bda7c3dd"
+      }
+    },
+    {
+      "id": "INP-015",
+      "source_id": "SRC-270",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/steam.js",
+        "line": 237,
+        "end_line": 244,
+        "sha256": "958ff239186f52f5fb79302f812c4e8d1594180a65d88183272b8212eca1b126"
+      }
+    },
+    {
+      "id": "INP-016",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/i18n.js",
+        "line": 1,
+        "end_line": 76,
+        "sha256": "125716e5af130dd5d64520953ef5a4dee013cba358669359cabe236c02f6f74e"
+      }
+    },
+    {
+      "id": "INP-017",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/i18n.js",
+        "line": 77,
+        "end_line": 121,
+        "sha256": "125716e5af130dd5d64520953ef5a4dee013cba358669359cabe236c02f6f74e"
+      }
+    },
+    {
+      "id": "INP-018",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/i18n.js",
+        "line": 124,
+        "end_line": 170,
+        "sha256": "125716e5af130dd5d64520953ef5a4dee013cba358669359cabe236c02f6f74e"
+      }
+    },
+    {
+      "id": "INP-019",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/i18n.js",
+        "line": 172,
+        "end_line": 224,
+        "sha256": "125716e5af130dd5d64520953ef5a4dee013cba358669359cabe236c02f6f74e"
+      }
+    },
+    {
+      "id": "INP-020",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1171,
+        "end_line": 1179,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "INP-021",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/index.html",
+        "line": 698,
+        "end_line": 709,
+        "sha256": "e95a1d866d834fb8e8ba94e64d1188ca75fb6715ddcd0045fdbfa5b49945953a"
+      }
+    },
+    {
+      "id": "INP-022",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/cs.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "407fc9273d83b1e8cdf92a300ac802637defb3de67b2bf2aea256b6df018a138"
+      }
+    },
+    {
+      "id": "INP-023",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/de.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "fe98fd5ae5eb21b476f136945f08191f248ceef418b6d050866eb9a9644b137f"
+      }
+    },
+    {
+      "id": "INP-024",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/es.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "7cdb0351d4cd5d2d2c9a57d4be0c9c5843ed858ce997e62e240df413338647b6"
+      }
+    },
+    {
+      "id": "INP-025",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/fr.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "dbb557075b36148ffc5ecbe391842eded78869b63ba6413dd4a79d96142a6a8e"
+      }
+    },
+    {
+      "id": "INP-026",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/it.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "63d552acabad09c90480267fac6f0e3612bda1137f62138caeec954cfb93a9d3"
+      }
+    },
+    {
+      "id": "INP-027",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/ja.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "1b1e233d12cc21719b8bc8daf5b14ac3f9cc66ed91653ea16f6973406c8cb425"
+      }
+    },
+    {
+      "id": "INP-028",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/ko.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "e594e7affa11691c5328bafd6bf138e59b73bcdd85f5a9a07b49efcf34d1666f"
+      }
+    },
+    {
+      "id": "INP-029",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/pl.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "6d618baf62d6029f540923ca1c59b3309a0aee5deb344d9fef0bb52d77b9d603"
+      }
+    },
+    {
+      "id": "INP-030",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/pt-BR.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "ffe211d8af274a007a3d34c77b25f0a3709dc35731f946ea81982a46085079e7"
+      }
+    },
+    {
+      "id": "INP-031",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/th.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "dd22c686b22b47e1266744dff9afe7c8f0c8cb45ea7bc893e2e74cdc58139cdd"
+      }
+    },
+    {
+      "id": "INP-032",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/tr.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "4ca23a6fcef31d68e1f6d7238c70ca0b272621c6f1a31b413211541a6a9fe165"
+      }
+    },
+    {
+      "id": "INP-033",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/uk.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "52a8da380fa9bb96856c35266103ef8f5a924a0f00c3212fef84cd102e03dddb"
+      }
+    },
+    {
+      "id": "INP-034",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/vi.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "4fd54042cf533fec709087a0b34d31c519207ee6ca3525fafdddebabf3f4105f"
+      }
+    },
+    {
+      "id": "INP-035",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/zh-CN.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "605ce94bb1dcf9f5bc103b1a9c4d07809602a33506f364bd74d57b0f55b6ccb7"
+      }
+    },
+    {
+      "id": "INP-036",
+      "source_id": "SRC-271",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/lang/zh-TW.js",
+        "line": 1,
+        "end_line": 6843,
+        "sha256": "1eacf4ba0694cd10e723c1f4768ecd0562115e710cbb8b8224db3a22860862d0"
+      }
+    },
+    {
+      "id": "INP-037",
+      "source_id": "SRC-272",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/units.js",
+        "line": 1,
+        "end_line": 35,
+        "sha256": "dba62d2c7218e0d9f10218eb4b2fa2804599a157bbac9244a800f53f7054838a"
+      }
+    },
+    {
+      "id": "INP-038",
+      "source_id": "SRC-272",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/units.js",
+        "line": 36,
+        "end_line": 59,
+        "sha256": "dba62d2c7218e0d9f10218eb4b2fa2804599a157bbac9244a800f53f7054838a"
+      }
+    },
+    {
+      "id": "INP-039",
+      "source_id": "SRC-272",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/units.js",
+        "line": 61,
+        "end_line": 98,
+        "sha256": "dba62d2c7218e0d9f10218eb4b2fa2804599a157bbac9244a800f53f7054838a"
+      }
+    },
+    {
+      "id": "INP-040",
+      "source_id": "SRC-272",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1171,
+        "end_line": 1179,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    },
+    {
+      "id": "INP-041",
+      "source_id": "SRC-272",
+      "evidence_type": "static_traced",
+      "source": {
+        "path": "EarthSimulator/menu.js",
+        "line": 1275,
+        "end_line": 1279,
+        "sha256": "5abb4e76ee89bfeb53c18e38de2d08fa732565737e6e0537f93b133e852fbc78"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "HOTKEYS",
+      "source_id": "SRC-267",
+      "summary": "Map and walk hotkey dispatch, fixed keys, repeat and context boundaries",
+      "evidence": [
+        "INP-001",
+        "INP-002",
+        "INP-003",
+        "INP-004",
+        "INP-005"
+      ],
+      "checks": [
+        "keys-default-context-and-alternative",
+        "keys-remaps-down-up-and-leaves-typing-alone"
+      ]
+    },
+    {
+      "id": "REBIND",
+      "source_id": "SRC-268",
+      "summary": "Binding validation, conflict resolution, event remap and settings",
+      "evidence": [
+        "INP-006",
+        "INP-007",
+        "INP-008"
+      ],
+      "checks": [
+        "keys-default-context-and-alternative",
+        "keys-change-persists-and-resets",
+        "keys-saved-bindings-load",
+        "keys-same-context-conflict-and-swap",
+        "keys-alias-follows-canonical-walk-binding",
+        "keys-reject-reserved-codes",
+        "keys-snapshot-restores-staged-changes",
+        "keys-corrupt-same-context-overrides-reset",
+        "keys-captured-code-fires-once",
+        "keys-remaps-down-up-and-leaves-typing-alone",
+        "keys-camera-context-wins-over-map-in-3D"
+      ]
+    },
+    {
+      "id": "GAMEPAD",
+      "source_id": "SRC-269",
+      "summary": "Controller assignment, binding, stick response and map or walk input",
+      "evidence": [
+        "INP-009",
+        "INP-010",
+        "INP-011",
+        "INP-012",
+        "INP-013"
+      ],
+      "checks": [
+        "gamepad-family-detection",
+        "gamepad-radial-dead-zone-and-rescale",
+        "gamepad-context-defaults-and-overrides",
+        "gamepad-colliding-profile-context-falls-back",
+        "gamepad-trigger-values-and-Back-chord",
+        "gamepad-capture-waits-for-release-and-times-out"
+      ]
+    },
+    {
+      "id": "OSK",
+      "source_id": "SRC-270",
+      "summary": "Text field eligibility, native fallback, layouts, editing and controller input",
+      "evidence": [
+        "INP-014",
+        "INP-015"
+      ],
+      "checks": [
+        "osk-selects-editable-text-fields-only",
+        "osk-replaces-selection-and-emits-input",
+        "osk-append-when-caret-is-unavailable",
+        "osk-native-failure-falls-back-only-for-focused-input"
+      ]
+    },
+    {
+      "id": "LOCALE",
+      "source_id": "SRC-271",
+      "summary": "Language selection, dictionary lookup, plural forms, numeric locale and reload",
+      "evidence": [
+        "INP-016",
+        "INP-017",
+        "INP-018",
+        "INP-019",
+        "INP-020",
+        "INP-021",
+        "INP-022",
+        "INP-023",
+        "INP-024",
+        "INP-025",
+        "INP-026",
+        "INP-027",
+        "INP-028",
+        "INP-029",
+        "INP-030",
+        "INP-031",
+        "INP-032",
+        "INP-033",
+        "INP-034",
+        "INP-035",
+        "INP-036"
+      ],
+      "checks": [
+        "locale-default-and-persistence",
+        "locale-russian-and-english-inline",
+        "locale-template-substitution",
+        "locale-Russian-plural-boundaries",
+        "locale-priority-and-chinese-variants",
+        "locale-dictionary-load-versus-English-fallback",
+        "locale-all-15-bundled-dictionaries-register"
+      ]
+    },
+    {
+      "id": "UNITS",
+      "source_id": "SRC-272",
+      "summary": "Unit preferences, numeric formulas, string conversion and settings",
+      "evidence": [
+        "INP-037",
+        "INP-038",
+        "INP-039",
+        "INP-040",
+        "INP-041"
+      ],
+      "checks": [
+        "units-celsius-fahrenheit-absolute-and-delta",
+        "units-US-length-speed-tonnes-and-distance-boundary",
+        "units-unsupported-preferences-use-defaults",
+        "units-string-filter-converts-after-translation"
+      ]
+    }
+  ],
+  "verification": {
+    "passed": 32,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "keys-default-context-and-alternative",
+        "status": "passed"
+      },
+      {
+        "id": "keys-change-persists-and-resets",
+        "status": "passed"
+      },
+      {
+        "id": "keys-saved-bindings-load",
+        "status": "passed"
+      },
+      {
+        "id": "keys-same-context-conflict-and-swap",
+        "status": "passed"
+      },
+      {
+        "id": "keys-alias-follows-canonical-walk-binding",
+        "status": "passed"
+      },
+      {
+        "id": "keys-reject-reserved-codes",
+        "status": "passed"
+      },
+      {
+        "id": "keys-snapshot-restores-staged-changes",
+        "status": "passed"
+      },
+      {
+        "id": "keys-corrupt-same-context-overrides-reset",
+        "status": "passed"
+      },
+      {
+        "id": "keys-captured-code-fires-once",
+        "status": "passed"
+      },
+      {
+        "id": "keys-remaps-down-up-and-leaves-typing-alone",
+        "status": "passed"
+      },
+      {
+        "id": "keys-camera-context-wins-over-map-in-3D",
+        "status": "passed"
+      },
+      {
+        "id": "gamepad-family-detection",
+        "status": "passed"
+      },
+      {
+        "id": "gamepad-radial-dead-zone-and-rescale",
+        "status": "passed"
+      },
+      {
+        "id": "gamepad-context-defaults-and-overrides",
+        "status": "passed"
+      },
+      {
+        "id": "gamepad-colliding-profile-context-falls-back",
+        "status": "passed"
+      },
+      {
+        "id": "gamepad-trigger-values-and-Back-chord",
+        "status": "passed"
+      },
+      {
+        "id": "gamepad-capture-waits-for-release-and-times-out",
+        "status": "passed"
+      },
+      {
+        "id": "osk-selects-editable-text-fields-only",
+        "status": "passed"
+      },
+      {
+        "id": "osk-replaces-selection-and-emits-input",
+        "status": "passed"
+      },
+      {
+        "id": "osk-append-when-caret-is-unavailable",
+        "status": "passed"
+      },
+      {
+        "id": "osk-native-failure-falls-back-only-for-focused-input",
+        "status": "passed"
+      },
+      {
+        "id": "locale-default-and-persistence",
+        "status": "passed"
+      },
+      {
+        "id": "locale-russian-and-english-inline",
+        "status": "passed"
+      },
+      {
+        "id": "locale-template-substitution",
+        "status": "passed"
+      },
+      {
+        "id": "locale-Russian-plural-boundaries",
+        "status": "passed"
+      },
+      {
+        "id": "locale-priority-and-chinese-variants",
+        "status": "passed"
+      },
+      {
+        "id": "locale-dictionary-load-versus-English-fallback",
+        "status": "passed"
+      },
+      {
+        "id": "locale-all-15-bundled-dictionaries-register",
+        "status": "passed"
+      },
+      {
+        "id": "units-celsius-fahrenheit-absolute-and-delta",
+        "status": "passed"
+      },
+      {
+        "id": "units-US-length-speed-tonnes-and-distance-boundary",
+        "status": "passed"
+      },
+      {
+        "id": "units-unsupported-preferences-use-defaults",
+        "status": "passed"
+      },
+      {
+        "id": "units-string-filter-converts-after-translation",
+        "status": "passed"
+      }
+    ],
+    "environment": {
+      "node": "v26.13.1",
+      "platform": "win32",
+      "execution": "Shipped input and localization modules in node:vm with finite browser and device adapters"
+    },
+    "runtime_verified": false,
+    "probe_sha256": "00d799fb9e52269ce2af99b690bee1e60a576fac34f90080c6fae15145be1759",
+    "extractor_sha256": "da53c9a783181e405a5c1134dec0ea62c19b5ca8ea52af8667f232f3b41820e9"
+  },
+  "limitations": [
+    "Input and localization code uses finite browser, event and controller adapters.",
+    "Map and walk consumers, fullscreen, native Steam keyboard and real control devices are traced statically.",
+    "A dictionary registration check does not measure translation quality or visual coverage."
+  ],
+  "next_package": "WP-PRESENTATION"
+}
