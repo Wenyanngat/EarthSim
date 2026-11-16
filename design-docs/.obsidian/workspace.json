@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "EXTRACTION_PLAN.md",
+                "file": "GAME_DESIGN.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "EXTRACTION_PLAN"
+              "title": "GAME_DESIGN"
             }
           }
         ]
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "EXTRACTION_PLAN.md",
+                "file": "GAME_DESIGN.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -201,6 +201,11 @@
   },
   "active": "4c67115ff747e0db",
   "lastOpenFiles": [
+    "topics/walk/transport.md",
+    "GAME_DESIGN.md",
+    "Earth Simulator Дизайн Документ.md",
+    "SOURCES.md",
+    "EXTRACTION_PLAN.md",
     "research/extraction-presentation.json",
     "topics/interface/graphics-audio.md",
     "research/extraction-input-access.json",
@@ -218,14 +223,11 @@
     "POPULOUS_DLC.md",
     "EXPANSION_IDEAS.md",
     "ROADMAP.md",
-    "GAME_DESIGN.md",
     "research/extraction-scenarios-profile.json",
     "topics/menu/scripted-events.md",
     "research/extraction-local-multiplayer.json",
     "topics/network/local-coop-rivalry.md",
-    "SOURCES.md",
     "topics/simulation/baseline.md",
-    "research/extraction-network-walk.json",
     "topics/network/walk.md",
     "topics/network/rooms-sync.md",
     "topics/walk/combat.md",
@@ -235,8 +237,6 @@
     "topics/simulation/demography-cities.md",
     "topics/menu/lobby.md",
     "topics/menu/mods-workshop.md",
-    "topics/menu/multiplayer.md",
-    "topics/menu/save-load.md",
     "assets/image35.png"
   ]
 }
