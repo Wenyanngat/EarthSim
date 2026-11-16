@@ -61,3 +61,7 @@ The bridge routes platform activity. Workshop, room membership and authorization
 ## Verification boundary
 
 The JavaScript bridge and achievement module ran in Node with a simulated child pipe, browser state and clock. Checks covered queued and split replies, missing and closed helpers, the profile union, counter accumulation and flushing, leaderboard decoding and timeouts, Workshop settling and selected Remote Play and keyboard paths. Open questions include the native helper's internal behavior, actual Steam service acceptance, account authorization, hardware input and Steam Cloud. [SRC-266]
+
+## Zombie Epidemic ownership in 2.2.0
+
+The creator tool for starting a Zombie Epidemic outbreak checks entitlement at selection. The existing outbreak is part of the world state. A player can join a world containing the outbreak or load its save and interact with it without owning the add-on. The unentitled offline test profile kept the tool locked and loaded an active pre-existing outbreak. Steam's entitlement response, purchase flow and cross-owner rooms remain open. [SRC-306, SRC-307]

@@ -42,3 +42,13 @@
 Покупка ищет пригодное место около лавки до списания. Земля или вода выбирается по типу, проверяются коллизии, для каравана нужна свободная полоса. Успех создаёт `ownerPl` и добавляет `{t}` в `WKP.ext.eco.own`, максимум три записи. При входе и переносе собственность расставляется один раз после готовности сцены и при наличии плана, около игрока. Если точки нет, запись типа остаётся, экземпляр в этой высадке отсутствует. Каждая высадка строит экземпляры по типу. Флаг `wreck` или `gone` замеченного экземпляра удаляет запись при очередной сверке. [SRC-155]
 
 Продажа даёт 55% базовой местной цены с теми же исключениями славы и контрабанды. Продать транспорт, в котором находится игрок, нельзя. Продажа снимает экземпляр и запись. Посадка в чужой транспорт идёт через отдельный путь, может вызвать реакцию хозяина или закона и не создаёт запись о покупке. [SRC-154, SRC-155]
+
+## Stock exchange in 2.2.0
+
+A qualifying Walk broker or city merchant can open the stock exchange. Purchases and sales change the character's purse and portfolio. Dividends and corporate actions are reconciled against the world company's record. See [ownership and Walk exchange](../states/companies.md#ownership-and-walk-exchange). [SRC-300, SRC-302]
+
+## Bag and quick slots in 2.2.0
+
+The bag reads general goods from the character's inventory and ammunition and owned weapons from the arms profile. It dispatches medicine to timed treatment, gear to the equipment slots and other consumables to the item's use handler. Clothing warmth applies while the equipped piece is owned. The journal's Items page opens the bag and still lists owned vehicles. [SRC-309]
+
+The standard and Survival modes each keep a ten-slot layout in the same character's kit. Assigning a slot or moving an assignment marks that mode's layout as customised. Equipment appearance and common gear have their own profile fields. A saved slot may retain a known item after it runs out. In the fixture a roast-meat assignment saved in Survival stayed in that layout after entry in standard mode. [SRC-309, SRC-313]

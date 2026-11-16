@@ -36,3 +36,7 @@
 ## Товарная карточка города [SRC-094, SRC-097, SRC-100]
 
 [Полная товарная модель](../states/trade-mechanics.md) прослеживает запросы городского окна: лучший источник каждого товара, первые12 путей/входящих и сохранённые исходящие партии. Это не полный городской склад/журнал. Пакет имеет71 изолированную проверку, отрисовка окна не наблюдалась.
+
+## City ruins and landmarks in 2.2.0
+
+Cities can retain the form, era and development stock remembered before a disaster. Landmark ownership follows the city while preserving the original builder. The city card exposes both of these histories. See [settlement recovery and landmarks](../simulation/settlement-recovery.md). [SRC-304, SRC-305, SRC-307]

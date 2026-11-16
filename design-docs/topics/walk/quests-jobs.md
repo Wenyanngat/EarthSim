@@ -60,3 +60,11 @@
 ## Дополнение морского пакета
 
 Портовая работа SEA имеет оплату за ящик, суточный предел, премию смены и отдельную премию полной разгрузки. Груз привязан к складу своего причала. [Подробные правила](sea.md#работа-с-грузом) [SRC-190]
+
+## Careers in 2.2.0
+
+A dispatcher shows route or work offers for a bus or omnibus, taxi or cab, truck or wagon, and captain, where local transport and job rules permit. The career layer rejects concurrent commitments such as odd jobs, service, custody and active passage tickets. A wanted character cannot start a shift. Some rewards are paid as objectives complete during the shift. Completing a shift adds experience, a completed-shift count and a reputation adjustment. The Work journal retains the latest 20 shift outcomes, including interrupted shifts. [SRC-310]
+
+The four rank thresholds are 0, 6, 18 and 40 XP. Their wage multipliers are 1, 1.15, 1.3 and 1.5. Each payment rounds the employer's daily wage times the reward in wage days, the rank multiplier and the reputation factor (1 + reputation / 400). A positive reward pays at least one unit in the employer's currency. [SRC-310]
+
+A bus shift follows a generated loop. The bus must face along the road, hold its door near the stop and remain below 0.5 m/s for 1.5 seconds. A served stop pays 0.25 daily wages, increased by 30% for an on-time arrival. Returning to the first stop pays a further 0.6 daily wages and awards 3 XP. The controlled eight-stop loop paid 30 units in total and recorded one completed shift and 3 XP. The remaining road and sea careers have source traces. [SRC-310, SRC-313]

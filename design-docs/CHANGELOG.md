@@ -1,5 +1,30 @@
 # Изменения исследовательской документации
 
+## 2026-11-16. Map-size boundary on Steam build 26710925
+
+- Verified an in-game LAN host and guest handshake at 220×220, blocked oversized host selections in the room dialog, and measured solo generation and F5 at three near-limit sizes. [SRC-319, SRC-320]
+
+## 2026-11-16. Network and add-ons on Steam build 26710925
+
+- Documented shared vehicles, room recovery and authored scenario nations. Twelve scoped checks passed across two local clients and the add-on editor. Mapped changed modules and release-note sections to topics and verification items. [SRC-314–318]
+
+## 2026-11-16. Walk progression on Steam build 26710925
+
+- Documented interior access, survival needs and gear, civilian careers, civic treatment, military service and custody. Twelve controlled Windows checks passed, including a save and reload during custody. [SRC-308–313]
+
+## 2026-11-16. Terrain, disasters and cities on Steam build 26710925
+
+- Documented terrain and river tools, sea ice, persistent damage and city recovery, landmarks, outbreak tracking and DLC ownership. Fifteen controlled offline checks passed. [SRC-303–307]
+
+## 2026-11-16. Companies and economy on Steam build 26710925
+
+- Documented company formation and valuation, ownership, stock trading, dividends and corporate vehicle models. Eleven controlled offline checks passed. [SRC-299–302]
+
+## 2026-11-16. Warfare across map and Walk on Steam build 26710925
+
+- Documented regiments, mobilisation, supply and encirclement, occupation, air support and the Walk casualty path. Thirteen offline checks passed.
+- Recorded the updated 2.2.0 build, default 3D map, instant rules indicator and world-tool pacing. Three additional interface checks passed. [SRC-293–298]
+
 ## 2026-11-16. Release 2.2.0 politics, diplomacy and development
 
 - Documented government transitions and succession, ideological change, religious tenets, rights, contacts, blocs, stability and resource-gated research. Fourteen controlled offline observations passed, including persistence of political and diplomatic state. [SRC-288–292]

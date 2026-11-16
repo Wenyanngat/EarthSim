@@ -260,3 +260,7 @@ The isolated checks executed the five modules with browser, event and device ada
 | `th` | Thai | `thai` | `th-TH` | Visible |
 | `vi` | Vietnamese | `vietnamese` | `vi-VN` | Visible |
 | `qps` | Pseudo-locale | `english` | `en-US` | Hidden |
+
+## Room language change in 2.2.0
+
+The selected language is stored before the page reload. A connected room prepares the seat and world recovery first. The two-client test changed the guest to German and restored its existing room seat and local snapshot. See [room recovery](../network/rooms-sync.md#room-recovery-in-220). [SRC-315, SRC-317]

@@ -12,7 +12,9 @@
 
 ## 2.2.0 research order
 
-1. **Build, saves and map sizes.** Compare both builds. Trace map limits, frame scheduling, saves and reloads. Check legacy fixtures and large-map quick save.
+The active reference is Steam build 26710925. The installed game and all new fixtures use 2.2.0. Evidence from earlier builds remains dated to the build on which it was collected.
+
+1. **Build, saves and map sizes.** Identify the installed build. Trace map limits, frame scheduling, saves and reloads. Test ordinary and large-map quick saves with the available fixtures.
 2. **World rules and historical start.** Trace New Game and Planet rules, the ancient start, later arrivals, calendar labels and persistence.
 3. **Politics, diplomacy and development.** Trace governments, ideologies, faith, diplomacy, blocs, stability and technology.
 4. **Warfare across map and Walk.** Trace regiments, fronts, supply, air support and the link between world and local combat.
@@ -21,7 +23,7 @@
 7. **Walk and progression.** Trace interiors, survival, inventory, jobs, service, public facilities and custody.
 8. **Network, add-ons and regressions.** Verify shared vehicles, connections, language change, add-ons and editor changes. Assign every changed module and release note to a GDD topic or verification issue.
 
-The first three passes have [source traces and scoped offline observations](research/release-2.2.0.json). Warfare across map and Walk is next. See the [remaining checks](OPEN_QUESTIONS.md#220-verification).
+All eight release passes have [source traces and scoped offline observations](research/release-2.2.0.json). The map-size follow-up measured generation and quick save at three near-limit sizes and observed a full in-game LAN join at 220×220. [SRC-319, SRC-320] See the [remaining platform and regression checks](OPEN_QUESTIONS.md#220-verification).
 
 ## Приоритеты извлечения
 

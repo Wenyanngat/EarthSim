@@ -4,6 +4,12 @@
 
 > `DOC-WORLD-TERRAIN` · WP-WORLD-NATURE · Earth Simulator 2.1.4. Статическая трассировка и изолированные проверки из копии поставленных скриптов.
 
+## Terrain tools and drainage in 2.2.0
+
+Flatten stores its target in metres relative to the sea level. The target spans −4,000 to +5,000 m, and the slider has finer increments near sea level. The centre at default strength moves halfway toward the target per stroke. The pull weakens toward the brush edge and snaps within two metres of the target. The tool sends the converted height for the current world. Finishing terrain edits recalculates water, coasts, slope, basins and rivers, with large-map scheduling for currents. The tested stroke moved a cell from about 1,000 m to 600 m toward a 200 m target. [SRC-303, SRC-307]
+
+Natural drainage adds precipitation and flows downhill to the lowest strictly lower neighbour among the eight adjacent cells. It normalises flow before adding artificial springs. The River tool starts on the land near the higher end or opposite the shore, trims loops and cuts a descending channel. It extends the stroke along natural drainage first and uses a path search that penalises uphill moves when needed. A route that cannot reach water can still end in a basin. Removing a spring removes its extra flow. The carved height remains. Spring records survive ordinary save and load and the life reset. [SRC-303, SRC-307]
+
 ## Из каких высот получается карта
 
 `GRID` по умолчанию 80×60. При старте `earthsim.boot` может задать обе стороны от 24 до 220. Массивы клеток создаются под этот размер до `worldgen`. Поданный seed используется как целое через `|0`, если исходное значение больше 0 и меньше `2147483647`. Иначе генератор выбирает зерно через `Math.random`. Локальный `_seededRng` выбирает центры плит и смещение шума. `rand2` хеширует координаты с `worldSeed`, `vnoise` интерполирует четыре значения по кривой `u²(3−2u)`, а `fbm` складывает октавы, удваивая частоту и уменьшая амплитуду вдвое. [SRC-118]

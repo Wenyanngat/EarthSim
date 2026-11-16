@@ -98,3 +98,17 @@ stateDiagram-v2
 ## 2.2.0 room size limit
 
 Hosting and joining reject a map with either side above 220 cells. New Game opened from room creation applies that limit before generating a world. Solo New Game accepts a side up to 1000. [SRC-280]
+
+Create a room from the Local network tab to start the in-game LAN server. The New World option opens New Game with oversized presets disabled and custom dimensions capped at 220 on each axis. If either axis of a current world or disk save exceeds 220, the room dialog disables its entry and shows the size limit in the label. The guest checks both the listed room size and the size confirmed by the server before reloading to join. After reload, the guest requests the host snapshot and applies it to a grid with matching dimensions. [SRC-319]
+
+On Steam build 26710925, two Windows clients used the Local network menu and joined by loopback address. The host opened a 220×220 room in 2.91 s from Create World. The guest applied one snapshot in 3.51 s from Join. Both clients listed two players. The guest had the host seed and a matching terrain sample. The room dialog disabled the current world and the F5 save at both 221×220 and 220×221. [SRC-320]
+
+## World-tool limits in Steam build 26710925
+
+World-tool command cost rises with the tool's impact and brush area. The room's active-event check counts player-created disasters up to 12 while the rocket and strike tools check a 24-entry limit for flights in progress. The client and relay pace room actions. Ordinary single-player point-tool clicks also use a local budget and active-event check. These behaviours are traced in source. Connected-room observations are tracked in the [release verification list](../../OPEN_QUESTIONS.md#220-verification). [SRC-297]
+
+## Room recovery in 2.2.0
+
+Changing language from a connected client ends that client's Walk, lets it finish queued room work and saves its own room snapshot when possible. The page reload returns with its existing seat and latest saved turn. If a matching snapshot is unavailable, the room supplies the world again. A host running the in-game LAN server takes a different path. It confirms the restart, saves the world and reopens the room with the same settings. The fallback uses an ordinary disk save. [SRC-315]
+
+Two Windows clients created and joined a room on a loopback server. The guest loaded the host's 80×60 world, switched to German during shared Walk and returned to the same player ID with local snapshot recovery. Walk had ended. The driver retained both room participants. The client size gate accepted 220×220 and rejected 221 on either axis. The in-game LAN host restart remains open. [SRC-317]

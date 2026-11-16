@@ -201,6 +201,8 @@
   },
   "active": "4c67115ff747e0db",
   "lastOpenFiles": [
+    "topics/simulation/settlement-recovery.md",
+    "topics/states/companies.md",
     "research/release-2.2.0.json",
     "README.md",
     "GAME_DESIGN.md",
@@ -228,7 +230,6 @@
     "ROADMAP.md",
     "research/extraction-scenarios-profile.json",
     "topics/menu/scripted-events.md",
-    "research/extraction-local-multiplayer.json",
     "topics/network/local-coop-rivalry.md",
     "topics/simulation/baseline.md",
     "topics/network/walk.md",
@@ -236,7 +237,6 @@
     "topics/walk/combat.md",
     "topics/walk/world-effects.md",
     "topics/walk/sea.md",
-    "topics/walk/air.md",
     "assets/image35.png"
   ]
 }

@@ -1,8 +1,8 @@
 # Документация Earth Simulator
 
-Приоритет извлечения: база, фауна, демография, экономика, политика, династии, торговля, войны и территории. Порядок восьми этапов и минимальные предчтения зависимостей зафиксированы в [плане](EXTRACTION_PLAN.md) и [JSON охвата](research/feature-scope.json).
+Current research follows the [2.2.0 extraction order](EXTRACTION_PLAN.md#220-research-order) for the installed Steam build 26710925. The current source traces and offline observations are recorded in the [release evidence](research/release-2.2.0.json). The [original feature inventory](research/feature-scope.json) covers the historical 2.1.4 pass.
 
-Версия исследованных установленных файлов — **2.1.4** по `EarthSimulator/package.json`, а не результат нового запуска. Игра использует NW.js и JavaScript; точка загрузки — `EarthSimulator/index.html`. Наблюдений в запущенной игре нет.
+Earth Simulator uses NW.js and JavaScript and loads through the shipped index.html. The game identifies this build as 2.2.0 in its manifest and save files. [SRC-297, SRC-298]
 
 ## Точки входа
 

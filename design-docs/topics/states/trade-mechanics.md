@@ -185,3 +185,7 @@ Reset очищает товарное состояние, но сам не уд�
 Из корня проекта: `node design-docs/tools/probe_trade.cjs`, затем `python design-docs/tools/extract_trade.py`. Скрипт сверяет 11 исходных SHA-256, создаёт неизменяемые копии в .research/wp-trade/test-copy/EarthSimulator и исполняет 7 полных модулей в node:vm. 71 проверка прошла. Тела функций не заменены; VM-only lexical exposure открывает частные функции, перевод/DOM lookup/font/performance подставлены. Любая зарегистрированная ошибка подписчика проваливает проверку.
 
 REA trade.js: 30824 AST-узла, без ошибок разбора; partial graph, 78 application/15867 semantic unknowns; 78 файлов вне выбора. Экспорт сохранён, retained investigation сброшен. Это статическое свидетельство. Проверки не подтверждают runtime полной игры, UI, многовековую динамику, старые пользовательские сейвы, диск, Steam, активные моды или сеть. Следующий основной пакет — WP-WORLD-WARS-TERRITORY; полный WP-WORLD-NATURE остаётся после основной очереди.
+
+## Company inputs in 2.2.0
+
+Company sector weights read priced local production, recorded exports and recent cargo counts by mode. Goods affect the relevant producing sectors, and recent sea, rail or air lots contribute to the matching services. See [company formation and annual valuation](companies.md#formation-and-annual-valuation). [SRC-299]

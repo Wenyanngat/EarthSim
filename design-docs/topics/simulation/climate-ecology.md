@@ -66,3 +66,9 @@
 A pin can hold temperature and moisture targets for individual cells, and Planet can pin global temperature, sea level and CO₂. The cell correction uses the same phase of the seasonal cycle each year. It adjusts the permanent heat source and moisture factor toward the target, which allows normal seasonal variation. A direct brush change can shift the pinned target. New Game offers the CO₂ and sea pins. The active world supports all three planetary pins, and save data carries their state. [SRC-286]
 
 The isolated Windows client restored CO₂, sea level and global temperature pins along with the no-war and era settings after reload. [SRC-287]
+
+## Equator and sea ice in 2.2.0
+
+The equator setting shifts the climate equator by up to 30 degrees in each direction. It stretches each hemisphere separately and keeps the poles at the map edges. Real Earth geography and geographic names still use the unshifted map latitude. [SRC-303]
+
+Navigable ice thickness rises from 0.5 at freezing to 1 after 120 climate ticks. Sailing and rowing routes block at 0.5, steam routes at 0.85 and modern ships can enter all thicknesses. Steam ships move at half speed in passable ice and modern ships at 0.6 speed. A blocked ship waits at the edge and abandons the trip when its 30-tick wait is exceeded. The offline fixture verified that fully mature ice stopped a sailing vessel and slowed a modern vessel to 0.6. [SRC-303, SRC-307]

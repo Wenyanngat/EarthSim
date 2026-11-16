@@ -4,6 +4,14 @@
 
 > ID `DOC-WALK-WORLD-EFFECTS`. Поставка 2.1.4. Три фичи, 105 диапазонов в 13 файлах, 129 изолированных проверок. Статический проход завершён; полная игра, диск и комната не наблюдались. `runtime_verified=false`. [SRC-196–210]
 
+## Map regiments and local casualties in 2.2.0
+
+The regiment card opens Walk at the unit's march or camp position. A nearby active land battle involving the regiment's nation opens the battle instead. Embarked units and locations without reachable dry land block the action. A march or camp creates a small representation of the map unit, with local participant count scaled by the square root of regiment strength and the current detail settings. The officer can represent the actual map commander. [SRC-295]
+
+Player or credited peer casualties enter a shared queue. Walk batches them after five local seconds or flushes when leaving. The map handler resolves the unit from a relevant battle record or picks the closest eligible regiment. The regiment loses actual available personnel, equipment and morale. The nation and any active war record the number applied. Where the player accounts for at least the configured share of a routed side's losses, the battle module may request a territory change. That path has separate eligibility and frequency limits. [SRC-295]
+
+On build 26710925 the regiment card opened a camp containing nine spawned local participants. A controlled player-caused casualty entered the queue. Leaving Walk reduced map strength from 941 to 940 and added one nation casualty. The same regiment retained 940 personnel after loading the save. The test invoked the shipped death handler on a spawned actor. [Desktop observations](../../research/release-2.2.0.json) [SRC-296]
+
 ## Настоящая торговая партия и местный перевозчик
 
 Кнопка прогулки принимает только партию в состоянии `GO`. Воздушный перевозчик с индексом от 12 отклоняется. `_trade.carrierAt` ищет место настоящей партии: по позиции связанного судна, морскому пути, сухопутной дороге или доле расчётного срока. Полученная клетка задаёт местную постановку. Морская прогулка выбирает более открытую воду около линии; сухопутная ставит игрока на подходящей обочине либо у путей. Запрос сохраняется через начальную очистку сцены, но живёт не дольше 30 секунд. [SRC-196]

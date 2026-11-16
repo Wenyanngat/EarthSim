@@ -69,3 +69,13 @@
 При наличии текста запись попадает в хронику для действия игрока, наличия державы в центре, потерь >50, вулкана или метеорита. Порог высокой важности зависит от потерь `>max(4000,0,003·_worldPop)`, у метеорита важность 3, у эпидемии важность 2 при населении центра >40 000. Поздний выход урагана к населённой суше пишет запись с типом `disaster`. Дочернее цунами вызывается с `byPlayer=false`. Статистика подсчитывает обнаруженные объекты по идентичности при годовом опросе и при сообщении о бедствии. Хроника хранится отдельно. Короткое событие без строки, успевшее истечь между опросами, может выпасть из счётчика. [SRC-128, SRC-129, SRC-133, SRC-134]
 
 Обычный сейв хранит до 40 объектов в `ext.disasters.list`, клеточные поля в `arrays`, частоту и аэрозоль в `scal`. Загрузка очищает активные записи и индекс очагов, восстанавливает записи с текстовым `type` и заново набирает огонь по `W.fire>0,06`. Статистика отмечает восстановленные объекты как уже просмотренные. `worldgen` очищает объекты, индекс огня и природные следы через базовую инициализацию. «Сбросить жизнь» очищает объекты и поле огня, индекс дочищается на следующем такте. Аэрозоль и осадочная аномалия могут остаться после сброса. [SRC-118, SRC-125, SRC-133, SRC-134]
+
+## Player-created event limits in Steam build 26710925
+
+The tool path marks player-created disasters so they count toward the active-event limit. Natural disasters have their own trigger and do not occupy that quota. Ordinary point-tool clicks are paced in single-player and in rooms, with heavier tools costing more. See [world-tool limits](../network/rooms-sync.md#world-tool-limits-in-steam-build-26710925). [SRC-297]
+
+## Hazards and persistent effects in 2.2.0
+
+A tsunami reaches coast through connected water within its travel limit. Coast on the far side of land takes damage only if water offers a route within that limit. Meteor impacts on land create a crater record, lower terrain and leave local fire, ruin damage and atmospheric aerosol. High-index volcanic eruptions can create a caldera. Each simulated year crater scorch fades, wet basins can fill, vegetation returns under suitable conditions and the crater gradually erodes. The crater record can also disappear after inundation or terrain edits. [SRC-304]
+
+The disaster handler emits a pre-impact event so the settlement system can retain building stock and appearance. The post-impact event starts a ruin at sufficient vacancy, deepens an existing ruin or leaves a cause hint. Two controlled earthquakes reduced the fixture settlement's urban development from 12,000 to 6,600 and then 3,630. The second opened an earthquake ruin, which retained the pre-impact stock. See [settlement recovery and landmarks](settlement-recovery.md). [SRC-304, SRC-307]

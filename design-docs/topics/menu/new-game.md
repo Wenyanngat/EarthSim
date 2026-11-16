@@ -78,6 +78,10 @@
 
 [image3]: ../../assets/image03.png
 
+## 2.2.0 map sizes
+
+Solo New Game accepts custom sides from 24 to 1000 cells. New Game opened from Create a room clamps each side to 220 and disables larger presets. In build 26710925 the room form reduced 221×221 to 220×220 and opened the room at that size. In solo play, the same build generated 221×220 and 220×221 as entered. See the [room limit](../network/rooms-sync.md#220-room-size-limit) and [generation and F5 timings](save-load.md#near-limit-generation-and-f5-timings). [SRC-319, SRC-320]
+
 ## 2.2.0 world rules and history
 
 New Game configures rules before historical settlement. The Rules tab in Planet changes the rules for an existing world. An active scenario or rivalry locks live edits. In a room, the host issues the rules command and the copies apply it on the shared turn. [SRC-284]
@@ -92,3 +96,7 @@ New Game configures rules before historical settlement. The Rules tab in Planet 
 New Game can pin atmospheric CO₂ and sea level. The Planet controls can also pin global temperature after the world initializes. History pace can range from 0.2× to 4×, and the New Game economy settings let the player set research costs by era. [SRC-284, SRC-286]
 
 The Ancient World preset selects Real Earth at 120×90, with historical settlement enabled. The historical option appears for Real Earth. A bundled add-on world restores its own history and calendar from the save. [SRC-285]
+
+## Live rules indicator in Steam build 26710925
+
+Changing a world rule refreshes the rules indicator immediately through the rules event. Enabling and clearing fixed biomes showed and hid the indicator in a paused client, at the same simulation tick. [SRC-297, SRC-298]

@@ -2,13 +2,26 @@
 
 ## 2.2.0 verification
 
-- Offline desktop checks passed for three legacy save round trips, a simulated year and Walk on the 2.0.0 world, and a German large-map quick save and reload. Extend compatibility coverage using fixtures from other older versions. [SRC-283]
-- Time generation and quick save on fixed hardware. Test room creation and join at and above the 220-cell limit.
-- The historical scope validator requires the complete 2.1.4 tree. Recovery matched 52 old paths to recorded hashes, with 12 root JavaScript files still missing.
+- Earlier 2.2.0 checks recorded three legacy round trips and a German large-map quick save and reload. Current checks use the installed release build. [SRC-283]
+- Measured solo generation and F5 on three near-limit sizes and completed an in-game LAN host and guest handshake at 220×220. The room dialog disabled 221×220 and 220×221 worlds and their saves. Guest rejection of an advertised oversized room is documented from source. [SRC-319, SRC-320]
 
 - Observe the two historical arrivals during uninterrupted development. The offline checks advanced the leading polity's era directly. Check host and guest controls and late join in a room with world rules, pins and a historical date.
 
 - Observe natural election and ideology timing, a succession after term expiry, autonomous bloc formation and dissolution, council sanctions and resource-gated progress over uninterrupted play. Check the politics and diplomacy panels visually and repeat the commands with host and guest roles. Fourteen controlled offline observations cover the shipped handlers and a save round trip. [SRC-288–292]
+
+- Observe a progressing war with autonomous front movement, a long siege or pocket surrender, a negotiated peace and an actual raid flight. Check connected-room regiment losses and world-tool limits in the network pass. The offline warfare checks use prepared states and controlled captures and raid outcomes. [SRC-293–297]
+
+- Observe company formation rates from an early start, a natural merger and its portfolio reconciliation, model turnover and appearance in both views, and the exchange when two clients share a world. The controlled fixture covers valuation, trading, dividends, a split, transfer, nationalisation, privatisation, design selection and reload. [SRC-299–302]
+
+- Observe natural city recovery and clearance, ruin visuals in Walk, an autonomous landmark over its full lifecycle, and a plague voyage through changing sea ice. Check the Steam entitlement response and an already active outbreak in a room with mixed ownership. The offline fixture covers the tool lock and ordinary reload of a saved outbreak. [SRC-303–307]
+
+- Observe the full interior transitions with player input, household and office access, the Survival add-on's replacement needs, the other career routes in uninterrupted play, military duty and pay accrual, fire crew dispatch and longer-term custody or escape. The offline Walk fixture used prepared locations, hours, health and wanted status, and a controlled bus loop. [SRC-308–313]
+
+- The loopback fixture covers room creation, late join, vehicle seats and guest language recovery on 80×60. Exercise automatic LAN discovery between machines and host language restart, server maintenance, reconnect after seat expiry, more than two Walk clients, shared aircraft and trains, and public-server/Steam access. [SRC-314–317]
+
+- The local data fixture covers authored nations, mask painting and undo, draft contents and scenario startup. Workshop publishing and display, code add-on compatibility, mixed installed add-on sets and across-language editor use remain open. [SRC-316, SRC-317]
+
+- The [release-note routes](research/release-2.2.0.json) index all shipped 2.2 sections and the 56 listed fixes. Remaining checks include end-to-end platform behavior, visuals in both map modes and Walk, natural simulation timing, and comparisons against 2.1.4 where the older build is required. [SRC-318]
 
 [Build and storage evidence](research/release-2.2.0.json) [SRC-280–283]
 
@@ -20,6 +33,10 @@
 Порядок дальнейшего извлечения формул и проверки этих вопросов: [EXTRACTION_PLAN.md](EXTRACTION_PLAN.md). Полный объём — [144 фичи](FEATURE_INVENTORY.md), связанные с 29 этапами в [JSON охвата](research/feature-scope.json). Точки входа перечислены отдельно от доказанных правил.
 
 Дополнительные пробелы после инвентаризации: все элементы таблиц товаров/сценариев/предметов; персонажи и режимы выживания; межсистемные последствия охоты, гибели правителя, ограбления груза и ударов; транспортные работы; авторитет сетевых акторов; совместный экран и Remote Play; кодовые моды, редактор, миграция сохранений, ввод и платформенные ограничения [SRC-053–057]. Подробные вопросы сохранены у каждой фичи и этапа.
+
+### Historical validation
+
+The 2.1.4 scope report remains a historical reference. Its full validator run would require the original build. Recovery matched 52 old paths, and 12 root JavaScript files were unavailable.
 
 **WP-BASELINE — остаётся проверить в копии полной игры [SRC-058–061]:**
 

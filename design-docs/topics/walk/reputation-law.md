@@ -59,3 +59,11 @@ H при розыске открывает подтверждение сдачи
 ## Дополнение мировых эффектов прогулки
 
 Настоящее ограбление вызывает потерю реального груза и местное преступление уровня 2. Убийство правителя имеет отдельную ветвь уровня 4. [Мировые последствия](world-effects.md) · [Смерть людей](combat.md#смерть-людей-и-сеть) [SRC-198, SRC-209]
+
+## Custody in 2.2.0
+
+Where the law can place the character in a facility, two to five wanted stars carry one, two, four or eight Walk days respectively. Voluntary surrender halves the term, rounded to at least one day. A one-day term can use a nearby industrial or later city police station. For longer terms the law prefers a nearby camp when eligible, then can use a prison, camp or military guardhouse. The fine path applies when no term can be assigned. [SRC-312]
+
+The arrest window offers immediate service of the sentence or a stay at the facility. Intake ends military service, takes a kit snapshot and stores personal arms and ammunition in Survival. The character can finish the term from the bunk. Leaving Walk or re-entering with an outstanding sentence also serves the remaining time. Completion advances the Walk clock, clears bounty through four stars, restores stored items and adds local reputation. A camp shift can shorten the term by half a day once per Walk day. Escape keeps the locker at the facility and creates a new wanted record. [SRC-312]
+
+The controlled two-star surrender sent the soldier to a police station for one Walk day. Saving during custody retained the sentence and the stored personal item. On entry after reload the term cleared, the clock advanced by 720 seconds and the item returned. [SRC-313]

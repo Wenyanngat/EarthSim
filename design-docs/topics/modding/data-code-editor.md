@@ -252,3 +252,11 @@ Array entries below clamp to the listed bounds. Scalar ranges apply only to acce
 | `aerosol` | 0 | 20 |
 | `faunaAuto` | 0 | 1 |
 | `faunaRich` | -1 | 2 |
+
+## Authored scenario nations in 2.2.0
+
+Scenario nations accept capital names, territory masks, flags, government, ideology, era, stability, treasury, output per person, traits, culture and religion. Optional invalid values are reported by validation. The territory format stores dimensions and alternating empty and occupied row-major runs. The editor gives overlapping cells to the first listed nation when loading a mask, stores changes to both nations when painting over a cell, and re-encodes their masks on undo. The draft stores the editable manifest. [SRC-316]
+
+Scenario startup resolves capital and territory against the loaded map, skips water and respects the world cap on new nations. It initialises known technologies, then sets contacts and relations after founding the nations. Ties refer to the author's zero-based nation slots, which the loader remaps after invalid entries are removed. A pair can have one structural tie, and vassal ties cannot form a cycle. Relation overrides are clamped to −1 through +1. [SRC-316]
+
+The editor fixture painted one cell from one nation to the other, restored it by undo and recovered the result from the saved draft. A validation case dropped an invalid mask and remapped the remaining relation. The local add-on then started two authored nations and applied their territory, capital name and relation. Workshop publishing, other asset types and exact parity across different add-on sets remain open. [SRC-317]

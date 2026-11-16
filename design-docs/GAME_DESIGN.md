@@ -1,6 +1,6 @@
 # Дизайн Earth Simulator: тематические документы
 
-Большой документ разделён по экранам и системам. Рабочие тексты находятся в `topics/`; этот файл сохранён как точка входа по прежнему адресу. Базовое исследование охватывает **2.1.4**. Сведения о новых правилах отмечены версией 2.2.0.
+The design is organised by screen and system. The active reference is Earth Simulator 2.2.0, Steam build 26710925. The topic pages include versioned findings and the historical 2.1.4 baseline.
 
 [JSON-каталог фичей и документов](catalog.json) · [Анализ структуры](ANALYSIS.md) · [Источники](SOURCES.md) · [Текущие вопросы](OPEN_QUESTIONS.md)
 
@@ -63,7 +63,19 @@ WP-WALK-AIR охватывает четыре фичи. Извлечены по�
 
 ## Release 2.2.0
 
-The [release plan](EXTRACTION_PLAN.md#220-research-order) and [versioned evidence](research/release-2.2.0.json) cover the first three passes for build 26706675. Release sections in [government](topics/states/formation-politics.md#government-ideology-and-stability-in-220), [rulers](topics/states/rulers.md#government-changes-and-ruler-terms-in-220), [faith and rights](topics/society/cultures-religions.md#faith-and-minority-rights-in-220), [diplomacy](topics/states/diplomacy.md#contacts-and-blocs-in-220) and [research](topics/states/technology.md#research-costs-resources-and-political-effects-in-220) describe the 2.2.0 changes. The historical inventory covers 2.1.4. [SRC-280–292]
+The [release plan](EXTRACTION_PLAN.md#220-research-order) and [versioned evidence](research/release-2.2.0.json) cover the eight release passes. Release sections in [government](topics/states/formation-politics.md#government-ideology-and-stability-in-220), [rulers](topics/states/rulers.md#government-changes-and-ruler-terms-in-220), [faith and rights](topics/society/cultures-religions.md#faith-and-minority-rights-in-220), [diplomacy](topics/states/diplomacy.md#contacts-and-blocs-in-220) and [research](topics/states/technology.md#research-costs-resources-and-political-effects-in-220) describe the 2.2.0 changes. The historical inventory covers 2.1.4. [SRC-280–292]
+
+The fourth pass covers [regiments and fronts](topics/states/war-mechanics.md#regiments-and-fronts-in-220), [occupation and peace](topics/states/territory.md#occupation-and-peace-in-220), [air support](topics/states/strategic-weapons.md#air-support-and-raid-outcomes-in-220) and [map-to-Walk casualties](topics/walk/world-effects.md#map-regiments-and-local-casualties-in-220). Thirteen controlled offline checks passed. The new build also passed three checks for the default map view, the saved view preference and the paused rules indicator. [SRC-293–298]
+
+The fifth pass covers [companies, stock exchange and manufacturers](topics/states/companies.md). It traces formation, valuation, ownership, player trading, dividends and vehicle models. Eleven controlled checks passed in the offline client. [SRC-299–302]
+
+The sixth pass covers [terrain and drainage](topics/simulation/world-terrain.md#terrain-tools-and-drainage-in-220), [sea ice](topics/simulation/climate-ecology.md#equator-and-sea-ice-in-220), [settlement recovery and landmarks](topics/simulation/settlement-recovery.md) and [outbreak records](topics/simulation/demography-cities.md#outbreak-records-and-transport-in-220). Fifteen controlled offline checks passed. [SRC-303–307]
+
+The seventh pass covers [interiors](topics/walk/world-generation.md#interiors-in-220), [survival](topics/walk/player-life.md#survival-needs-in-220), [equipment](topics/walk/shops-equipment.md#bag-and-quick-slots-in-220), [careers](topics/walk/quests-jobs.md#careers-in-220), [service](topics/walk/pursuit-bases.md#military-service-in-220), [civic treatment](topics/walk/player-life.md#civic-treatment-in-220) and [custody](topics/walk/reputation-law.md#custody-in-220). Twelve controlled checks passed in Walk on Steam build 26710925. [SRC-308–313]
+
+The eighth pass covers [shared Walk vehicles](topics/network/walk.md#shared-vehicles-in-220), [room recovery](topics/network/rooms-sync.md#room-recovery-in-220) and [authored scenario nations](topics/modding/data-code-editor.md#authored-scenario-nations-in-220). Twelve scoped checks passed. The [release evidence](research/release-2.2.0.json) also routes changed modules and the shipped release notes to their topics or open cases. [SRC-314–318]
+
+The map-size follow-up covers the [220×220 room handshake](topics/network/rooms-sync.md#220-room-size-limit) and [solo generation and F5](topics/menu/save-load.md#near-limit-generation-and-f5-timings) at and just above the room limit. [SRC-319, SRC-320]
 
 ## Основы игры
 
@@ -124,6 +136,7 @@ The [release plan](EXTRACTION_PLAN.md#220-research-order) and [versioned evidenc
 | [Дипломатия и международные связи](topics/states/diplomacy.md) | 2.5.3 | Тематический текст |
 | [Реестр городов государства](topics/states/cities.md) | 2.5.4 | Тематический текст |
 | [Экономика, ВВП, казна и промышленность](topics/states/economy.md) | 2.5.5 | Тематический текст |
+| [Companies, stock exchange and manufacturers](topics/states/companies.md) | 2.2.0 | Source traces and controlled offline observations |
 | [Товары, торговые пути и доставка](topics/states/trade.md) | 2.5.6 | Тематический текст |
 | [Войны и военная история](topics/states/wars.md) | 2.5.7 | Интерфейс и переходы к правилам |
 | [Военная симуляция](topics/states/war-mechanics.md) | — | Коалиции, фронт, флот и мир |
@@ -141,6 +154,7 @@ The [release plan](EXTRACTION_PLAN.md#220-research-order) and [versioned evidenc
 | Документ | Старые разделы | Содержание |
 | --- | --- | --- |
 | [Карточка города и жители](topics/society/cities.md) | 2.6 | Тематический текст |
+| [Settlement recovery and landmarks](topics/simulation/settlement-recovery.md) | 2.2.0 | Source traces and controlled offline observations |
 | [Жители, навыки и семейные связи](topics/society/people.md) | 2.7 | Тематический текст и границы модели |
 | [Симулируемые персоны, семьи и власть](topics/society/dynasties.md) | — | Статическое извлечение и 63 проверки пакета |
 | [Процедурные семьи простолюдинов](topics/society/commoner-families.md) | — | Детерминированные роды, профессии, кэш и память |

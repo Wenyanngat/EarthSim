@@ -4,6 +4,14 @@
 
 > ID: `DOC-STRATEGIC-WEAPONS`. Здесь описаны правила клеточного мира Earth Simulator 2.1.4. Числа относятся к полям игры и цивилизационным тикам. Результат WP-WORLD-WARS-TERRITORY, `runtime_verified=false`. [SRC-101, SRC-106, SRC-108–109]
 
+## Air support and raid outcomes in 2.2.0
+
+Aircraft capacity depends on mobilisation, invention tier, industry and oil access. Without access to oil the target is 65% of the supplied value. Capitals and large cities provide bases. Eligible forces within range add up to 20% to land strength or 10% at sea as a function of local air superiority. Each side's share uses aircraft quantity weighted by tier quality. The civilisation tick updates air support and raid state after advancing existing strikes. [SRC-294]
+
+Conventional raids select a reachable enemy city using industry, population, capital status and existing ruin damage. The raid flight can be intercepted before arrival and may abort after losses. On arrival at a city still held by an enemy, damage reduces industry, urban development and population and raises ruin damage and unrest. The centre receives full impact and neighbouring cells a 0.35 weight. The completed-raid flag prevents repeat application. In the controlled offline handler check, industry went from 40 to 30, urban development from 4,000 to 3,680 and population from 10,000 to 9,700. [SRC-294, SRC-296]
+
+The strategic simulation tracks tested nuclear and thermonuclear stages and later intercontinental delivery separately from the conventional air tier. Bombers use air interception and the intercontinental path checks space-era missile defence. The world effect dispatch calls the same game-side strike resolution when a strike is completed from Walk. These delivery branches were traced in source. [SRC-294]
+
 ## Арсенал и решения держав
 
 `stepStrategicWar` вызывается каждый второй цивилизационный тик. Для живых держав с клетками обновляет `peakArea` и начисляет дробный запас. При `pf=.4+.6·civPace()`:

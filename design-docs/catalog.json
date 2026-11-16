@@ -218,7 +218,11 @@
         "SRC-125",
         "SRC-284",
         "SRC-285",
-        "SRC-286"
+        "SRC-286",
+        "SRC-297",
+        "SRC-298",
+        "SRC-319",
+        "SRC-320"
       ],
       "feature_ids": [
         "FEAT-WORLD-CREATE",
@@ -378,7 +382,9 @@
         "SRC-261",
         "SRC-281",
         "SRC-282",
-        "SRC-283"
+        "SRC-283",
+        "SRC-319",
+        "SRC-320"
       ],
       "feature_ids": [
         "FEAT-SAVE-LOAD",
@@ -960,7 +966,10 @@
         "SRC-075",
         "SRC-076",
         "SRC-077",
-        "SRC-078"
+        "SRC-078",
+        "SRC-299",
+        "SRC-300",
+        "SRC-302"
       ],
       "feature_ids": [
         "FEAT-POLLUTION",
@@ -976,6 +985,27 @@
       "image_paths": [
         "design-docs/assets/image29.png"
       ]
+    },
+    {
+      "id": "DOC-COMPANIES",
+      "title": "Companies, stock exchange and manufacturers",
+      "path": "design-docs/topics/states/companies.md",
+      "kind": "topic",
+      "category": "states",
+      "documentation_status": "detailed",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-299",
+        "SRC-300",
+        "SRC-301",
+        "SRC-302"
+      ],
+      "feature_ids": [
+        "FEAT-ECONOMY",
+        "FEAT-WALK-MONEY",
+        "FEAT-WALK-VEHICLES"
+      ],
+      "image_paths": []
     },
     {
       "id": "DOC-TRADE",
@@ -1189,7 +1219,10 @@
         "SRC-100",
         "SRC-139",
         "SRC-140",
-        "SRC-143"
+        "SRC-143",
+        "SRC-304",
+        "SRC-305",
+        "SRC-307"
       ],
       "feature_ids": [
         "FEAT-POPULATION",
@@ -1318,7 +1351,9 @@
         "SRC-158",
         "SRC-159",
         "SRC-160",
-        "SRC-190"
+        "SRC-190",
+        "SRC-310",
+        "SRC-313"
       ],
       "feature_ids": [
         "FEAT-WALK-JOURNAL",
@@ -1426,7 +1461,9 @@
         "SRC-168",
         "SRC-193",
         "SRC-198",
-        "SRC-209"
+        "SRC-209",
+        "SRC-312",
+        "SRC-313"
       ],
       "feature_ids": [
         "FEAT-WALK-JOURNAL",
@@ -1645,7 +1682,9 @@
         "SRC-126",
         "SRC-137",
         "SRC-286",
-        "SRC-287"
+        "SRC-287",
+        "SRC-303",
+        "SRC-307"
       ],
       "feature_ids": [
         "FEAT-CLIMATE",
@@ -1801,7 +1840,9 @@
         "SRC-196",
         "SRC-197",
         "SRC-198",
-        "SRC-199"
+        "SRC-199",
+        "SRC-301",
+        "SRC-302"
       ],
       "feature_ids": [
         "FEAT-WALK-VEHICLES",
@@ -1894,7 +1935,9 @@
         "SRC-069",
         "SRC-070",
         "SRC-071",
-        "SRC-072"
+        "SRC-072",
+        "SRC-297",
+        "SRC-298"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -2073,7 +2116,35 @@
         "SRC-289",
         "SRC-290",
         "SRC-291",
-        "SRC-292"
+        "SRC-292",
+        "SRC-293",
+        "SRC-294",
+        "SRC-295",
+        "SRC-296",
+        "SRC-297",
+        "SRC-298",
+        "SRC-299",
+        "SRC-300",
+        "SRC-301",
+        "SRC-302",
+        "SRC-303",
+        "SRC-304",
+        "SRC-305",
+        "SRC-306",
+        "SRC-307",
+        "SRC-308",
+        "SRC-309",
+        "SRC-310",
+        "SRC-311",
+        "SRC-312",
+        "SRC-313",
+        "SRC-314",
+        "SRC-315",
+        "SRC-316",
+        "SRC-317",
+        "SRC-318",
+        "SRC-319",
+        "SRC-320"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -2446,7 +2517,35 @@
         "SRC-289",
         "SRC-290",
         "SRC-291",
-        "SRC-292"
+        "SRC-292",
+        "SRC-293",
+        "SRC-294",
+        "SRC-295",
+        "SRC-296",
+        "SRC-297",
+        "SRC-298",
+        "SRC-299",
+        "SRC-300",
+        "SRC-301",
+        "SRC-302",
+        "SRC-303",
+        "SRC-304",
+        "SRC-305",
+        "SRC-306",
+        "SRC-307",
+        "SRC-308",
+        "SRC-309",
+        "SRC-310",
+        "SRC-311",
+        "SRC-312",
+        "SRC-313",
+        "SRC-314",
+        "SRC-315",
+        "SRC-316",
+        "SRC-317",
+        "SRC-318",
+        "SRC-319",
+        "SRC-320"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -2682,7 +2781,35 @@
         "SRC-289",
         "SRC-290",
         "SRC-291",
-        "SRC-292"
+        "SRC-292",
+        "SRC-293",
+        "SRC-294",
+        "SRC-295",
+        "SRC-296",
+        "SRC-297",
+        "SRC-298",
+        "SRC-299",
+        "SRC-300",
+        "SRC-301",
+        "SRC-302",
+        "SRC-303",
+        "SRC-304",
+        "SRC-305",
+        "SRC-306",
+        "SRC-307",
+        "SRC-308",
+        "SRC-309",
+        "SRC-310",
+        "SRC-311",
+        "SRC-312",
+        "SRC-313",
+        "SRC-314",
+        "SRC-315",
+        "SRC-316",
+        "SRC-317",
+        "SRC-318",
+        "SRC-319",
+        "SRC-320"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -2888,7 +3015,34 @@
         "SRC-289",
         "SRC-290",
         "SRC-291",
-        "SRC-292"
+        "SRC-292",
+        "SRC-293",
+        "SRC-294",
+        "SRC-295",
+        "SRC-296",
+        "SRC-297",
+        "SRC-299",
+        "SRC-300",
+        "SRC-301",
+        "SRC-302",
+        "SRC-303",
+        "SRC-304",
+        "SRC-305",
+        "SRC-306",
+        "SRC-307",
+        "SRC-308",
+        "SRC-309",
+        "SRC-310",
+        "SRC-311",
+        "SRC-312",
+        "SRC-313",
+        "SRC-314",
+        "SRC-315",
+        "SRC-316",
+        "SRC-317",
+        "SRC-318",
+        "SRC-319",
+        "SRC-320"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -3099,7 +3253,35 @@
         "SRC-289",
         "SRC-290",
         "SRC-291",
-        "SRC-292"
+        "SRC-292",
+        "SRC-293",
+        "SRC-294",
+        "SRC-295",
+        "SRC-296",
+        "SRC-297",
+        "SRC-298",
+        "SRC-299",
+        "SRC-300",
+        "SRC-301",
+        "SRC-302",
+        "SRC-303",
+        "SRC-304",
+        "SRC-305",
+        "SRC-306",
+        "SRC-307",
+        "SRC-308",
+        "SRC-309",
+        "SRC-310",
+        "SRC-311",
+        "SRC-312",
+        "SRC-313",
+        "SRC-314",
+        "SRC-315",
+        "SRC-316",
+        "SRC-317",
+        "SRC-318",
+        "SRC-319",
+        "SRC-320"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -3333,7 +3515,35 @@
         "SRC-289",
         "SRC-290",
         "SRC-291",
-        "SRC-292"
+        "SRC-292",
+        "SRC-293",
+        "SRC-294",
+        "SRC-295",
+        "SRC-296",
+        "SRC-297",
+        "SRC-298",
+        "SRC-299",
+        "SRC-300",
+        "SRC-301",
+        "SRC-302",
+        "SRC-303",
+        "SRC-304",
+        "SRC-305",
+        "SRC-306",
+        "SRC-307",
+        "SRC-308",
+        "SRC-309",
+        "SRC-310",
+        "SRC-311",
+        "SRC-312",
+        "SRC-313",
+        "SRC-314",
+        "SRC-315",
+        "SRC-316",
+        "SRC-317",
+        "SRC-318",
+        "SRC-319",
+        "SRC-320"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -3610,7 +3820,9 @@
         "SRC-284",
         "SRC-285",
         "SRC-286",
-        "SRC-287"
+        "SRC-287",
+        "SRC-319",
+        "SRC-320"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -4042,7 +4254,9 @@
         "SRC-069",
         "SRC-070",
         "SRC-071",
-        "SRC-072"
+        "SRC-072",
+        "SRC-306",
+        "SRC-307"
       ],
       "feature_ids": [
         "FEAT-POPULATION",
@@ -4052,6 +4266,27 @@
         "FEAT-CITY-REGISTER",
         "FEAT-ECONOMY",
         "FEAT-TECHNOLOGY"
+      ],
+      "image_paths": []
+    },
+    {
+      "id": "DOC-SETTLEMENT-RECOVERY",
+      "title": "Settlement recovery and landmarks",
+      "path": "design-docs/topics/simulation/settlement-recovery.md",
+      "kind": "topic",
+      "category": "simulation",
+      "documentation_status": "detailed",
+      "legacy_sections": [],
+      "source_ids": [
+        "SRC-304",
+        "SRC-305",
+        "SRC-307"
+      ],
+      "feature_ids": [
+        "FEAT-CITY-REGISTER",
+        "FEAT-CITY-CARD",
+        "FEAT-WALK-BUILDING-DESTRUCTION",
+        "FEAT-DISASTERS"
       ],
       "image_paths": []
     },
@@ -4159,7 +4394,9 @@
         "SRC-109",
         "SRC-096",
         "SRC-088",
-        "SRC-087"
+        "SRC-087",
+        "SRC-294",
+        "SRC-296"
       ],
       "feature_ids": [
         "FEAT-STATE-FORMATION",
@@ -4296,7 +4533,8 @@
         "SRC-097",
         "SRC-098",
         "SRC-099",
-        "SRC-100"
+        "SRC-100",
+        "SRC-299"
       ],
       "feature_ids": [
         "FEAT-TRADE-GOODS",
@@ -4390,7 +4628,10 @@
         "SRC-107",
         "SRC-108",
         "SRC-109",
-        "SRC-098"
+        "SRC-098",
+        "SRC-293",
+        "SRC-294",
+        "SRC-296"
       ],
       "feature_ids": [
         "FEAT-ARMY-POWER",
@@ -4416,7 +4657,9 @@
         "SRC-106",
         "SRC-107",
         "SRC-108",
-        "SRC-109"
+        "SRC-109",
+        "SRC-294",
+        "SRC-296"
       ],
       "feature_ids": [
         "FEAT-WARS",
@@ -4521,7 +4764,9 @@
         "SRC-122",
         "SRC-124",
         "SRC-125",
-        "SRC-126"
+        "SRC-126",
+        "SRC-303",
+        "SRC-307"
       ],
       "feature_ids": [
         "FEAT-WORLD-CREATE",
@@ -4615,7 +4860,10 @@
         "SRC-131",
         "SRC-132",
         "SRC-133",
-        "SRC-134"
+        "SRC-134",
+        "SRC-297",
+        "SRC-304",
+        "SRC-307"
       ],
       "feature_ids": [
         "FEAT-MAP-TOOLS",
@@ -4731,7 +4979,12 @@
         "SRC-145",
         "SRC-146",
         "SRC-147",
-        "SRC-151"
+        "SRC-151",
+        "SRC-309",
+        "SRC-310",
+        "SRC-311",
+        "SRC-312",
+        "SRC-313"
       ],
       "feature_ids": [
         "FEAT-WALK-MODES",
@@ -4751,7 +5004,10 @@
         "SRC-146",
         "SRC-147",
         "SRC-148",
-        "SRC-151"
+        "SRC-151",
+        "SRC-309",
+        "SRC-311",
+        "SRC-313"
       ],
       "feature_ids": [
         "FEAT-WALK-PLAYER-LIFE"
@@ -4771,7 +5027,10 @@
         "SRC-147",
         "SRC-148",
         "SRC-149",
-        "SRC-151"
+        "SRC-151",
+        "SRC-304",
+        "SRC-308",
+        "SRC-313"
       ],
       "feature_ids": [
         "FEAT-WALK-WORLD-GENERATION",
@@ -4846,7 +5105,11 @@
         "SRC-154",
         "SRC-155",
         "SRC-156",
-        "SRC-160"
+        "SRC-160",
+        "SRC-300",
+        "SRC-302",
+        "SRC-309",
+        "SRC-313"
       ],
       "feature_ids": [
         "FEAT-WALK-SHOPS-EQUIPMENT",
@@ -4923,7 +5186,10 @@
         "SRC-166",
         "SRC-167",
         "SRC-168",
-        "SRC-193"
+        "SRC-193",
+        "SRC-310",
+        "SRC-311",
+        "SRC-313"
       ],
       "feature_ids": [
         "FEAT-WALK-POLICE-PURSUIT",
@@ -5164,7 +5430,9 @@
         "SRC-207",
         "SRC-208",
         "SRC-209",
-        "SRC-210"
+        "SRC-210",
+        "SRC-295",
+        "SRC-296"
       ],
       "feature_ids": [
         "FEAT-WALK-TRADE-ROBBERY",
@@ -5259,7 +5527,12 @@
         "SRC-223",
         "SRC-224",
         "SRC-225",
-        "SRC-280"
+        "SRC-280",
+        "SRC-297",
+        "SRC-315",
+        "SRC-317",
+        "SRC-319",
+        "SRC-320"
       ],
       "feature_ids": [
         "FEAT-MULTIPLAYER",
@@ -5314,7 +5587,9 @@
         "SRC-222",
         "SRC-223",
         "SRC-224",
-        "SRC-225"
+        "SRC-225",
+        "SRC-314",
+        "SRC-317"
       ],
       "feature_ids": [
         "FEAT-NETWORK-WALK-SHARED-ACTORS",
@@ -5451,7 +5726,9 @@
         "SRC-246",
         "SRC-247",
         "SRC-248",
-        "SRC-249"
+        "SRC-249",
+        "SRC-316",
+        "SRC-317"
       ],
       "feature_ids": [
         "FEAT-MODS",
@@ -5589,7 +5866,9 @@
         "SRC-263",
         "SRC-264",
         "SRC-265",
-        "SRC-266"
+        "SRC-266",
+        "SRC-306",
+        "SRC-307"
       ],
       "feature_ids": [
         "FEAT-STEAM-INTEGRATION",
@@ -5633,7 +5912,9 @@
         "SRC-270",
         "SRC-271",
         "SRC-272",
-        "SRC-273"
+        "SRC-273",
+        "SRC-315",
+        "SRC-317"
       ],
       "feature_ids": [
         "FEAT-MAP-HOTKEYS",
@@ -5687,7 +5968,9 @@
         "SRC-277",
         "SRC-278",
         "SRC-279",
-        "SRC-282"
+        "SRC-282",
+        "SRC-297",
+        "SRC-298"
       ],
       "feature_ids": [
         "FEAT-VIEW-MODES",
@@ -5814,7 +6097,8 @@
       "research_status": "partial",
       "evidence_levels": [
         "original_document",
-        "static_code"
+        "static_code",
+        "runtime_observation"
       ],
       "source_ids": [
         "SRC-012",
@@ -5827,7 +6111,9 @@
         "SRC-125",
         "SRC-126",
         "SRC-284",
-        "SRC-285"
+        "SRC-285",
+        "SRC-319",
+        "SRC-320"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -5837,7 +6123,7 @@
         "EarthSimulator/menu.js"
       ],
       "open_questions": [
-        "Воспроизвести старт на больших размерах и вход из настоящего файла высот в тестовой игре."
+        "Observe generation from a heightmap file and larger solo sizes in the full client."
       ]
     },
     {
@@ -5929,7 +6215,8 @@
       "research_status": "partial",
       "evidence_levels": [
         "original_document",
-        "static_code"
+        "static_code",
+        "runtime_observation"
       ],
       "source_ids": [
         "SRC-012",
@@ -5941,7 +6228,9 @@
         "SRC-215",
         "SRC-216",
         "SRC-217",
-        "SRC-218"
+        "SRC-218",
+        "SRC-319",
+        "SRC-320"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -5951,7 +6240,7 @@
         "EarthSimulator/netui.js"
       ],
       "open_questions": [
-        "В тестовой партии пройти создание, вход и выход с несколькими клиентами."
+        "Exercise public-server access and leave or host migration with several clients."
       ]
     },
     {
@@ -5968,7 +6257,8 @@
       "research_status": "partial",
       "evidence_levels": [
         "original_document",
-        "static_code"
+        "static_code",
+        "runtime_observation"
       ],
       "source_ids": [
         "SRC-012",
@@ -5980,7 +6270,9 @@
         "SRC-261",
         "SRC-281",
         "SRC-282",
-        "SRC-283"
+        "SRC-283",
+        "SRC-319",
+        "SRC-320"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -6933,7 +7225,8 @@
         "DOC-SCENARIOS",
         "DOC-FEATURE-INVENTORY",
         "DOC-DISASTERS",
-        "DOC-DISASTERS-DATA"
+        "DOC-DISASTERS-DATA",
+        "DOC-SETTLEMENT-RECOVERY"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -7249,7 +7542,8 @@
         "DOC-DEMOGRAPHY",
         "DOC-DEMOGRAPHY-DATA",
         "DOC-STATISTICS-HISTORY",
-        "DOC-MAP-DATA"
+        "DOC-MAP-DATA",
+        "DOC-SETTLEMENT-RECOVERY"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -7292,7 +7586,8 @@
         "DOC-CITIES",
         "DOC-FEATURE-INVENTORY",
         "DOC-STATISTICS-HISTORY",
-        "DOC-MAP-DATA"
+        "DOC-MAP-DATA",
+        "DOC-SETTLEMENT-RECOVERY"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -7364,7 +7659,8 @@
         "DOC-FEATURE-INVENTORY",
         "DOC-DEMOGRAPHY",
         "DOC-DEMOGRAPHY-DATA",
-        "DOC-ECONOMY-DATA"
+        "DOC-ECONOMY-DATA",
+        "DOC-COMPANIES"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -8062,7 +8358,8 @@
         "DOC-WALLET",
         "DOC-FEATURE-INVENTORY",
         "DOC-WALK-SHOPS-EQUIPMENT",
-        "DOC-WALK-SOCIETY-ECONOMY-DATA"
+        "DOC-WALK-SOCIETY-ECONOMY-DATA",
+        "DOC-COMPANIES"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -8259,7 +8556,8 @@
         "DOC-FEATURE-INVENTORY",
         "DOC-WALK-ROAD-TRAFFIC",
         "DOC-WALK-RAIL",
-        "DOC-WALK-GROUND-TRANSPORT-DATA"
+        "DOC-WALK-GROUND-TRANSPORT-DATA",
+        "DOC-COMPANIES"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -9278,7 +9576,8 @@
         "DOC-FEATURE-INVENTORY",
         "DOC-WALK-CONTROLS",
         "DOC-WALK-WORLD-GENERATION",
-        "DOC-WALK-CORE-DATA"
+        "DOC-WALK-CORE-DATA",
+        "DOC-SETTLEMENT-RECOVERY"
       ],
       "documentation_status": "detailed",
       "research_status": "partial",
@@ -10030,7 +10329,8 @@
       "documentation_status": "detailed",
       "research_status": "partial",
       "evidence_levels": [
-        "static_code"
+        "static_code",
+        "runtime_observation"
       ],
       "source_ids": [
         "SRC-056",
@@ -10041,7 +10341,9 @@
         "SRC-215",
         "SRC-216",
         "SRC-217",
-        "SRC-218"
+        "SRC-218",
+        "SRC-319",
+        "SRC-320"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -10049,7 +10351,7 @@
         "EarthSimulator/netserver.js"
       ],
       "open_questions": [
-        "Сверить обнаружение и прямой вход на двух компьютерах, запасной порт и ошибки TLS."
+        "Observe automatic discovery and direct join between separate machines, alternate ports and host language restart."
       ]
     },
     {
@@ -10103,7 +10405,8 @@
       "documentation_status": "detailed",
       "research_status": "partial",
       "evidence_levels": [
-        "static_code"
+        "static_code",
+        "runtime_observation"
       ],
       "source_ids": [
         "SRC-056",
@@ -10114,14 +10417,16 @@
         "SRC-215",
         "SRC-216",
         "SRC-217",
-        "SRC-218"
+        "SRC-218",
+        "SRC-319",
+        "SRC-320"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
         "EarthSimulator/net.js"
       ],
       "open_questions": [
-        "Сравнить контрольные хеши полной карты и загрузку точного снимка между клиентами."
+        "Compare full-map control hashes after connection and during uninterrupted room play."
       ]
     },
     {

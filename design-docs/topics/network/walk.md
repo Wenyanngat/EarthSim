@@ -52,3 +52,9 @@
 ## Проверка
 
 Node VM исполнила `netwalk.js` и участки базового здоровья с заданными часами, состояниями и событиями. Проверены выбор группы, пороги и смена ведущего, выдача и удаление снимков, обычные попадания и результаты убийства, переход машины, состояние игрока, часы, смерть, `god` и показ выстрела без урона. Акторы, UI, сетевой транспорт и часть мировых команд представлены адаптерами. Согласованность нескольких клиентов, отрисовка и реальный порядок мировых последствий остаются для проверки в игровой комнате. [SRC-225]
+
+## Shared vehicles in 2.2.0
+
+Players within 120 m form links. Existing links persist until 170 m, and a group includes players connected through any other member. The lowest player ID leads the Walk group. Nearby planes and ships, police, module vehicles and trains join the leader's shared snapshots. Guests display replicas and suppress the matching local spawns. The leader can remove a vehicle taken by a guest and reserve its original stand. A vehicle left by a guest passes to the leader for others to see. Driver-controlled trains use their own updates, with support for changes to the consist. [SRC-314]
+
+A nearby passenger can ask to board another player's slow or stopped vehicle. Drivers choose to refuse, ask or allow. Free seats account for current passengers and reserved places. During the ride, the guest follows a seat in the driver's replicated vehicle. The driver keeps control. In the two-client fixture the guest saw the driver's car, received a refusal, then took seat zero after the driver allowed boarding. The driver's passenger entry cleared after the guest changed language. [SRC-314, SRC-317]

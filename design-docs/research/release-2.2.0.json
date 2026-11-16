@@ -64,6 +64,70 @@
         "SRC-291",
         "SRC-292"
       ]
+    },
+    {
+      "id": "WARFARE-MAP-WALK",
+      "steam_build_id": 26710925,
+      "state": "static_traced_with_scoped_desktop_observations",
+      "runtime_verified": false,
+      "source_ids": [
+        "SRC-293",
+        "SRC-294",
+        "SRC-295",
+        "SRC-296"
+      ]
+    },
+    {
+      "id": "COMPANIES-ECONOMY",
+      "steam_build_id": 26710925,
+      "state": "static_traced_with_scoped_desktop_observations",
+      "runtime_verified": false,
+      "source_ids": [
+        "SRC-299",
+        "SRC-300",
+        "SRC-301",
+        "SRC-302"
+      ]
+    },
+    {
+      "id": "TERRAIN-DISASTERS-CITIES",
+      "steam_build_id": 26710925,
+      "state": "static_traced_with_scoped_desktop_observations",
+      "runtime_verified": false,
+      "source_ids": [
+        "SRC-303",
+        "SRC-304",
+        "SRC-305",
+        "SRC-306",
+        "SRC-307"
+      ]
+    },
+    {
+      "id": "WALK-PROGRESSION",
+      "steam_build_id": 26710925,
+      "state": "static_traced_with_scoped_desktop_observations",
+      "runtime_verified": false,
+      "source_ids": [
+        "SRC-308",
+        "SRC-309",
+        "SRC-310",
+        "SRC-311",
+        "SRC-312",
+        "SRC-313"
+      ]
+    },
+    {
+      "id": "NETWORK-ADDONS-REGRESSIONS",
+      "steam_build_id": 26710925,
+      "state": "static_traced_with_scoped_desktop_observations",
+      "runtime_verified": false,
+      "source_ids": [
+        "SRC-314",
+        "SRC-315",
+        "SRC-316",
+        "SRC-317",
+        "SRC-318"
+      ]
     }
   ],
   "anchors": {
@@ -774,6 +838,2287 @@
         ],
         "sha256": "56554298fb74d704ef89b458bfde6f60294012d71ca7ba5a3bc89f77bc88f643"
       }
+    ],
+    "SRC-293": [
+      {
+        "path": "civ.js",
+        "lines": [
+          1416,
+          1431
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          2069,
+          2077
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          2116,
+          2140
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          9,
+          50
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          250,
+          365
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          371,
+          454
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          602,
+          619
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          658,
+          718
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          720,
+          855
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          867,
+          907
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          919,
+          950
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          1015,
+          1116
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          1118,
+          1169
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          1198,
+          1273
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          1281,
+          1320
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          1392,
+          1415
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-294": [
+      {
+        "path": "army.js",
+        "lines": [
+          979,
+          1013
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          1998,
+          2058
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          64,
+          71
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          543,
+          555
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          578,
+          636
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          637,
+          722
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          1584,
+          1591
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "airwar.js",
+        "lines": [
+          10,
+          37
+        ],
+        "sha256": "a2a7bcad801cbb7f17b98638cbca450ba4fb200609b977c17f0e4e581d4845f1",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "airwar.js",
+        "lines": [
+          80,
+          135
+        ],
+        "sha256": "a2a7bcad801cbb7f17b98638cbca450ba4fb200609b977c17f0e4e581d4845f1",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "airwar.js",
+        "lines": [
+          143,
+          229
+        ],
+        "sha256": "a2a7bcad801cbb7f17b98638cbca450ba4fb200609b977c17f0e4e581d4845f1",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "airwar.js",
+        "lines": [
+          235,
+          309
+        ],
+        "sha256": "a2a7bcad801cbb7f17b98638cbca450ba4fb200609b977c17f0e4e581d4845f1",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "airwar.js",
+        "lines": [
+          332,
+          343
+        ],
+        "sha256": "a2a7bcad801cbb7f17b98638cbca450ba4fb200609b977c17f0e4e581d4845f1",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "nuclear.js",
+        "lines": [
+          241,
+          260
+        ],
+        "sha256": "b0b57357557c893de6c42062cee06f15ee3b01090621598a2e2a99553c60b4c3",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "nuclear.js",
+        "lines": [
+          381,
+          419
+        ],
+        "sha256": "b0b57357557c893de6c42062cee06f15ee3b01090621598a2e2a99553c60b4c3",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          2341,
+          2414
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-295": [
+      {
+        "path": "warmap.js",
+        "lines": [
+          293,
+          345
+        ],
+        "sha256": "02a995f59216f245c74b2913008ab5d2217cf38e1135219b4ec59f7e4db906db",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "war3d.js",
+        "lines": [
+          207,
+          216
+        ],
+        "sha256": "c2870cd22c1525c56335f9d3d8c4768e6c847928844b061a668f65942d9d915f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkreg.js",
+        "lines": [
+          46,
+          85
+        ],
+        "sha256": "1b19e3f0c74f06aafaa8a4a9d8dc6cc9fca3a72dc9182afcc620e80538eef526",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkreg.js",
+        "lines": [
+          208,
+          248
+        ],
+        "sha256": "1b19e3f0c74f06aafaa8a4a9d8dc6cc9fca3a72dc9182afcc620e80538eef526",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkreg.js",
+        "lines": [
+          332,
+          368
+        ],
+        "sha256": "1b19e3f0c74f06aafaa8a4a9d8dc6cc9fca3a72dc9182afcc620e80538eef526",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkreg.js",
+        "lines": [
+          611,
+          647
+        ],
+        "sha256": "1b19e3f0c74f06aafaa8a4a9d8dc6cc9fca3a72dc9182afcc620e80538eef526",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walk.js",
+        "lines": [
+          49,
+          111
+        ],
+        "sha256": "4f279c910b6c90eb60791a4c604c485731700fcd679098175f7efaca5856b914",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkact.js",
+        "lines": [
+          2990,
+          2997
+        ],
+        "sha256": "f703684493274e158af372dc95bcba1847bfef5dbc8956cd2ab4fc8be91027ac",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkwar.js",
+        "lines": [
+          170,
+          205
+        ],
+        "sha256": "145fdf9e6dcc81d59a710bd14313be1e2ced856b390788e27645cd8d01b6c91e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "warmap.js",
+        "lines": [
+          458,
+          485
+        ],
+        "sha256": "02a995f59216f245c74b2913008ab5d2217cf38e1135219b4ec59f7e4db906db",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "army.js",
+        "lines": [
+          1489,
+          1568
+        ],
+        "sha256": "4fb7bf763deecb93e3a3bc8dd77c6f09fa78bbbc7c2b8f8ca9b86b2e40a75cd9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "panels.js",
+        "lines": [
+          562,
+          591
+        ],
+        "sha256": "c0fc0d53904ba810702baf127898be4dc8d4677369df6ef800810c51637db1b5",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-297": [
+      {
+        "path": "core.js",
+        "lines": [
+          5,
+          6
+        ],
+        "sha256": "d06b47c7ae8ff5fac4589f324b792c154bff017ac6b8f6a34bef08eab6bc2d45",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "main.js",
+        "lines": [
+          231,
+          244
+        ],
+        "sha256": "39276f655dde5b93c2b6ce9e89d9ef8a44c5a52120783dfe188a3b690c44a8f3",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ui.js",
+        "lines": [
+          471,
+          487
+        ],
+        "sha256": "320764e85eae13a3fc59df2f791249f4f3a8d32bb28249c473866f17601347c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ui.js",
+        "lines": [
+          670,
+          685
+        ],
+        "sha256": "320764e85eae13a3fc59df2f791249f4f3a8d32bb28249c473866f17601347c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ui.js",
+        "lines": [
+          893,
+          908
+        ],
+        "sha256": "320764e85eae13a3fc59df2f791249f4f3a8d32bb28249c473866f17601347c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "rulesui.js",
+        "lines": [
+          293,
+          305
+        ],
+        "sha256": "58ec2136efac025bb957e990362f19477416b4806bad29b4d60d72263d95eeca",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          65,
+          75
+        ],
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          297,
+          327
+        ],
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          343,
+          357
+        ],
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          715,
+          728
+        ],
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netserver.js",
+        "lines": [
+          20,
+          27
+        ],
+        "sha256": "875f00151cec5fe80b6be6909ac0be3f112e4b9c6a216e58df3ca1d8f0a60705",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netserver.js",
+        "lines": [
+          587,
+          603
+        ],
+        "sha256": "875f00151cec5fe80b6be6909ac0be3f112e4b9c6a216e58df3ca1d8f0a60705",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "disasters.js",
+        "lines": [
+          374,
+          408
+        ],
+        "sha256": "b846c95de32d3c9848be9a44ea0a3f34adfadbe426bd406c7c5ec70ab6df096e",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-299": [
+      {
+        "path": "corp.js",
+        "lines": [
+          21,
+          80
+        ],
+        "sha256": "2f16ed4dcbe850e51674969cbffd2a464cc633c145db080a127db3213e086e11",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "corp.js",
+        "lines": [
+          168,
+          264
+        ],
+        "sha256": "2f16ed4dcbe850e51674969cbffd2a464cc633c145db080a127db3213e086e11",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "corp.js",
+        "lines": [
+          273,
+          333
+        ],
+        "sha256": "2f16ed4dcbe850e51674969cbffd2a464cc633c145db080a127db3213e086e11",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "corp.js",
+        "lines": [
+          396,
+          527
+        ],
+        "sha256": "2f16ed4dcbe850e51674969cbffd2a464cc633c145db080a127db3213e086e11",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "corp.js",
+        "lines": [
+          529,
+          574
+        ],
+        "sha256": "2f16ed4dcbe850e51674969cbffd2a464cc633c145db080a127db3213e086e11",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "corp.js",
+        "lines": [
+          575,
+          610
+        ],
+        "sha256": "2f16ed4dcbe850e51674969cbffd2a464cc633c145db080a127db3213e086e11",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "corp.js",
+        "lines": [
+          635,
+          665
+        ],
+        "sha256": "2f16ed4dcbe850e51674969cbffd2a464cc633c145db080a127db3213e086e11",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "corp.js",
+        "lines": [
+          829,
+          875
+        ],
+        "sha256": "2f16ed4dcbe850e51674969cbffd2a464cc633c145db080a127db3213e086e11",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "corpui.js",
+        "lines": [
+          90,
+          142
+        ],
+        "sha256": "e126afb57ea1d51ff679e4bf84a9c1bf6a9fdbf1205d28d6f90a4285af7f146a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "corpui.js",
+        "lines": [
+          180,
+          249
+        ],
+        "sha256": "e126afb57ea1d51ff679e4bf84a9c1bf6a9fdbf1205d28d6f90a4285af7f146a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "trade.js",
+        "lines": [
+          1198,
+          1207
+        ],
+        "sha256": "e6f455507f4dedcdbb9f1024d15e7774594b42aa0a0d9beb537e7e8714739be1",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-300": [
+      {
+        "path": "corp.js",
+        "lines": [
+          37,
+          52
+        ],
+        "sha256": "2f16ed4dcbe850e51674969cbffd2a464cc633c145db080a127db3213e086e11",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcorp.js",
+        "lines": [
+          14,
+          45
+        ],
+        "sha256": "36261efc018df707002d46d40fff246920ef38cbe88ab2541af8074568f21d0d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcorp.js",
+        "lines": [
+          46,
+          136
+        ],
+        "sha256": "36261efc018df707002d46d40fff246920ef38cbe88ab2541af8074568f21d0d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcorp.js",
+        "lines": [
+          147,
+          220
+        ],
+        "sha256": "36261efc018df707002d46d40fff246920ef38cbe88ab2541af8074568f21d0d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcorp.js",
+        "lines": [
+          221,
+          253
+        ],
+        "sha256": "36261efc018df707002d46d40fff246920ef38cbe88ab2541af8074568f21d0d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkeco.js",
+        "lines": [
+          250,
+          280
+        ],
+        "sha256": "56d6b15a245d91c85959225f92628f36dd423991f34897f40e0a08263e33c194",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walk.js",
+        "lines": [
+          1570,
+          1579
+        ],
+        "sha256": "4f279c910b6c90eb60791a4c604c485731700fcd679098175f7efaca5856b914",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-301": [
+      {
+        "path": "corp.js",
+        "lines": [
+          334,
+          392
+        ],
+        "sha256": "2f16ed4dcbe850e51674969cbffd2a464cc633c145db080a127db3213e086e11",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "corp.js",
+        "lines": [
+          670,
+          747
+        ],
+        "sha256": "2f16ed4dcbe850e51674969cbffd2a464cc633c145db080a127db3213e086e11",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "corp3d.js",
+        "lines": [
+          12,
+          47
+        ],
+        "sha256": "7bf9eb416f051fbaaaceb0778b78c7adc64726c758c078759f86fa89f351313a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "world3d.js",
+        "lines": [
+          4406,
+          4415
+        ],
+        "sha256": "9b222248f9b7a6543f964e3c1a76ed113bcbf2b5d5b79be26cb1898826243f4a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "world3d.js",
+        "lines": [
+          4459,
+          4469
+        ],
+        "sha256": "9b222248f9b7a6543f964e3c1a76ed113bcbf2b5d5b79be26cb1898826243f4a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkdsg.js",
+        "lines": [
+          104,
+          136
+        ],
+        "sha256": "7aa22109d8bba54443bfd56995232526e6d7d0f740fbd5ae12032d6e5354c53f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkact.js",
+        "lines": [
+          3293,
+          3303
+        ],
+        "sha256": "f703684493274e158af372dc95bcba1847bfef5dbc8956cd2ab4fc8be91027ac",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkvehs.js",
+        "lines": [
+          147,
+          166
+        ],
+        "sha256": "a16be5dff647af338e7c0bd11f6e9917b743dcbbb851ca9dcb2039b41c1784a3",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-303": [
+      {
+        "path": "terrain.js",
+        "lines": [
+          10,
+          63
+        ],
+        "sha256": "2e6087bb6a0a87d670d798598fee5e49ba17fd39c1591ea263ee4e8b8a143b02",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "terrain.js",
+        "lines": [
+          93,
+          178
+        ],
+        "sha256": "2e6087bb6a0a87d670d798598fee5e49ba17fd39c1591ea263ee4e8b8a143b02",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "terrain.js",
+        "lines": [
+          184,
+          209
+        ],
+        "sha256": "2e6087bb6a0a87d670d798598fee5e49ba17fd39c1591ea263ee4e8b8a143b02",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ui.js",
+        "lines": [
+          678,
+          701
+        ],
+        "sha256": "320764e85eae13a3fc59df2f791249f4f3a8d32bb28249c473866f17601347c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ui.js",
+        "lines": [
+          737,
+          751
+        ],
+        "sha256": "320764e85eae13a3fc59df2f791249f4f3a8d32bb28249c473866f17601347c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ui.js",
+        "lines": [
+          895,
+          925
+        ],
+        "sha256": "320764e85eae13a3fc59df2f791249f4f3a8d32bb28249c473866f17601347c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "core.js",
+        "lines": [
+          168,
+          183
+        ],
+        "sha256": "d06b47c7ae8ff5fac4589f324b792c154bff017ac6b8f6a34bef08eab6bc2d45",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "core.js",
+        "lines": [
+          1247,
+          1314
+        ],
+        "sha256": "d06b47c7ae8ff5fac4589f324b792c154bff017ac6b8f6a34bef08eab6bc2d45",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "rivers.js",
+        "lines": [
+          9,
+          106
+        ],
+        "sha256": "c6185112be0c268b37df3ff1936342d34feae981d1845d9e397c8e169ce9c9e5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "rivers.js",
+        "lines": [
+          112,
+          213
+        ],
+        "sha256": "c6185112be0c268b37df3ff1936342d34feae981d1845d9e397c8e169ce9c9e5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "rivers.js",
+        "lines": [
+          216,
+          263
+        ],
+        "sha256": "c6185112be0c268b37df3ff1936342d34feae981d1845d9e397c8e169ce9c9e5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "climate.js",
+        "lines": [
+          357,
+          374
+        ],
+        "sha256": "e84f3f12b3fdb031c7248244987815fa3f453e343efd3aa6346e00f204008810",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "climate.js",
+        "lines": [
+          588,
+          672
+        ],
+        "sha256": "e84f3f12b3fdb031c7248244987815fa3f453e343efd3aa6346e00f204008810",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          2767,
+          2793
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-304": [
+      {
+        "path": "disasters.js",
+        "lines": [
+          185,
+          275
+        ],
+        "sha256": "b846c95de32d3c9848be9a44ea0a3f34adfadbe426bd406c7c5ec70ab6df096e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "disasters.js",
+        "lines": [
+          295,
+          336
+        ],
+        "sha256": "b846c95de32d3c9848be9a44ea0a3f34adfadbe426bd406c7c5ec70ab6df096e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "disasters.js",
+        "lines": [
+          374,
+          398
+        ],
+        "sha256": "b846c95de32d3c9848be9a44ea0a3f34adfadbe426bd406c7c5ec70ab6df096e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "craters.js",
+        "lines": [
+          54,
+          83
+        ],
+        "sha256": "2aefedb258a6f5657bce1de61b21e85699b5462a7af739a20ff04c14dd76b2f0",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "craters.js",
+        "lines": [
+          99,
+          162
+        ],
+        "sha256": "2aefedb258a6f5657bce1de61b21e85699b5462a7af739a20ff04c14dd76b2f0",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ruins.js",
+        "lines": [
+          12,
+          52
+        ],
+        "sha256": "4e0df17555d7d9d2899345074bdf98f49ace45794e2bf050f2b5c566d6342b24",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ruins.js",
+        "lines": [
+          121,
+          216
+        ],
+        "sha256": "4e0df17555d7d9d2899345074bdf98f49ace45794e2bf050f2b5c566d6342b24",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ruins.js",
+        "lines": [
+          250,
+          375
+        ],
+        "sha256": "4e0df17555d7d9d2899345074bdf98f49ace45794e2bf050f2b5c566d6342b24",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ruins.js",
+        "lines": [
+          422,
+          511
+        ],
+        "sha256": "4e0df17555d7d9d2899345074bdf98f49ace45794e2bf050f2b5c566d6342b24",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ruins.js",
+        "lines": [
+          513,
+          531
+        ],
+        "sha256": "4e0df17555d7d9d2899345074bdf98f49ace45794e2bf050f2b5c566d6342b24",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ruins.js",
+        "lines": [
+          588,
+          610
+        ],
+        "sha256": "4e0df17555d7d9d2899345074bdf98f49ace45794e2bf050f2b5c566d6342b24",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ruins.js",
+        "lines": [
+          645,
+          710
+        ],
+        "sha256": "4e0df17555d7d9d2899345074bdf98f49ace45794e2bf050f2b5c566d6342b24",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ruins.js",
+        "lines": [
+          779,
+          783
+        ],
+        "sha256": "4e0df17555d7d9d2899345074bdf98f49ace45794e2bf050f2b5c566d6342b24",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          1286,
+          1292
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkruin.js",
+        "lines": [
+          98,
+          145
+        ],
+        "sha256": "97843c0470c1be845c587fee98c9c7aed5306725ccf4fed9fb1d954e57e595a7",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-305": [
+      {
+        "path": "wonders.js",
+        "lines": [
+          11,
+          74
+        ],
+        "sha256": "c0d9c728d3c6508d19ed1cf7edb7e8b6ba87b1172da3712ade6f025f76e97da9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "wonders.js",
+        "lines": [
+          180,
+          194
+        ],
+        "sha256": "c0d9c728d3c6508d19ed1cf7edb7e8b6ba87b1172da3712ade6f025f76e97da9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "wonders.js",
+        "lines": [
+          239,
+          329
+        ],
+        "sha256": "c0d9c728d3c6508d19ed1cf7edb7e8b6ba87b1172da3712ade6f025f76e97da9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "wonders.js",
+        "lines": [
+          333,
+          451
+        ],
+        "sha256": "c0d9c728d3c6508d19ed1cf7edb7e8b6ba87b1172da3712ade6f025f76e97da9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "wonders.js",
+        "lines": [
+          453,
+          471
+        ],
+        "sha256": "c0d9c728d3c6508d19ed1cf7edb7e8b6ba87b1172da3712ade6f025f76e97da9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "wonders.js",
+        "lines": [
+          488,
+          547
+        ],
+        "sha256": "c0d9c728d3c6508d19ed1cf7edb7e8b6ba87b1172da3712ade6f025f76e97da9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "wonders.js",
+        "lines": [
+          578,
+          613
+        ],
+        "sha256": "c0d9c728d3c6508d19ed1cf7edb7e8b6ba87b1172da3712ade6f025f76e97da9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          1377,
+          1387
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-306": [
+      {
+        "path": "disasters.js",
+        "lines": [
+          327,
+          336
+        ],
+        "sha256": "b846c95de32d3c9848be9a44ea0a3f34adfadbe426bd406c7c5ec70ab6df096e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          1093,
+          1110
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "epidemic.js",
+        "lines": [
+          185,
+          221
+        ],
+        "sha256": "a645f4db5d3aac3ab0a569ce6403a6496bcb157f11acc2e85dc456adbd4db488",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "epidemic.js",
+        "lines": [
+          224,
+          279
+        ],
+        "sha256": "a645f4db5d3aac3ab0a569ce6403a6496bcb157f11acc2e85dc456adbd4db488",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "epidemic.js",
+        "lines": [
+          295,
+          331
+        ],
+        "sha256": "a645f4db5d3aac3ab0a569ce6403a6496bcb157f11acc2e85dc456adbd4db488",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "epidemic.js",
+        "lines": [
+          367,
+          435
+        ],
+        "sha256": "a645f4db5d3aac3ab0a569ce6403a6496bcb157f11acc2e85dc456adbd4db488",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "epidemic.js",
+        "lines": [
+          479,
+          494
+        ],
+        "sha256": "a645f4db5d3aac3ab0a569ce6403a6496bcb157f11acc2e85dc456adbd4db488",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "epidemic.js",
+        "lines": [
+          525,
+          571
+        ],
+        "sha256": "a645f4db5d3aac3ab0a569ce6403a6496bcb157f11acc2e85dc456adbd4db488",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "dlc.js",
+        "lines": [
+          23,
+          31
+        ],
+        "sha256": "a1c70c35ab6b475698720fdf51023a5095702921200767669d1cce960ba8700a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "dlc.js",
+        "lines": [
+          63,
+          77
+        ],
+        "sha256": "a1c70c35ab6b475698720fdf51023a5095702921200767669d1cce960ba8700a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "dlc.js",
+        "lines": [
+          90,
+          99
+        ],
+        "sha256": "a1c70c35ab6b475698720fdf51023a5095702921200767669d1cce960ba8700a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "epiview.js",
+        "lines": [
+          143,
+          153
+        ],
+        "sha256": "638c3431332865e018ee12018911eba013fce4c17645cbcad07d3028642e2770",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "ui.js",
+        "lines": [
+          38,
+          48
+        ],
+        "sha256": "320764e85eae13a3fc59df2f791249f4f3a8d32bb28249c473866f17601347c9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkzombie.js",
+        "lines": [
+          1555,
+          1570
+        ],
+        "sha256": "3311f2243227d5100e33aa44cd2260d45fa723675587ae583fdf7f82a4364f12",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-308": [
+      {
+        "path": "walkint.js",
+        "lines": [
+          11,
+          45
+        ],
+        "sha256": "ef92c17ae312e32b2663fae49c56cc319cb4ba71ae8a9e253692c680a56b9056",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkint.js",
+        "lines": [
+          130,
+          153
+        ],
+        "sha256": "ef92c17ae312e32b2663fae49c56cc319cb4ba71ae8a9e253692c680a56b9056",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkint.js",
+        "lines": [
+          301,
+          357
+        ],
+        "sha256": "ef92c17ae312e32b2663fae49c56cc319cb4ba71ae8a9e253692c680a56b9056",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkint.js",
+        "lines": [
+          642,
+          685
+        ],
+        "sha256": "ef92c17ae312e32b2663fae49c56cc319cb4ba71ae8a9e253692c680a56b9056",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkint.js",
+        "lines": [
+          688,
+          726
+        ],
+        "sha256": "ef92c17ae312e32b2663fae49c56cc319cb4ba71ae8a9e253692c680a56b9056",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkint.js",
+        "lines": [
+          921,
+          949
+        ],
+        "sha256": "ef92c17ae312e32b2663fae49c56cc319cb4ba71ae8a9e253692c680a56b9056",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkint.js",
+        "lines": [
+          1092,
+          1107
+        ],
+        "sha256": "ef92c17ae312e32b2663fae49c56cc319cb4ba71ae8a9e253692c680a56b9056",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkint.js",
+        "lines": [
+          1119,
+          1139
+        ],
+        "sha256": "ef92c17ae312e32b2663fae49c56cc319cb4ba71ae8a9e253692c680a56b9056",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkint.js",
+        "lines": [
+          1197,
+          1221
+        ],
+        "sha256": "ef92c17ae312e32b2663fae49c56cc319cb4ba71ae8a9e253692c680a56b9056",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkint.js",
+        "lines": [
+          1244,
+          1275
+        ],
+        "sha256": "ef92c17ae312e32b2663fae49c56cc319cb4ba71ae8a9e253692c680a56b9056",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkint.js",
+        "lines": [
+          1335,
+          1362
+        ],
+        "sha256": "ef92c17ae312e32b2663fae49c56cc319cb4ba71ae8a9e253692c680a56b9056",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkgen.js",
+        "lines": [
+          6153,
+          6179
+        ],
+        "sha256": "8d579254123002344bef083a5c48cb5fc0f39ce483fe7e144ce708a7c0802f9d",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-309": [
+      {
+        "path": "walk.js",
+        "lines": [
+          32,
+          48
+        ],
+        "sha256": "4f279c910b6c90eb60791a4c604c485731700fcd679098175f7efaca5856b914",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkact.js",
+        "lines": [
+          4970,
+          5057
+        ],
+        "sha256": "f703684493274e158af372dc95bcba1847bfef5dbc8956cd2ab4fc8be91027ac",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkact.js",
+        "lines": [
+          5059,
+          5107
+        ],
+        "sha256": "f703684493274e158af372dc95bcba1847bfef5dbc8956cd2ab4fc8be91027ac",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkneed.js",
+        "lines": [
+          10,
+          39
+        ],
+        "sha256": "6c9ec6e833b4f1f999bf8b331bbd2b498c07e4d8014034bdbd9d46ad9d9526e5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkneed.js",
+        "lines": [
+          87,
+          110
+        ],
+        "sha256": "6c9ec6e833b4f1f999bf8b331bbd2b498c07e4d8014034bdbd9d46ad9d9526e5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkneed.js",
+        "lines": [
+          135,
+          163
+        ],
+        "sha256": "6c9ec6e833b4f1f999bf8b331bbd2b498c07e4d8014034bdbd9d46ad9d9526e5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkneed.js",
+        "lines": [
+          359,
+          389
+        ],
+        "sha256": "6c9ec6e833b4f1f999bf8b331bbd2b498c07e4d8014034bdbd9d46ad9d9526e5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkneed.js",
+        "lines": [
+          422,
+          461
+        ],
+        "sha256": "6c9ec6e833b4f1f999bf8b331bbd2b498c07e4d8014034bdbd9d46ad9d9526e5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkneed.js",
+        "lines": [
+          526,
+          556
+        ],
+        "sha256": "6c9ec6e833b4f1f999bf8b331bbd2b498c07e4d8014034bdbd9d46ad9d9526e5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkneed.js",
+        "lines": [
+          583,
+          615
+        ],
+        "sha256": "6c9ec6e833b4f1f999bf8b331bbd2b498c07e4d8014034bdbd9d46ad9d9526e5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkneed.js",
+        "lines": [
+          717,
+          730
+        ],
+        "sha256": "6c9ec6e833b4f1f999bf8b331bbd2b498c07e4d8014034bdbd9d46ad9d9526e5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkkit.js",
+        "lines": [
+          215,
+          233
+        ],
+        "sha256": "a3cd447c0a3e5f4eb91c7376afd27da6ea0da9dc3bab6563d650fde153426d2a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkkit.js",
+        "lines": [
+          237,
+          274
+        ],
+        "sha256": "a3cd447c0a3e5f4eb91c7376afd27da6ea0da9dc3bab6563d650fde153426d2a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkkit.js",
+        "lines": [
+          372,
+          387
+        ],
+        "sha256": "a3cd447c0a3e5f4eb91c7376afd27da6ea0da9dc3bab6563d650fde153426d2a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkkit.js",
+        "lines": [
+          609,
+          618
+        ],
+        "sha256": "a3cd447c0a3e5f4eb91c7376afd27da6ea0da9dc3bab6563d650fde153426d2a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkkit.js",
+        "lines": [
+          697,
+          733
+        ],
+        "sha256": "a3cd447c0a3e5f4eb91c7376afd27da6ea0da9dc3bab6563d650fde153426d2a",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkeco.js",
+        "lines": [
+          728,
+          748
+        ],
+        "sha256": "56d6b15a245d91c85959225f92628f36dd423991f34897f40e0a08263e33c194",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-310": [
+      {
+        "path": "walkcareer.js",
+        "lines": [
+          15,
+          28
+        ],
+        "sha256": "64fb647fd82f34c0722b8ce92c789d2f9a8c4d00a36dc04b83261e4ea83c6031",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcareer.js",
+        "lines": [
+          45,
+          85
+        ],
+        "sha256": "64fb647fd82f34c0722b8ce92c789d2f9a8c4d00a36dc04b83261e4ea83c6031",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcareer.js",
+        "lines": [
+          88,
+          151
+        ],
+        "sha256": "64fb647fd82f34c0722b8ce92c789d2f9a8c4d00a36dc04b83261e4ea83c6031",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcareer.js",
+        "lines": [
+          290,
+          322
+        ],
+        "sha256": "64fb647fd82f34c0722b8ce92c789d2f9a8c4d00a36dc04b83261e4ea83c6031",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcareer.js",
+        "lines": [
+          352,
+          378
+        ],
+        "sha256": "64fb647fd82f34c0722b8ce92c789d2f9a8c4d00a36dc04b83261e4ea83c6031",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcareer.js",
+        "lines": [
+          408,
+          432
+        ],
+        "sha256": "64fb647fd82f34c0722b8ce92c789d2f9a8c4d00a36dc04b83261e4ea83c6031",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkride.js",
+        "lines": [
+          59,
+          111
+        ],
+        "sha256": "4ea4304a0633ab4847c83448a26ad36ed7c12e67bec10167b5110fd0d299a8be",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkdrive.js",
+        "lines": [
+          14,
+          37
+        ],
+        "sha256": "0194431aacb6d7c318be4af9a29563b9a46277664ef05bfd807435053002c098",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkdrive.js",
+        "lines": [
+          103,
+          142
+        ],
+        "sha256": "0194431aacb6d7c318be4af9a29563b9a46277664ef05bfd807435053002c098",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkdrive.js",
+        "lines": [
+          177,
+          215
+        ],
+        "sha256": "0194431aacb6d7c318be4af9a29563b9a46277664ef05bfd807435053002c098",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkdrive.js",
+        "lines": [
+          238,
+          279
+        ],
+        "sha256": "0194431aacb6d7c318be4af9a29563b9a46277664ef05bfd807435053002c098",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkdrive.js",
+        "lines": [
+          280,
+          345
+        ],
+        "sha256": "0194431aacb6d7c318be4af9a29563b9a46277664ef05bfd807435053002c098",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkdrive.js",
+        "lines": [
+          369,
+          383
+        ],
+        "sha256": "0194431aacb6d7c318be4af9a29563b9a46277664ef05bfd807435053002c098",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcaptain.js",
+        "lines": [
+          75,
+          89
+        ],
+        "sha256": "6cda86726d78ea40d4e963ac1549121aa5f1b8a41972f75b487240b8d0e3eb7d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkeco.js",
+        "lines": [
+          264,
+          280
+        ],
+        "sha256": "56d6b15a245d91c85959225f92628f36dd423991f34897f40e0a08263e33c194",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-311": [
+      {
+        "path": "wonders.js",
+        "lines": [
+          39,
+          42
+        ],
+        "sha256": "c0d9c728d3c6508d19ed1cf7edb7e8b6ba87b1172da3712ade6f025f76e97da9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "wonders.js",
+        "lines": [
+          180,
+          191
+        ],
+        "sha256": "c0d9c728d3c6508d19ed1cf7edb7e8b6ba87b1172da3712ade6f025f76e97da9",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcivic.js",
+        "lines": [
+          382,
+          406
+        ],
+        "sha256": "83db6a6c1b46863bad2b1f521775a5251b84b352209d218471c7e492faa0666e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcivic.js",
+        "lines": [
+          440,
+          462
+        ],
+        "sha256": "83db6a6c1b46863bad2b1f521775a5251b84b352209d218471c7e492faa0666e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcivic.js",
+        "lines": [
+          497,
+          506
+        ],
+        "sha256": "83db6a6c1b46863bad2b1f521775a5251b84b352209d218471c7e492faa0666e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkcivic.js",
+        "lines": [
+          517,
+          555
+        ],
+        "sha256": "83db6a6c1b46863bad2b1f521775a5251b84b352209d218471c7e492faa0666e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkwar.js",
+        "lines": [
+          980,
+          991
+        ],
+        "sha256": "145fdf9e6dcc81d59a710bd14313be1e2ced856b390788e27645cd8d01b6c91e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkwar.js",
+        "lines": [
+          1012,
+          1056
+        ],
+        "sha256": "145fdf9e6dcc81d59a710bd14313be1e2ced856b390788e27645cd8d01b6c91e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkwar.js",
+        "lines": [
+          1218,
+          1256
+        ],
+        "sha256": "145fdf9e6dcc81d59a710bd14313be1e2ced856b390788e27645cd8d01b6c91e",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkact.js",
+        "lines": [
+          5142,
+          5158
+        ],
+        "sha256": "f703684493274e158af372dc95bcba1847bfef5dbc8956cd2ab4fc8be91027ac",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-312": [
+      {
+        "path": "walklaw.js",
+        "lines": [
+          482,
+          504
+        ],
+        "sha256": "d79435f70b3c3f4712f4d13dbf77e52fe2c53cd7759b300cb015bf9f477f71b1",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walklaw.js",
+        "lines": [
+          556,
+          573
+        ],
+        "sha256": "d79435f70b3c3f4712f4d13dbf77e52fe2c53cd7759b300cb015bf9f477f71b1",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkjail.js",
+        "lines": [
+          12,
+          24
+        ],
+        "sha256": "bdb33ee9f478d127f86c88ceb044e0351dd21ca39cb7c288e6e70a6eb6224dc0",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkjail.js",
+        "lines": [
+          245,
+          283
+        ],
+        "sha256": "bdb33ee9f478d127f86c88ceb044e0351dd21ca39cb7c288e6e70a6eb6224dc0",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkjail.js",
+        "lines": [
+          286,
+          342
+        ],
+        "sha256": "bdb33ee9f478d127f86c88ceb044e0351dd21ca39cb7c288e6e70a6eb6224dc0",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkjail.js",
+        "lines": [
+          345,
+          364
+        ],
+        "sha256": "bdb33ee9f478d127f86c88ceb044e0351dd21ca39cb7c288e6e70a6eb6224dc0",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkjail.js",
+        "lines": [
+          394,
+          406
+        ],
+        "sha256": "bdb33ee9f478d127f86c88ceb044e0351dd21ca39cb7c288e6e70a6eb6224dc0",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkjail.js",
+        "lines": [
+          417,
+          447
+        ],
+        "sha256": "bdb33ee9f478d127f86c88ceb044e0351dd21ca39cb7c288e6e70a6eb6224dc0",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "walkjail.js",
+        "lines": [
+          668,
+          686
+        ],
+        "sha256": "bdb33ee9f478d127f86c88ceb044e0351dd21ca39cb7c288e6e70a6eb6224dc0",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-314": [
+      {
+        "path": "netwalk.js",
+        "lines": [
+          14,
+          25
+        ],
+        "sha256": "ab8afa604c6f2b7231aeaf0a6ce9aa29bc6dd42222b848a8143a37da29fa50d5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netwalk.js",
+        "lines": [
+          570,
+          601
+        ],
+        "sha256": "ab8afa604c6f2b7231aeaf0a6ce9aa29bc6dd42222b848a8143a37da29fa50d5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netwalk.js",
+        "lines": [
+          880,
+          897
+        ],
+        "sha256": "ab8afa604c6f2b7231aeaf0a6ce9aa29bc6dd42222b848a8143a37da29fa50d5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netwalk.js",
+        "lines": [
+          937,
+          959
+        ],
+        "sha256": "ab8afa604c6f2b7231aeaf0a6ce9aa29bc6dd42222b848a8143a37da29fa50d5",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netride.js",
+        "lines": [
+          68,
+          87
+        ],
+        "sha256": "d95def393d00d408503e8190c5a7625d6380322808981dba6af8a05ecf8f5f2d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netride.js",
+        "lines": [
+          127,
+          156
+        ],
+        "sha256": "d95def393d00d408503e8190c5a7625d6380322808981dba6af8a05ecf8f5f2d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netride.js",
+        "lines": [
+          172,
+          249
+        ],
+        "sha256": "d95def393d00d408503e8190c5a7625d6380322808981dba6af8a05ecf8f5f2d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netride.js",
+        "lines": [
+          329,
+          369
+        ],
+        "sha256": "d95def393d00d408503e8190c5a7625d6380322808981dba6af8a05ecf8f5f2d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netride.js",
+        "lines": [
+          439,
+          470
+        ],
+        "sha256": "d95def393d00d408503e8190c5a7625d6380322808981dba6af8a05ecf8f5f2d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netride.js",
+        "lines": [
+          503,
+          605
+        ],
+        "sha256": "d95def393d00d408503e8190c5a7625d6380322808981dba6af8a05ecf8f5f2d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netride.js",
+        "lines": [
+          614,
+          642
+        ],
+        "sha256": "d95def393d00d408503e8190c5a7625d6380322808981dba6af8a05ecf8f5f2d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netride.js",
+        "lines": [
+          776,
+          805
+        ],
+        "sha256": "d95def393d00d408503e8190c5a7625d6380322808981dba6af8a05ecf8f5f2d",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netride.js",
+        "lines": [
+          1060,
+          1089
+        ],
+        "sha256": "d95def393d00d408503e8190c5a7625d6380322808981dba6af8a05ecf8f5f2d",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-315": [
+      {
+        "path": "i18n.js",
+        "lines": [
+          173,
+          182
+        ],
+        "sha256": "0be9d9cf617ae16a126365505344513e6413243aef394cf18996dcd1ed9a1281",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          815,
+          836
+        ],
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          841,
+          879
+        ],
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          881,
+          918
+        ],
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          924,
+          947
+        ],
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          950,
+          991
+        ],
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          1010,
+          1026
+        ],
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          1112,
+          1156
+        ],
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netui.js",
+        "lines": [
+          409,
+          452
+        ],
+        "sha256": "c428365ef08bc3172d9b28b419fa85854d491ca52a5d47e0b993b02eb5ef57a7",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netui.js",
+        "lines": [
+          899,
+          918
+        ],
+        "sha256": "c428365ef08bc3172d9b28b419fa85854d491ca52a5d47e0b993b02eb5ef57a7",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netserver.js",
+        "lines": [
+          243,
+          270
+        ],
+        "sha256": "875f00151cec5fe80b6be6909ac0be3f112e4b9c6a216e58df3ca1d8f0a60705",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netserver.js",
+        "lines": [
+          805,
+          838
+        ],
+        "sha256": "875f00151cec5fe80b6be6909ac0be3f112e4b9c6a216e58df3ca1d8f0a60705",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-316": [
+      {
+        "path": "mods.js",
+        "lines": [
+          282,
+          305
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          310,
+          386
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          419,
+          447
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          494,
+          566
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          598,
+          630
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          652,
+          747
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          753,
+          797
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          832,
+          873
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          918,
+          959
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          1289,
+          1344
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          2541,
+          2557
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          2602,
+          2643
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          2674,
+          2695
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "modedit.js",
+        "lines": [
+          1622,
+          1637
+        ],
+        "sha256": "c66b939a02687a42e7a3f1f3c0745e2570a511a3a63667da22ff7d8c966ba785",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "modedit.js",
+        "lines": [
+          2360,
+          2385
+        ],
+        "sha256": "c66b939a02687a42e7a3f1f3c0745e2570a511a3a63667da22ff7d8c966ba785",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "modedit.js",
+        "lines": [
+          2435,
+          2464
+        ],
+        "sha256": "c66b939a02687a42e7a3f1f3c0745e2570a511a3a63667da22ff7d8c966ba785",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "modedit.js",
+        "lines": [
+          2496,
+          2504
+        ],
+        "sha256": "c66b939a02687a42e7a3f1f3c0745e2570a511a3a63667da22ff7d8c966ba785",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "goals.js",
+        "lines": [
+          284,
+          303
+        ],
+        "sha256": "947cc9e0347ca485bc9fc6b0b6ddc08c608d4dbf7a5affecae376b77ce07e2be",
+        "steam_build_id": 26710925
+      }
+    ],
+    "SRC-319": [
+      {
+        "path": "net.js",
+        "lines": [
+          860,
+          895
+        ],
+        "subject": "Host and initial guest boot size guards and snapshot request",
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          1438,
+          1473
+        ],
+        "subject": "Guest receives and applies host snapshot",
+        "sha256": "0f5489b6737e3cd5229ad543c596c5762b117240f739b1b1bd5f3c82958e067f",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netui.js",
+        "lines": [
+          331,
+          351
+        ],
+        "subject": "Advertised and confirmed room sizes at guest preflight",
+        "sha256": "c428365ef08bc3172d9b28b419fa85854d491ca52a5d47e0b993b02eb5ef57a7",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "netui.js",
+        "lines": [
+          367,
+          453
+        ],
+        "subject": "World selection, in-game LAN host and creation after world boot",
+        "sha256": "c428365ef08bc3172d9b28b419fa85854d491ca52a5d47e0b993b02eb5ef57a7",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "menu.js",
+        "lines": [
+          268,
+          281
+        ],
+        "subject": "New Game form dimension clamp and seed",
+        "sha256": "385c849a9d68000ed81bab53326066a8f36378f94a545ca568eb57863b4744cb",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "perfhud.js",
+        "lines": [
+          593,
+          657
+        ],
+        "subject": "Room form maximum and disabled presets",
+        "sha256": "07f340b95216f5817799a0ee7b828e186094cb50b22dbb4745454117deeafd80",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "menu.js",
+        "lines": [
+          1769,
+          1778
+        ],
+        "subject": "F5 and F9 quick-slot handlers",
+        "sha256": "385c849a9d68000ed81bab53326066a8f36378f94a545ca568eb57863b4744cb",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "bigmap.js",
+        "lines": [
+          7,
+          25
+        ],
+        "subject": "Default large-map options and async save threshold",
+        "sha256": "f2e39ca0f7ed9f7ee8290d877283f99b60509c659f220f0d71d726a550d5481b",
+        "steam_build_id": 26710925
+      },
+      {
+        "path": "savestore.js",
+        "lines": [
+          97,
+          114
+        ],
+        "subject": "Synchronous or queued disk save",
+        "sha256": "02be22864821f3aa432f32bbeeff8542b7c6bc872b0dc3c3abf753c5a388be2c",
+        "steam_build_id": 26710925
+      }
     ]
   },
   "explicit_migration_registrations_in_stock_root_scripts": 0,
@@ -1266,5 +3611,1963 @@
         }
       }
     ]
+  },
+  "current_build": {
+    "steam_build_id": 26710925,
+    "steam_depot_manifest": "6367328077148954100",
+    "game_version": "2.2.0",
+    "preceding_steam_build_id": 26706675,
+    "compared_install_files": 652,
+    "root_js_count": 127,
+    "changed_paths": [
+      "changelog.js",
+      "disasters.js",
+      "index.html",
+      "lang/cs.js",
+      "lang/de.js",
+      "lang/es.js",
+      "lang/fr.js",
+      "lang/it.js",
+      "lang/ja.js",
+      "lang/ko.js",
+      "lang/pl.js",
+      "lang/pt-BR.js",
+      "lang/th.js",
+      "lang/tr.js",
+      "lang/uk.js",
+      "lang/vi.js",
+      "lang/zh-CN.js",
+      "lang/zh-TW.js",
+      "main.js",
+      "net.js",
+      "netserver.js",
+      "rulesui.js",
+      "ui.js"
+    ],
+    "source_ids": [
+      "SRC-297",
+      "SRC-298"
+    ]
+  },
+  "warfare_desktop_observations": {
+    "steam_build_id": 26710925,
+    "platform": "Windows NW.js offline",
+    "fixture": {
+      "seed": 552204,
+      "size": [
+        80,
+        60
+      ],
+      "terrain": "flat"
+    },
+    "method": "The client used the regiment card's Walk button and the shipped local death and exit paths, with two prepared nations. Supply, capture, and raid finalisation used controlled inputs. The ordinary save and load paths ran with an isolated profile.",
+    "checks": [
+      {
+        "name": "Boot the flat world offline",
+        "expected": "Build version 2.2.0 and fixture seed and grid",
+        "passed": true,
+        "actual": {
+          "version": "2.2.0",
+          "seed": 552204,
+          "size": [
+            80,
+            60
+          ],
+          "room": false
+        }
+      },
+      {
+        "name": "Raise regiments against a fixed mobilisation value",
+        "expected": "Target count, infantry and guards. Fresh strength equals establishment.",
+        "passed": true,
+        "actual": {
+          "types": [
+            "inf",
+            "inf",
+            "inf",
+            "gd"
+          ],
+          "count": 4,
+          "mobilisation": 3200,
+          "establishment": 3199
+        }
+      },
+      {
+        "name": "Open Walk from the regiment card",
+        "expected": "Walk is active beside the same regiment and spawns a member of its column",
+        "passed": true,
+        "actual": {
+          "walk": true,
+          "regiment": 1,
+          "column": 1,
+          "nation": 0,
+          "displayedPeople": 9,
+          "mapMen": 941
+        }
+      },
+      {
+        "name": "Queue a player-caused casualty through the Walk kill handler",
+        "expected": "The actor dies and one batch is pending before leaving Walk",
+        "passed": true,
+        "actual": {
+          "dead": true,
+          "batches": 1,
+          "menBefore": 941,
+          "menWhilePending": 941
+        }
+      },
+      {
+        "name": "Leave Walk and apply the pending casualty on the map",
+        "expected": "Exit flushes the queue and reduces this regiment by one, with one nation casualty",
+        "passed": true,
+        "actual": {
+          "before": 941,
+          "after": 940,
+          "casualties": 1,
+          "queue": 0
+        }
+      },
+      {
+        "name": "Build the front and supply map",
+        "expected": "The frontier is adjacent to the enemy and supply falls from the capital along owned territory",
+        "passed": true,
+        "actual": {
+          "range": 4,
+          "home": 255,
+          "withinRange": 255,
+          "remoteFront": 0,
+          "enemyAtFront": 1
+        }
+      },
+      {
+        "name": "Mark an isolated strip of territory as a pocket",
+        "expected": "The isolated strip loses supply and is marked as surrounded by B",
+        "passed": true,
+        "actual": {
+          "pocketOwner": 0,
+          "surroundingNation": 1,
+          "cells": 2,
+          "supply": 0
+        }
+      },
+      {
+        "name": "Reconnect the isolated strip",
+        "expected": "The pocket mark clears when the territory rejoins its main component",
+        "passed": true,
+        "actual": {
+          "pocketAfterReconnection": false
+        }
+      },
+      {
+        "name": "Resolve a controlled map capture",
+        "expected": "The attacker takes the tile, the defender retreats and the original owner stays in the occupation marker",
+        "passed": true,
+        "actual": {
+          "owner": 0,
+          "originalOwner": 1,
+          "defendingTile": 1231,
+          "advancingTile": 1230,
+          "populationBefore": 250,
+          "populationAfter": 156.25,
+          "unrestAfter": 0.30000001192092896,
+          "battleWar": 1
+        }
+      },
+      {
+        "name": "Apply aircraft fuel and range gates",
+        "expected": "Oil shortage cuts capacity to 65 percent, and unopposed support is 1.2 in range and neutral out of range",
+        "passed": true,
+        "actual": {
+          "tier": 2,
+          "dry": 2.6,
+          "fuel": 4,
+          "close": 1.2,
+          "far": 1
+        }
+      },
+      {
+        "name": "Apply the finalisation handler of a controlled conventional raid",
+        "expected": "Industry 30, urban 3680, population 9700 and no repeated damage",
+        "passed": true,
+        "actual": {
+          "industry": 30,
+          "urban": 3680,
+          "pop": 9700,
+          "ruins": 0.15000000596046448
+        }
+      },
+      {
+        "name": "Save the war and regiments in the normal disk slot",
+        "expected": "A 2.2.0 save with the regiment sequence and air-war state",
+        "passed": true,
+        "actual": {
+          "app": "2.2.0",
+          "army": 1,
+          "sequence": 6,
+          "airwar": 1
+        }
+      },
+      {
+        "name": "Reload the same regiment and occupation",
+        "expected": "Active war, same regiment UID and strength, same original owner of the occupied tile",
+        "passed": true,
+        "actual": {
+          "seed": 552204,
+          "regiment": 1,
+          "men": 940,
+          "originalOwner": 1,
+          "war": 1
+        }
+      }
+    ]
+  },
+  "current_build_desktop_observations": {
+    "steam_build_id": 26710925,
+    "platform": "Windows NW.js offline",
+    "fixture": {
+      "seed": 552204,
+      "size": [
+        80,
+        60
+      ],
+      "terrain": "flat"
+    },
+    "checks": [
+      {
+        "name": "Open the 3D map by default",
+        "expected": "A fresh profile shows 3D and offers to switch to 2D",
+        "passed": true,
+        "actual": {
+          "enabled": true,
+          "toggle": "2D"
+        }
+      },
+      {
+        "name": "Refresh the rule indicator while paused",
+        "expected": "The biome rule shows and clears before a simulation tick",
+        "passed": true,
+        "actual": {
+          "shown": true,
+          "hidden": true,
+          "tickBefore": 0,
+          "tickAfter": 0
+        }
+      },
+      {
+        "name": "Restore the chosen view after reload",
+        "expected": "The map stays in 2D after the user switches views",
+        "passed": true,
+        "actual": {
+          "enabled": false,
+          "preference": "0"
+        }
+      }
+    ]
+  },
+  "companies_desktop_observations": {
+    "steam_build_id": 26710925,
+    "platform": "Windows NW.js offline",
+    "fixture": {
+      "seed": 552205,
+      "size": [
+        80,
+        60
+      ],
+      "terrain": "flat"
+    },
+    "method": "The test prepared two modern nations, forced the bootstrap company chance for fixture creation and ran the annual company handler with controlled dates and ownership. It opened the exchange through the broker dialogue handler, used the shipped portfolio actions and checked corporate model selection in the map and Walk handlers. The ordinary disk save and load paths tested persistence.",
+    "checks": [
+      {
+        "name": "Populate a mature fixture economy through the company year pass",
+        "expected": "Listed manufacturers have valuation, headquarters and a first vehicle design",
+        "passed": true,
+        "actual": {
+          "companies": 32,
+          "company": 7,
+          "hq": 1132,
+          "marketCap": 82332839.90206456,
+          "listed": 1,
+          "model": 1,
+          "consistency": {
+            "ok": true,
+            "n": 32,
+            "errors": []
+          }
+        }
+      },
+      {
+        "name": "Select a produced aircraft model for 3D map and Walk",
+        "expected": "Walk resolves a corporate aircraft design and the map selects a corporate visual variant",
+        "passed": true,
+        "actual": {
+          "walkDesign": 1,
+          "maker": 7,
+          "mapVariant": 1003,
+          "kind": "liner"
+        }
+      },
+      {
+        "name": "Open the exchange from the broker action",
+        "expected": "The shipped dialogue action opens the exchange",
+        "passed": true,
+        "actual": {
+          "action": "Биржа: акции компаний",
+          "open": "exchange"
+        }
+      },
+      {
+        "name": "Buy and sell an equity position through the exchange handlers",
+        "expected": "The wallet pays ceiling round-up with fee and receives rounded-down proceeds. Issued shares are unaltered.",
+        "passed": true,
+        "actual": {
+          "holdings": 95,
+          "buyDebit": 6908,
+          "saleCredit": 338,
+          "issued": 8280000,
+          "fee": 0.01
+        }
+      },
+      {
+        "name": "Revalue a company and collect its accrued dividend",
+        "expected": "Annual valuation and dividend yield update, and the same year is paid once",
+        "passed": true,
+        "actual": {
+          "previousValue": 82332839.90206456,
+          "currentValue": 81835769.81588162,
+          "yield": 0.027665441473473683,
+          "dividend": 178,
+          "projected": 178,
+          "holdingYear": 501
+        }
+      },
+      {
+        "name": "Apply a ten-for-one split to the portfolio",
+        "expected": "Company split generation and portfolio units both advance tenfold",
+        "passed": true,
+        "actual": {
+          "splitBefore": 0,
+          "splitAfter": 1,
+          "shares": 82800000,
+          "holdings": 950
+        }
+      },
+      {
+        "name": "Transfer the company when its headquarters changes nation",
+        "expected": "The same company and holding persist under the new controlling nation",
+        "passed": true,
+        "actual": {
+          "company": 7,
+          "hqBefore": 1132,
+          "hqAfter": 1132,
+          "newOwner": 1,
+          "holdings": 950
+        }
+      },
+      {
+        "name": "Apply nationalisation and reconcile the stock holding",
+        "expected": "The company is unlisted, wholly state-owned and the invalidated portfolio entry clears",
+        "passed": true,
+        "actual": {
+          "listed": 0,
+          "stateOwnership": 1,
+          "nationalisationCount": 1,
+          "holdings": 0
+        }
+      },
+      {
+        "name": "Privatise the company under a low state-ownership course",
+        "expected": "The company relists with 5 percent state ownership",
+        "passed": true,
+        "actual": {
+          "listed": 1,
+          "stateOwnership": 0.05
+        }
+      },
+      {
+        "name": "Save corporate records and designs to the normal slot",
+        "expected": "The save contains the company section and a design sequence",
+        "passed": true,
+        "actual": {
+          "app": "2.2.0",
+          "section": 1,
+          "designSequence": 13
+        }
+      },
+      {
+        "name": "Reload the company, its owner and model",
+        "expected": "Company identity, ownership, listing status and model reference survive the round trip",
+        "passed": true,
+        "actual": {
+          "company": 7,
+          "nation": 1,
+          "listed": 1,
+          "model": 1,
+          "modelCompany": 7
+        }
+      }
+    ]
+  },
+  "terrain_disasters_desktop_observations": {
+    "steam_build_id": 26710925,
+    "platform": "Windows NW.js offline",
+    "fixture": {
+      "seed": 552206,
+      "size": [
+        80,
+        60
+      ],
+      "terrain": "flat"
+    },
+    "method": "A paused fixture used the shipped world tools, earthquake handler, outbreak and landmark handlers, and disk save and load paths. It supplied a coastline, a ship's next ice cell, populated towns and controlled dates. The reoccupation check set population and occupied urban stock before calling the annual ruin update. The prepared fictional outbreak tested an existing save with no Steam entitlement available.",
+    "checks": [
+      {
+        "name": "Apply the flatten tool with a metre-based target",
+        "expected": "The centre of a default-strength stroke moves halfway from 1000 m toward 200 m",
+        "passed": true,
+        "actual": {
+          "beforeMetres": 999.9998410542804,
+          "targetMetres": 200,
+          "afterMetres": 600.0000238418578
+        }
+      },
+      {
+        "name": "Carve a river to water through the tool command",
+        "expected": "The drawn course creates a strength-10 spring and a connected downstream path",
+        "passed": true,
+        "actual": {
+          "spring": 0.9,
+          "flux": 0.9302935600280762,
+          "reachesWater": true,
+          "sourceOnLand": true
+        }
+      },
+      {
+        "name": "Erase an artificial spring",
+        "expected": "The source is removed and the carved ground stays at its edited height",
+        "passed": true,
+        "actual": {
+          "spring": 0,
+          "carvedHeightBefore": 0.46959999203681946,
+          "carvedHeightAfter": 0.46959999203681946
+        }
+      },
+      {
+        "name": "Apply route ice limits to sailing and modern ships",
+        "expected": "Mature ice stops a sailing vessel and slows a modern ship to 0.6 of its speed",
+        "passed": true,
+        "actual": {
+          "ice": 1,
+          "sailSpeed": 1e-06,
+          "waited": 1,
+          "modernSpeed": 0.6
+        }
+      },
+      {
+        "name": "Commission and build a theatre",
+        "expected": "Duplicate orders leave one building. Construction costs the treasury and adds happiness after completion.",
+        "passed": true,
+        "actual": {
+          "count": 1,
+          "finish": 2,
+          "progress": 1,
+          "treasurySpent": 314.24399999997695,
+          "happiness": 0.02
+        }
+      },
+      {
+        "name": "Transfer a landmark when its city changes hands",
+        "expected": "The builder record persists and the foreign owner receives a reduced benefit",
+        "passed": true,
+        "actual": {
+          "owner": 1,
+          "builder": 0,
+          "oldOwnerBenefit": 0,
+          "foreignBenefit": 0.013999999999999999
+        }
+      },
+      {
+        "name": "Damage a settlement through the earthquake path",
+        "expected": "Two shocks cross the ruin vacancy threshold and retain the pre-impact building stock",
+        "passed": true,
+        "actual": {
+          "first": {
+            "urban": 6600,
+            "active": false,
+            "stock": 1301
+          },
+          "second": {
+            "urban": 3630,
+            "active": true,
+            "stock": 1301,
+            "cause": 11
+          }
+        }
+      },
+      {
+        "name": "Account for a named pestilence in the world registry",
+        "expected": "The outbreak tags populated cells and records active cases and losses",
+        "passed": true,
+        "actual": {
+          "id": 1,
+          "cells": 9,
+          "cases": 25218.402010468097,
+          "losses": 1580.1465457891604
+        }
+      },
+      {
+        "name": "Deny the premium creation tool in an unentitled offline profile",
+        "expected": "The creator tool remains locked when the DLC is unavailable",
+        "passed": true,
+        "actual": {
+          "owned": false,
+          "locked": true,
+          "selectable": false
+        }
+      },
+      {
+        "name": "Write the current settlement, river and epidemic records",
+        "expected": "The save contains each current-build state section",
+        "passed": true,
+        "actual": {
+          "app": "2.2.0",
+          "rivers": 1,
+          "ruins": 1,
+          "landmarks": 1,
+          "epidemic": 1
+        }
+      },
+      {
+        "name": "Restore the edited landscape and settlement state",
+        "expected": "The spring, ruin stock, landmark owner and plague survive the round trip",
+        "passed": true,
+        "actual": {
+          "seed": 552206,
+          "spring": 0.72,
+          "ruins": true,
+          "stock": 1301,
+          "landmarkOwner": 1,
+          "outbreak": 1
+        }
+      },
+      {
+        "name": "Load an existing fictional outbreak without the creator tool",
+        "expected": "The saved scenario outbreak is live although the tool is still locked",
+        "passed": true,
+        "actual": {
+          "toolLocked": true,
+          "outbreak": 2,
+          "actors": 834.767822265625
+        }
+      },
+      {
+        "name": "Switch the recovery mode as ruins age",
+        "expected": "Same-era young ruins can be reoccupied, while old ruins call for clearance",
+        "passed": true,
+        "actual": {
+          "young": "restore",
+          "old": "clear"
+        }
+      },
+      {
+        "name": "Recognise the settlement after controlled reoccupation",
+        "expected": "The old ruin timer ends and the restored event is emitted",
+        "passed": true,
+        "actual": {
+          "ruins": false,
+          "events": [
+            "restored"
+          ],
+          "remainingVacancy": 0
+        }
+      },
+      {
+        "name": "Move a finished pestilence to history",
+        "expected": "The named outbreak leaves the live list and enters the history list",
+        "passed": true,
+        "actual": {
+          "live": false,
+          "history": true
+        }
+      }
+    ]
+  },
+  "walk_progression_desktop_observations": {
+    "steam_build_id": 26710925,
+    "platform": "Windows NW.js offline",
+    "fixture": {
+      "seed": 552207,
+      "size": [
+        80,
+        60
+      ],
+      "terrain": "flat",
+      "cell": 2344,
+      "owner": 0
+    },
+    "method": "An isolated profile entered Walk on a generated flat map with a prepared modern capital. The fixture set hours, used Walk's interior queue and collision queries at the door, and called the character and inventory handlers. It opened a dispatcher dialogue and clicked the offer in the game window. The bus was placed at each generated stop and stepped through the shipped dwell and payout logic. Health, money and wanted stars were supplied to exercise the treatment, service and arrest paths. The fixture saved to disk during custody and reloaded through the normal boot path.",
+    "checks": [
+      {
+        "name": "Public hospital after hours",
+        "expected": "The hospital streams in at 02:00, opens and registers shelter inside",
+        "passed": true,
+        "actual": {
+          "hour": 2,
+          "streamed": true,
+          "door": 1,
+          "indoors": "hospital"
+        }
+      },
+      {
+        "name": "Theatre closes overnight and opens at noon",
+        "expected": "At 02:00 the door stays closed. At 12:00 the interior streams in and registers the player inside",
+        "passed": true,
+        "actual": {
+          "hours": [
+            8,
+            18
+          ],
+          "overnightStreamed": false,
+          "closedOpening": 0,
+          "prompt": "Заперто",
+          "middayStreamed": true,
+          "middayOpening": 1,
+          "indoors": "theatre"
+        }
+      },
+      {
+        "name": "Survival needs and bag use",
+        "expected": "Needs decrease over a controlled step. Food and water consume one item each, and equipping clothes retains the item",
+        "passed": true,
+        "actual": {
+          "defaultFood": 85,
+          "before": {
+            "food": 34.72222222222222,
+            "water": 29.56586152063616,
+            "heat": 12
+          },
+          "after": {
+            "food": 74.72222222222223,
+            "water": 69.56586152063616,
+            "heat": 2,
+            "cloth": "cl_parka",
+            "inventory": [
+              1,
+              1,
+              1
+            ],
+            "slot": "u_fd_roast"
+          },
+          "used": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      {
+        "name": "Bus shift from a dispatcher offer through its full loop",
+        "expected": "Each controlled stop is accepted. Completion pays the wallet, adds three XP and records one successful shift",
+        "passed": true,
+        "actual": {
+          "label": "Есть работа? · Водитель автобуса",
+          "offer": "Маршрут № 1 · 8 остановок · круг 3,2 км · ≈ 26 верок",
+          "stops": 8,
+          "routeStops": 8,
+          "paid": 30,
+          "earned": 30,
+          "xp": 3,
+          "completed": 1,
+          "journal": [
+            "bus",
+            1936,
+            2344,
+            8,
+            3,
+            1
+          ]
+        }
+      },
+      {
+        "name": "Hospital treatment with and without funds",
+        "expected": "The medic charges 0.6 local daily wages for full health. An empty wallet gets 30 HP of free first aid",
+        "passed": true,
+        "actual": {
+          "option": "Лечиться (6 верок)",
+          "paid": 6,
+          "expectedPrice": 6,
+          "hp": 100,
+          "freeFirstAidHp": 65,
+          "services": 3
+        }
+      },
+      {
+        "name": "Military service eligibility and career exclusion",
+        "expected": "Tribal enlistment is denied. A modern realm accepts the free character and service blocks civilian shifts",
+        "passed": true,
+        "actual": {
+          "tribeGate": "У племени нет войска — только воины вождя",
+          "enlisted": true,
+          "busy": true,
+          "issuedCount": 1
+        }
+      },
+      {
+        "name": "Custody intake through the arrest window",
+        "expected": "One day of custody replaces the fine. Intake discharges the soldier and stores the personal equipment",
+        "passed": true,
+        "actual": {
+          "kind": "jail",
+          "days": 1,
+          "activeService": 0,
+          "discharge": "jail",
+          "personalItemInLocker": true,
+          "personalItemOnCharacter": false
+        }
+      },
+      {
+        "name": "Save a live character during custody",
+        "expected": "Disk save contains the character, needs, kit, career and the live jail record",
+        "passed": true,
+        "actual": {
+          "version": 2,
+          "active": 1,
+          "jail": "jail",
+          "journal": 1
+        }
+      },
+      {
+        "name": "Leaving Walk serves a live sentence",
+        "expected": "The exit hook clears custody and restores the saved inventory layout",
+        "passed": true,
+        "actual": {
+          "jailActive": false,
+          "personalItemReturned": true,
+          "restoredSlot": "u_fd_roast"
+        }
+      },
+      {
+        "name": "Reload saved needs, equipment, career and custody",
+        "expected": "The on-disk character and sentence return before re-entering Walk",
+        "passed": true,
+        "actual": {
+          "character": 1,
+          "needs": {
+            "v": 1,
+            "food": 74.72222222222223,
+            "water": 69.56586152063616,
+            "heat": 0,
+            "sick": 0,
+            "cloth": "cl_parka",
+            "tip": 1
+          },
+          "foodItems": 1,
+          "slot": "u_fd_roast",
+          "journal": [
+            "bus",
+            1936,
+            2344,
+            8,
+            3,
+            1
+          ],
+          "jail": "jail"
+        }
+      },
+      {
+        "name": "Keep Walk progression per character",
+        "expected": "A new character has default needs, no test gear, XP or sentence. Switching back restores the first character",
+        "passed": true,
+        "actual": {
+          "blank": {
+            "id": 2,
+            "cloth": "",
+            "food": 85,
+            "foodItems": 0,
+            "xp": 0,
+            "jail": false
+          },
+          "restored": 1,
+          "restoredClothes": "cl_parka",
+          "restoredJail": "jail"
+        }
+      },
+      {
+        "name": "Re-entry serves saved custody and keeps mode layouts separate",
+        "expected": "Entering Walk serves remaining time. The armed layout keeps its own slots and its needs do not drain",
+        "passed": true,
+        "actual": {
+          "clockAdvance": 720,
+          "remaining": false,
+          "personalItemReturned": true,
+          "needsEnabled": false,
+          "survivalSlot": "u_fd_roast",
+          "armedSlot": null
+        }
+      }
+    ]
+  },
+  "network_addons_desktop_observations": {
+    "steam_build_id": 26710925,
+    "platform": "Windows NW.js",
+    "fixture": {
+      "seed": 552208,
+      "size": [
+        80,
+        60
+      ],
+      "terrain": "flat",
+      "clients": 2,
+      "server": "loopback"
+    },
+    "method": "Two isolated clients used the shipped WebSocket server bound to loopback and the shipped room and Walk handlers. The fixture placed the two characters near a parked car. It tested a denied seat request, an accepted request and a guest page reload via the language selection function. Map-size checks exercised the client gate directly. The editor used a prepared scenario, its paint and undo handlers, the draft store and a local data-only add-on loaded from disk.",
+    "checks": [
+      {
+        "name": "Host creates a local WebSocket room",
+        "passed": true,
+        "actual": {
+          "hosting": true,
+          "lan": true,
+          "size": [
+            80,
+            60
+          ]
+        }
+      },
+      {
+        "name": "Client map limit checks both axes",
+        "passed": true,
+        "actual": {
+          "atLimit": true,
+          "overWidth": false,
+          "overHeight": false
+        }
+      },
+      {
+        "name": "Driver receives a shared passenger seat",
+        "passed": true,
+        "actual": {
+          "groupRole": "lead",
+          "seat": 0
+        }
+      },
+      {
+        "name": "Driver sees passenger seat clear after guest reload",
+        "passed": true,
+        "actual": {
+          "seatsAtReload": 1,
+          "seatsAfter": 0,
+          "players": 2,
+          "millisecondsAfterGuestReturned": 2816
+        }
+      },
+      {
+        "name": "Editor territory mask, undo and draft",
+        "passed": true,
+        "actual": {
+          "firstOwns": true,
+          "painted": true,
+          "restored": true,
+          "draftKeptArea": true
+        }
+      },
+      {
+        "name": "Scenario state validation and tie remapping",
+        "passed": true,
+        "actual": {
+          "states": 2,
+          "areaPreserved": true,
+          "invalidAreaOmitted": true,
+          "rel": {
+            "a": 0,
+            "b": 1,
+            "k": "rel",
+            "v": 1
+          },
+          "warnings": 3,
+          "scenarios": 1
+        }
+      },
+      {
+        "name": "A local data add-on starts authored nations and relations",
+        "passed": true,
+        "actual": {
+          "year": 1871,
+          "founded": [
+            "Alder",
+            "Birch"
+          ],
+          "maskOwner": "Alder",
+          "capitalName": "Alder City",
+          "relation": 0.55
+        }
+      },
+      {
+        "name": "Guest joins and loads the host snapshot",
+        "passed": true,
+        "actual": {
+          "host": false,
+          "players": 2,
+          "seed": 552208,
+          "size": [
+            80,
+            60
+          ]
+        }
+      },
+      {
+        "name": "Nearby guest sees driver vehicle and boarding target",
+        "passed": true,
+        "actual": {
+          "vehicle": "car",
+          "groupRole": "guest",
+          "following": true
+        }
+      },
+      {
+        "name": "Driver policy denies boarding",
+        "passed": true,
+        "actual": {
+          "passenger": false
+        }
+      },
+      {
+        "name": "Guest boards through the vehicle interaction",
+        "passed": true,
+        "actual": {
+          "seat": 0,
+          "passengerPhysics": "nrpax"
+        }
+      },
+      {
+        "name": "Guest keeps the room and seat across language change",
+        "passed": true,
+        "actual": {
+          "language": "de",
+          "samePlayer": true,
+          "resumed": "own",
+          "inWalk": false,
+          "seed": 552208
+        }
+      }
+    ]
+  },
+  "room_size_desktop_observations": {
+    "steam_build_id": 26710925,
+    "source_ids": [
+      "SRC-319",
+      "SRC-320"
+    ],
+    "platform": "Windows 11 Pro",
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "nwjs": "0.112.0",
+    "seed": 552209,
+    "terrain": "continents",
+    "setup": "Separate Windows NW.js profiles. In-game LAN server and normal room menu actions, with the guest connecting to 127.0.0.1. Solo runs used the New Game form and F5 hotkey handler. The Steam helper was absent from the test copy.",
+    "timing": "One sample per case. Generation is Create World to loader dismissal. Room creation is Create World to host ready. Join is Join to one host snapshot applied. F5 is key event to a fresh, discoverable disk slot with matching dimensions.",
+    "remaining": [
+      "Guest rejection of an oversized room was traced in source.",
+      "Automatic LAN discovery between machines, public Steam rooms and LAN host language restart remain open."
+    ],
+    "checks": [
+      {
+        "name": "Network New Game caps both axes at 220",
+        "passed": true,
+        "actual": {
+          "w": 220,
+          "h": 220,
+          "max": [
+            220,
+            220
+          ]
+        }
+      },
+      {
+        "name": "Host creates a 220 by 220 LAN room",
+        "passed": true,
+        "actual": {
+          "w": 220,
+          "h": 220,
+          "seed": 552209,
+          "waiting": false,
+          "host": true,
+          "players": 1,
+          "milliseconds": 2911
+        }
+      },
+      {
+        "name": "Guest joins the 220 by 220 room and loads the host snapshot",
+        "passed": true,
+        "actual": {
+          "w": 220,
+          "h": 220,
+          "seed": 552209,
+          "waiting": false,
+          "host": false,
+          "players": 2,
+          "receivedSnapshots": 1,
+          "sameRoom": true,
+          "terrainSampleMatches": true,
+          "milliseconds": 3511
+        }
+      },
+      {
+        "name": "Solo generation and F5 disk save at 220 by 220",
+        "passed": true,
+        "actual": {
+          "w": 220,
+          "h": 220,
+          "generationMilliseconds": 2340,
+          "quickSaveMilliseconds": 165,
+          "bytes": 2387029
+        }
+      },
+      {
+        "name": "Solo generation and F5 disk save at 221 by 220",
+        "passed": true,
+        "actual": {
+          "w": 221,
+          "h": 220,
+          "generationMilliseconds": 2769,
+          "quickSaveMilliseconds": 269,
+          "bytes": 2404028
+        }
+      },
+      {
+        "name": "Room dialog disables the oversized world and quick save at 221 by 220",
+        "passed": true,
+        "actual": {
+          "w": 221,
+          "h": 220,
+          "options": [
+            {
+              "current": true,
+              "disabled": true,
+              "label": "Текущий: 221×220, 0 г. — больше 220×220"
+            },
+            {
+              "current": false,
+              "disabled": true,
+              "label": "Сохранение: Быстрое сохранение — больше 220×220"
+            }
+          ],
+          "roomOpened": false
+        }
+      },
+      {
+        "name": "Solo generation and F5 disk save at 220 by 221",
+        "passed": true,
+        "actual": {
+          "w": 220,
+          "h": 221,
+          "generationMilliseconds": 2710,
+          "quickSaveMilliseconds": 196,
+          "bytes": 2372136
+        }
+      },
+      {
+        "name": "Room dialog disables the oversized world and quick save at 220 by 221",
+        "passed": true,
+        "actual": {
+          "w": 220,
+          "h": 221,
+          "options": [
+            {
+              "current": true,
+              "disabled": true,
+              "label": "Текущий: 220×221, 0 г. — больше 220×220"
+            },
+            {
+              "current": false,
+              "disabled": true,
+              "label": "Сохранение: Быстрое сохранение — больше 220×220"
+            }
+          ],
+          "roomOpened": false
+        }
+      }
+    ]
+  },
+  "regression_routes": {
+    "steam_build_id": 26710925,
+    "basis": "Root JavaScript names and SHA-256 digests compared with the recorded 2.1.4 feature inventory. The patch paths use the preceding 2.2.0 build comparison. Topic routes identify where changes belong. Runtime evidence is recorded in the individual pass results.",
+    "root_modules": [
+      {
+        "topic": "topics/menu/save-load.md",
+        "added": [
+          "bigmap.js",
+          "savemig.js"
+        ],
+        "changed": [
+          "main.js",
+          "menu.js",
+          "savestore.js"
+        ]
+      },
+      {
+        "topic": "topics/menu/scenarios.md",
+        "added": [
+          "histscen.js"
+        ],
+        "changed": [
+          "goals.js"
+        ]
+      },
+      {
+        "topic": "topics/menu/achievements.md",
+        "added": [],
+        "changed": [
+          "achievements.js"
+        ]
+      },
+      {
+        "topic": "topics/simulation/baseline.md",
+        "added": [
+          "simjob.js"
+        ],
+        "changed": [
+          "core.js"
+        ]
+      },
+      {
+        "topic": "topics/simulation/world-terrain.md",
+        "added": [
+          "rivers.js",
+          "terrain.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/simulation/climate-ecology.md",
+        "added": [
+          "tanom.js"
+        ],
+        "changed": [
+          "climate.js",
+          "ecology.js"
+        ]
+      },
+      {
+        "topic": "topics/simulation/fauna.md",
+        "added": [],
+        "changed": [
+          "fauna.js"
+        ]
+      },
+      {
+        "topic": "topics/simulation/disasters.md",
+        "added": [
+          "craters.js",
+          "disui.js",
+          "walkdis.js"
+        ],
+        "changed": [
+          "disasters.js"
+        ]
+      },
+      {
+        "topic": "topics/simulation/demography-cities.md",
+        "added": [
+          "epidemic.js",
+          "epiview.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/simulation/settlement-recovery.md",
+        "added": [
+          "ruins.js",
+          "ruinsmap.js",
+          "walkruin.js",
+          "wonders.js",
+          "wondersmap.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/states/formation-politics.md",
+        "added": [
+          "politics.js",
+          "polui.js"
+        ],
+        "changed": [
+          "civ.js"
+        ]
+      },
+      {
+        "topic": "topics/society/cities.md",
+        "added": [
+          "city3d.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/states/diplomacy.md",
+        "added": [
+          "contact.js",
+          "diplo.js",
+          "dipui.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/states/war-mechanics.md",
+        "added": [
+          "army.js",
+          "walkreg.js",
+          "walkwar.js",
+          "war3d.js",
+          "warmap.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/states/strategic-weapons.md",
+        "added": [
+          "airwar.js",
+          "nuclear.js",
+          "walknuke.js"
+        ],
+        "changed": [
+          "walkstrike.js"
+        ]
+      },
+      {
+        "topic": "topics/states/companies.md",
+        "added": [
+          "corp.js",
+          "corp3d.js",
+          "corpui.js",
+          "walkcorp.js",
+          "walkdsg.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/states/trade-mechanics.md",
+        "added": [],
+        "changed": [
+          "trade.js"
+        ]
+      },
+      {
+        "topic": "topics/society/dynasties.md",
+        "added": [],
+        "changed": [
+          "people.js"
+        ]
+      },
+      {
+        "topic": "topics/society/cultures-religions.md",
+        "added": [],
+        "changed": [
+          "society.js"
+        ]
+      },
+      {
+        "topic": "topics/interface/map-layers.md",
+        "added": [
+          "airmap.js",
+          "mappal.js"
+        ],
+        "changed": [
+          "render.js",
+          "ui.js"
+        ]
+      },
+      {
+        "topic": "topics/interface/statistics-history.md",
+        "added": [
+          "calendar.js",
+          "chronicle.js",
+          "mapsearch.js",
+          "paceui.js"
+        ],
+        "changed": [
+          "panels.js",
+          "stats.js"
+        ]
+      },
+      {
+        "topic": "topics/interface/customization.md",
+        "added": [],
+        "changed": [
+          "custom.js"
+        ]
+      },
+      {
+        "topic": "topics/interface/graphics-audio.md",
+        "added": [
+          "perfhud.js",
+          "uiscale.js"
+        ],
+        "changed": [
+          "audio.js",
+          "gfx.js",
+          "gfx3d.js",
+          "uikit.js",
+          "world3d.js"
+        ]
+      },
+      {
+        "topic": "topics/interface/input-localization.md",
+        "added": [],
+        "changed": [
+          "gamepad.js",
+          "i18n.js",
+          "keys.js",
+          "osk.js",
+          "units.js"
+        ]
+      },
+      {
+        "topic": "topics/interface/onboarding.md",
+        "added": [],
+        "changed": [
+          "tutorial.js"
+        ]
+      },
+      {
+        "topic": "topics/menu/new-game.md",
+        "added": [
+          "pins.js",
+          "rules.js",
+          "rulesui.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/walk/world-generation.md",
+        "added": [
+          "walkbuild.js",
+          "walkcity.js",
+          "walkint.js",
+          "walkintgen.js"
+        ],
+        "changed": [
+          "walkgen.js"
+        ]
+      },
+      {
+        "topic": "topics/walk/modes-characters.md",
+        "added": [],
+        "changed": [
+          "walk.js",
+          "walkact.js"
+        ]
+      },
+      {
+        "topic": "topics/walk/shops-equipment.md",
+        "added": [
+          "walkkit.js"
+        ],
+        "changed": [
+          "walkeco.js"
+        ]
+      },
+      {
+        "topic": "topics/walk/player-life.md",
+        "added": [
+          "walkcivic.js",
+          "walkneed.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/walk/quests-jobs.md",
+        "added": [
+          "walkcaptain.js",
+          "walkcareer.js",
+          "walkdrive.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/walk/npc-life.md",
+        "added": [
+          "walkfolk.js",
+          "walknews.js",
+          "walktalk.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/walk/reputation-law.md",
+        "added": [
+          "walkjail.js"
+        ],
+        "changed": [
+          "walklaw.js"
+        ]
+      },
+      {
+        "topic": "topics/walk/pursuit-bases.md",
+        "added": [],
+        "changed": [
+          "walkmil.js"
+        ]
+      },
+      {
+        "topic": "topics/walk/air.md",
+        "added": [
+          "walkballoon.js"
+        ],
+        "changed": [
+          "walkair.js"
+        ]
+      },
+      {
+        "topic": "topics/walk/road-traffic.md",
+        "added": [
+          "walkride.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/walk/rail.md",
+        "added": [
+          "walkrailst.js"
+        ],
+        "changed": [
+          "walkrail.js"
+        ]
+      },
+      {
+        "topic": "topics/walk/sea.md",
+        "added": [],
+        "changed": [
+          "walksea.js"
+        ]
+      },
+      {
+        "topic": "topics/walk/transport.md",
+        "added": [
+          "walkvehs.js"
+        ],
+        "changed": []
+      },
+      {
+        "topic": "topics/walk/world-effects.md",
+        "added": [
+          "walkzombie.js"
+        ],
+        "changed": [
+          "walktrade.js"
+        ]
+      },
+      {
+        "topic": "topics/network/local-coop-rivalry.md",
+        "added": [],
+        "changed": [
+          "coop.js",
+          "rival.js"
+        ]
+      },
+      {
+        "topic": "topics/network/rooms-sync.md",
+        "added": [],
+        "changed": [
+          "net.js",
+          "netserver.js",
+          "netui.js"
+        ]
+      },
+      {
+        "topic": "topics/network/walk.md",
+        "added": [
+          "netride.js"
+        ],
+        "changed": [
+          "netwalk.js"
+        ]
+      },
+      {
+        "topic": "topics/platform/steam.md",
+        "added": [
+          "dlc.js"
+        ],
+        "changed": [
+          "steam.js"
+        ]
+      },
+      {
+        "topic": "topics/modding/data-code-editor.md",
+        "added": [],
+        "changed": [
+          "modedit.js",
+          "mods.js"
+        ]
+      },
+      {
+        "topic": "GAME_DESIGN.md#release-220",
+        "added": [],
+        "changed": [
+          "changelog.js"
+        ]
+      }
+    ],
+    "patch_paths": [
+      {
+        "topic": "GAME_DESIGN.md#release-220",
+        "paths": [
+          "changelog.js"
+        ]
+      },
+      {
+        "topic": "topics/interface/graphics-audio.md",
+        "paths": [
+          "index.html"
+        ]
+      },
+      {
+        "topic": "topics/interface/input-localization.md#room-language-change-in-220",
+        "paths": [
+          "lang/cs.js",
+          "lang/de.js",
+          "lang/es.js",
+          "lang/fr.js",
+          "lang/it.js",
+          "lang/ja.js",
+          "lang/ko.js",
+          "lang/pl.js",
+          "lang/pt-BR.js",
+          "lang/th.js",
+          "lang/tr.js",
+          "lang/uk.js",
+          "lang/vi.js",
+          "lang/zh-CN.js",
+          "lang/zh-TW.js"
+        ]
+      },
+      {
+        "topic": "topics/interface/map-layers.md",
+        "paths": [
+          "ui.js"
+        ]
+      },
+      {
+        "topic": "topics/menu/new-game.md",
+        "paths": [
+          "rulesui.js"
+        ]
+      },
+      {
+        "topic": "topics/menu/save-load.md",
+        "paths": [
+          "main.js"
+        ]
+      },
+      {
+        "topic": "topics/network/rooms-sync.md",
+        "paths": [
+          "net.js",
+          "netserver.js"
+        ]
+      },
+      {
+        "topic": "topics/simulation/disasters.md",
+        "paths": [
+          "disasters.js"
+        ]
+      }
+    ],
+    "release_notes": {
+      "path": "changelog.js",
+      "sha256": "4b76a5d378ccdcfb0964b53e80c603823b1e25924d61577e315262c0b209a059",
+      "version": "2.2",
+      "sections": [
+        {
+          "section": 1,
+          "heading": "Overview",
+          "english_entries": 1,
+          "russian_entries": 1,
+          "topics": [
+            "GAME_DESIGN.md#release-220",
+            "topics/menu/save-load.md",
+            "topics/modding/data-code-editor.md"
+          ]
+        },
+        {
+          "section": 2,
+          "heading": "Politics and diplomacy",
+          "english_entries": 15,
+          "russian_entries": 15,
+          "topics": [
+            "topics/states/formation-politics.md",
+            "topics/states/diplomacy.md",
+            "topics/states/territory.md",
+            "topics/society/cultures-religions.md",
+            "topics/states/technology.md"
+          ]
+        },
+        {
+          "section": 3,
+          "heading": "Wars, armies, air war and nuclear weapons",
+          "english_entries": 10,
+          "russian_entries": 10,
+          "topics": [
+            "topics/states/war-mechanics.md",
+            "topics/states/strategic-weapons.md",
+            "topics/simulation/settlement-recovery.md"
+          ]
+        },
+        {
+          "section": 4,
+          "heading": "Companies and economy",
+          "english_entries": 4,
+          "russian_entries": 4,
+          "topics": [
+            "topics/states/companies.md",
+            "topics/states/trade-mechanics.md",
+            "topics/states/technology.md"
+          ]
+        },
+        {
+          "section": 5,
+          "heading": "Disasters, epidemics and ruins",
+          "english_entries": 12,
+          "russian_entries": 12,
+          "topics": [
+            "topics/simulation/disasters.md",
+            "topics/simulation/demography-cities.md",
+            "topics/simulation/settlement-recovery.md",
+            "topics/simulation/climate-ecology.md",
+            "topics/platform/steam.md"
+          ]
+        },
+        {
+          "section": 6,
+          "heading": "Terrain, climate and rivers",
+          "english_entries": 6,
+          "russian_entries": 6,
+          "topics": [
+            "topics/simulation/world-terrain.md",
+            "topics/simulation/climate-ecology.md",
+            "topics/interface/map-layers.md"
+          ]
+        },
+        {
+          "section": 7,
+          "heading": "World rules",
+          "english_entries": 4,
+          "russian_entries": 4,
+          "topics": [
+            "topics/menu/new-game.md",
+            "topics/interface/tools.md"
+          ]
+        },
+        {
+          "section": 8,
+          "heading": "History, nations and science",
+          "english_entries": 11,
+          "russian_entries": 11,
+          "topics": [
+            "topics/menu/scenarios.md",
+            "topics/menu/new-game.md",
+            "topics/states/formation-politics.md",
+            "topics/states/technology.md",
+            "topics/states/trade-navigation.md"
+          ]
+        },
+        {
+          "section": 9,
+          "heading": "Cities and landmarks",
+          "english_entries": 8,
+          "russian_entries": 8,
+          "topics": [
+            "topics/simulation/settlement-recovery.md",
+            "topics/society/cities.md",
+            "topics/walk/player-life.md",
+            "topics/walk/npc-life.md",
+            "topics/interface/graphics-audio.md"
+          ]
+        },
+        {
+          "section": 10,
+          "heading": "Huge maps and performance",
+          "english_entries": 7,
+          "russian_entries": 7,
+          "topics": [
+            "topics/menu/new-game.md",
+            "topics/menu/save-load.md",
+            "topics/interface/graphics-audio.md",
+            "OPEN_QUESTIONS.md#220-verification"
+          ]
+        },
+        {
+          "section": 11,
+          "heading": "Walking: buildings, cities and ruins",
+          "english_entries": 11,
+          "russian_entries": 11,
+          "topics": [
+            "topics/walk/world-generation.md",
+            "topics/simulation/settlement-recovery.md",
+            "topics/simulation/disasters.md",
+            "OPEN_QUESTIONS.md#220-verification"
+          ]
+        },
+        {
+          "section": 12,
+          "heading": "Walking: gear and survival",
+          "english_entries": 11,
+          "russian_entries": 11,
+          "topics": [
+            "topics/walk/shops-equipment.md",
+            "topics/walk/player-life.md",
+            "topics/walk/combat.md",
+            "topics/interface/input-localization.md"
+          ]
+        },
+        {
+          "section": 13,
+          "heading": "Walking: people, jobs and transport",
+          "english_entries": 12,
+          "russian_entries": 12,
+          "topics": [
+            "topics/walk/npc-life.md",
+            "topics/walk/quests-jobs.md",
+            "topics/walk/road-traffic.md",
+            "topics/walk/sea.md",
+            "topics/walk/rail.md",
+            "topics/walk/air.md",
+            "topics/walk/world-effects.md"
+          ]
+        },
+        {
+          "section": 14,
+          "heading": "Walking: war, law and prisons",
+          "english_entries": 19,
+          "russian_entries": 19,
+          "topics": [
+            "topics/states/war-mechanics.md",
+            "topics/walk/pursuit-bases.md",
+            "topics/walk/reputation-law.md",
+            "topics/walk/world-effects.md",
+            "topics/network/rooms-sync.md"
+          ]
+        },
+        {
+          "section": 15,
+          "heading": "Multiplayer",
+          "english_entries": 18,
+          "russian_entries": 18,
+          "topics": [
+            "topics/network/walk.md",
+            "topics/network/rooms-sync.md",
+            "topics/network/local-coop-rivalry.md",
+            "OPEN_QUESTIONS.md#220-verification"
+          ]
+        },
+        {
+          "section": 16,
+          "heading": "Add-ons",
+          "english_entries": 6,
+          "russian_entries": 6,
+          "topics": [
+            "topics/modding/data-code-editor.md",
+            "OPEN_QUESTIONS.md#220-verification"
+          ]
+        },
+        {
+          "section": 17,
+          "heading": "Interface",
+          "english_entries": 10,
+          "russian_entries": 10,
+          "topics": [
+            "topics/interface/map-layers.md",
+            "topics/interface/statistics-history.md",
+            "topics/interface/graphics-audio.md",
+            "topics/interface/input-localization.md",
+            "topics/platform/steam.md"
+          ]
+        },
+        {
+          "section": 18,
+          "heading": "Balance",
+          "english_entries": 2,
+          "russian_entries": 2,
+          "topics": [
+            "topics/states/formation-politics.md",
+            "topics/simulation/settlement-recovery.md",
+            "OPEN_QUESTIONS.md#220-verification"
+          ]
+        },
+        {
+          "section": 19,
+          "heading": "Fixes",
+          "english_entries": 56,
+          "russian_entries": 56,
+          "topics": [
+            "OPEN_QUESTIONS.md#220-verification"
+          ]
+        }
+      ],
+      "basis": "Every entry inherits its numbered section's topics. The Fixes section also has an item-level verification list.",
+      "fixes": [
+        {
+          "topic": "topics/menu/save-load.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            1,
+            2
+          ]
+        },
+        {
+          "topic": "topics/interface/input-localization.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            3
+          ]
+        },
+        {
+          "topic": "topics/interface/graphics-audio.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            4,
+            10,
+            12,
+            36,
+            49
+          ]
+        },
+        {
+          "topic": "topics/walk/transport.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            5,
+            6,
+            15
+          ]
+        },
+        {
+          "topic": "topics/walk/air.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            7,
+            46,
+            51
+          ]
+        },
+        {
+          "topic": "topics/walk/rail.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            8,
+            30
+          ]
+        },
+        {
+          "topic": "topics/walk/sea.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            9,
+            17,
+            20,
+            24
+          ]
+        },
+        {
+          "topic": "topics/walk/world-generation.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            11,
+            13,
+            14,
+            18,
+            21,
+            23,
+            25,
+            26,
+            27,
+            28,
+            34,
+            37,
+            39,
+            42,
+            45,
+            50,
+            53
+          ]
+        },
+        {
+          "topic": "topics/walk/pursuit-bases.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            16
+          ]
+        },
+        {
+          "topic": "topics/walk/quests-jobs.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            19,
+            54,
+            55
+          ]
+        },
+        {
+          "topic": "topics/simulation/settlement-recovery.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            22,
+            40
+          ]
+        },
+        {
+          "topic": "topics/walk/road-traffic.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            29,
+            41,
+            47,
+            52,
+            56
+          ]
+        },
+        {
+          "topic": "topics/society/cities.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            31,
+            38
+          ]
+        },
+        {
+          "topic": "topics/menu/new-game.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            32
+          ]
+        },
+        {
+          "topic": "topics/network/rooms-sync.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            33
+          ]
+        },
+        {
+          "topic": "topics/walk/npc-life.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            35
+          ]
+        },
+        {
+          "topic": "topics/simulation/disasters.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            43,
+            44
+          ]
+        },
+        {
+          "topic": "topics/walk/shops-equipment.md",
+          "verification": "OPEN_QUESTIONS.md#220-verification",
+          "items": [
+            48
+          ]
+        }
+      ]
+    }
   }
 }

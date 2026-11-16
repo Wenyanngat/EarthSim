@@ -101,3 +101,7 @@ The isolated probe covers preset loads and changes, settings persistence, render
 ## 2.2.0 large maps and frame pacing
 
 Large-map rendering paths start above 48,400 cells. The 2D path prepares the background across frames and throttles data layer rebuilds. The 3D path updates changed terrain tiles and switches to a full rebuild when enough tiles changed. The frame budget can split the world step. World-speed priority requests at least one whole step on an eligible frame. These policies describe scheduling. Frame rates and memory on specific hardware still need measurements. [SRC-282]
+
+## Default map view in Steam build 26710925
+
+A fresh profile opens the 3D map when WebGL is available. The 2D or 3D toggle stores the selected view locally and restores it on the next boot. The offline client opened a fresh profile in 3D, then retained 2D after switching and reloading. [SRC-297, SRC-298]

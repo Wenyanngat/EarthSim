@@ -52,3 +52,7 @@
 ## Дополнение мировых эффектов прогулки
 
 Настоящий торговый груз связан с местным носильщиком, машиной, поездом или судном. Ограбление и местное прибытие обращаются к мировой партии через отдельный API. [Груз и перевозчик](world-effects.md#настоящая-торговая-партия-и-местный-перевозчик) [SRC-196–199]
+
+## Corporate vehicle designs in 2.2.0
+
+Eligible Walk vehicles select a manufacturer design by nation, type and vehicle seed. The design contains its maker, era-dependent class, shape parts and generation. Trucks and aircraft on the 3D map can use the same registry. See [vehicle models](../states/companies.md#vehicle-models). [SRC-301, SRC-302]

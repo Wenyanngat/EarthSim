@@ -491,3 +491,9 @@ gdp=gdpPc*pop; economy=gdp
 - Полные экономика/наука, политика, династии, войны и прогулка сохраняют свои вопросы. Из показанной выборки NPC нельзя выводить индивидуальную модель каждого жителя.
 
 Следующий пакет основной очереди — **WP-ECONOMY-TECH**. Полный WP-WORLD-NATURE и остальные неприоритетные пакеты остаются отложенными.
+
+## Outbreak records and transport in 2.2.0
+
+A plague event can create a named outbreak and tag affected map cells. When infection spreads to an eligible neighbour, the new cell carries the outbreak identity. The disease simulation reduces population, with the state's medical development reducing losses and the spread chance. The outbreak registry aggregates affected cells, active cases, losses and locations and moves completed outbreaks into history once live tagged cells run out. [SRC-306]
+
+A ship departing near an affected port can carry the outbreak. Arrival can seed an eligible populated land cell near the destination. The registry checks the outbreak kind and starting date at landing, so an old voyage cannot be attributed to a new outbreak that reused the ID. The tag and registry are saved with the world. An offline test observed nine tagged cells, active cases and recorded loss, then moved the outbreak to history after its disease values cleared. [SRC-306, SRC-307]

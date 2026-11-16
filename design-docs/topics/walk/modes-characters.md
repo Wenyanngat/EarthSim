@@ -31,3 +31,7 @@
 Создание выбирает нового героя, оставляя снимок прежнего. Смена возвращает состояние из снимка выбранного. Удаление активного выбирает следующего в списке, при его отсутствии предыдущего. Последнего удалить нельзя. «Чистый лист» очищает только активное `d`. Создание и очистка наследуют отметки подсказок ECO и текущее значение счётчика заданий. Смена загружает счётчик выбранного профиля. Модуль закона сбрасывает живой розыск и память стражи при смене, сохраняя `bounty` и `audience` выбранного героя. Новый мир и общий сброс заменяют список целиком. [SRC-145]
 
 Создание, смена, удаление и сброс проверяют `walkActive` в самих функциях. Переименование через панель проверяет тот же запрет в `_wcCommit`. Функция `wkcRename` проверяет ID и имя. Изоляционные проверки прошли для миграции, записи в памяти, лимита 100 и блокировки панели при активной прогулке. [SRC-145, SRC-151]
+
+## Progression state in 2.2.0
+
+The character's profile extensions carry needs, gear, career totals and journal, military service and custody alongside the wallet and inventory. Switching characters takes place from the map. The isolated disk round trip restored the chosen character's clothes, consumables, quick slot, job journal and active sentence. A second character began with default food and no inherited items, career experience or custody. Switching back restored the first profile. [SRC-309–313]

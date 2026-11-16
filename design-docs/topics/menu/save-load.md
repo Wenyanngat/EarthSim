@@ -110,3 +110,15 @@ Save format remains 3 and the app field records 2.2.0. Saving finishes a pending
 Quick save and autosave put a stable slot type in metadata. Quick load and replacement of a prior slot also recognize legacy names in Russian, English and the current language. With the default large-map setting, disk F5 and autosave can compress and write in the background above 48,400 cells. Manual save remains synchronous. F9 flushes a deferred F5 action and waits for any pending write before selecting the slot. A disk payload over 16 MiB after unpacking can parse map arrays separately. Disk reads and decompression are synchronous. [SRC-281, SRC-282]
 
 The isolated disk check decoded, wrote and reread one 2.0.0 save and two 2.1.4 saves. The queue check read the newer payload from a German quick slot after commit. An isolated Windows client loaded, rewrote and reopened all three saves. The 2.0.0 world also advanced a year and entered and left Walk. Calling quick save then quick load on a 221×220 map in German reopened the fresh slot. [SRC-283]
+
+## Near-limit generation and F5 timings
+
+Steam build 26710925, Windows 11 Pro, Ryzen 7 7800X3D. One solo Continents world per size, all with seed 552209. Generation runs from Create World to loader dismissal. The F5 time ends when the fresh disk slot can be discovered with matching dimensions. [SRC-320]
+
+| World | Generation | F5 to disk slot | Compressed save size (bytes) |
+| --- | --- | --- | --- |
+| 220×220 | 2.340 s | 165 ms | 2,387,029 |
+| 221×220 | 2.769 s | 269 ms | 2,404,028 |
+| 220×221 | 2.710 s | 196 ms | 2,372,136 |
+
+The 220×220 world has exactly 48,400 cells. The background disk-write condition is strictly above that count, so both 221-cell cases qualify with the default large-map setting. [SRC-319]

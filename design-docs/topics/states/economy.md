@@ -5,6 +5,10 @@
 > ID: `DOC-ECONOMY`. Разделы до разбиения: 2.5.5. Версия файлов: 2.1.4.
 > Абзацы без SRC-ссылок — утверждения прежнего документа [SRC-012], а не проверка реализации. Кодовые дополнения имеют SRC-идентификаторы; наблюдений в запущенной игре нет.
 
+## Company economy in 2.2.0
+
+The annual company simulation uses GDP, stability, products and trade to value firms and support new sectors. Government and ideology change ownership and listing. Walk has a stock exchange with separate player holdings and dividends. See [companies, stock exchange and manufacturers](companies.md). [SRC-299, SRC-300, SRC-302]
+
 ## 2.5.5. Экономика
 
 Вкладка объединяет экономический масштаб страны, динамику развития и природную ресурсную базу. Карточки дают текущую сводку, графики показывают изменения, а блок месторождений — ресурсы внутри границ.

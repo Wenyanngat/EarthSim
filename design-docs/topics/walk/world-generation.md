@@ -28,3 +28,13 @@
 Удалённый предмет теряет коллизию, разрушенный обычный дом после порога `ruin > 0,75` исключается из препятствий. Испорченная городская стена сохраняет нижнюю коллизию до пролома. Пересборка подробного слоя отложена минимум на 0,3 с от первой записи с группировкой последующих событий. `wkDmgApply` восстанавливает состояние по `WK.dmg` при повторной генерации плана. Журнал сохраняется в пределах прогулки, включая выгрузку чанка и телепортацию. Вход и выход очищают записи и очередь. [SRC-148, SRC-149, SRC-151]
 
 Обычный местный взрыв передаёт отдельные вызовы для акторов и построек. Стратегический удар имеет отдельный путь `applyExplosion`, который пишет `W.pop`, `W.ruin` и для ядерного удара `W.fallout`. Местный `wkBlastWorld` пишет план, коллизии и `WK.dmg`. Смерть постоянной персоны от игрока может пройти через отдельный `peopleKill` или команду комнаты, независимо от записи здания. При контакте машины со стеной `waLandStep` использует нормальную составляющую скорости для расчёта отдачи и урона транспорту и игроку. Этот контакт использует существующее препятствие. Таран других машин и сбитые акторы обрабатываются через `waVehDamage` и `waDamage`. [SRC-147, SRC-149]
+
+## Remembered settlement stock in 2.2.0
+
+Walk can build the local ruin scene from remembered settlement stock, visual era, age and disaster cause. Active settlement and the parts left in ruins can coexist. Some sites remain after visible urban development recedes. See [persistent ruins](../simulation/settlement-recovery.md#persistent-ruins). [SRC-304]
+
+## Interiors in 2.2.0
+
+Dry cell plans register interiors for eligible houses, halls, towers, factories and special sites. Ruined, abandoned and burnt buildings are skipped in plan scans. The walk step prioritises nearby doors and builds room geometry, collision and entrances incrementally. A respawn or transfer into an eligible building can trigger immediate construction. Theatre and exchange interiors enter the normal queue from 08:00 up to 18:00. Shops and factories use their own hours. An existing occupant can keep the current interior loaded. [SRC-308]
+
+A door with a movable leaf opens when an eligible actor approaches within 1.8 m at the doorway's height and normally holds open for two seconds after the approach. Private rooms with residents can trigger warnings at night or when the player carries a threatening item. Ignoring the warning can add a wanted star. Temples also check for threatening conduct. In the desktop fixture the hospital opened at 02:00, the theatre gave a locked prompt at 02:00 and opened at 12:00, and the indoor detector registered the character past both open doors. [SRC-308, SRC-313]

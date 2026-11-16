@@ -4,6 +4,12 @@
 
 > ID: DOC-TERRITORY. Извлечены политические, мирные и военные пути смены владения. Последний пакет включает 16 групп переходов и 91 изолированную проверку. `runtime_verified=false`. [SRC-079–085, SRC-101–109]
 
+## Occupation and peace in 2.2.0
+
+Capture transfers control immediately and adds unrest and ruin damage. The occupation field remembers the original owner by nation UID through subsequent captures and clears when that nation regains control. A defending regiment on the tile retreats to reachable friendly land or is lost. A nearby engaged regiment may occupy the captured tile. The offline fixture observed a retreat, an advance and the original ownership marker surviving reload. [SRC-294, SRC-296]
+
+Peace resolves occupation by province or by explicit land terms. In provincial settlement, the default population threshold for keeping captured land is 60%, adjusted to 40% for a greedy winner or total war and 75% for a soft winner. Qualifying same-culture and resource cells have a separate retention path. Terms can restore occupied land, keep territory, add reparations, impose an army limit, create a demilitarised zone or establish vassalage. Defaults include annual reparations of 2% of treasury for 20 years, a qualifying army cap of 50% for 25 years and a demilitarised zone of up to two cells' width for 30 years. This pass traces the settlement branches from source. [SRC-294]
+
 ## Контракт владения [SRC-080]
 
 W.stateId и st.cells меняются совместно. setOwner удаляет клетку из прежнего Set, запоминает прежнему владельцу _lostToUid/_lostT, пишет новый ID/Set и ставит _ownersChanged/_navDirty. Повторная передача тому же ID сразу выходит. clearOwner удаляет из Set, пишет −1 и те же флаги. Эти функции не меняют pop/urban/culture/religion; последующие агрегаты/городские места/соседи могут быть ещё прежними.

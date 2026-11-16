@@ -38,3 +38,9 @@
 ## Дополнение морского пакета
 
 Полный статический морской проход извлечён: береговая привязка, подход к трапу, четыре преследователя, прикрытие, палубный бой и паника. [Погоня в порту](sea.md#преследование-и-паника-порта) [SRC-193]
+
+## Military service in 2.2.0
+
+Enlistment requires a state beyond the tribal era, non-negative local reputation and a character free of wanted status, a local bounty, custody and an active service assignment. Desertion or dismissal for friendly fire can impose a ten-year ban. Survival enlistment can lend suitable era equipment. Discharge removes the issued equipment and records the rank, dates and reason in the service history. [SRC-311]
+
+Pay accrues from Walk time and rank. In peace it accrues at half rate during eligible duty. Wartime accrual uses the full rate. The officer payout converts accrued wage days at the state's current daily wage. Active service excludes civilian career shifts. The fixture checked the tribal denial, enlistment, shift exclusion and discharge upon custody intake. [SRC-310, SRC-311, SRC-313]
