@@ -10,6 +10,19 @@
 
 Полный объём: **144 фичи**, **29 этапов**, **58 собственных модулей**. [Перечень систем](FEATURE_INVENTORY.md) и [машиночитаемое покрытие](research/feature-scope.json) входят в этот план. Для каждой фичи указаны этапы; для каждого модуля — назначение и задачи. Новая разведка: SRC-053–057.
 
+## 2.2.0 research order
+
+1. **Build, saves and map sizes.** Compare both builds. Trace map limits, frame scheduling, saves and reloads. Check legacy fixtures and large-map quick save.
+2. **World rules and historical start.** Trace New Game and Planet rules, the ancient start, later arrivals, calendar labels and persistence.
+3. **Politics, diplomacy and development.** Trace governments, ideologies, faith, diplomacy, blocs, stability and technology.
+4. **Warfare across map and Walk.** Trace regiments, fronts, supply, air support and the link between world and local combat.
+5. **Companies and economy.** Trace valuation, dividends, corporate ownership changes, vehicle production and player actions.
+6. **Terrain, disasters and cities.** Trace terrain, rivers, climate, epidemics, persistent ruins, landmarks and DLC permissions.
+7. **Walk and progression.** Trace interiors, survival, inventory, jobs, service, public facilities and custody.
+8. **Network, add-ons and regressions.** Verify shared vehicles, connections, language change, add-ons and editor changes. Assign every changed module and release note to a GDD topic or verification issue.
+
+The first three passes have [source traces and scoped offline observations](research/release-2.2.0.json). Warfare across map and Walk is next. See the [remaining checks](OPEN_QUESTIONS.md#220-verification).
+
 ## Приоритеты извлечения
 
 По указанию пользователя от 2026-11-14 первыми выполняются восемь этапов в следующем порядке:

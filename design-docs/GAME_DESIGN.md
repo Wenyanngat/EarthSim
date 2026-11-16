@@ -1,6 +1,6 @@
 # Дизайн Earth Simulator: тематические документы
 
-Большой документ разделён по экранам и системам. Рабочие тексты находятся в `topics/`; этот файл сохранён как точка входа по прежнему адресу. Версия исследованных файлов — **2.1.4**; наблюдений в запущенной игре нет.
+Большой документ разделён по экранам и системам. Рабочие тексты находятся в `topics/`; этот файл сохранён как точка входа по прежнему адресу. Базовое исследование охватывает **2.1.4**. Сведения о новых правилах отмечены версией 2.2.0.
 
 [JSON-каталог фичей и документов](catalog.json) · [Анализ структуры](ANALYSIS.md) · [Источники](SOURCES.md) · [Текущие вопросы](OPEN_QUESTIONS.md)
 
@@ -60,6 +60,10 @@ WP-WALK-AIR охватывает четыре фичи. Извлечены по�
 Прослежены три фичи и 37 диапазонов кода. Прошли 24 изолированные проверки. Извлечены места гостей, действия на общей карте, раздельный ввод Steam, выбор держав и счёт соперничества. Статус `static_traced_runtime_pending`. [Локальная кооперация и соперничество](topics/network/local-coop-rivalry.md) · [Машинный отчёт](research/extraction-local-multiplayer.json) [SRC-226–231]
 
 Извлечены 13 встроенных сценариев с 45 целями, 32 достижения, 13 шагов обучения, 11 подсказок и расписание событий дополнений. Прослежены 68 диапазонов кода. Прошли 32 изолированные проверки. Статус `static_traced_runtime_pending`. [Сценарии](topics/menu/scenarios.md) · [Достижения](topics/menu/achievements.md) · [Обучение](topics/interface/onboarding.md) · [События](topics/menu/scripted-events.md) · [Машинный отчёт](research/extraction-scenarios-profile.json) [SRC-232–238]
+
+## Release 2.2.0
+
+The [release plan](EXTRACTION_PLAN.md#220-research-order) and [versioned evidence](research/release-2.2.0.json) cover the first three passes for build 26706675. Release sections in [government](topics/states/formation-politics.md#government-ideology-and-stability-in-220), [rulers](topics/states/rulers.md#government-changes-and-ruler-terms-in-220), [faith and rights](topics/society/cultures-religions.md#faith-and-minority-rights-in-220), [diplomacy](topics/states/diplomacy.md#contacts-and-blocs-in-220) and [research](topics/states/technology.md#research-costs-resources-and-political-effects-in-220) describe the 2.2.0 changes. The historical inventory covers 2.1.4. [SRC-280–292]
 
 ## Основы игры
 

@@ -1,5 +1,10 @@
 # Контрольная точка исследования установленной версии 2.1.4
 
+## 2.2.0 release research
+
+Installed build 26706675 is the 2.2.0 reference. Of 127 root JS files, 68 paths were added to the old inventory, 51 changed hashes and eight matched. The first pass traces saves, map sizes and frame pacing and records five isolated storage checks and fourteen offline desktop observations. The second pass traces world rules, the historical start, the calendar and climate pins and records another fourteen offline desktop observations. The third pass traces government, ideology, faith, contacts, blocs, rights, stability and resource-gated research. Fourteen controlled offline desktop checks passed. Warfare across map and Walk follows in the [release plan](EXTRACTION_PLAN.md#220-research-order). [SRC-284–287, SRC-288–292] The rest of this checkpoint describes the historical 2.1.4 baseline. [Evidence](research/release-2.2.0.json) [SRC-280–283]
+
+
 [Дорожная карта](ROADMAP.md) содержит отдельный анализ публичных планов и зависимостей релизов [SRC-239, SRC-240].
 
 ## Навигация после разделения документации

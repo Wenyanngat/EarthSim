@@ -310,3 +310,21 @@
 | SRC-277 | audio.js, menu.js, mods.js, net.js, index.html and package.json. [Exact ranges](research/extraction-presentation.json) | Audio context, mixer, effects, ambience and media recovery | 2.1.4, 2026-11-16 | Finite Web Audio adapter. Physical output remains unobserved. |
 | SRC-278 | music.js, audio.js and mods.js. [Exact ranges](research/extraction-presentation.json) | Stock arrangements, scene pools, scheduler and media override | 2.1.4, 2026-11-16 | Selected scheduler branches ran against a simulated clock. |
 | SRC-279 | [Portable evidence](research/extraction-presentation.json). [Exact ranges](research/extraction-presentation.json) | 22 isolated checks and source hashes | 2.1.4, 2026-11-16 | Full-game runtime remains pending. |
+
+## 2.2.0 installed build
+
+| ID | Evidence | Coverage | Limits |
+| --- | --- | --- | --- |
+| SRC-280 | Steam app 4932460 installation manifest, build 26706675, package.json, index.html, core.js, net.js, mods.js, perfhud.js | Package and script inventory, solo, add-on and room dimensions, map-size warning form | Local installation. The public release time and room UI have not been verified. |
+| SRC-281 | menu.js, savemig.js and root script inventory | Save schema, ordered load and quick-slot metadata | Source inspection in stock build. |
+| SRC-282 | bigmap.js, savestore.js, main.js, simjob.js, perfhud.js | Large-map paths, async writes, split reading, phased steps and flushing | Source inspection. Hardware measurements are pending. |
+| SRC-283 | [Release evidence](research/release-2.2.0.json) | Five isolated disk checks and fourteen observations in the offline Windows client, including legacy save round trips and the German large-map quick slot | Test instrumentation called shipped handlers. Steam and room connections were outside the observation. |
+| SRC-284 | rules.js, rulesui.js, main.js, civ.js and ecology.js | World rule validation, New Game and Planet, state and climate effects, and host-only rules command | Source traces. Room roles still need a connected client check. |
+| SRC-285 | histscen.js and goals.js | Historical candidates, valleys, placement and waves, scenario goals and save sections | Site selection depends on the seed, size and world state. |
+| SRC-286 | pins.js, calendar.js and civ.js | Climate pin correction and persistence, signed calendar and pacing controls | Source traces. No cross-client measurements. |
+| SRC-287 | [Release evidence](research/release-2.2.0.json) | Fourteen offline desktop checks in a 120×90 Real Earth scenario and a custom rules world | Arrival triggers used controlled era changes. Steam and connected rooms were outside the test. |
+| SRC-288 | society.js, politics.js, people.js, polui.js and index.html | Government forms and annual transitions, succession, leader terms, ideology choice and player commands | Static traces. Natural elections and rare transitions need uninterrupted play. |
+| SRC-289 | politics.js, society.js and diplo.js | Tenets, piety, minority rights, unrest, refugees and political modifiers | Static traces and controlled observations of faith and rights. |
+| SRC-290 | contact.js, civ.js, diplo.js, dipui.js and menu.js | First contact, migration from old saves, bloc lifecycle, borders and the world council | Static traces. Connected rooms and autonomous council outcomes remain open. |
+| SRC-291 | civ.js and rules.js | Stability and decline, research costs, resource thresholds and progression limits | Static traces and controlled stability and research checks. |
+| SRC-292 | [Release evidence](research/release-2.2.0.json) | Fourteen scoped observations from a Windows 2.2.0 test client on an 80×60 flat world with seed 552203 | Controlled inputs and shipped handlers. Visual layout, natural timing, Steam and rooms were outside the run. |

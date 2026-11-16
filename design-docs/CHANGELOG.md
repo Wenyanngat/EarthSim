@@ -1,5 +1,18 @@
 # Изменения исследовательской документации
 
+## 2026-11-16. Release 2.2.0 politics, diplomacy and development
+
+- Documented government transitions and succession, ideological change, religious tenets, rights, contacts, blocs, stability and resource-gated research. Fourteen controlled offline observations passed, including persistence of political and diplomatic state. [SRC-288–292]
+
+## 2026-11-16. Release 2.2.0 world rules and historical start
+
+- Traced New Game rules, historical placement and arrival waves, the calendar and climate pins. Fourteen scoped offline desktop checks passed on a historical scenario and a custom rules world. [SRC-284–287]
+
+## 2026-11-16. Release 2.2.0 baseline
+
+- Added the [release research order](EXTRACTION_PLAN.md#220-research-order) and [versioned evidence](research/release-2.2.0.json) for build 26706675.
+- Traced map limits, phased simulation, and the save and quick-load sequence. Five isolated storage checks and fourteen offline desktop checks passed, including save and reload for one 2.0.0 fixture and two 2.1.4 fixtures. [SRC-280–283]
+
 ## 2026-11-16. WP-PRESENTATION
 
 - Six features traced across 64 source ranges. 22 isolated checks passed. The 2D and 3D maps, walk rendering, quality and settings, sound effects, ambience and procedural music are documented. Full-game runtime remains pending. [Graphics, sound and music](topics/interface/graphics-audio.md) · [Evidence](research/extraction-presentation.json) [SRC-274–279]

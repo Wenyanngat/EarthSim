@@ -77,3 +77,18 @@
 Выбор набора сразу заполняет форму. Изменение параметра сбрасывает пункт на «Текущие настройки». Переименование и удаление включены для выбранного пользовательского набора. Запись под занятым именем, замена при конфликте переименования и удаление требуют подтверждения. «По умолчанию» применяет значения разметки. Отказ записи оставляет сообщение и сохранённые настройки в прежнем виде. [SRC-112, SRC-117]
 
 [image3]: ../../assets/image03.png
+
+## 2.2.0 world rules and history
+
+New Game configures rules before historical settlement. The Rules tab in Planet changes the rules for an existing world. An active scenario or rivalry locks live edits. In a room, the host issues the rules command and the copies apply it on the shared turn. [SRC-284]
+
+| Rule | Effect |
+| --- | --- |
+| No wars | Enabling it in a live world ends existing wars with white peace. The UI asks first when wars are active. It blocks ordinary new declarations. The creator's forced actions can still intervene. |
+| No revolts, no alliances | The first blocks ordinary revolts and specified breakup paths. The second keeps ordinary relations below the alliance threshold and removes bloc membership. Vassal ties and registered player pacts are exempt from the relation clamp. |
+| Era and starting era | A ceiling limits future progress without lowering already reached eras. Fixed era keeps each polity in its own era. A starting era raises newly founded polities, subject to the ceiling. |
+| Fixed biomes, collapse, polity count | Fixed biomes stops automatic biome changes. Collapse offers the historical, rare and never settings. The optional cap blocks automatic founding at the selected count of 2–200 live polities. A cap of 0 removes it. |
+
+New Game can pin atmospheric CO₂ and sea level. The Planet controls can also pin global temperature after the world initializes. History pace can range from 0.2× to 4×, and the New Game economy settings let the player set research costs by era. [SRC-284, SRC-286]
+
+The Ancient World preset selects Real Earth at 120×90, with historical settlement enabled. The historical option appears for Real Earth. A bundled add-on world restores its own history and calendar from the save. [SRC-285]

@@ -94,3 +94,7 @@ stateDiagram-v2
 Изолированные сценарии исполняли клиентские модули и обычный диспетчер уже декодированных сообщений сервера. Сетевой транспорт, интерфейс, таймеры и базовая запись мира имели адаптеры. Проверены порядок ходов, декодирование графа, gzip, переходы комнат, роли и восстановление очереди. Настоящие сокеты, Steam, полная загрузка карты и отказы транспорта остаются для наблюдения. [SRC-218]
 
 [Открытые проверки](../../OPEN_QUESTIONS.md#wp-network-после-статического-прохода) · [Точка продолжения](../../RESEARCH_STATE.md)
+
+## 2.2.0 room size limit
+
+Hosting and joining reject a map with either side above 220 cells. New Game opened from room creation applies that limit before generating a world. Solo New Game accepts a side up to 1000. [SRC-280]

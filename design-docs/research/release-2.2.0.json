@@ -1,0 +1,1270 @@
+{
+  "game_version": "2.2.0",
+  "historical_version": "2.1.4",
+  "steam_app_id": 4932460,
+  "steam_build_id": 26706675,
+  "steam_depot_id": 4932461,
+  "steam_depot_manifest": "5251773358915190318",
+  "installed_at": "2026-11-16T19:15:18Z",
+  "historical_scope": "research/feature-scope.json",
+  "inventory": {
+    "root_js": 127,
+    "new_root_js": 68,
+    "changed_root_js": 51,
+    "identical_root_js": 8,
+    "verified_reference_files": 653,
+    "recovered_historical_paths": 52,
+    "historical_scope_paths": 82,
+    "unrecovered_historical_root_js": [
+      "achievements.js",
+      "audio.js",
+      "coop.js",
+      "gamepad.js",
+      "gfx.js",
+      "gfx3d.js",
+      "i18n.js",
+      "keys.js",
+      "modedit.js",
+      "osk.js",
+      "steam.js",
+      "tutorial.js"
+    ]
+  },
+  "passes": [
+    {
+      "id": "BUILD-SAVES-SCALE",
+      "state": "static_traced_with_scoped_desktop_observations",
+      "runtime_verified": false,
+      "source_ids": [
+        "SRC-280",
+        "SRC-281",
+        "SRC-282",
+        "SRC-283"
+      ]
+    },
+    {
+      "id": "WORLD-RULES-HISTORICAL-START",
+      "state": "static_traced_with_scoped_desktop_observations",
+      "runtime_verified": false,
+      "source_ids": [
+        "SRC-284",
+        "SRC-285",
+        "SRC-286",
+        "SRC-287"
+      ]
+    },
+    {
+      "id": "POLITICS-DIPLOMACY-DEVELOPMENT",
+      "state": "static_traced_with_scoped_desktop_observations",
+      "runtime_verified": false,
+      "source_ids": [
+        "SRC-288",
+        "SRC-289",
+        "SRC-290",
+        "SRC-291",
+        "SRC-292"
+      ]
+    }
+  ],
+  "anchors": {
+    "SRC-280": [
+      {
+        "path": "core.js",
+        "lines": [
+          5,
+          15
+        ],
+        "sha256": "d06b47c7ae8ff5fac4589f324b792c154bff017ac6b8f6a34bef08eab6bc2d45"
+      },
+      {
+        "path": "net.js",
+        "lines": [
+          821,
+          855
+        ],
+        "sha256": "9e7dd81c94f267f68405101e69bc5702d76de7c342af82b517e59df91f53d0fb"
+      },
+      {
+        "path": "mods.js",
+        "lines": [
+          509,
+          510
+        ],
+        "sha256": "e30f205c4dff1edffe1cdaedb1e526abe58cb2dcc9d95e0c7d5d91f301f557dd"
+      },
+      {
+        "path": "perfhud.js",
+        "lines": [
+          593,
+          658
+        ],
+        "sha256": "07f340b95216f5817799a0ee7b828e186094cb50b22dbb4745454117deeafd80"
+      }
+    ],
+    "SRC-281": [
+      {
+        "path": "menu.js",
+        "lines": [
+          89,
+          160
+        ],
+        "sha256": "385c849a9d68000ed81bab53326066a8f36378f94a545ca568eb57863b4744cb"
+      },
+      {
+        "path": "savemig.js",
+        "lines": [
+          10,
+          34
+        ],
+        "sha256": "d9237a4fa4c629caa2bb45fc5cc36c312ea4b7398f96af452bc41233a50692ac"
+      },
+      {
+        "path": "menu.js",
+        "lines": [
+          1734,
+          1779
+        ],
+        "sha256": "385c849a9d68000ed81bab53326066a8f36378f94a545ca568eb57863b4744cb"
+      }
+    ],
+    "SRC-282": [
+      {
+        "path": "bigmap.js",
+        "lines": [
+          7,
+          28
+        ],
+        "sha256": "f2e39ca0f7ed9f7ee8290d877283f99b60509c659f220f0d71d726a550d5481b"
+      },
+      {
+        "path": "savestore.js",
+        "lines": [
+          71,
+          122
+        ],
+        "sha256": "02be22864821f3aa432f32bbeeff8542b7c6bc872b0dc3c3abf753c5a388be2c"
+      },
+      {
+        "path": "savestore.js",
+        "lines": [
+          203,
+          254
+        ],
+        "sha256": "02be22864821f3aa432f32bbeeff8542b7c6bc872b0dc3c3abf753c5a388be2c"
+      },
+      {
+        "path": "main.js",
+        "lines": [
+          43,
+          84
+        ],
+        "sha256": "5e5036acc0a8aa4ccac0e356700ac70b3b122b1727512908664647e7911f1c93"
+      },
+      {
+        "path": "simjob.js",
+        "lines": [
+          173,
+          225
+        ],
+        "sha256": "101f887e3be46c11b291583eba04f222ceb760b7f8fcd587b5d0e3d9cdd54898"
+      },
+      {
+        "path": "perfhud.js",
+        "lines": [
+          662,
+          674
+        ],
+        "sha256": "07f340b95216f5817799a0ee7b828e186094cb50b22dbb4745454117deeafd80"
+      }
+    ],
+    "SRC-284": [
+      {
+        "path": "rules.js",
+        "lines": [
+          12,
+          108
+        ],
+        "sha256": "56554298fb74d704ef89b458bfde6f60294012d71ca7ba5a3bc89f77bc88f643"
+      },
+      {
+        "path": "rules.js",
+        "lines": [
+          157,
+          277
+        ],
+        "sha256": "56554298fb74d704ef89b458bfde6f60294012d71ca7ba5a3bc89f77bc88f643"
+      },
+      {
+        "path": "rulesui.js",
+        "lines": [
+          149,
+          181
+        ],
+        "sha256": "ee033a8c7969470d3d1eb915eabf00936d68fe72f18f733a795d2bd6966283ea"
+      },
+      {
+        "path": "rulesui.js",
+        "lines": [
+          388,
+          443
+        ],
+        "sha256": "ee033a8c7969470d3d1eb915eabf00936d68fe72f18f733a795d2bd6966283ea"
+      },
+      {
+        "path": "main.js",
+        "lines": [
+          196,
+          224
+        ],
+        "sha256": "5e5036acc0a8aa4ccac0e356700ac70b3b122b1727512908664647e7911f1c93"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          1942,
+          1946
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          2225,
+          2235
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "ecology.js",
+        "lines": [
+          253,
+          260
+        ],
+        "sha256": "ccfeefa2e28349d6f75663ba958f0add5293d6bdda1d931dc9ab11894641e140"
+      }
+    ],
+    "SRC-285": [
+      {
+        "path": "histscen.js",
+        "lines": [
+          12,
+          96
+        ],
+        "sha256": "ad77f0b58e495b0575e11f577dd8726350eec6f8dd9d1192de4be1d9272319e9"
+      },
+      {
+        "path": "histscen.js",
+        "lines": [
+          125,
+          155
+        ],
+        "sha256": "ad77f0b58e495b0575e11f577dd8726350eec6f8dd9d1192de4be1d9272319e9"
+      },
+      {
+        "path": "histscen.js",
+        "lines": [
+          277,
+          334
+        ],
+        "sha256": "ad77f0b58e495b0575e11f577dd8726350eec6f8dd9d1192de4be1d9272319e9"
+      },
+      {
+        "path": "histscen.js",
+        "lines": [
+          392,
+          434
+        ],
+        "sha256": "ad77f0b58e495b0575e11f577dd8726350eec6f8dd9d1192de4be1d9272319e9"
+      },
+      {
+        "path": "histscen.js",
+        "lines": [
+          454,
+          489
+        ],
+        "sha256": "ad77f0b58e495b0575e11f577dd8726350eec6f8dd9d1192de4be1d9272319e9"
+      },
+      {
+        "path": "histscen.js",
+        "lines": [
+          522,
+          563
+        ],
+        "sha256": "ad77f0b58e495b0575e11f577dd8726350eec6f8dd9d1192de4be1d9272319e9"
+      },
+      {
+        "path": "goals.js",
+        "lines": [
+          234,
+          251
+        ],
+        "sha256": "947cc9e0347ca485bc9fc6b0b6ddc08c608d4dbf7a5affecae376b77ce07e2be"
+      },
+      {
+        "path": "goals.js",
+        "lines": [
+          398,
+          406
+        ],
+        "sha256": "947cc9e0347ca485bc9fc6b0b6ddc08c608d4dbf7a5affecae376b77ce07e2be"
+      }
+    ],
+    "SRC-286": [
+      {
+        "path": "pins.js",
+        "lines": [
+          13,
+          65
+        ],
+        "sha256": "fee6bbee7b1284a4d6e6c925d274ed2d2ba09af8a20852e4d2364549dc1ae21e"
+      },
+      {
+        "path": "pins.js",
+        "lines": [
+          96,
+          132
+        ],
+        "sha256": "fee6bbee7b1284a4d6e6c925d274ed2d2ba09af8a20852e4d2364549dc1ae21e"
+      },
+      {
+        "path": "pins.js",
+        "lines": [
+          149,
+          187
+        ],
+        "sha256": "fee6bbee7b1284a4d6e6c925d274ed2d2ba09af8a20852e4d2364549dc1ae21e"
+      },
+      {
+        "path": "calendar.js",
+        "lines": [
+          9,
+          45
+        ],
+        "sha256": "2811a2e262f64b76ecd05bef19263b429ce69dcdc832697fa4efd4d7a08e92c8"
+      },
+      {
+        "path": "calendar.js",
+        "lines": [
+          99,
+          118
+        ],
+        "sha256": "2811a2e262f64b76ecd05bef19263b429ce69dcdc832697fa4efd4d7a08e92c8"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          254,
+          273
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      }
+    ],
+    "SRC-288": [
+      {
+        "path": "index.html",
+        "lines": [
+          773,
+          788
+        ],
+        "sha256": "1f41ef001f4781787595b1f0776d1bc36d738376876469d0f394045ffc61311a"
+      },
+      {
+        "path": "politics.js",
+        "lines": [
+          43,
+          124
+        ],
+        "sha256": "ba2d4943e1797c4f06e459197b3e099cb78f4dd3a2ff82b6cb50c1caa807ec0d"
+      },
+      {
+        "path": "politics.js",
+        "lines": [
+          133,
+          220
+        ],
+        "sha256": "ba2d4943e1797c4f06e459197b3e099cb78f4dd3a2ff82b6cb50c1caa807ec0d"
+      },
+      {
+        "path": "society.js",
+        "lines": [
+          212,
+          301
+        ],
+        "sha256": "1a59f027635e1da45ff933d27218918ce05de879e96d15eed322e36dd09380d0"
+      },
+      {
+        "path": "politics.js",
+        "lines": [
+          479,
+          682
+        ],
+        "sha256": "ba2d4943e1797c4f06e459197b3e099cb78f4dd3a2ff82b6cb50c1caa807ec0d"
+      },
+      {
+        "path": "politics.js",
+        "lines": [
+          705,
+          765
+        ],
+        "sha256": "ba2d4943e1797c4f06e459197b3e099cb78f4dd3a2ff82b6cb50c1caa807ec0d"
+      },
+      {
+        "path": "people.js",
+        "lines": [
+          53,
+          56
+        ],
+        "sha256": "6521123c19af79dfc01cdc0bcd23b534b93688f8ad680ff84adaeebb4bbaca94"
+      },
+      {
+        "path": "people.js",
+        "lines": [
+          1139,
+          1186
+        ],
+        "sha256": "6521123c19af79dfc01cdc0bcd23b534b93688f8ad680ff84adaeebb4bbaca94"
+      },
+      {
+        "path": "people.js",
+        "lines": [
+          1304,
+          1360
+        ],
+        "sha256": "6521123c19af79dfc01cdc0bcd23b534b93688f8ad680ff84adaeebb4bbaca94"
+      },
+      {
+        "path": "people.js",
+        "lines": [
+          1572,
+          1591
+        ],
+        "sha256": "6521123c19af79dfc01cdc0bcd23b534b93688f8ad680ff84adaeebb4bbaca94"
+      },
+      {
+        "path": "people.js",
+        "lines": [
+          1864,
+          1871
+        ],
+        "sha256": "6521123c19af79dfc01cdc0bcd23b534b93688f8ad680ff84adaeebb4bbaca94"
+      },
+      {
+        "path": "polui.js",
+        "lines": [
+          97,
+          142
+        ],
+        "sha256": "592267e571be686ffc6892ce1e1f8920a9746bdcc2e4c4161dfa52a8f635c26c"
+      },
+      {
+        "path": "polui.js",
+        "lines": [
+          207,
+          224
+        ],
+        "sha256": "592267e571be686ffc6892ce1e1f8920a9746bdcc2e4c4161dfa52a8f635c26c"
+      }
+    ],
+    "SRC-289": [
+      {
+        "path": "politics.js",
+        "lines": [
+          20,
+          26
+        ],
+        "sha256": "ba2d4943e1797c4f06e459197b3e099cb78f4dd3a2ff82b6cb50c1caa807ec0d"
+      },
+      {
+        "path": "politics.js",
+        "lines": [
+          227,
+          334
+        ],
+        "sha256": "ba2d4943e1797c4f06e459197b3e099cb78f4dd3a2ff82b6cb50c1caa807ec0d"
+      },
+      {
+        "path": "politics.js",
+        "lines": [
+          336,
+          456
+        ],
+        "sha256": "ba2d4943e1797c4f06e459197b3e099cb78f4dd3a2ff82b6cb50c1caa807ec0d"
+      },
+      {
+        "path": "politics.js",
+        "lines": [
+          688,
+          711
+        ],
+        "sha256": "ba2d4943e1797c4f06e459197b3e099cb78f4dd3a2ff82b6cb50c1caa807ec0d"
+      },
+      {
+        "path": "politics.js",
+        "lines": [
+          779,
+          811
+        ],
+        "sha256": "ba2d4943e1797c4f06e459197b3e099cb78f4dd3a2ff82b6cb50c1caa807ec0d"
+      },
+      {
+        "path": "society.js",
+        "lines": [
+          302,
+          361
+        ],
+        "sha256": "1a59f027635e1da45ff933d27218918ce05de879e96d15eed322e36dd09380d0"
+      },
+      {
+        "path": "society.js",
+        "lines": [
+          403,
+          429
+        ],
+        "sha256": "1a59f027635e1da45ff933d27218918ce05de879e96d15eed322e36dd09380d0"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          72,
+          79
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          726,
+          736
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          740,
+          868
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          1916,
+          1922
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      }
+    ],
+    "SRC-290": [
+      {
+        "path": "contact.js",
+        "lines": [
+          36,
+          91
+        ],
+        "sha256": "a9b866d33e358d9b28309d71c0b51045a3355807ccbd8bfde85a140bb1a9c3b0"
+      },
+      {
+        "path": "contact.js",
+        "lines": [
+          150,
+          251
+        ],
+        "sha256": "a9b866d33e358d9b28309d71c0b51045a3355807ccbd8bfde85a140bb1a9c3b0"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          2143,
+          2159
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          2174,
+          2228
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          2298,
+          2322
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          3163,
+          3171
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          3331,
+          3341
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          34,
+          63
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          439,
+          450
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          467,
+          506
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          979,
+          1145
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          1502,
+          1557
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          1592,
+          1646
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          1708,
+          1732
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          1785,
+          1804
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "diplo.js",
+        "lines": [
+          1823,
+          1862
+        ],
+        "sha256": "7a747db580634804bf4f035fa29c830ad5e2c368667f4a17007feed337d879c9"
+      },
+      {
+        "path": "menu.js",
+        "lines": [
+          45,
+          88
+        ],
+        "sha256": "385c849a9d68000ed81bab53326066a8f36378f94a545ca568eb57863b4744cb"
+      },
+      {
+        "path": "dipui.js",
+        "lines": [
+          527,
+          547
+        ],
+        "sha256": "2cc67626579c879d77ae9de76dfcf2db90cc11c6f254345503a4b674174c512b"
+      }
+    ],
+    "SRC-291": [
+      {
+        "path": "civ.js",
+        "lines": [
+          69,
+          83
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          265,
+          273
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          305,
+          367
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          389,
+          436
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          461,
+          502
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          1395,
+          1432
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          1559,
+          1607
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "civ.js",
+        "lines": [
+          1825,
+          1874
+        ],
+        "sha256": "f1f5fc09102a09c7f2892eb4199d5929ddb1d54eb7a62d4e6658f9151010c497"
+      },
+      {
+        "path": "rules.js",
+        "lines": [
+          66,
+          86
+        ],
+        "sha256": "56554298fb74d704ef89b458bfde6f60294012d71ca7ba5a3bc89f77bc88f643"
+      }
+    ]
+  },
+  "explicit_migration_registrations_in_stock_root_scripts": 0,
+  "isolated_storage_checks": [
+    {
+      "name": "Exact-boundary large-map flag",
+      "status": "passed",
+      "result": {
+        "syncAt": 48400,
+        "asyncAbove": 48400
+      }
+    },
+    {
+      "name": "Bundled 2.0.0, 2.1.4 disk fixtures: decode, migrate, rewrite and decode",
+      "status": "passed",
+      "result": {
+        "2.0.0": 1,
+        "2.1.4": 2
+      }
+    },
+    {
+      "name": "Migration registry ordered, records skipped work, and does not repeat",
+      "status": "passed",
+      "result": {
+        "ordered": true,
+        "idempotent": true,
+        "preservesUnknown": true
+      }
+    },
+    {
+      "name": "Chunked save encoder and parser",
+      "status": "passed",
+      "result": {
+        "exactJsonBytes": true,
+        "roundTrip": true
+      }
+    },
+    {
+      "name": "Queued reader sees the new F5-slot payload after disk commit",
+      "status": "passed",
+      "result": {
+        "freshPayload": true,
+        "germanSlotMetadata": true
+      }
+    }
+  ],
+  "desktop_observations": {
+    "platform": "Windows NW.js offline",
+    "steam_helper": "omitted in separate test copy",
+    "method": "Observer used the shipped load, save, simulation-step and Walk entry points. F5 and F9 handlers called in sequence.",
+    "checks": [
+      {
+        "name": "Load legacy fixture 0",
+        "passed": true,
+        "details": {
+          "app": "2.0.0",
+          "w": 60,
+          "h": 40
+        }
+      },
+      {
+        "name": "Advance a year through the map single-step action",
+        "passed": true,
+        "details": {
+          "startApp": "2.0.0"
+        }
+      },
+      {
+        "name": "Enter and leave Walk",
+        "passed": true,
+        "details": {
+          "app": "2.0.0"
+        }
+      },
+      {
+        "name": "Write migrated fixture 0",
+        "passed": true,
+        "details": {
+          "app": "2.0.0",
+          "out": "2.2.0",
+          "format": 3,
+          "migrations": 0,
+          "registry": 0
+        }
+      },
+      {
+        "name": "Reload migrated fixture 0",
+        "passed": true,
+        "details": {
+          "app": "2.0.0"
+        }
+      },
+      {
+        "name": "Load legacy fixture 1",
+        "passed": true,
+        "details": {
+          "app": "2.1.4",
+          "w": 80,
+          "h": 60
+        }
+      },
+      {
+        "name": "Write migrated fixture 1",
+        "passed": true,
+        "details": {
+          "app": "2.1.4",
+          "out": "2.2.0",
+          "format": 3,
+          "migrations": 0,
+          "registry": 0
+        }
+      },
+      {
+        "name": "Reload migrated fixture 1",
+        "passed": true,
+        "details": {
+          "app": "2.1.4"
+        }
+      },
+      {
+        "name": "Load legacy fixture 2",
+        "passed": true,
+        "details": {
+          "app": "2.1.4",
+          "w": 80,
+          "h": 60
+        }
+      },
+      {
+        "name": "Write migrated fixture 2",
+        "passed": true,
+        "details": {
+          "app": "2.1.4",
+          "out": "2.2.0",
+          "format": 3,
+          "migrations": 0,
+          "registry": 0
+        }
+      },
+      {
+        "name": "Reload migrated fixture 2",
+        "passed": true,
+        "details": {
+          "app": "2.1.4"
+        }
+      },
+      {
+        "name": "Large map starts in German",
+        "passed": true,
+        "details": {
+          "w": 221,
+          "h": 220,
+          "lang": "de"
+        }
+      },
+      {
+        "name": "Network size boundary",
+        "passed": true,
+        "details": {
+          "limit": 220
+        }
+      },
+      {
+        "name": "F5 then F9 waits for fresh German large-map slot",
+        "passed": true,
+        "details": {
+          "asynchronousThreshold": 48400,
+          "lang": "de"
+        }
+      }
+    ]
+  },
+  "historical_start_desktop_observations": {
+    "platform": "Windows NW.js offline",
+    "fixture": "Real Earth, 120×90, seed 472206",
+    "method": "The scenario used the shipped startup and save/load entry points. The year listeners ran with controlled era transitions to exercise both waves.",
+    "checks": [
+      {
+        "name": "Cradles scenario starts with four goals at 3000 BCE",
+        "passed": true,
+        "details": {
+          "placed": 8,
+          "year": -3000,
+          "goals": 4
+        }
+      },
+      {
+        "name": "Calendar skips year zero",
+        "passed": true,
+        "details": {
+          "lastBC": -1,
+          "firstAD": 1
+        }
+      },
+      {
+        "name": "Start grants a mutual 60-year truce",
+        "passed": true,
+        "details": {
+          "truceYears": 60
+        }
+      },
+      {
+        "name": "Historical valleys populated",
+        "passed": true,
+        "details": {
+          "valleyCells": 24
+        }
+      },
+      {
+        "name": "Scenario rejects live rules edit",
+        "passed": true,
+        "details": {
+          "lock": "scenario"
+        }
+      },
+      {
+        "name": "Classical arrival wave fires once on the year event",
+        "passed": true,
+        "details": {
+          "trigger": "controlled era in existing scenario",
+          "arrivals": 11
+        }
+      },
+      {
+        "name": "Medieval arrival wave unlocks separately",
+        "passed": true,
+        "details": {
+          "trigger": "controlled era in existing scenario",
+          "arrivals": 21
+        }
+      },
+      {
+        "name": "Save contains calendar, historical state and scenario",
+        "passed": true,
+        "details": {
+          "sections": [
+            "cal",
+            "hist",
+            "goals"
+          ]
+        }
+      },
+      {
+        "name": "Load restores scenario, recorded waves and calendar",
+        "passed": true,
+        "details": {
+          "waves": [
+            0,
+            0
+          ],
+          "year": -3000
+        }
+      },
+      {
+        "name": "New Game rules cap historical placement and lock eras",
+        "passed": true,
+        "details": {
+          "placed": 2,
+          "skippedByMax": 6,
+          "fixedEra": true
+        }
+      },
+      {
+        "name": "No-war blocks ordinary declaration",
+        "passed": true,
+        "details": {
+          "noWar": 1
+        }
+      },
+      {
+        "name": "CO2 and sea pins apply at boot",
+        "passed": true,
+        "details": {
+          "co2": true,
+          "sea": true
+        }
+      },
+      {
+        "name": "Planet pin and rules enter save",
+        "passed": true,
+        "details": {
+          "ruleKeys": [
+            "v",
+            "r",
+            "h"
+          ],
+          "pinKeys": [
+            "v",
+            "co2",
+            "sea",
+            "gt",
+            "gtV",
+            "gtF",
+            "gtPh"
+          ]
+        }
+      },
+      {
+        "name": "Rules and all three planetary locks survive reload",
+        "passed": true,
+        "details": {
+          "noWar": 1,
+          "era": 1,
+          "maxStates": 2,
+          "globalTemperature": true
+        }
+      }
+    ]
+  },
+  "politics_desktop_observations": {
+    "platform": "Windows NW.js offline",
+    "fixture": {
+      "seed": 552203,
+      "size": [
+        80,
+        60
+      ],
+      "terrain": "flat"
+    },
+    "method": "A hidden test client used the shipped new-world and disk save/load paths. The fixture founded three nations, set simulation inputs and invoked the handlers behind the politics and diplomacy controls. Steam was disabled in the offline test page. The checks cover controlled transitions and do not measure natural timing, visible layout or connected rooms.",
+    "checks": [
+      {
+        "name": "Boot the offline flat world",
+        "expected": "Version 2.2.0, seed 552203, 80 by 60, offline",
+        "passed": true,
+        "actual": {
+          "version": "2.2.0",
+          "seed": 552203,
+          "size": [
+            80,
+            60
+          ],
+          "online": false
+        }
+      },
+      {
+        "name": "Change from monarchy to empire through the politics command",
+        "expected": "Same ruler, with government reform held for 20 years",
+        "passed": true,
+        "actual": {
+          "government": "empire",
+          "king": 0,
+          "emperor": 0,
+          "govYear": 108
+        }
+      },
+      {
+        "name": "Change from empire to republic through the politics command",
+        "expected": "A new elective leader takes office",
+        "passed": true,
+        "actual": {
+          "government": "republic",
+          "oldRuler": 0,
+          "newRuler": 9
+        }
+      },
+      {
+        "name": "Choose a political course through the politics command",
+        "expected": "Liberal, held until year 120, with political modifiers present",
+        "passed": true,
+        "actual": {
+          "ideology": "liberal",
+          "holdUntil": 120,
+          "scienceMultiplier": 1.03
+        }
+      },
+      {
+        "name": "Run the annual piety update",
+        "expected": "Move 5 percent toward target and keep the player-selected ideology",
+        "passed": true,
+        "actual": {
+          "before": 0.45,
+          "target": 0.2624375,
+          "after": 0.440621875,
+          "ideology": "liberal"
+        }
+      },
+      {
+        "name": "Generate tenets for a root faith and a schism",
+        "expected": "Two distinct tenets per faith, shared first tenet and stable recomputation",
+        "passed": true,
+        "actual": {
+          "root": [
+            "trade",
+            "war"
+          ],
+          "branch": [
+            "trade",
+            "family"
+          ]
+        }
+      },
+      {
+        "name": "Meet a bordering nation during diplomacy",
+        "expected": "A and B meet in year 100 while distant C stays unknown",
+        "passed": true,
+        "actual": {
+          "aToB": 100,
+          "bToA": 100,
+          "aToC": null
+        }
+      },
+      {
+        "name": "Create a union through the diplomacy command",
+        "expected": "Creates mutual contact, shared bloc, open border and 1.3 trade multiplier",
+        "passed": true,
+        "actual": {
+          "closed": 2,
+          "contact": 100,
+          "bloc": 1,
+          "members": [
+            0,
+            2
+          ],
+          "border": 0,
+          "trade": 1.3
+        }
+      },
+      {
+        "name": "Change cultural rights through the diplomacy command",
+        "expected": "Persecution reduces stability contribution by 0.095 at 50 percent unity",
+        "passed": true,
+        "actual": {
+          "equal": 0.02,
+          "restricted": -0.075,
+          "rights": 3,
+          "yearMarker": 150,
+          "assimilation": 2.2
+        }
+      },
+      {
+        "name": "Apply the stability target",
+        "expected": "Stability moves 10 percent toward the inspectable target",
+        "passed": true,
+        "actual": {
+          "before": 1,
+          "target": 0.6406000000000001,
+          "after": 0.96406
+        }
+      },
+      {
+        "name": "Compare coal shortage, substitutes and known-neighbour access",
+        "expected": "Hard cap before waiting, substitutes after waiting, no hard penalty with known source",
+        "passed": true,
+        "actual": {
+          "threshold": 9,
+          "held": 8.999,
+          "wait": 60,
+          "substitute": 0.35,
+          "supplied": 1,
+          "access": 2
+        }
+      },
+      {
+        "name": "Compare the science multiplier breakdown with the actual increment",
+        "expected": "Recorded factors reconstruct the rate, era factor 0.5, cap active and pioneer factor 0.8",
+        "passed": true,
+        "actual": {
+          "product": 0.00012604076919739564,
+          "rate": 0.00012604076919739562,
+          "eraCost": 0.5,
+          "cap": 0.7531626949102678,
+          "frontier": 0.8
+        }
+      },
+      {
+        "name": "Write an ordinary 2.2.0 save",
+        "expected": "Versioned politics and diplomacy sections on disk",
+        "passed": true,
+        "actual": {
+          "app": "2.2.0",
+          "politics": 1,
+          "diplomacy": 1
+        }
+      },
+      {
+        "name": "Reload contacts, political course, rights and the union",
+        "expected": "Same nation IDs, first-contact year, ideology, rights and active union",
+        "passed": true,
+        "actual": {
+          "loaded": true,
+          "ideology": "liberal",
+          "rights": 3,
+          "firstMet": 100,
+          "bloc": 1,
+          "unionMembers": [
+            0,
+            2
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -147,3 +147,11 @@ invHas сравнивает **числовой tech**, не st.inv и не ми�
 ## Остаточные проверки
 
 Нужны длинная научная гонка, шельф и моменты обновления эпох/первенства в копии полной игры; действующие моды, настоящие исторические сохранения и сеть. Следующая основная область — WP-POLITICS-SOCIETY [SRC-078].
+
+## Research costs, resources and political effects in 2.2.0
+
+The base research drive is the clamped sum of 0.08, population 0.34, urban share 0.22, city count 0.14, trade 0.12 and literacy 0.10. Population is log-scaled, cities saturate at six and trade at 12. Research multiplies this drive by pace, the era multiplier, remaining headroom to the technology cap, government, ruler, political modifiers, resource factors, stability and any golden age. Research divides by the world's current era cost. It caps the combined government, ruler, golden-age and political bonus at 1.6 and applies a factor of 0.8 within 0.3 technology points of the living leader. The Science breakdown records the factors from the tick that calculated the rate. [SRC-291]
+
+The hard industrial threshold checks coal. The hard oil threshold is the earliest of automobiles, flight and the modern era. The older coal-or-iron and oil slowdowns also apply where their own conditions are met. Own deposits, access through a known and peaceful adjacent nation or sea-lane partner, and qualifying imports can satisfy the hard resource check. With no access, research slows within 0.1 points of the threshold and stops 0.001 below it. After 60 pace-adjusted years, substitutes apply a 0.35 hard multiplier until 0.5 points past the threshold or access becomes available. End-of-tick enforcement also caps technology gained through diffusion. World era rules can further constrain progression. [SRC-291]
+
+The offline fixture measured the coal pause at 8.999, the substitute multiplier at 0.35 and a neutral hard factor when a known neighbour supplied access. The displayed research factors reconstructed the increment to floating-point precision. [Desktop observations](../../research/release-2.2.0.json) [SRC-292]

@@ -103,3 +103,11 @@
 Команда из корня: `node design-docs/tools/probe_baseline.cjs`. Скрипт копирует 12 выбранных файлов в .research/wp-baseline/test-copy (`.research/wp-baseline/test-copy`), проверяет хеши перед повторным запуском и исполняет исходный код в `node:vm`. Браузер, Steam, моды и сеть не запускаются; хранилища/рендеры заменены локальными заглушками. Для календаря/прогрева используются настоящие `core.js`, `climate.js`, `ecology.js`; для планировщика — настоящий `main.js`; для отдельных контрактов — точные фрагменты UI/сети/прогулки. Отчёт (`.research/wp-baseline/probe-results.json`): 26 проверок, 26 успешных, 0 ошибок [SRC-061].
 
 Открыто: обычный и граничный сценарии в копии полной игры; холодный запуск/ошибка сохранения с настоящим SaveStore; фактический HUD после прогрева; цена шага и `SIM_RATE` под нагрузкой; видимый ручной шаг; поведение при сворачивании и в комнате. Изолированные исполнения не повышают `runtime_verified`. Статический результат baseline готов для следующего этапа; первым остаётся минимальное предчтение среды перед `WP-FAUNA`, полный `WP-WORLD-NATURE` отложен [SRC-058–061].
+
+## 2.2.0 build and grid
+
+Steam build 26706675 keeps the NW.js HTML entry point. The reference contains 127 root JavaScript files. The HTML loads all 68 paths absent from the earlier inventory. The kernel accepts 24 to 1000 cells per axis in solo boot. The add-on entry clamps each side to 400, and room hosting and joining reject maps with either side above 220. The New Game form warns for solo worlds above 48,400 cells and uses a higher warning tier above 160,000. [SRC-280]
+
+The frame budget can spread a simulation step across phases and frames. Saving finishes a pending step before serializing the world. Pausing lets a pending step finish within the frame budget. The room loop keeps its own stepping path. [SRC-281, SRC-282]
+
+[Versioned evidence](../../research/release-2.2.0.json)

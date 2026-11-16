@@ -102,3 +102,11 @@ The world serializer emits `v:3`, application version, dimensions, timestamp, se
 Save metadata includes timestamp, dimensions, simulation year, population, living states, era, thumbnail and scenario. Continue selects the newest slot with dimension metadata that is absent from the bad-save list. A failed boot load falls back to generation and records the failed name in a list capped at 20. Ordinary file export downloads world JSON with dimensions and year in its filename. The menu and import paths are documented in [the lifecycle trace](lifecycle.md). [SRC-113, SRC-258]
 
 The disk cases above ran against an isolated filesystem adapter with real gzip. Operating-system interruption, actual old profiles and Steam Cloud synchronization remain unobserved. The [trial edition](demo-edition.md) describes the separate timer record and edition gates. [SRC-259–261]
+
+## 2.2.0 saves and quick load
+
+Save format remains 3 and the app field records 2.2.0. Saving finishes a pending simulation step and records the map pause state from before Walk when the player saves there. Loading calls the migration registry before restoring world fields, then dispatches load handlers after rebuilding derived state. No stock root module registers a transform. Subsystems retain their own initialization when a save lacks their section. [SRC-281]
+
+Quick save and autosave put a stable slot type in metadata. Quick load and replacement of a prior slot also recognize legacy names in Russian, English and the current language. With the default large-map setting, disk F5 and autosave can compress and write in the background above 48,400 cells. Manual save remains synchronous. F9 flushes a deferred F5 action and waits for any pending write before selecting the slot. A disk payload over 16 MiB after unpacking can parse map arrays separately. Disk reads and decompression are synchronous. [SRC-281, SRC-282]
+
+The isolated disk check decoded, wrote and reread one 2.0.0 save and two 2.1.4 saves. The queue check read the newer payload from a German quick slot after commit. An isolated Windows client loaded, rewrote and reopened all three saves. The 2.0.0 world also advanced a year and entered and left Walk. Calling quick save then quick load on a 221×220 map in German reopened the fresh slot. [SRC-283]

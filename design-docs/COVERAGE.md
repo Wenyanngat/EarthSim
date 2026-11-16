@@ -1,5 +1,8 @@
 # Карта покрытия установленной версии 2.1.4
 
+For 2.2.0 coverage, see the [release evidence](research/release-2.2.0.json). The first pass covers build identity, map sizes, frame scheduling and disk saves. The second covers world rules, the historical start, the calendar and climate pins. [SRC-284–287] The third covers politics, diplomacy, stability and development, with fourteen scoped offline observations. [SRC-288–292] The coverage below applies to 2.1.4. [SRC-280–283]
+
+
 [Анализ публичной дорожной карты](ROADMAP.md) описывает планы релизов отдельно от покрытия установленной версии. Статусы будущих версий приведены по сайту разработчика.
 
 Приоритет извлечения задаётся очередью пользователя в [плане](EXTRACTION_PLAN.md): база, фауна, демография, экономика, политика, династии, торговля, войны и территории. В [JSON охвата](research/feature-scope.json) отмечены восемь главных этапов и 39 связанных фичей. Для зависимостей перед ними требуется только необходимое предчтение.

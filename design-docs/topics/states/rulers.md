@@ -72,3 +72,11 @@
 ## WP-PEOPLE-DYNASTIES: извлечённый жизненный цикл [SRC-086–092]
 
 [Династии, семьи, престол и кризисы](../society/dynasties.md) и [процедурные простолюдины](../society/commoner-families.md) раскрывают формулы/порядок/пределы. [Машинный результат](../../research/extraction-dynasties.json): 47 диапазонов, 13 файлов, 63 изолированные проверки. Обычный сейв отличается от точного peopleNet-адаптера; дворы/NPC/W.pop — разные модели. Полная игра не наблюдалась. Следующий — WP-TRADE-NAVIGATION.
+
+## Government changes and ruler terms in 2.2.0
+
+When both forms are hereditary, a reigning ruler keeps their office and receives the new title. A peaceful change between non-hereditary forms keeps the leader and restarts the term. A revolution can replace the leader, and a non-hereditary coup has a 30% branch in which the incumbent takes control. A move out of hereditary government normally replaces the ruler and preserves a dynastic claim. A pious ruler can take religious office during a transition to theocracy. Restoring hereditary rule can bring back an eligible claimant or establish a new house. [SRC-288]
+
+The republic draws a 6–10-year term, democracy 4–6, technocracy 7–10 and federation 5–8. A workers' republic takes its 10–15-year term from the government table. The merchant republic has no ordinary short term, and the junta takes the lifetime-office branch with a coup risk. At term end, a ruler younger than 72 with fewer than three terms has a re-election chance of 0.5 × (0.5 + stability). Constitutional monarchy combines hereditary succession with the free-government flag used by the independent ideology update. [SRC-288]
+
+Two transitions were observed in the offline client. Monarchy to empire kept the same ruler ID. Empire to republic installed a different ruler. Natural term expiration and dynastic restoration remain open. [Desktop observations](../../research/release-2.2.0.json) [SRC-292]

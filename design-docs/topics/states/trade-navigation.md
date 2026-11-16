@@ -104,3 +104,7 @@ walktrade допускает вход только GO/car<12. Охрана/ус�
 ## Продолжение военной трассировки
 
 Полные ветви военной симуляции, навигационные проверки десанта и последствия мира раскрыты в следующем пакете. [Военная симуляция](war-mechanics.md) [SRC-101–109]
+
+## Diplomatic access in 2.2.0
+
+A delivered sea trade voyage can establish first contact. A known and peaceful sea-lane partner with deposits can give a nation access to coal or oil for the hard research threshold. Shared economic blocs strengthen ordinary border trade and add periodic bilateral trade and knowledge diffusion. A closed border cuts ordinary border trade to 30%, and a world council embargo cuts it to zero. See [contacts and blocs](diplomacy.md#contacts-and-blocs-in-220) and [research costs](technology.md#research-costs-resources-and-political-effects-in-220). [SRC-290, SRC-291]

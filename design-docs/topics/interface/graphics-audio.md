@@ -97,3 +97,7 @@ The isolated probe covers preset loads and changes, settings persistence, render
 ## Public sound registry
 
 `step`, `shot`, `hit`, `hurt`, `horn`, `animal`, `thunder`, `quake`, `eruption`, `explosion`, `splash`, `door`, `talk`, `coin`, `sword`, `thud`, `take`, `swing`, `shout`, `scream`, `reload`, `empty`, `draw`, `crash`, `battle`, `alarm`, `gallop`, `oar`, `siren`, `hover`, `engine`, `rain`. [SRC-277]
+
+## 2.2.0 large maps and frame pacing
+
+Large-map rendering paths start above 48,400 cells. The 2D path prepares the background across frames and throttles data layer rebuilds. The 3D path updates changed terrain tiles and switches to a full rebuild when enough tiles changed. The frame budget can split the world step. World-speed priority requests at least one whole step on an eligible frame. These policies describe scheduling. Frame rates and memory on specific hardware still need measurements. [SRC-282]

@@ -215,7 +215,10 @@
         "SRC-117",
         "SRC-118",
         "SRC-119",
-        "SRC-125"
+        "SRC-125",
+        "SRC-284",
+        "SRC-285",
+        "SRC-286"
       ],
       "feature_ids": [
         "FEAT-WORLD-CREATE",
@@ -254,7 +257,9 @@
         "SRC-235",
         "SRC-236",
         "SRC-237",
-        "SRC-238"
+        "SRC-238",
+        "SRC-285",
+        "SRC-287"
       ],
       "feature_ids": [
         "FEAT-SCENARIOS",
@@ -370,7 +375,10 @@
         "SRC-258",
         "SRC-259",
         "SRC-260",
-        "SRC-261"
+        "SRC-261",
+        "SRC-281",
+        "SRC-282",
+        "SRC-283"
       ],
       "feature_ids": [
         "FEAT-SAVE-LOAD",
@@ -877,7 +885,9 @@
         "SRC-107",
         "SRC-108",
         "SRC-109",
-        "SRC-076"
+        "SRC-076",
+        "SRC-290",
+        "SRC-292"
       ],
       "feature_ids": [
         "FEAT-ARMY-POWER",
@@ -1104,7 +1114,9 @@
         "SRC-089",
         "SRC-090",
         "SRC-091",
-        "SRC-092"
+        "SRC-092",
+        "SRC-288",
+        "SRC-292"
       ],
       "feature_ids": [
         "FEAT-RULERS-SUCCESSION",
@@ -1631,7 +1643,9 @@
         "SRC-124",
         "SRC-125",
         "SRC-126",
-        "SRC-137"
+        "SRC-137",
+        "SRC-286",
+        "SRC-287"
       ],
       "feature_ids": [
         "FEAT-CLIMATE",
@@ -1694,7 +1708,10 @@
         "SRC-089",
         "SRC-090",
         "SRC-091",
-        "SRC-092"
+        "SRC-092",
+        "SRC-288",
+        "SRC-291",
+        "SRC-292"
       ],
       "feature_ids": [
         "FEAT-STATE-FORMATION",
@@ -1731,7 +1748,9 @@
         "SRC-075",
         "SRC-076",
         "SRC-077",
-        "SRC-078"
+        "SRC-078",
+        "SRC-291",
+        "SRC-292"
       ],
       "feature_ids": [
         "FEAT-TECHNOLOGY",
@@ -2049,7 +2068,12 @@
         "SRC-215",
         "SRC-216",
         "SRC-217",
-        "SRC-218"
+        "SRC-218",
+        "SRC-288",
+        "SRC-289",
+        "SRC-290",
+        "SRC-291",
+        "SRC-292"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -2417,7 +2441,12 @@
         "SRC-215",
         "SRC-216",
         "SRC-217",
-        "SRC-218"
+        "SRC-218",
+        "SRC-288",
+        "SRC-289",
+        "SRC-290",
+        "SRC-291",
+        "SRC-292"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -2648,7 +2677,12 @@
         "SRC-215",
         "SRC-216",
         "SRC-217",
-        "SRC-218"
+        "SRC-218",
+        "SRC-288",
+        "SRC-289",
+        "SRC-290",
+        "SRC-291",
+        "SRC-292"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -2849,7 +2883,12 @@
         "SRC-215",
         "SRC-216",
         "SRC-217",
-        "SRC-218"
+        "SRC-218",
+        "SRC-288",
+        "SRC-289",
+        "SRC-290",
+        "SRC-291",
+        "SRC-292"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -3055,7 +3094,12 @@
         "SRC-215",
         "SRC-216",
         "SRC-217",
-        "SRC-218"
+        "SRC-218",
+        "SRC-288",
+        "SRC-289",
+        "SRC-290",
+        "SRC-291",
+        "SRC-292"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -3284,7 +3328,12 @@
         "SRC-215",
         "SRC-216",
         "SRC-217",
-        "SRC-218"
+        "SRC-218",
+        "SRC-288",
+        "SRC-289",
+        "SRC-290",
+        "SRC-291",
+        "SRC-292"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -3553,7 +3602,15 @@
         "SRC-215",
         "SRC-216",
         "SRC-217",
-        "SRC-218"
+        "SRC-218",
+        "SRC-280",
+        "SRC-281",
+        "SRC-282",
+        "SRC-283",
+        "SRC-284",
+        "SRC-285",
+        "SRC-286",
+        "SRC-287"
       ],
       "feature_ids": [],
       "image_paths": []
@@ -3916,7 +3973,10 @@
         "SRC-058",
         "SRC-059",
         "SRC-060",
-        "SRC-061"
+        "SRC-061",
+        "SRC-280",
+        "SRC-281",
+        "SRC-282"
       ],
       "feature_ids": [
         "FEAT-GAME-LOOP",
@@ -4061,7 +4121,9 @@
         "SRC-082",
         "SRC-083",
         "SRC-084",
-        "SRC-085"
+        "SRC-085",
+        "SRC-289",
+        "SRC-292"
       ],
       "feature_ids": [
         "FEAT-CULTURES-RELIGIONS",
@@ -4270,7 +4332,9 @@
         "SRC-106",
         "SRC-107",
         "SRC-108",
-        "SRC-109"
+        "SRC-109",
+        "SRC-290",
+        "SRC-291"
       ],
       "feature_ids": [
         "FEAT-TRADE-GOODS",
@@ -4482,7 +4546,10 @@
         "SRC-121",
         "SRC-122",
         "SRC-125",
-        "SRC-126"
+        "SRC-126",
+        "SRC-284",
+        "SRC-285",
+        "SRC-286"
       ],
       "feature_ids": [
         "FEAT-WORLD-CREATE",
@@ -5191,7 +5258,8 @@
         "SRC-222",
         "SRC-223",
         "SRC-224",
-        "SRC-225"
+        "SRC-225",
+        "SRC-280"
       ],
       "feature_ids": [
         "FEAT-MULTIPLAYER",
@@ -5618,7 +5686,8 @@
         "SRC-276",
         "SRC-277",
         "SRC-278",
-        "SRC-279"
+        "SRC-279",
+        "SRC-282"
       ],
       "feature_ids": [
         "FEAT-VIEW-MODES",
@@ -5680,7 +5749,8 @@
         "SRC-058",
         "SRC-059",
         "SRC-060",
-        "SRC-061"
+        "SRC-061",
+        "SRC-280"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -5755,7 +5825,9 @@
         "SRC-118",
         "SRC-119",
         "SRC-125",
-        "SRC-126"
+        "SRC-126",
+        "SRC-284",
+        "SRC-285"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -5829,7 +5901,9 @@
         "SRC-232",
         "SRC-233",
         "SRC-237",
-        "SRC-238"
+        "SRC-238",
+        "SRC-285",
+        "SRC-287"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -5903,7 +5977,10 @@
         "SRC-256",
         "SRC-257",
         "SRC-258",
-        "SRC-261"
+        "SRC-261",
+        "SRC-281",
+        "SRC-282",
+        "SRC-283"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -6180,7 +6257,9 @@
         "SRC-058",
         "SRC-059",
         "SRC-060",
-        "SRC-061"
+        "SRC-061",
+        "SRC-282",
+        "SRC-286"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -6477,7 +6556,10 @@
         "SRC-125",
         "SRC-126",
         "SRC-137",
-        "SRC-143"
+        "SRC-143",
+        "SRC-284",
+        "SRC-286",
+        "SRC-287"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [
@@ -8359,7 +8441,9 @@
         "SRC-119",
         "SRC-120",
         "SRC-122",
-        "SRC-126"
+        "SRC-126",
+        "SRC-285",
+        "SRC-286"
       ],
       "runtime_verified": false,
       "implementation_entry_points": [

@@ -1,5 +1,18 @@
 # Открытые вопросы и противоречия
 
+## 2.2.0 verification
+
+- Offline desktop checks passed for three legacy save round trips, a simulated year and Walk on the 2.0.0 world, and a German large-map quick save and reload. Extend compatibility coverage using fixtures from other older versions. [SRC-283]
+- Time generation and quick save on fixed hardware. Test room creation and join at and above the 220-cell limit.
+- The historical scope validator requires the complete 2.1.4 tree. Recovery matched 52 old paths to recorded hashes, with 12 root JavaScript files still missing.
+
+- Observe the two historical arrivals during uninterrupted development. The offline checks advanced the leading polity's era directly. Check host and guest controls and late join in a room with world rules, pins and a historical date.
+
+- Observe natural election and ideology timing, a succession after term expiry, autonomous bloc formation and dissolution, council sanctions and resource-gated progress over uninterrupted play. Check the politics and diplomacy panels visually and repeat the commands with host and guest roles. Fourteen controlled offline observations cover the shipped handlers and a save round trip. [SRC-288–292]
+
+[Build and storage evidence](research/release-2.2.0.json) [SRC-280–283]
+
+
 Вопросы к будущим релизам, включая границы 3.0 и состав 4.0, собраны в [анализе дорожной карты](ROADMAP.md#что-уточнить-в-публичном-плане).
 
 Сначала закрывать вопросы восьми высокоприоритетных этапов пользователя: база, фауна, демография, экономика, политика, династии, торговля, войны и территории. Точная очередь и необходимые входы находятся в [плане](EXTRACTION_PLAN.md) и `execution_policy` [JSON охвата](research/feature-scope.json).

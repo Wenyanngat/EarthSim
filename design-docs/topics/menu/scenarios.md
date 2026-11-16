@@ -74,3 +74,9 @@
 | `peace` Долгий мир | Континенты, закрыто «Озарение» | 10 держав, классическая эпоха, 100 зачтённых мирных лет. Новый целый год добавляет единицу при ≥10 державах и отсутствии войн. Война на годовом замере обнуляет счётчик. Мир с меньшим числом держав приостанавливает счёт | Условия нет |
 
 [События дополнений и комплектный пример](scripted-events.md) · [Достижения](achievements.md) · [Машинный отчёт](../../research/extraction-scenarios-profile.json) [SRC-232–238]
+
+## 2.2.0 Cradles of Civilization
+
+Cradles of Civilization starts Real Earth at 120×90 and displays 3000 BCE. The scenario disables the Inspire tool and permits actions from the Power panel. It has four goals. Five cradles must reach the Classical era. Three later peoples must reach the Industrial era. One cradle must reach the Modern era. World population must reach 25 million. After simulation year 20, the scenario can be lost if at least one cradle was placed and all of them have fallen. [SRC-285]
+
+The seed 472206 placed eight cradles, populated 24 valley cells and set a mutual truce lasting 60 simulation years. The offline desktop check restored the scenario, calendar and recorded arrival waves after reload. The two arrival triggers were exercised by setting the leading polity's era in the test. [SRC-287]
