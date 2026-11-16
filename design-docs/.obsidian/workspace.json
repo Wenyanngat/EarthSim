@@ -11,14 +11,10 @@
             "id": "4c67115ff747e0db",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "GAME_DESIGN.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "GAME_DESIGN"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Граф"
             }
           }
         ]
@@ -161,7 +157,6 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "GAME_DESIGN.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -201,8 +196,8 @@
   },
   "active": "4c67115ff747e0db",
   "lastOpenFiles": [
-    "topics/walk/transport.md",
     "GAME_DESIGN.md",
+    "topics/walk/transport.md",
     "Earth Simulator Дизайн Документ.md",
     "SOURCES.md",
     "EXTRACTION_PLAN.md",
