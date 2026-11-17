@@ -1,0 +1,13 @@
+{
+  "id": "voluntas-devina",
+  "name": "Voluntas Devina",
+  "author": "Voluntas Devina",
+  "version": "0.1.0",
+  "description": "A two-player contest of nations.",
+  "code": {
+    "minGame": "2.2.0",
+    "scripts": [
+      { "file": "voluntas.js", "before": "main.js" }
+    ]
+  }
+}
