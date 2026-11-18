@@ -2,10 +2,10 @@
   "id": "voluntas-devina",
   "name": "Voluntas Devina",
   "author": "Voluntas Devina",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A two-player contest of nations.",
   "code": {
-    "minGame": "2.2.0",
+    "minGame": "2.2.1",
     "patches": [
       {
         "file": "uikit.js",
@@ -56,6 +56,26 @@
         "file": "world3d.js",
         "find": "if (d && d.inspect && !d.moved && d.cell >= 0) {",
         "replace": "if (d && d.inspect && !d.moved && d.cell >= 0 && !window.VoluntasHUD?.mapInput?.inspect3D(e, d)) {"
+      },
+      {
+        "file": "walk.js",
+        "find": "const swim = depth > 1.35 && P.y < water - 0.85;",
+        "replace": "const cloud = window.VoluntasCloud;\n  const swim = !cloud?.riding(P) && depth > 1.35 && P.y < water - 0.85;"
+      },
+      {
+        "file": "walk.js",
+        "find": "let sp;\n  if (swim) {\n    sp = WALK.SPEED_SWIM",
+        "replace": "let sp;\n  if (cloud?.drive(P, dt, wx, wz, talk)) {\n    roofSup = wkVertical(P, yS);\n  } else if (swim) {\n    sp = WALK.SPEED_SWIM"
+      },
+      {
+        "file": "net.js",
+        "find": "if (t.c) for (const e of t.c) netRunCmd(e);",
+        "replace": "if (t.c) for (const e of window.VoluntasCombat.orderCommands(t.c)) netRunCmd(e);"
+      },
+      {
+        "file": "net.js",
+        "find": "NP.ownServer ? netEnd(T(",
+        "replace": "NP.ownServer && !window.VoluntasCombat.recoverHost() ? netEnd(T("
       }
     ],
     "scripts": [
@@ -100,6 +120,10 @@
         "before": "main.js"
       },
       {
+        "file": "walk-cloud.js",
+        "before": "main.js"
+      },
+      {
         "file": "match-rules.js",
         "before": "main.js"
       },
@@ -125,6 +149,10 @@
       },
       {
         "file": "voluntas.js",
+        "before": "main.js"
+      },
+      {
+        "file": "walk-combat.js",
         "before": "main.js"
       }
     ]

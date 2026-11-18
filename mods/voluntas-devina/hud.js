@@ -19,6 +19,7 @@
       scope + '#game-shell>#stage{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;grid-column:1/-1!important;grid-row:1/-1!important;min-width:0;min-height:0;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden!important}' +
       scope + '#canvas-wrap[id]{position:absolute!important;flex:none!important;max-width:none!important;max-height:none!important;overflow:hidden!important;border:0!important;margin:0!important;padding:0!important;box-shadow:none!important;border-radius:0!important}' +
       scope + '#worldCanvas[id]{display:block!important;max-width:none!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;transform:none!important}';
+    style.textContent += 'html[data-voluntas-down] #game-shell[id]{inset:0!important;height:100%!important}';
     document.head.appendChild(style);
     v.viewport.start();
     window.dispatchEvent(new Event('resize'));
@@ -34,7 +35,7 @@
 (function () {
   'use strict';
   const v = window.VoluntasHUD; if (!v || v.controller) return;
-  let root = null, style = null, waiting = null, waitText = null, chooseAvatar = null;
+  let root = null, style = null, waiting = null, waitText = null, chooseAvatar = null, returnNotice = null;
   v.icons = {
     pause: 'M9 6v12M15 6v12',
     play: 'm9 5 11 7-11 7z',
@@ -149,10 +150,29 @@
     #vd-hud .vd-wait{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;max-width:90%;padding:24px 30px;text-align:center;border:1px solid #4676a8;background:linear-gradient(#0d1e36,#060f1d);box-shadow:0 10px 50px #0008;color:#d5e4f7;pointer-events:auto}
     #vd-hud .vd-wait p{margin:0}
     #vd-hud #vd-guest-avatar{margin-top:10px;border-color:#4676a8}
+    #vd-hud[data-incarnation-down]>:not(.vd-layer-drawer,.vd-return){display:none!important}
+    #vd-hud .vd-return{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 30px);padding:8px 14px;text-align:center;background:#19171fea;border:1px solid #82758f88;border-radius:4px;font-variant-numeric:tabular-nums}
     @media(max-width:1100px){#vd-hud .vd-action button{height:auto;min-height:30px;flex-direction:column;line-height:1.1;gap:2px}}
   `;
   function update() {
     if (!root) return;
+    const seconds = VoluntasCombat.returnSeconds();
+    const wasDown = root.hasAttribute('data-incarnation-down');
+    if (wasDown !== !!seconds) {
+      root.toggleAttribute('data-incarnation-down', !!seconds);
+      document.documentElement.toggleAttribute('data-voluntas-down', !!seconds);
+      v.abilityPanel.clear();
+      v.regiments.clear();
+      v.mapInput.cancel();
+      window.dispatchEvent(new Event('resize'));
+    }
+    returnNotice.hidden = !seconds;
+    if (seconds) {
+      const text = TF('Твоё воплощение погибло. Возвратишься через {0} секунд', 'Your incarnation has fallen. You will return in {0} seconds', seconds);
+      if (returnNotice.textContent !== text) returnNotice.textContent = text;
+      v.layerDrawer.update();
+      return;
+    }
     const inMatch = VOLUNTAS.active;
     root.querySelector('#voluntas-actions').hidden = !inMatch;
     waiting.hidden = inMatch || !voluntasInRoom();
@@ -199,6 +219,8 @@
       v.avatarDock.mount(root);
       v.layerDrawer.mount(root);
       v.abilityPanel.mount(root);
+      returnNotice = v.el('div', 'vd-return', root);
+      returnNotice.setAttribute('role', 'timer');
       waiting = v.el('div', 'vd-wait', root);
       waitText = v.el('p', '', waiting);
       waitText.setAttribute('role', 'status');
@@ -225,10 +247,11 @@
     v.minimap.stop();
     v.avatarDock.stop();
     v.layerDrawer.stop();
+    document.documentElement.removeAttribute('data-voluntas-down');
     v.hud.restore();
     root?.remove();
     style?.remove();
-    root = style = waiting = waitText = chooseAvatar = null;
+    root = style = waiting = waitText = chooseAvatar = returnNotice = null;
   }
   v.controller = { start, stop, update };
   ModAPI.ready(() => {

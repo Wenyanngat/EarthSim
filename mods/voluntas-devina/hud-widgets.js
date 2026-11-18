@@ -284,6 +284,7 @@
     return event.button === 0 && !event.shiftKey && !event.altKey && mapAvailable(event);
   }
   function inspectMap(event, hit) {
+    if (VoluntasCombat.returnSeconds()) return;
     const mode3D = window.mode3D;
     if (hit && v.regiments.pick(() => mode3D ? armyClick3D(event) :
         armyClickAt(hit.x, hit.y, event, mainCanvas.getBoundingClientRect()))) return;

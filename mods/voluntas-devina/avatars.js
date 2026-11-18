@@ -316,7 +316,7 @@ function voluntasEnterWalk() {
   const player = voluntasLocalPlayer();
   const nation = player && stateByUid(player.uid);
   if (nation && nation.capital >= 0 && walkEnter(nation.capital)) {
-    WK.tp = true;
+    window.VoluntasCloud.mount();
     voluntasRender();
   }
 }
@@ -342,7 +342,7 @@ function voluntasWalkDraw(original, pose) {
   if (!slot.model) return original(pose);
   const {mesh} = slot.model;
   const phase = pose.ph || 0;
-  const stride = pose.amp || 0;
+  const stride = window.VoluntasCloud.peer(pose) ? 0 : pose.amp || 0;
   const crouch = pose.crouch || 0;
   mesh.visible = true;
   mesh.position.set(pose.x, pose.y + Math.abs(Math.sin(phase)) * stride * .07, pose.z);

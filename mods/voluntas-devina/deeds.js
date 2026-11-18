@@ -73,6 +73,7 @@ function voluntasAct(action, cell, choice, size, strength) {
   if (!VOLUNTAS.active || VOLUNTAS.winner !== null ||
       (VOLUNTAS.solo ? NP.on : !voluntasInRoom() || !NP.exec)) return false;
   const id = VOLUNTAS.solo ? 0 : NP.exec.from;
+  if (VoluntasCombat.commandBlocked(id)) return false;
   const own = VOLUNTAS.solo || id === NP.id;
   const deny = (ru, en) => {
     if (own) VoluntasHUD.abilityPanel.message(T(ru, en));

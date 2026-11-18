@@ -29,6 +29,7 @@ function voluntasRegimentOrder(unit, cell) {
   if (!VOLUNTAS.active || VOLUNTAS.winner !== null ||
       (VOLUNTAS.solo ? NP.on : !voluntasInRoom() || !NP.exec)) return false;
   const id = VOLUNTAS.solo ? 0 : NP.exec.from;
+  if (VoluntasCombat.commandBlocked(id)) return false;
   const own = VOLUNTAS.solo || id === NP.id;
   function reply(ru, en, accepted = false) {
     if (own) VoluntasHUD.regiments.message(T(ru, en));

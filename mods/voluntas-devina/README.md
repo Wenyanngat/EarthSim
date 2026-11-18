@@ -20,6 +20,12 @@ The top bar shows your mana out of 200, the current year, and your nation's era,
 
 Click the minimap to recenter the camera. The avatar beside it reacts to successful deeds and has a button for entering Walk at your capital. Use Walk's menu to return to the map. Click the handle at the right edge to open or close the map layers, or drag it to resize the panel. Change between 2D and 3D there or with the game's shortcut, Tab by default. Each living nation's capital carries its color on a large flag in 3D.
 
+You enter your capital in first person on a cloud. Use the Walk movement keys to fly at up to 10 km/h, or hold Shift for up to 100 km/h. Hold Space to rise or Ctrl to lower the cloud. Press V to start landing and steer toward a dry, gently sloping surface. Once you land, V switches the camera again. Tap Space twice quickly from the ground to call the cloud back.
+
+Your incarnation has 1,000 HP. Use the left mouse button for fists and Q for Lightning. Aim at a target within 12 metres. Lightning deals 300 damage before protection and takes 60 real seconds to recharge, even on a miss. Ordinary weapons are unavailable to incarnations.
+
+Damage prevents a return to the map for 20 real seconds from the last hit. If your incarnation dies, you can pan and zoom the map, switch between 2D and 3D, and use the map layers while you wait. After 60 real seconds your match controls return and you can enter Walk again. Active timers are carried in solo saves and LAN room state.
+
 | Benevolence | Mana at default and maximum | Malevolence | Mana at default and maximum |
 | --- | ---: | --- | ---: |
 | Rain | 5–18 | Hurricane | 20–40 |

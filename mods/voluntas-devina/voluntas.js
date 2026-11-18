@@ -172,6 +172,7 @@ function voluntasRender() {
   }
   const enabled = voluntasMode();
   const inRoom = voluntasInRoom();
+  VoluntasCombat.update();
   if (inRoom && !NP.waiting && VOLUNTAS.matchId) {
     if (NP.isHost && VOLUNTAS.winner !== null && VOLUNTAS.confirmedWinner === null &&
         performance.now() >= voluntasResultRetryAt) {
@@ -362,6 +363,10 @@ function voluntasInstallUi() {
     .vd-avatar-choices [aria-pressed=true] { border-color:#b6a1df; background:#3c3351; }
     .vd-avatar-canvas { width:100%; height:min(265px,38vh); display:block; touch-action:none; cursor:grab; }
     .vd-avatar-status { margin:4px 0; color:#c6d7ef; }
+    #vd-walk-combat { position:absolute; z-index:2; left:50%; top:18px;
+      transform:translateX(-50%); padding:5px 10px; background:#101a28e8;
+      border:1px solid #4676a8; border-radius:4px; text-align:center;
+      pointer-events:none; font-variant-numeric:tabular-nums; }
   `;
   document.head.append(style);
   voluntasInstallMenuStyle();
@@ -417,7 +422,7 @@ ModAPI.on('load', save => {
 ModAPI.before('setTool', tool => !voluntasMode() || tool === 'inspect', 'Voluntas Devina');
 ModAPI.before('netRunCmd', command => {
   if (!voluntasMode() || !Array.isArray(command)) return true;
-  return ['vdReady', 'vdStart', 'vdAct', 'vdOrder', 'vdResult', 'noop'].includes(command[1]);
+  return ['vdReady', 'vdStart', 'vdAct', 'vdOrder', 'vdResult', 'vdWalkReport', 'vdLightning', 'noop'].includes(command[1]);
 }, 'Voluntas Devina');
 ModAPI.after('_nEnterRoom', () => {
   if (VOLUNTAS.solo && !voluntasInRoom()) voluntasReset();
