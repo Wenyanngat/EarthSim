@@ -2,17 +2,23 @@
 
 ## Install
 
-Use Earth Simulator 2.2.0, Steam build 26713067. Copy the `voluntas-devina` folder to the game's `mods` folder, enable it in Workshop and restart the game. Both LAN players need the same version. The pack includes its HUD and avatars.
+The current update targets Earth Simulator 2.2.1, Steam build 26741176. Copy the `voluntas-devina` folder to the game's `mods` folder, enable it in Workshop and restart the game. Use the same mod files on both LAN computers. The pack includes its HUD and avatars.
 
 ## Start a match
 
 Choose Voluntas Devina from the main menu. Set the seed, map size and terrain, confirm an avatar and create the world. The host's LAN address and seat count appear while waiting. The guest joins through Multiplayer and confirms an avatar before the match starts. Choose **Test match against a dummy** for a solo match. The dummy takes no player actions.
 
+Continents, Pangaea and Islands are available at 25 × 25, 40 × 40 and 60 × 60, as well as the larger sizes. If the map cannot fit two capitals, setup reopens with your choices. Change the seed, size or terrain to try again.
+
+Set your nickname in the profile card before hosting or joining. The match HUD shows both players' nicknames and your lifetime wins and losses. The totals are stored on this installation and carry over when you change your nickname. Completed matches between two players count toward the totals. Draws and dummy matches leave the totals unchanged.
+
 Each player controls a god linked to one nation. The two nations start at war. Peace and the founding of additional nations are disabled during the match. The last surviving nation wins. If both fall in the same simulation tick, the match ends in a draw.
 
 ## Play
 
-The top bar shows mana, time controls and settings. Hover over or focus the mana display to see yearly income. In LAN, the host controls time. Change the map view with the 2D/3D setting or the game's 2D/3D shortcut, Tab by default. Each living nation's capital carries its color on a large flag in 3D. Click the minimap to recenter the camera. The Character tab shows your avatar and lets you enter Walk at your capital. Use Walk's menu to return to the map.
+The top bar shows mana, the current year, and your nation's era, population, GDP and active soldiers. Hover over or focus mana to see yearly income. In LAN, the host controls time.
+
+Click the minimap to recenter the camera. The avatar beside it reacts to successful deeds and has a button for entering Walk at your capital. Use Walk's menu to return to the map. Click the handle at the right edge to open or close the map layers, or drag it to resize the panel. Change between 2D and 3D there or with the game's shortcut, Tab by default. Each living nation's capital carries its color on a large flag in 3D.
 
 | Benevolence | Mana | Malevolence | Mana |
 | --- | ---: | --- | ---: |

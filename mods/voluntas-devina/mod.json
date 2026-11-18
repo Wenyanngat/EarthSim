@@ -6,6 +6,23 @@
   "description": "A two-player contest of nations.",
   "code": {
     "minGame": "2.2.0",
+    "patches": [
+      {
+        "file": "core.js",
+        "find": "const gs = genScale(), nf = 0.09 / gs, noct = 4 + Math.round(Math.log2(gs)), edgeW = 8 * gs;",
+        "replace": "const vdTerrain = typeof voluntasTerrainTuning === 'function' ? voluntasTerrainTuning(type, seed) : null;\n  const gs = genScale() * (vdTerrain?.scale ?? 1), nf = 0.09 / gs, noct = 4 + Math.round(Math.log2(gs)), edgeW = 8 * gs;"
+      },
+      {
+        "file": "core.js",
+        "find": "W.elev[i] = Math.min(1, W.elev[i] + lift);",
+        "replace": "W.elev[i] = Math.min(1, W.elev[i] + lift * (vdTerrain ? 1 - W.elev[i] : 1));"
+      },
+      {
+        "file": "core.js",
+        "find": "W.elev[i] = W.seaLevel + Math.pow(clamp01(lh), 2.3) * (1 - W.seaLevel);",
+        "replace": "W.elev[i] = W.seaLevel + Math.pow(clamp01(lh), 2.3) * (1 - W.seaLevel) * (vdTerrain?.relief ?? 1);"
+      }
+    ],
     "scripts": [
       {
         "file": "hud-bootstrap.js",
@@ -28,6 +45,10 @@
         "before": "world3d.js"
       },
       {
+        "file": "hud-layers.js",
+        "before": "world3d.js"
+      },
+      {
         "file": "hud.js",
         "before": "world3d.js"
       },
@@ -45,6 +66,14 @@
       },
       {
         "file": "capital-flags.js",
+        "before": "main.js"
+      },
+      {
+        "file": "profile.js",
+        "before": "main.js"
+      },
+      {
+        "file": "mode-menu.js",
         "before": "main.js"
       },
       {

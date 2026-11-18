@@ -35,6 +35,10 @@ function voluntasRestoreMatch(state) {
   VOLUNTAS.ready = state?.ready || {};
   VOLUNTAS.year = Number(state?.year) || 0;
   VOLUNTAS.winner = state?.winner ?? null;
+  VOLUNTAS.matchId = typeof state?.matchId === 'string' && VOLUNTAS_MATCH_ID.test(state.matchId) ? state.matchId : null;
+  const confirmed = state?.confirmedWinner;
+  VOLUNTAS.confirmedWinner = confirmed === 'draw' ||
+    (Number.isInteger(confirmed) && VOLUNTAS.players.some(player => player.id === confirmed)) ? confirmed : null;
   if (!VOLUNTAS.active) return;
   const roster = new Set(VOLUNTAS.players.map(player => player.uid));
   if (roster.size !== 2 || states.some(nation => nation.alive && !roster.has(nation.uid))) {

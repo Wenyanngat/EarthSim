@@ -45,7 +45,7 @@
   function mount(host) {
     pane = v.el('section', 'vd-map-pane', host); pane.id = 'vd-minimap-pane';
     const frame = v.el('div', 'vd-mini-frame', pane);
-    canvas = document.createElement('canvas'); canvas.id = 'vd-minimap'; canvas.width = 192; canvas.height = Math.max(60, Math.round(192 * GRID.H / GRID.W));
+    canvas = document.createElement('canvas'); canvas.id = 'vd-minimap'; canvas.width = 384; canvas.height = Math.round(384 * GRID.H / GRID.W);
     canvas.setAttribute('aria-label', T('Миникарта. Нажмите для перемещения камеры', 'Minimap. Click to move the camera')); canvas.tabIndex = 0;
     frame.style.aspectRatio = GRID.W + ' / ' + GRID.H;
     frame.appendChild(canvas); marker = v.el('div', 'vd-mini-marker', frame); marker.id = 'vd-camera-marker';

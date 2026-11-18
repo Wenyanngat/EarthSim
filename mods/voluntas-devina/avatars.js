@@ -13,7 +13,7 @@ function voluntasAvatarValid(id) {
   return typeof id === 'string' && Object.hasOwn(VOLUNTAS_AVATARS, id);
 }
 
-async function voluntasLoadAvatar(id) {
+async function voluntasLoadAvatar(id, animated = false) {
   if (!voluntasAvatarValid(id)) throw Error('Unknown Voluntas avatar');
   const mod = MODS.find(entry => entry.id === 'voluntas-devina' && entry.live);
   if (!mod) throw Error('Voluntas Devina assets are unavailable');
@@ -50,8 +50,37 @@ async function voluntasLoadAvatar(id) {
   geo.computeBoundingBox();
   const box = geo.boundingBox;
   const height = box.max.y - box.min.y;
+  const unit = 1.75 / height;
   geo.translate(-(box.min.x + box.max.x) / 2, -box.min.y, -(box.min.z + box.max.z) / 2);
-  geo.scale(1.75 / height, 1.75 / height, 1.75 / height);
+  geo.scale(unit, unit, unit);
+  if (animated && part.targets) {
+    const names = data.meshes[0].extras.targetNames;
+    geo.morphAttributes.position = part.targets.map(({POSITION}, index) => {
+      const accessor = data.accessors[POSITION];
+      const {count, indices, values} = accessor.sparse;
+      const offsets = bytes(indices.bufferView);
+      const deltas = bytes(values.bufferView);
+      const target = new Float32Array(accessor.count * 3);
+      const indexOffset = indices.byteOffset || 0;
+      const valueOffset = values.byteOffset || 0;
+      if (accessor.componentType !== 5126 || accessor.type !== 'VEC3' ||
+          accessor.count !== geo.attributes.position.count || indices.componentType !== 5123 ||
+          indexOffset + count * 2 > offsets.length || valueOffset + count * 12 > deltas.length) {
+        throw Error('Unsupported avatar morph target');
+      }
+      for (let row = 0; row < count; row++) {
+        const vertex = offsets.readUInt16LE(indexOffset + row * 2);
+        if (vertex >= accessor.count) throw Error('Invalid avatar morph vertex');
+        for (let axis = 0; axis < 3; axis++) {
+          target[vertex * 3 + axis] = deltas.readFloatLE(valueOffset + (row * 3 + axis) * 4) * unit;
+        }
+      }
+      const attr = new THREE.BufferAttribute(target, 3);
+      attr.name = names[index];
+      return attr;
+    });
+    geo.morphTargetsRelative = true;
+  }
   const source = data.materials[part.material].pbrMetallicRoughness;
   const image = data.images[data.textures[source.baseColorTexture.index].source];
   const map = new THREE.Texture();
@@ -78,17 +107,21 @@ async function voluntasLoadAvatar(id) {
     throw error;
   }
   const material = new THREE.MeshStandardMaterial({map, side: THREE.DoubleSide,
+    morphTargets: animated && !!part.targets,
     metalness: source.metallicFactor, roughness: source.roughnessFactor});
   const mesh = new THREE.Mesh(geo, material);
   mesh.name = 'voluntas-avatar-' + id;
   return {mesh, dispose() { mesh.parent?.remove(mesh); geo.dispose(); material.dispose(); map.dispose(); }};
 }
 
-function voluntasAvatarPreview(host) {
+function voluntasAvatarPreview(host, portrait = false) {
   const canvas = document.createElement('canvas');
   canvas.className = 'vd-avatar-canvas';
-  canvas.setAttribute('aria-label', T('Предпросмотр. Перетащите или нажмите стрелки для вращения.', 'Preview. Drag or use arrow keys to rotate.'));
-  canvas.tabIndex = 0;
+  if (portrait) canvas.setAttribute('aria-hidden', 'true');
+  else {
+    canvas.setAttribute('aria-label', T('Предпросмотр. Перетащите или нажмите стрелки для вращения.', 'Preview. Drag or use arrow keys to rotate.'));
+    canvas.tabIndex = 0;
+  }
   const status = document.createElement('p');
   status.className = 'vd-avatar-status';
   status.setAttribute('role', 'status');
@@ -107,44 +140,99 @@ function voluntasAvatarPreview(host) {
   const key = new THREE.DirectionalLight(0xffefd7, 1.0);
   key.position.set(2, 3, 4);
   scene.add(new THREE.HemisphereLight(0xeaf0ff, 0x716178, 1.3), key);
-  const camera = new THREE.PerspectiveCamera(33, 1, .05, 20);
+  const camera = portrait ? new THREE.OrthographicCamera(-.6, .6, .6, -.6, .05, 20)
+    : new THREE.PerspectiveCamera(33, 1, .05, 20);
   camera.position.set(0, 1.18, 3.65);
-  camera.lookAt(0, .9, 0);
+  camera.lookAt(0, portrait ? 1.18 : .9, 0);
   let revision = 0, model = null, pressed = null;
+  let frame = 0, prior = 0, eyeX = 0, eyeY = 0, targetX = 0, targetY = 0;
+  let nextBlink = 0, blinkWeight = 0;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   function render() {
     const width = Math.max(1, canvas.clientWidth), height = Math.max(1, canvas.clientHeight);
     if (!model || width < 2 || height < 2) return;
-    renderer.setPixelRatio(Math.min(2, devicePixelRatio));
-    renderer.setSize(width, height, false);
-    camera.aspect = width / height;
+    const pixelRatio = Math.min(2, devicePixelRatio);
+    if (canvas.width !== Math.floor(width * pixelRatio) || canvas.height !== Math.floor(height * pixelRatio)) {
+      renderer.setPixelRatio(pixelRatio);
+      renderer.setSize(width, height, false);
+    }
+    const aspect = width / height;
+    if (portrait) {
+      camera.right = Math.max(.52, aspect * .58);
+      camera.left = -camera.right;
+      camera.top = camera.right / aspect;
+      camera.bottom = -camera.top;
+    } else camera.aspect = aspect;
     camera.updateProjectionMatrix();
     renderer.render(scene, camera);
+  }
+  function animate(now) {
+    frame = requestAnimationFrame(animate);
+    if (!model?.mesh.morphTargetDictionary || reduced.matches || now - prior < 28) return;
+    const idle = Math.abs(targetX - eyeX) + Math.abs(targetY - eyeY) < .003;
+    prior = now;
+    const duration = 150;
+    const blink = now >= nextBlink && now <= nextBlink + duration
+      ? Math.sin(Math.PI * (now - nextBlink) / duration) : 0;
+    if (now > nextBlink + duration) nextBlink = now + 3000 + Math.random() * 2200;
+    if (idle && blink === blinkWeight) return;
+    eyeX += (targetX - eyeX) * .20;
+    eyeY += (targetY - eyeY) * .20;
+    blinkWeight = blink;
+    const {morphTargetInfluences: weights, morphTargetDictionary: slots} = model.mesh;
+    weights[slots.Blink] = blink;
+    weights[slots.LookLeft] = Math.max(0, -eyeX) * (1 - blink);
+    weights[slots.LookRight] = Math.max(0, eyeX) * (1 - blink);
+    weights[slots.LookDown] = Math.max(0, -eyeY) * (1 - blink);
+    weights[slots.LookUp] = Math.max(0, eyeY) * (1 - blink);
+    render();
   }
   function rotate(amount) { if (model) { model.mesh.rotation.y += amount; render(); } }
   const watch = new ResizeObserver(render);
   watch.observe(canvas);
   const opts = {signal: listeners.signal};
-  canvas.addEventListener('pointerdown', event => {
-    pressed = event.clientX;
-    canvas.setPointerCapture(event.pointerId);
-  }, opts);
-  canvas.addEventListener('pointermove', event => { if (pressed !== null) { rotate((event.clientX - pressed) * .014); pressed = event.clientX; } }, opts);
-  canvas.addEventListener('lostpointercapture', () => { pressed = null; }, opts);
-  canvas.addEventListener('keydown', event => {
-    if (event.code !== 'ArrowLeft' && event.code !== 'ArrowRight') return;
-    event.preventDefault();
-    rotate(event.code === 'ArrowLeft' ? -.15 : .15);
-  }, opts);
+  if (portrait) {
+    function neutral() { targetX = targetY = 0; }
+    window.addEventListener('pointermove', event => {
+      const box = canvas.getBoundingClientRect();
+      targetX = clamp((event.clientX - box.left - box.width / 2) / Math.max(180, innerWidth / 3), -1, 1);
+      targetY = clamp((box.top + box.height / 2 - event.clientY) / Math.max(160, innerHeight / 2), -1, 1);
+    }, opts);
+    window.addEventListener('blur', neutral, opts);
+    document.documentElement.addEventListener('pointerleave', neutral, opts);
+    reduced.addEventListener('change', () => {
+      if (reduced.matches) {
+        neutral();
+        eyeX = eyeY = blinkWeight = 0;
+        model?.mesh.morphTargetInfluences?.fill(0);
+        render();
+      }
+    }, opts);
+    nextBlink = performance.now() + 2600;
+    frame = requestAnimationFrame(animate);
+  } else {
+    canvas.addEventListener('pointerdown', event => {
+      pressed = event.clientX;
+      canvas.setPointerCapture(event.pointerId);
+    }, opts);
+    canvas.addEventListener('pointermove', event => { if (pressed !== null) { rotate((event.clientX - pressed) * .014); pressed = event.clientX; } }, opts);
+    canvas.addEventListener('lostpointercapture', () => { pressed = null; }, opts);
+    canvas.addEventListener('keydown', event => {
+      if (event.code !== 'ArrowLeft' && event.code !== 'ArrowRight') return;
+      event.preventDefault();
+      rotate(event.code === 'ArrowLeft' ? -.15 : .15);
+    }, opts);
+  }
   return {
     async show(id) {
       const own = ++revision;
       status.textContent = T('Загрузка аватара…', 'Loading avatar…');
       try {
-        const next = await voluntasLoadAvatar(id);
+        const next = await voluntasLoadAvatar(id, portrait);
         if (own !== revision) { next.dispose(); return; }
         model?.dispose();
         model = next;
-        model.mesh.rotation.y = -.27;
+        model.mesh.rotation.y = portrait ? -.10 : -.27;
         scene.add(model.mesh);
         status.textContent = '';
         render();
@@ -157,6 +245,7 @@ function voluntasAvatarPreview(host) {
     },
     dispose() {
       revision++;
+      cancelAnimationFrame(frame);
       listeners.abort();
       watch.disconnect();
       model?.dispose();
@@ -168,9 +257,10 @@ function voluntasAvatarPreview(host) {
   };
 }
 
-function voluntasAvatarDialog(initial, confirm) {
+function voluntasAvatarDialog(initial, confirm, parent, onClose) {
   const dialog = UI.win('voluntas-avatar', {title: T('Аватар', 'Avatar'), width: 460});
   if (dialog.isOpen()) return;
+  if (parent) parent.append(dialog.el);
   dialog.body.replaceChildren();
   dialog.foot.replaceChildren();
   let selected = voluntasAvatarValid(initial) ? initial : VOLUNTAS_DEFAULT_AVATAR;
@@ -208,7 +298,14 @@ function voluntasAvatarDialog(initial, confirm) {
     button.addEventListener('click', action);
     dialog.foot.append(button);
   }
-  dialog.onClose = () => { preview.dispose(); dialog.onClose = null; dialog.body.replaceChildren(); dialog.foot.replaceChildren(); };
+  dialog.onClose = () => {
+    preview.dispose();
+    dialog.onClose = null;
+    dialog.body.replaceChildren();
+    dialog.foot.replaceChildren();
+    if (parent) document.body.append(dialog.el);
+    onClose?.();
+  };
   dialog.show();
   voluntasStyleDialog(dialog, 985);
   update();

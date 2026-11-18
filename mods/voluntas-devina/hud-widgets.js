@@ -3,7 +3,47 @@
   const v = window.VoluntasHUD;
   let clock, pause, speeds, mana, manaAmount, manaIncome, manaDetails;
   let actions, available, actionPanels, actionTabs, actionStatus, selected, gesture;
-  let mini, character, widgetTabs, portrait, avatarOnDisplay, walkButton;
+  let character, portrait, avatarOnDisplay, walkButton, bubble, bubbleTimer;
+  let stats, statValues;
+
+  const reactions = {
+    rain: [['Дождливо как в Лондоне...', 'Rainy as London...'],
+      ['Что? Опять нужен дождь?', 'What? More rain?']],
+    fauna: [['Пусть здесь кипит жизнь.', 'Let this place teem with life.'],
+      ['Им здесь будет хорошо.', 'They’ll thrive here.']],
+    resource: [['Копайте здесь.', 'Dig here.'],
+      ['Земля полна сокровищ.', 'Treasure lies beneath your feet.']],
+    inspire: [['А если попробовать иначе?', 'What if we tried another way?'],
+      ['Пусть эта мысль разойдётся по миру.', 'Let this idea travel the world.']],
+    hurricane: [['Ветер набирает силу.', 'The winds are rising.'],
+      ['Держитесь крепче.', 'Hold on tight.']],
+    flood: [['Вода найдёт дорогу.', 'Water will find a way.'],
+      ['Река вышла из берегов.', 'The river has burst its banks.']],
+    quake: [['Почва уходит из-под ног.', 'The ground is shifting beneath you.'],
+      ['Земля содрогнулась.', 'The earth has shaken.']],
+    meteor: [['Видите этот огонь в небе?', 'See that fire in the sky?'],
+      ['С неба кое-что упало.', 'Something fell from the sky.']]
+  };
+
+  let matchRecord, matchNames, matchTotals;
+  v.matchRecord = {
+    mount(host) {
+      matchRecord = v.el('div', 'vd-match-record', host);
+      matchNames = v.el('strong', '', matchRecord);
+      matchTotals = v.el('span', '', matchRecord);
+    },
+    update() {
+      const local = voluntasLocalPlayer();
+      const opponent = VOLUNTAS.players.find(player => player !== local);
+      matchRecord.hidden = !voluntasInRoom() || !local || !opponent;
+      if (matchRecord.hidden) return;
+      const names = local.name + T(' против ', ' vs. ') + opponent.name;
+      const totals = voluntasResultText();
+      if (matchNames.textContent !== names) matchNames.title = matchNames.textContent = names;
+      if (matchTotals.textContent !== totals) matchTotals.textContent = totals;
+    },
+    stop() { matchRecord = matchNames = matchTotals = null; }
+  };
 
   v.time = {
     mount(host) {
@@ -28,8 +68,9 @@
       const paused = NP.on ? NP.paused : W.paused;
       const speed = NP.on ? NP.speed : uiState.speed;
       const label = paused ? T('Продолжить время', 'Resume time') : T('Пауза', 'Pause');
-      const labels = Array.from(document.querySelectorAll('#clock > *'), item => item.textContent.trim()).filter(Boolean);
-      clock.textContent = labels.join(' · ') || T('Год ', 'Year ') + Math.floor(W.simYear);
+      const stockYear = document.getElementById('hud-year');
+      clock.hidden = VOLUNTAS.active && !stockYear?.classList.contains('lag');
+      if (!clock.hidden) clock.textContent = stockYear?.textContent || yearShort(W.simYear);
       v.setIcon(pause, paused ? v.icons.play : v.icons.pause);
       pause.title = label;
       pause.setAttribute('aria-label', label);
@@ -78,6 +119,35 @@
       mana.setAttribute('aria-expanded', 'false');
     },
     stop() { mana = manaAmount = manaDetails = manaIncome = null; }
+  };
+
+  v.stats = {
+    mount(host) {
+      stats = v.el('dl', 'vd-stats', host);
+      statValues = [
+        ['soldiers', T('Солдаты', 'Soldiers')], ['year', T('Год', 'Year')],
+        ['era', T('Эпоха', 'Era')], ['gdp', T('ВВП', 'GDP')], ['population', T('Население', 'Population')]
+      ].map(([key, label]) => {
+        const row = v.el('div', '', stats);
+        v.el('dt', '', row).textContent = label;
+        const value = v.el('dd', '', row);
+        value.dataset.stat = key;
+        return value;
+      });
+    },
+    update() {
+      const player = voluntasLocalPlayer();
+      const nation = player && stateByUid(player.uid);
+      stats.hidden = !VOLUNTAS.active;
+      if (stats.hidden) return;
+      const soldiers = nation ? armyRegsOf(nation.uid).reduce((total, regiment) => total + regiment.men, 0) : 0;
+      const values = [UI.fmt(Math.round(soldiers)), yearShort(W.simYear), nation ? eraName(nation.era) : '–',
+        UI.fmt(Math.round(nation?.gdp || 0)), UI.fmt(Math.round(nation?.pop || 0))];
+      statValues.forEach((field, i) => {
+        if (field.textContent !== values[i]) field.title = field.textContent = values[i];
+      });
+    },
+    stop() { stats = statValues = null; }
   };
 
   function choiceSelect(action, host) {
@@ -194,56 +264,50 @@
   };
 
   function updateCharacter() {
-    if (!character || character.hidden) return;
+    if (!character) return;
     const player = voluntasLocalPlayer();
     const avatar = voluntasAvatarValid(player?.avatar) ? player.avatar : null;
     if (avatar !== avatarOnDisplay) {
       portrait?.dispose();
-      portrait = walkButton = null;
+      clearTimeout(bubbleTimer);
+      portrait = walkButton = bubble = null;
       character.replaceChildren();
       avatarOnDisplay = avatar;
+      character.hidden = !avatar;
       if (avatar) {
-        portrait = voluntasAvatarPreview(character);
+        bubble = v.el('output', 'vd-reaction', character);
+        bubble.hidden = true;
+        bubble.setAttribute('aria-live', 'polite');
+        portrait = voluntasAvatarPreview(character, true);
         portrait.show(avatar);
         walkButton = v.button(character, 'vd-walk', '', T('Прогулка в столице', 'Walk in the capital'));
         walkButton.textContent = walkButton.title;
-        walkButton.addEventListener('click', voluntasEnterWalk);
-      } else {
-        v.el('strong', '', character).textContent = T('Ожидание начала матча', 'Waiting for the match');
+        v.listen(walkButton, 'click', voluntasEnterWalk);
       }
     }
     if (walkButton) walkButton.disabled = VOLUNTAS.winner !== null || !stateByUid(player.uid);
   }
-  function chooseTab(tab) {
-    mini.hidden = tab !== 'map';
-    character.hidden = tab !== 'character';
-    for (const [key, button] of widgetTabs) button.setAttribute('aria-pressed', String(key === tab));
-    if (character.hidden) {
-      portrait?.dispose();
-      portrait = walkButton = avatarOnDisplay = undefined;
-      character.replaceChildren();
-    } else updateCharacter();
-    v.minimap.update(performance.now());
-  }
-  v.switcher = {
+  v.avatarDock = {
     mount(root) {
       const widget = v.el('aside', 'vd-widget', root);
       widget.setAttribute('aria-label', T('Карта и персонаж', 'Map and character'));
-      const tabs = v.el('div', 'vd-tabs', widget);
-      widgetTabs = [['map', T('Миникарта', 'Minimap'), v.icons.map], ['character', T('Персонаж', 'Character'), v.icons.person]].map(([key, name, icon]) => {
-        const button = v.button(tabs, 'vd-view-' + key, icon, name);
-        v.listen(button, 'click', () => chooseTab(key));
-        return [key, button];
-      });
-      const body = v.el('div', 'vd-widget-body', widget);
-      mini = v.minimap.mount(body);
-      character = v.el('section', 'vd-character', body);
-      chooseTab('map');
+      v.minimap.mount(widget);
+      character = v.el('section', 'vd-character', widget);
+      character.setAttribute('aria-label', T('Персонаж', 'Character'));
     },
     update: updateCharacter,
+    react(deed) {
+      const lines = reactions[deed];
+      if (!bubble || !lines) return;
+      clearTimeout(bubbleTimer);
+      bubble.textContent = lines.map(line => T(...line)).find(line => line !== bubble.textContent);
+      bubble.hidden = false;
+      bubbleTimer = setTimeout(() => { if (bubble) bubble.hidden = true; }, 2800);
+    },
     stop() {
+      clearTimeout(bubbleTimer);
       portrait?.dispose();
-      portrait = mini = character = widgetTabs = walkButton = null;
+      portrait = character = walkButton = bubble = null;
       avatarOnDisplay = undefined;
     }
   };

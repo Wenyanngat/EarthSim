@@ -2,16 +2,25 @@
 'use strict';
 
 const VOLUNTAS_BOOT = 'voluntas.devina.boot';
-const VOLUNTAS = { active: false, solo: false, players: [], ready: {}, year: 0, winner: null };
+const VOLUNTAS = {
+  active: false, solo: false, players: [], ready: {}, year: 0, winner: null, matchId: null, confirmedWinner: null
+};
 let voluntasStartQueued = false;
 let voluntasReadySent = false;
 let voluntasGuestPrompted = false;
 let voluntasShownWinner = null;
+let voluntasResultRetryAt = 0;
 let voluntasLayoutActive = false;
 let voluntasUiReady = false;
 let voluntasTimer = null;
+let voluntasSetupRetry = null;
 let voluntasPreviousLayer = null;
 let voluntasPrevious3D = false;
+const VOLUNTAS_SMALL_MAP = {
+  25: { scale: 0.55, relief: 0.64 },
+  40: { scale: 0.625, relief: 0.81 },
+  60: { scale: 0.9375, relief: 1 }
+};
 const VOLUNTAS_COST = Object.freeze({ rain: 5, fauna: 8, resource: 12, hurricane: 20, flood: 24, quake: 30, meteor: 45 });
 const VOLUNTAS_DISASTER = Object.freeze({ hurricane: true, flood: true, quake: true, meteor: true });
 const VOLUNTAS_LABELS = Object.freeze({
@@ -27,6 +36,12 @@ function voluntasModePending() {
 
 function voluntasNewSeed() {
   return Math.floor(Math.random() * 2147483646) + 1;
+}
+
+function voluntasTerrainTuning(type, seed) {
+  if (voluntasUiReady || !_boot?.voluntasMatch || _boot.mode !== 'new' ||
+      _boot.type !== type || _boot.seed !== seed || GRID.W !== GRID.H) return null;
+  return VOLUNTAS_SMALL_MAP[GRID.W] || null;
 }
 
 function voluntasAddMenuButton() {
@@ -71,7 +86,7 @@ function voluntasAddMenuButton() {
   button.className = 'voluntas-entry';
   button.textContent = 'Voluntas Devina';
   button.disabled = netLive();
-  button.addEventListener('click', voluntasOpenSetup);
+  button.addEventListener('click', () => voluntasOpenSetup());
   version.after(button);
 }
 
@@ -80,99 +95,33 @@ function voluntasStyleDialog(dialog, zIndex = 980) {
   dialog.el.style.zIndex = String(zIndex);
 }
 
-function voluntasOpenSetup() {
-  if (netLive()) return;
-  const dialog = UI.win('voluntas-setup', { title: 'Voluntas Devina', width: 480 });
-  dialog.body.replaceChildren();
-  dialog.foot.replaceChildren();
-  const el = VoluntasHUD.el;
-  el('p', 'vd-description', dialog.body).textContent = T(
-    'В Voluntas Devina два игрока становятся богами соперничающих держав. С началом партии страны уже воюют, а мир заключить нельзя. Копите ману и тратьте её на добродеяния и злодеяния. Помогайте своей стране дождём, животными и ресурсами, обрушивайте бедствия на соперника. Побеждает бог, чья держава выживет. Перед стартом выберите свой игровой аватар.',
-    'In Voluntas Devina, two players become gods of rival nations. Both nations start at war and cannot make peace. Earn mana and spend it on deeds. Aid your nation with rain, animals, and resources, or unleash disasters on your rival. The last nation standing wins. Choose your avatar before playing.'
-  );
-  const seedLabel = el('label', '', dialog.body);
-  seedLabel.htmlFor = 'voluntas-seed';
-  seedLabel.textContent = T('Зерно', 'Seed');
-  const seedRow = el('div', 'vd-setup-row', dialog.body);
-  const seedInput = el('input', 'ui-inp', seedRow);
-  Object.assign(seedInput, {id:'voluntas-seed', type:'number', min:'1', max:'2147483646', value:String(voluntasNewSeed())});
-  const randomSeed = el('button', 'ui-btn', seedRow);
-  randomSeed.type = 'button';
-  randomSeed.textContent = T('Случайное', 'Random');
-  randomSeed.addEventListener('click', () => {
-    seedInput.value = String(voluntasNewSeed());
-    error.textContent = '';
-  });
-  seedInput.addEventListener('input', () => { error.textContent = ''; });
-  function select(id, name, options) {
-    const label = el('label', '', dialog.body);
-    label.htmlFor = id;
-    label.textContent = name;
-    const field = el('select', 'ui-inp', dialog.body);
-    field.id = id;
-    for (const [value, text] of options) Object.assign(el('option', '', field), {value, textContent:text});
-    return field;
+function voluntasBootMatch(size, type, seed, solo) {
+  const [w, h] = size.split('x').map(Number);
+  const room = { o: { name: 'Voluntas Devina', pass: '', max: 2, edit: 'all' }, lan: true, url: '' };
+  try {
+    if (solo) sessionStorage.removeItem('earthsim.netnew');
+    else sessionStorage.setItem('earthsim.netnew', JSON.stringify(room));
+    sessionStorage.setItem(VOLUNTAS_BOOT, solo ? 'solo' : 'host');
+  } catch (storageError) {
+    try { sessionStorage.removeItem('earthsim.netnew'); } catch (cleanupError) {}
+    return false;
   }
-  const size = select('voluntas-size', T('Размер', 'Size'), [['80x60','80 × 60'], ['120x90','120 × 90'], ['160x120','160 × 120'], ['220x220','220 × 220']]);
-  const terrain = select('voluntas-terrain', T('Рельеф', 'Terrain'), [
-    ['continents', T('Континенты', 'Continents')], ['pangea', T('Пангея', 'Pangaea')], ['islands', T('Острова', 'Islands')]
-  ]);
-  const testLabel = el('label', '', dialog.body);
-  const testInput = document.createElement('input');
-  testInput.type = 'checkbox';
-  testInput.id = 'voluntas-test';
-  testLabel.append(testInput, ' ' + T('Тестовая партия против пустышки', 'Test match against a dummy'));
-  const avatar = el('button', 'ui-btn', dialog.body);
-  avatar.type = 'button';
-  avatar.id = 'voluntas-pick-avatar';
-  avatar.textContent = T('Выбрать аватар', 'Choose avatar');
-  let avatarId = null;
-  avatar.addEventListener('click', () => voluntasAvatarDialog(avatarId || localStorage.getItem(VOLUNTAS_AVATAR_PREFERENCE), selected => {
-    avatarId = selected;
-    localStorage.setItem(VOLUNTAS_AVATAR_PREFERENCE, selected);
-    avatar.textContent = T('Аватар', 'Avatar') + ' · ' + T(...VOLUNTAS_AVATARS[selected].label);
-    error.textContent = '';
-    avatar.focus();
-  }));
-  const error = el('div', '', dialog.body);
-  error.id = 'voluntas-error';
-  error.setAttribute('role', 'alert');
-
-  const create = document.createElement('button');
-  create.type = 'button';
-  create.className = 'ui-btn go';
-  create.textContent = T('Создать мир', 'Create world');
-  create.addEventListener('click', () => {
-    const seed = Number(seedInput.value);
-    if (!Number.isInteger(seed) || seed < 1 || seed > 2147483646) {
-      error.textContent = T('Введите зерно от 1 до 2147483646', 'Enter a seed from 1 to 2147483646');
-      return;
-    }
-    if (!avatarId) {
-      error.textContent = T('Подтвердите аватар перед стартом.', 'Confirm your avatar before starting.');
-      avatar.focus();
-      return;
-    }
-    const [w, h] = size.value.split('x').map(Number);
-    const type = terrain.value;
-    const solo = testInput.checked;
-    const room = { o: { name: 'Voluntas Devina', pass: '', max: 2, edit: 'all' }, lan: true, url: '' };
-    try {
-      sessionStorage.setItem(VOLUNTAS_BOOT, solo ? 'solo' : 'host');
-      if (solo) sessionStorage.removeItem('earthsim.netnew');
-      else sessionStorage.setItem('earthsim.netnew', JSON.stringify(room));
-    } catch (storageError) {
-      error.textContent = T('Не удалось подготовить комнату', 'Could not prepare the room');
-      return;
-    }
-    bootNewMap({ w, h, type, seed, settle: 0, disasters: 0 });
-  });
-  dialog.foot.appendChild(create);
-  dialog.show();
-  voluntasStyleDialog(dialog);
+  bootNewMap({ w, h, type, seed, settle: 0, disasters: 0, voluntasMatch: true });
+  return true;
 }
 
 ModAPI.after('showMainMenu', voluntasAddMenuButton, 'Voluntas Devina');
+ModAPI.before('netUiAfterBoot', () => {
+  const pending = voluntasModePending();
+  if (!pending || !_boot?.voluntasMatch || _boot.mode !== 'new') return;
+  if (worldSeed === _boot.seed && voluntasSelectCapitals()) return;
+  voluntasSetupRetry = { size: _boot.w + 'x' + _boot.h, terrain: _boot.type, seed: _boot.seed, solo: pending === 'solo' };
+  sessionStorage.removeItem(VOLUNTAS_BOOT);
+  sessionStorage.removeItem('earthsim.netnew');
+  W.paused = true;
+  syncPlayGlyph();
+  return false;
+}, 'Voluntas Devina');
 
 function voluntasInRoom() {
   return typeof NP !== 'undefined' && NP.on && NP.room && NP.room.name === 'Voluntas Devina';
@@ -190,16 +139,19 @@ function voluntasIncome(nation) {
   return 0.25 + Math.sqrt(Math.max(0, nation.gdp || 0) / 1000000);
 }
 
-function voluntasReady(avatar) {
+function voluntasReady(avatar, nickname) {
   if (!voluntasInRoom() || VOLUNTAS.active || !NP.exec || !voluntasAvatarValid(avatar)) return;
-  VOLUNTAS.ready[NP.exec.from] = avatar;
+  const id = NP.exec.from;
+  const name = voluntasCleanNickname(nickname);
+  if (!Number.isInteger(id) || id < 0 || !name || VOLUNTAS.ready[id]?.avatar) return;
+  VOLUNTAS.ready[id] = {avatar, name};
 }
 
 function voluntasChooseGuestAvatar() {
-  if (!voluntasInRoom() || NP.isHost || VOLUNTAS.active || NP.waiting || VOLUNTAS.ready[NP.id]) return;
+  if (!voluntasInRoom() || NP.isHost || VOLUNTAS.active || NP.waiting || VOLUNTAS.ready[NP.id]?.avatar) return;
   voluntasAvatarDialog(localStorage.getItem(VOLUNTAS_AVATAR_PREFERENCE), avatar => {
     localStorage.setItem(VOLUNTAS_AVATAR_PREFERENCE, avatar);
-    netDo('vdReady', avatar);
+    netDo('vdReady', avatar, voluntasPlayerName());
   });
 }
 
@@ -225,6 +177,15 @@ function voluntasRender() {
       'This Voluntas Devina save needs the earlier add-on version. Start a new match to use the new rules.'));
   }
   const enabled = voluntasMode();
+  const inRoom = voluntasInRoom();
+  if (inRoom && !NP.waiting && VOLUNTAS.matchId) {
+    if (NP.isHost && VOLUNTAS.winner !== null && VOLUNTAS.confirmedWinner === null &&
+        performance.now() >= voluntasResultRetryAt) {
+      voluntasResultRetryAt = performance.now() + 1000;
+      netDo('vdResult', VOLUNTAS.matchId, VOLUNTAS.winner);
+    }
+    voluntasRecordResult();
+  }
   if (enabled && voluntasTimer === null) voluntasTimer = setInterval(voluntasRender, 200);
   if (!enabled && voluntasTimer !== null) {
     clearInterval(voluntasTimer);
@@ -257,27 +218,29 @@ function voluntasRender() {
       if (!voluntasPrevious3D) { buildBase(); buildBorders(); rUrgent(); }
     }
   }
-  if (voluntasInRoom() && !NP.waiting && !VOLUNTAS.active && VOLUNTAS.winner === null) {
+  if (inRoom && !NP.waiting && !VOLUNTAS.active && VOLUNTAS.winner === null) {
     if (NP.isHost) {
       const saved = localStorage.getItem(VOLUNTAS_AVATAR_PREFERENCE);
-      if (!VOLUNTAS.ready[NP.id] && !voluntasReadySent) {
+      if (!VOLUNTAS.ready[NP.id]?.avatar && !voluntasReadySent) {
         voluntasReadySent = true;
-        netDo('vdReady', voluntasAvatarValid(saved) ? saved : VOLUNTAS_DEFAULT_AVATAR);
+        netDo('vdReady', voluntasAvatarValid(saved) ? saved : VOLUNTAS_DEFAULT_AVATAR, voluntasPlayerName());
       }
-      const players = NP.players.filter(p => p.on).sort((a, b) => a.id - b.id);
-      if (players.length === 2 && players.every(p => voluntasAvatarValid(VOLUNTAS.ready[p.id])) && !voluntasStartQueued) {
+      const ids = NP.players.filter(p => p.on).map(p => p.id).sort((a, b) => a - b);
+      if (ids.length === 2 && ids.every(id => VOLUNTAS.ready[id]?.avatar) && !voluntasStartQueued) {
+        const matchId = require('node:crypto').randomUUID();
         voluntasStartQueued = true;
-        netDo('vdStart', players.map(p => ({ id: p.id, name: p.name, avatar: VOLUNTAS.ready[p.id] })));
+        netDo('vdStart', ids, matchId);
       }
-    } else if (!voluntasGuestPrompted && !VOLUNTAS.ready[NP.id]) {
+    } else if (!voluntasGuestPrompted && !VOLUNTAS.ready[NP.id]?.avatar) {
       voluntasGuestPrompted = true;
       voluntasChooseGuestAvatar();
     }
   }
-  if (enabled && VOLUNTAS.winner !== null && VOLUNTAS.winner !== voluntasShownWinner) {
-    voluntasShownWinner = VOLUNTAS.winner;
+  const result = inRoom && VOLUNTAS.matchId ? VOLUNTAS.confirmedWinner : VOLUNTAS.winner;
+  if (enabled && !NP.waiting && result !== null && result !== voluntasShownWinner) {
+    voluntasShownWinner = result;
     const dialog = UI.win('voluntas-result', { title: 'Voluntas Devina', width: 440 });
-    const victor = VOLUNTAS.players.find(p => p.id === VOLUNTAS.winner);
+    const victor = VOLUNTAS.players.find(p => p.id === result);
     const name = victor && (victor.name || NP.players.find(p => p.id === victor.id)?.name);
     dialog.body.textContent = !victor
       ? T('Обе державы погибли. Ничья.', 'Both nations fell. Draw.')
@@ -285,6 +248,9 @@ function voluntasRender() {
         ? victor.id === 0 ? T('Победа', 'Victory') : T('Поражение', 'Defeat')
         : T('Победитель: ', 'Winner: ') + (name || String(victor.id));
     dialog.foot.replaceChildren();
+    if (inRoom && voluntasLocalPlayer()) {
+      VoluntasHUD.el('span', 'ui-muted', dialog.foot).textContent = voluntasResultText();
+    }
     dialog.show();
     voluntasStyleDialog(dialog);
   }
@@ -293,18 +259,21 @@ function voluntasRender() {
 function voluntasSelectCapitals() {
   const candidates = [];
   for (let cell = 0; cell < GRID.N; cell++) {
-    if (W.isWater[cell] || W.stateId[cell] >= 0 || W.foodCap[cell] < 3000) continue;
+    if (W.isWater[cell] || W.stateId[cell] >= 0 || !(W.foodCap[cell] >= 3000)) continue;
     candidates.push(cell);
   }
   candidates.sort((a, b) => W.foodCap[b] - W.foodCap[a] || a - b);
-  const first = candidates[0];
-  if (first === undefined) return null;
-  const x = first % GRID.W, y = Math.floor(first / GRID.W);
-  const second = candidates.find(cell => {
-    const dx = cell % GRID.W - x, dy = Math.floor(cell / GRID.W) - y;
-    return dx * dx + dy * dy >= Math.pow(Math.min(GRID.W, GRID.H) / 3, 2);
-  });
-  return second === undefined ? null : [first, second];
+  const minDistanceSquared = (Math.min(GRID.W, GRID.H) / 3) ** 2;
+  for (let i = 0; i < candidates.length - 1; i++) {
+    const first = candidates[i];
+    const x = first % GRID.W, y = Math.floor(first / GRID.W);
+    for (let j = i + 1; j < candidates.length; j++) {
+      const second = candidates[j];
+      const dx = second % GRID.W - x, dy = Math.floor(second / GRID.W) - y;
+      if (dx * dx + dy * dy >= minDistanceSquared) return [first, second];
+    }
+  }
+  return null;
 }
 
 function voluntasCreateMatch(players, solo) {
@@ -335,12 +304,12 @@ function voluntasCreateMatch(players, solo) {
   return true;
 }
 
-function voluntasStart(players) {
-  if (!voluntasInRoom() || VOLUNTAS.active || !Array.isArray(players) || players.length !== 2) return;
-  if (!NP.exec || NP.exec.from !== NP.hostId || players[0]?.id === players[1]?.id
-      || players.some(p => !Number.isInteger(p?.id) || typeof p.name !== 'string'
-        || !voluntasAvatarValid(p.avatar) || p.avatar !== VOLUNTAS.ready[p.id])) return;
-  voluntasCreateMatch(players, false);
+function voluntasStart(ids, matchId) {
+  if (!voluntasInRoom() || VOLUNTAS.active || NP.exec?.from !== NP.hostId ||
+      typeof matchId !== 'string' || !VOLUNTAS_MATCH_ID.test(matchId)) return;
+  if (!Array.isArray(ids) || ids.length !== 2 || ids[0] === ids[1] ||
+      ids.some(id => !Number.isInteger(id) || !voluntasAvatarValid(VOLUNTAS.ready[id]?.avatar))) return;
+  if (voluntasCreateMatch(ids.map(id => ({id, ...VOLUNTAS.ready[id]})), false)) VOLUNTAS.matchId = matchId;
 }
 
 function voluntasTick() {
@@ -363,6 +332,13 @@ function voluntasTick() {
   }
 }
 
+function voluntasConfirmResult(matchId, winner) {
+  if (!voluntasInRoom() || NP.exec?.from !== NP.hostId || !VOLUNTAS.active || VOLUNTAS.solo ||
+      !VOLUNTAS.matchId || matchId !== VOLUNTAS.matchId || VOLUNTAS.confirmedWinner !== null) return;
+  if (winner !== 'draw' && !VOLUNTAS.players.some(player => player.id === winner)) return;
+  VOLUNTAS.confirmedWinner = winner;
+}
+
 function voluntasReset() {
   VOLUNTAS.active = false;
   VOLUNTAS.solo = false;
@@ -370,10 +346,13 @@ function voluntasReset() {
   VOLUNTAS.ready = {};
   VOLUNTAS.year = 0;
   VOLUNTAS.winner = null;
+  VOLUNTAS.matchId = null;
+  VOLUNTAS.confirmedWinner = null;
   voluntasStartQueued = false;
   voluntasReadySent = false;
   voluntasGuestPrompted = false;
   voluntasShownWinner = null;
+  voluntasResultRetryAt = 0;
 }
 
 function voluntasArea(cell) {
@@ -425,7 +404,10 @@ function voluntasAct(action, cell, choice) {
   if (typeof rLayerDirty === 'function') rLayerDirty();
   if (typeof markDirty === 'function') markDirty('base');
   if (typeof rUrgent === 'function') rUrgent();
-  if (own) VoluntasHUD.abilityPanel.message(T(...VOLUNTAS_LABELS[action]) + ' · −' + VOLUNTAS_COST[action] + ' ' + T('маны', 'mana'));
+  if (own) {
+    VoluntasHUD.abilityPanel.message(T(...VOLUNTAS_LABELS[action]) + ' · −' + VOLUNTAS_COST[action] + ' ' + T('маны', 'mana'));
+    VoluntasHUD.avatarDock.react(action);
+  }
   return true;
 }
 
@@ -436,23 +418,19 @@ function voluntasInstallUi() {
       background:linear-gradient(#0d1e36,#060f1d) !important; }
     .vd-dialog .ui-inp, .vd-dialog .ui-btn {
       border-color:#4676a8; background:#142641; color:#d5e4f7; }
-    .vd-dialog #voluntas-error { color:#ffb5aa; }
-    .vd-dialog #voluntas-error:empty, .vd-avatar-status:empty { display:none; }
-    .vd-dialog .vd-description { color:#c6d7ef; margin:0 0 10px; line-height:1.5; }
-    #voluntas-setup .ui-body { display:grid; gap:6px; }
-    .vd-setup-row { display:flex; gap:8px; }
-    .vd-setup-row input { flex:1; min-width:0; }
+    .vd-avatar-status:empty { display:none; }
     .vd-avatar-choices { display:flex; gap:4px; flex-wrap:wrap; }
     .vd-avatar-choices [aria-pressed=true] { border-color:#b6a1df; background:#3c3351; }
     .vd-avatar-canvas { width:100%; height:min(265px,38vh); display:block; touch-action:none; cursor:grab; }
     .vd-avatar-status { margin:4px 0; color:#c6d7ef; }
   `;
   document.head.append(style);
+  voluntasInstallMenuStyle();
   const pending = voluntasModePending();
   if (pending === 'solo') {
     const saved = localStorage.getItem(VOLUNTAS_AVATAR_PREFERENCE);
     if (!netLive() && voluntasCreateMatch([
-      { id: 0, name: netPlayerName(), avatar: voluntasAvatarValid(saved) ? saved : VOLUNTAS_DEFAULT_AVATAR },
+      { id: 0, name: voluntasPlayerName(), avatar: voluntasAvatarValid(saved) ? saved : VOLUNTAS_DEFAULT_AVATAR },
       { id: -1, name: T('Пустышка', 'Dummy'), avatar: 'mask' }
     ], true)) {
       try { sessionStorage.removeItem(VOLUNTAS_BOOT); } catch (error) {}
@@ -464,17 +442,23 @@ function voluntasInstallUi() {
   voluntasUiReady = true;
   window.addEventListener('pagehide', () => clearInterval(voluntasTimer), {once: true});
   voluntasRender();
+  if (voluntasSetupRetry) {
+    showMainMenu();
+    voluntasOpenSetup(voluntasSetupRetry);
+    voluntasSetupRetry = null;
+  }
 }
 
 netAct('vdStart', voluntasStart);
 netAct('vdReady', voluntasReady);
 netAct('vdAct', voluntasAct);
+netAct('vdResult', voluntasConfirmResult);
 netBag('voluntas', () => VOLUNTAS, value => {
   voluntasRestoreMatch(value);
   voluntasStartQueued = false;
 });
 netHashAdd('voluntas', () => {
-  const state = JSON.stringify([VOLUNTAS.active, VOLUNTAS.solo, VOLUNTAS.players, VOLUNTAS.ready, VOLUNTAS.year, VOLUNTAS.winner]);
+  const state = JSON.stringify(VOLUNTAS);
   let hash = 2166136261;
   for (let index = 0; index < state.length; index++) hash = Math.imul(hash ^ state.charCodeAt(index), 16777619);
   return hash;
@@ -494,7 +478,7 @@ ModAPI.on('load', save => {
 ModAPI.before('setTool', tool => !voluntasMode() || tool === 'inspect', 'Voluntas Devina');
 ModAPI.before('netRunCmd', command => {
   if (!voluntasMode() || !Array.isArray(command)) return true;
-  return ['vdReady', 'vdStart', 'vdAct', 'noop'].includes(command[1]);
+  return ['vdReady', 'vdStart', 'vdAct', 'vdResult', 'noop'].includes(command[1]);
 }, 'Voluntas Devina');
 ModAPI.after('_nEnterRoom', () => {
   if (VOLUNTAS.solo && !voluntasInRoom()) voluntasReset();
