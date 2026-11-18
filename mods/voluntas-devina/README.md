@@ -16,17 +16,23 @@ Each player controls a god linked to one nation. The two nations start at war. P
 
 ## Play
 
-The top bar shows mana, the current year, and your nation's era, population, GDP and active soldiers. Hover over or focus mana to see yearly income. In LAN, the host controls time.
+The top bar shows your mana out of 200, the current year, and your nation's era, population, GDP and active soldiers. Hover over or focus mana to see yearly income. In LAN, the host controls time.
 
 Click the minimap to recenter the camera. The avatar beside it reacts to successful deeds and has a button for entering Walk at your capital. Use Walk's menu to return to the map. Click the handle at the right edge to open or close the map layers, or drag it to resize the panel. Change between 2D and 3D there or with the game's shortcut, Tab by default. Each living nation's capital carries its color on a large flag in 3D.
 
-| Benevolence | Mana | Malevolence | Mana |
+| Benevolence | Mana at default and maximum | Malevolence | Mana at default and maximum |
 | --- | ---: | --- | ---: |
-| Rain | 5 | Hurricane | 20 |
-| Animals | 8 | Flood | 24 |
-| Resources | 12 | Earthquake | 30 |
-| | | Meteorite | 45 |
+| Rain | 5–18 | Hurricane | 20–40 |
+| Animals | 8–28 | Flood | 24–48 |
+| Resources | 12–30 | Earthquake | 30–60 |
+| Inspiration | 18–36 | Meteorite | 45–90 |
 
-Choose the species or resource where applicable, select a deed and click a tile. Each attempt clears the selection. A deed that cannot affect the target costs nothing. Deeds use brush size 1 and strength 1. The game keeps up to 40 active disasters, replacing the oldest when a new one reaches that limit.
+Select a deed to see its controls and mana price. Move the pointer over the map to preview the target. A red outline marks an unavailable target or insufficient mana. Click a tile to attempt the deed. Each attempt clears the selection. Only an effect that takes place spends mana.
 
-Solo saves keep the selected avatar, mana and nations. Compatible 0.1.0 saves receive a default avatar and start the match war if needed. A save with additional living nations needs 0.1.0 or a new match under the 0.2.0 rules.
+Rain and Animals have brush size and strength controls. Resources uses brush size. Disaster strength sets its radius. Inspiration gives a boost to research and starts a golden age in your nation. Aim it at one of your nation's tiles.
+
+Release aurochs on land to support hides and leather production where the biome allows it. Release cod in the sea to support fishing at nearby populated coasts. Wolves live on land and yield trophies in Walk. The game keeps up to 40 active disasters, replacing the oldest when a new one reaches that limit.
+
+Click a regiment of your nation to select it. The Battles layer shows regiments in 2D. Choose **Attack** and click an enemy border tile that the regiment can reach by marching through your territory. Your avatar marks the selected regiment. Supply, terrain and the strength of the armies determine the outcome. Artillery provides support under the game's automatic orders. You can replace a target or cancel the order. A capture, a blocked route or loss of the regiment ends its order.
+
+Solo saves keep the selected avatar, mana, nations and orders. Active orders travel with the LAN match state when a player reconnects. Compatible 0.1.0 saves receive a default avatar and start the match war if needed. A save with additional living nations needs 0.1.0 or a new match under the 0.2.0 rules.

@@ -3,6 +3,7 @@
   const v = window.VoluntasHUD;
   let clock, pause, speeds, mana, manaAmount, manaIncome, manaDetails;
   let actions, available, actionPanels, actionTabs, actionStatus, selected, gesture;
+  let tuning, brushSize, brushStrength, preview, previewCircle, previewRing, aim;
   let character, portrait, avatarOnDisplay, walkButton, bubble, bubbleTimer;
   let stats, statValues;
 
@@ -110,7 +111,7 @@
       if (!mana) return;
       const player = voluntasLocalPlayer();
       const nation = player && stateByUid(player.uid);
-      manaAmount.textContent = (player?.mana || 0).toFixed(1);
+      manaAmount.textContent = (player?.mana || 0).toFixed(1) + ' / ' + VOLUNTAS_MANA_CAP;
       manaIncome.textContent = T('Прирост в год: ', 'Income per year: ') + (nation ? voluntasIncome(nation) : 0).toFixed(2);
     },
     hide() {
@@ -155,7 +156,8 @@
     select.id = action === 'fauna' ? 'voluntas-fauna-type' : 'voluntas-resource-type';
     select.setAttribute('aria-label', action === 'fauna' ? T('Вид животного', 'Animal species') : T('Тип ресурса', 'Resource type'));
     const options = action === 'fauna'
-      ? SPECIES.map((species, index) => [species.key, faunaName(index)])
+      ? SPECIES.flatMap((species, index) => VOLUNTAS_FAUNA[species.key] === species.guild
+        ? [[species.key, faunaName(index)]] : [])
       : Array.from({length: RES.length - 1}, (_, index) => [String(index + 1), resName(index + 1)]);
     for (const [value, label] of options) {
       const option = v.el('option', '', select);
@@ -164,13 +166,98 @@
     }
     return select;
   }
+  function levelControl(label, id) {
+    const field = v.el('label', '', tuning);
+    v.el('span', '', field).textContent = label;
+    const input = v.el('input', '', field);
+    input.id = id;
+    input.type = 'range';
+    input.min = input.step = input.value = '1';
+    const value = v.el('output', '', field);
+    value.setAttribute('for', id);
+    v.listen(input, 'input', () => v.abilityPanel.update());
+    return {field, input, value};
+  }
+  function deedChoice(entry) {
+    if (entry.key === 'fauna') return entry.select.value;
+    if (entry.key === 'resource') return Number(entry.select.value);
+    return null;
+  }
+  function hideTarget() {
+    aim = null;
+    if (previewCircle) previewCircle.hidden = true;
+    if (previewRing) previewRing.visible = false;
+  }
+  const mapCanvas = () => window.mode3D ? _3d.canvas : mainCanvas;
+  function pickTarget({clientX, clientY}) {
+    if (window.mode3D) return pick3D({clientX, clientY});
+    const rect = mainCanvas.getBoundingClientRect();
+    if (!rect.width || !rect.height || clientX < rect.left || clientX >= rect.right ||
+        clientY < rect.top || clientY >= rect.bottom) return null;
+    return cellAt(clientX, clientY, rect);
+  }
+  function updateTarget(deed, player) {
+    if (!deed || !aim || MENU_UP || v.settings.open || UI.anyOpen() || !v.active ||
+        document.elementFromPoint(aim.clientX, aim.clientY) !== mapCanvas()) {
+      hideTarget();
+      return;
+    }
+    const target = pickTarget(aim);
+    if (!target) {
+      previewCircle.hidden = true;
+      if (previewRing) previewRing.visible = false;
+      return;
+    }
+    const valid = player?.mana >= deed.cost && voluntasDeedTarget(deed, target.i, player);
+    if (window.mode3D) {
+      if (!_3d.scene) return;
+      if (previewRing?.parent !== _3d.scene) {
+        releaseRing();
+        previewRing = _mkGroundRing(72, 0xffffff, 0.9, false);
+        previewRing.name = 'Voluntas Deed Target';
+        previewRing.renderOrder = 999;
+        _3d.scene.add(previewRing);
+      }
+      previewRing.material.color.setHex(valid ? 0xcdb5ff : 0xff8c93);
+      _fitGroundRing(previewRing, target.x + 0.5, target.y + 0.5, deed.radius, 0.11, 0.12);
+      previewRing.visible = true;
+    } else {
+      const rect = mainCanvas.getBoundingClientRect(), clip = preview.getBoundingClientRect();
+      const sx = rect.width / CANVAS_W, sy = rect.height / CANVAS_H, unit = CELL * view2d.zoom;
+      previewCircle.style.left = rect.left - clip.left + (view2d.ox + (target.x + 0.5) * unit) * sx + 'px';
+      previewCircle.style.top = rect.top - clip.top + (view2d.oy + (target.y + 0.5) * unit) * sy + 'px';
+      previewCircle.style.width = 2 * deed.radius * unit * sx + 'px';
+      previewCircle.style.height = 2 * deed.radius * unit * sy + 'px';
+      previewCircle.dataset.valid = String(valid);
+      previewCircle.hidden = false;
+    }
+  }
+  function releaseRing() {
+    if (!previewRing) return;
+    previewRing.parent?.remove(previewRing);
+    previewRing.geometry.dispose();
+    previewRing.material.dispose();
+    previewRing = null;
+  }
   function selectAction(entry) {
     selected = entry;
+    if (entry) v.regiments.disarm();
     gesture = null;
+    hideTarget();
     if (!actions) return;
+    brushSize.input.value = brushStrength.input.value = '1';
+    if (entry) {
+      const deed = VOLUNTAS_DEEDS[entry.key];
+      brushSize.input.max = deed.size || 1;
+      brushStrength.input.max = voluntasDeedPower(deed)?.length || 1;
+      brushSize.field.hidden = !deed.size;
+      brushStrength.field.hidden = !voluntasDeedPower(deed);
+    }
+    tuning.hidden = !entry || (brushSize.field.hidden && brushStrength.field.hidden);
     actions.classList.toggle('vd-armed', !!entry);
     for (const item of available) item.button.setAttribute('aria-pressed', String(item === entry));
     actionStatus.textContent = entry ? T('Выберите клетку на карте.', 'Choose a map tile.') : '';
+    v.abilityPanel.update();
   }
   function setActionTab(id) {
     selectAction(null);
@@ -179,34 +266,93 @@
   }
   function attempt(cell) {
     if (!selected) return false;
-    const {key, select} = selected;
-    const choice = key === 'fauna' ? select.value : key === 'resource' ? Number(select.value) : null;
+    const {key} = selected;
+    const choice = deedChoice(selected), size = +brushSize.input.value, strength = +brushStrength.input.value;
     selectAction(null);
-    netDo('vdAct', key, cell, choice);
+    netDo('vdAct', key, cell, choice, size, strength);
     v.abilityPanel.update();
     return true;
   }
+  function cancelGesture() {
+    gesture = null;
+    hideTarget();
+  }
+  function mapAvailable(event) {
+    return v.active && event.target === mapCanvas() && !MENU_UP && !v.settings.open && !UI.anyOpen();
+  }
+  function primaryMapClick(event) {
+    return event.button === 0 && !event.shiftKey && !event.altKey && mapAvailable(event);
+  }
+  function inspectMap(event, hit) {
+    const mode3D = window.mode3D;
+    if (hit && v.regiments.pick(() => mode3D ? armyClick3D(event) :
+        armyClickAt(hit.x, hit.y, event, mainCanvas.getBoundingClientRect()))) return;
+    v.regiments.clear();
+    if (!hit) return;
+    const showBattles = currentOverlay === 'battles' || (mode3D && currentOverlay === 'political');
+    const battle = showBattles && findNearestBattle(hit.x, hit.y, 2);
+    if (battle) openBattleModal(battle);
+    else {
+      updateInspector(hit.i);
+      inspectClick(hit.i);
+    }
+  }
+  v.mapInput = {
+    cancel: cancelGesture,
+    defer3D: primaryMapClick,
+    inspect3D(event, drag) {
+      if (!v.active) return false;
+      if (event.type === 'pointerup' && primaryMapClick(event) &&
+          Math.hypot(event.clientX - drag.x, event.clientY - drag.y) <= 4) {
+        inspectMap(event, pickTarget(event));
+      }
+      return true;
+    }
+  };
   function mountInput() {
-    const canvas = document.getElementById('worldCanvas');
-    v.listen(canvas, 'pointerdown', event => {
-      if (!selected || event.button !== 0 || event.shiftKey || MENU_UP || v.settings.open || UI.anyOpen()) return;
+    const stage = document.getElementById('stage');
+    const canAim = event => selected && !event.shiftKey && !event.altKey && mapAvailable(event);
+    v.listen(stage, 'pointerdown', event => {
+      const type = selected ? 'deed' : v.regiments.armed ? 'order' : 'inspect';
+      if (!primaryMapClick(event) || (type === 'inspect' && window.mode3D)) { cancelGesture(); return; }
       event.preventDefault();
       event.stopImmediatePropagation();
-      gesture = {id: event.pointerId, x: event.clientX, y: event.clientY};
+      if (window.mode3D) hideTip3D();
+      else hideTip();
+      gesture = {id: event.pointerId, x: event.clientX, y: event.clientY, target: event.target, type};
     }, true);
     v.listen(window, 'pointermove', event => {
       if (gesture?.id === event.pointerId && Math.hypot(event.clientX - gesture.x, event.clientY - gesture.y) > 4) gesture = null;
+      if (canAim(event) && (!event.buttons || gesture)) {
+        aim = {clientX:event.clientX, clientY:event.clientY};
+        v.abilityPanel.update();
+      } else hideTarget();
     }, true);
-    v.listen(window, 'pointercancel', () => { gesture = null; }, true);
+    v.listen(stage, 'pointermove', event => {
+      if (!window.mode3D || (!canAim(event) && !(v.regiments.armed && mapAvailable(event) &&
+          !event.shiftKey && !event.altKey)) || (event.buttons && !gesture)) return;
+      setHoverRing(null);
+      event.stopImmediatePropagation();
+    }, true);
+    v.listen(window, 'pointercancel', cancelGesture, true);
+    v.listen(window, 'blur', cancelGesture);
+    v.listen(stage, 'pointerleave', cancelGesture);
     v.listen(window, 'pointerup', event => {
+      if (event.target !== mapCanvas() && gesture?.id === event.pointerId) cancelGesture();
+    }, true);
+    v.listen(stage, 'pointerup', event => {
       if (gesture?.id !== event.pointerId) return;
       const start = gesture;
       gesture = null;
-      if (event.target !== canvas || Math.hypot(event.clientX - start.x, event.clientY - start.y) > 4) return;
-      const rect = canvas.getBoundingClientRect();
-      if (!rect.width || !rect.height || event.clientX < rect.left || event.clientX >= rect.right
-          || event.clientY < rect.top || event.clientY >= rect.bottom) return;
-      attempt(cellAt(event.clientX, event.clientY, rect).i);
+      event.stopImmediatePropagation();
+      if (!primaryMapClick(event) || start.target !== event.target ||
+          Math.hypot(event.clientX - start.x, event.clientY - start.y) > 4) return;
+      const hit = pickTarget(event);
+      if (start.type === 'inspect') inspectMap(event, hit);
+      else if (start.type === 'order') {
+        if (hit) v.regiments.request(hit.i);
+        else v.regiments.message(T('Выберите клетку вражеского фронта.', 'Choose an enemy front tile.'));
+      } else if (hit) attempt(hit.i);
     }, true);
   }
 
@@ -215,6 +361,7 @@
       actions = v.el('aside', 'vd-actions', root);
       actions.id = 'voluntas-actions';
       actions.setAttribute('aria-label', T('Деяния', 'Deeds'));
+      v.regiments.mount(actions, root);
       available = [];
       actionPanels = new Map();
       actionTabs = new Map();
@@ -232,21 +379,29 @@
         panel.setAttribute('role', 'tabpanel');
         panel.setAttribute('aria-labelledby', tab.id);
         actionPanels.set(name, panel);
-        for (const key of Object.keys(VOLUNTAS_COST).filter(key => (name === 'evil') === Object.hasOwn(VOLUNTAS_DISASTER, key))) {
+        for (const [key, deed] of Object.entries(VOLUNTAS_DEEDS)) {
+          if ((name === 'evil') !== !!deed.disaster) continue;
           const slot = v.el('div', 'vd-action', panel);
-          const label = T(...VOLUNTAS_LABELS[key]);
-          const button = v.button(slot, 'vd-act-' + key, '', label + ' · ' + VOLUNTAS_COST[key]);
+          const label = T(...deed.label);
+          const button = v.button(slot, 'vd-act-' + key, '', label);
           button.dataset.voluntasAction = key;
           v.el('span', '', button).textContent = label;
-          v.el('small', '', button).textContent = VOLUNTAS_COST[key] + ' ' + T('маны', 'mana');
+          const price = v.el('small', '', button);
           const select = ['fauna', 'resource'].includes(key) ? choiceSelect(key, slot) : null;
-          const entry = {key, button, select};
+          const entry = {key, button, select, price};
           available.push(entry);
           v.listen(button, 'click', () => selectAction(selected === entry ? null : entry));
+          if (select) v.listen(select, 'change', () => v.abilityPanel.update());
         }
       }
+      tuning = v.el('div', 'vd-deed-tuning', actions);
+      brushSize = levelControl(T('Размер кисти', 'Brush size'), 'vd-brush-size');
+      brushStrength = levelControl(T('Сила', 'Strength'), 'vd-brush-strength');
       actionStatus = v.el('output', 'vd-action-status', actions);
       actionStatus.setAttribute('aria-live', 'polite');
+      preview = v.el('div', 'vd-deed-preview', root);
+      root.prepend(preview);
+      previewCircle = v.el('div', 'vd-deed-ring', preview);
       setActionTab('good');
       mountInput();
     },
@@ -254,13 +409,39 @@
       if (!actions) return;
       const player = voluntasLocalPlayer();
       const canAct = VOLUNTAS.active && VOLUNTAS.winner === null && !!(player && stateByUid(player.uid)) && netCanEdit();
-      for (const {key, button} of available) button.disabled = !canAct || player.mana < VOLUNTAS_COST[key];
+      if (!canAct && selected) { selectAction(null); return; }
+      let armedDeed = null;
+      for (const entry of available) {
+        const {key, price, button} = entry;
+        const armed = selected === entry;
+        const size = armed ? +brushSize.input.value : 1, strength = armed ? +brushStrength.input.value : 1;
+        const deed = voluntasDeed(key, deedChoice(entry), size, strength);
+        if (armed) armedDeed = deed;
+        const text = deed ? deed.cost + ' ' + T('маны', 'mana') : '–';
+        if (price.textContent !== text) {
+          price.textContent = text;
+          button.title = T(...VOLUNTAS_DEEDS[key].label) + ' · ' + text;
+          button.setAttribute('aria-label', button.title);
+        }
+        button.dataset.affordable = String(!!deed && (player?.mana || 0) >= deed.cost);
+        button.disabled = !canAct || !deed || (!armed && player.mana < deed.cost);
+      }
+      if (armedDeed) {
+        brushSize.value.textContent = brushSize.input.value;
+        brushStrength.value.textContent = brushStrength.input.value;
+      }
+      updateTarget(armedDeed, player);
     },
     get armed() { return !!selected; },
     clear() { selectAction(null); },
-    inspect(cell) { return window.mode3D && attempt(cell); },
+    hideTarget,
     message(text) { if (actionStatus) actionStatus.textContent = text; },
-    stop() { selectAction(null); actions = available = actionPanels = actionTabs = actionStatus = null; }
+    stop() {
+      selectAction(null);
+      releaseRing();
+      actions = available = actionPanels = actionTabs = actionStatus = null;
+      tuning = brushSize = brushStrength = preview = previewCircle = null;
+    }
   };
 
   function updateCharacter() {

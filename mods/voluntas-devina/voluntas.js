@@ -3,7 +3,8 @@
 
 const VOLUNTAS_BOOT = 'voluntas.devina.boot';
 const VOLUNTAS = {
-  active: false, solo: false, players: [], ready: {}, year: 0, winner: null, matchId: null, confirmedWinner: null
+  active: false, solo: false, players: [], ready: {}, year: 0, winner: null, matchId: null, confirmedWinner: null,
+  orders: {}
 };
 let voluntasStartQueued = false;
 let voluntasReadySent = false;
@@ -21,13 +22,6 @@ const VOLUNTAS_SMALL_MAP = {
   40: { scale: 0.625, relief: 0.81 },
   60: { scale: 0.9375, relief: 1 }
 };
-const VOLUNTAS_COST = Object.freeze({ rain: 5, fauna: 8, resource: 12, hurricane: 20, flood: 24, quake: 30, meteor: 45 });
-const VOLUNTAS_DISASTER = Object.freeze({ hurricane: true, flood: true, quake: true, meteor: true });
-const VOLUNTAS_LABELS = Object.freeze({
-  rain: ['Дождь', 'Rain'], fauna: ['Животные', 'Animals'], resource: ['Ресурсы', 'Resources'],
-  hurricane: ['Ураган', 'Hurricane'], flood: ['Потоп', 'Flood'],
-  quake: ['Землетрясение', 'Earthquake'], meteor: ['Метеорит', 'Meteorite']
-});
 
 function voluntasModePending() {
   try { return sessionStorage.getItem(VOLUNTAS_BOOT); }
@@ -320,7 +314,7 @@ function voluntasTick() {
     const nation = stateByUid(player.uid);
     if (!nation) continue;
     const income = voluntasIncome(nation);
-    player.mana = Math.min(100, player.mana + elapsed * income);
+    player.mana = Math.min(VOLUNTAS_MANA_CAP, player.mana + elapsed * income);
   }
   const survivors = VOLUNTAS.players.filter(p => stateByUid(p.uid));
   if (survivors.length < 2) {
@@ -348,67 +342,12 @@ function voluntasReset() {
   VOLUNTAS.winner = null;
   VOLUNTAS.matchId = null;
   VOLUNTAS.confirmedWinner = null;
+  VOLUNTAS.orders = {};
   voluntasStartQueued = false;
   voluntasReadySent = false;
   voluntasGuestPrompted = false;
   voluntasShownWinner = null;
   voluntasResultRetryAt = 0;
-}
-
-function voluntasArea(cell) {
-  const x = cell % GRID.W, y = Math.floor(cell / GRID.W), cells = [];
-  for (let yy = y - 1; yy <= y + 1; yy++) for (let xx = x - 1; xx <= x + 1; xx++) {
-    if (xx >= 0 && yy >= 0 && xx < GRID.W && yy < GRID.H) cells.push(yy * GRID.W + xx);
-  }
-  return cells;
-}
-
-function voluntasAct(action, cell, choice) {
-  const own = !NP.on || NP.exec?.from === NP.id;
-  const deny = () => {
-    if (own) VoluntasHUD.abilityPanel.message(T('Деяние здесь недоступно.', 'The deed cannot be used here.'));
-    return false;
-  };
-  if (!VOLUNTAS.active || VOLUNTAS.winner !== null || !Number.isInteger(cell)
-    || cell < 0 || cell >= GRID.N || !Object.hasOwn(VOLUNTAS_COST, action)) return deny();
-  if (VOLUNTAS.solo ? NP.on : !voluntasInRoom() || !NP.exec) return deny();
-  const id = VOLUNTAS.solo ? 0 : NP.exec.from;
-  const player = VOLUNTAS.players.find(p => p.id === id);
-  if (!player || !stateByUid(player.uid) || !Number.isFinite(player.mana)
-    || player.mana < VOLUNTAS_COST[action]) return deny();
-
-  const cells = voluntasArea(cell);
-  let changed = false;
-  if (action === 'rain') {
-    if (W.isWater[cell] || !cells.some(i => !W.isWater[i])) return deny();
-    changed = godPower('rain', cell, 1.5, 0.2);
-  } else if (action === 'fauna') {
-    const species = typeof SPECIES !== 'undefined' && SPECIES.find(s => s.key === choice);
-    if (!species || typeof faunaSeed !== 'function') return deny();
-    const water = !!species._sea;
-    const field = species.guild === 'fish' ? W.fish
-      : species.guild === 'pred' ? W.pred : species.guild === 'herb' ? W.herb : null;
-    for (const i of cells) {
-      if (!!W.isWater[i] !== water || (field && field[i] >= 1)) continue;
-      if (faunaSeed(i, choice, 0.016) > 0) changed = true;
-    }
-  } else if (action === 'resource') {
-    if (!Number.isInteger(choice) || choice < 1 || choice >= RES.length) return deny();
-    for (const i of cells) if (W.res[i] !== choice) { W.res[i] = choice; changed = true; }
-    if (changed && typeof resDirty === 'function') resDirty();
-  } else if (Object.hasOwn(VOLUNTAS_DISASTER, action)) {
-    changed = !!disasterTrigger(action, cell, 0.1, true);
-  }
-  if (!changed) return deny();
-  player.mana -= VOLUNTAS_COST[action];
-  if (typeof rLayerDirty === 'function') rLayerDirty();
-  if (typeof markDirty === 'function') markDirty('base');
-  if (typeof rUrgent === 'function') rUrgent();
-  if (own) {
-    VoluntasHUD.abilityPanel.message(T(...VOLUNTAS_LABELS[action]) + ' · −' + VOLUNTAS_COST[action] + ' ' + T('маны', 'mana'));
-    VoluntasHUD.avatarDock.react(action);
-  }
-  return true;
 }
 
 function voluntasInstallUi() {
@@ -478,7 +417,7 @@ ModAPI.on('load', save => {
 ModAPI.before('setTool', tool => !voluntasMode() || tool === 'inspect', 'Voluntas Devina');
 ModAPI.before('netRunCmd', command => {
   if (!voluntasMode() || !Array.isArray(command)) return true;
-  return ['vdReady', 'vdStart', 'vdAct', 'vdResult', 'noop'].includes(command[1]);
+  return ['vdReady', 'vdStart', 'vdAct', 'vdOrder', 'vdResult', 'noop'].includes(command[1]);
 }, 'Voluntas Devina');
 ModAPI.after('_nEnterRoom', () => {
   if (VOLUNTAS.solo && !voluntasInRoom()) voluntasReset();

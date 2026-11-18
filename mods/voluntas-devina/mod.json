@@ -8,6 +8,11 @@
     "minGame": "2.2.0",
     "patches": [
       {
+        "file": "uikit.js",
+        "find": "box.style.minWidth = Math.round(r.width) + 'px';\n      document.body.appendChild(box);",
+        "replace": "box.style.minWidth = Math.round(r.width) + 'px';\n      (sel.closest('#voluntas-setup') || document.body).appendChild(box);"
+      },
+      {
         "file": "core.js",
         "find": "const gs = genScale(), nf = 0.09 / gs, noct = 4 + Math.round(Math.log2(gs)), edgeW = 8 * gs;",
         "replace": "const vdTerrain = typeof voluntasTerrainTuning === 'function' ? voluntasTerrainTuning(type, seed) : null;\n  const gs = genScale() * (vdTerrain?.scale ?? 1), nf = 0.09 / gs, noct = 4 + Math.round(Math.log2(gs)), edgeW = 8 * gs;"
@@ -21,6 +26,36 @@
         "file": "core.js",
         "find": "W.elev[i] = W.seaLevel + Math.pow(clamp01(lh), 2.3) * (1 - W.seaLevel);",
         "replace": "W.elev[i] = W.seaLevel + Math.pow(clamp01(lh), 2.3) * (1 - W.seaLevel) * (vdTerrain?.relief ?? 1);"
+      },
+      {
+        "file": "army.js",
+        "find": "let gn = 0, seen = 0;\n  for (const i of def.cells) {",
+        "replace": "let gn = 0, seen = 0;\n  const vdTargets = typeof voluntasFightTargets === 'function' ? voluntasFightTargets(att, def, la, RR) : null;\n  for (const i of vdTargets ? voluntasFightCells(def.cells, vdTargets) : def.cells) {"
+      },
+      {
+        "file": "army.js",
+        "find": "const gvv = v + (typeof dipGrabBonus === 'function' ? dipGrabBonus(i, att) : 0);",
+        "replace": "const gvv = vdTargets?.has(i) ? Infinity : v + (typeof dipGrabBonus === 'function' ? dipGrabBonus(i, att) : 0);"
+      },
+      {
+        "file": "world3d.js",
+        "find": "if (e.button === 0 && !e.shiftKey && typeof currentOverlay !== 'undefined' && (currentOverlay === 'battles' || currentOverlay === 'political')",
+        "replace": "if (!window.VoluntasHUD?.mapInput?.defer3D(e) && e.button === 0 && !e.shiftKey && typeof currentOverlay !== 'undefined' && (currentOverlay === 'battles' || currentOverlay === 'political')"
+      },
+      {
+        "file": "world3d.js",
+        "find": "if (e.button === 0 && !e.shiftKey && typeof armyClick3D === 'function' && armyClick3D(e))",
+        "replace": "if (!window.VoluntasHUD?.mapInput?.defer3D(e) && e.button === 0 && !e.shiftKey && typeof armyClick3D === 'function' && armyClick3D(e))"
+      },
+      {
+        "file": "world3d.js",
+        "find": "const end = () => {\n    if (_3d.paint) {",
+        "replace": "const end = e => {\n    if (_3d.paint) {"
+      },
+      {
+        "file": "world3d.js",
+        "find": "if (d && d.inspect && !d.moved && d.cell >= 0) {",
+        "replace": "if (d && d.inspect && !d.moved && d.cell >= 0 && !window.VoluntasHUD?.mapInput?.inspect3D(e, d)) {"
       }
     ],
     "scripts": [
@@ -57,6 +92,10 @@
         "before": "world3d.js"
       },
       {
+        "file": "hud-army.js",
+        "before": "world3d.js"
+      },
+      {
         "file": "avatars.js",
         "before": "main.js"
       },
@@ -74,6 +113,14 @@
       },
       {
         "file": "mode-menu.js",
+        "before": "main.js"
+      },
+      {
+        "file": "deeds.js",
+        "before": "main.js"
+      },
+      {
+        "file": "army-orders.js",
         "before": "main.js"
       },
       {

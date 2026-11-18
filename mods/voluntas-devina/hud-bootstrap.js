@@ -25,9 +25,12 @@
       v.settings.close();
       return;
     }
-    if (!v.settings.open && !UI.anyOpen() && event.code === 'Escape' && v.abilityPanel.armed) {
+    if (!UI.anyOpen() && event.code === 'Escape' &&
+        (v.abilityPanel.armed || v.regiments.armed || v.regiments.selected)) {
       stop();
-      v.abilityPanel.clear();
+      if (v.abilityPanel.armed) v.abilityPanel.clear();
+      else if (v.regiments.armed) v.regiments.disarm();
+      else v.regiments.clear();
       return;
     }
     if (v.settings.open || event.target.closest?.('#vd-hud, .ui-win')) return;

@@ -27,9 +27,7 @@
   function install() {
     v.viewport.install();
     ModAPI.wrap('_anyModalOpen', orig => v.active ? UI.anyOpen() || MENU_UP || v.settings.open : orig(), v.owner);
-    v.before('inspectClick', cell => v.active && v.abilityPanel.inspect(cell) ? false : undefined);
-    for (const name of ['armyClick3D', 'findNearestBattle'])
-      v.before(name, () => v.active && v.abilityPanel.armed ? false : undefined);
+    v.after('set3DMode', () => v.abilityPanel.hideTarget());
   }
   v.hud = { hide, restore, install };
 })();
@@ -130,14 +128,28 @@
     #vd-hud .vd-action{flex:1;min-width:0}
     #vd-hud .vd-action button{width:100%;height:30px;border-color:#81728b66;gap:6px;font-size:11px}
     #vd-hud .vd-action button small{color:#bfd0df;font-size:10px;white-space:nowrap}
+    #vd-hud .vd-action button[aria-pressed=true]{background:#a58acb22;border-color:#b6a1df;color:#e1d4fc}
+    #vd-hud .vd-action button[data-affordable=false] small{color:#ff8c93}
+    #vd-hud .vd-deed-tuning{display:flex;gap:12px;margin-top:6px}
+    #vd-hud .vd-deed-tuning label{display:flex;flex:1;min-width:0;align-items:center;gap:6px;font-size:11px}
+    #vd-hud .vd-deed-tuning input{flex:1;min-width:32px;accent-color:#b6a1df}
+    #vd-hud .vd-deed-tuning output{min-width:1ch;font-variant-numeric:tabular-nums}
+    #vd-hud .vd-deed-preview{position:absolute;inset:54px 0 0;overflow:hidden;pointer-events:none}
+    #vd-hud .vd-deed-ring{position:absolute;transform:translate(-50%,-50%);box-sizing:border-box;border:2px solid #cdb5ff;border-radius:50%;background:#cdb5ff20;box-shadow:0 0 0 1px #16101eaa}
+    #vd-hud .vd-deed-ring[data-valid=false]{border-color:#ff8c93;background:#ff8c931c}
     #vd-hud select{width:100%;min-width:0;background:#25212e;border:1px solid #81728b66;color:#e4e0ec;font:inherit;border-radius:2px}
     #vd-hud .vd-action select{margin-top:4px;font-size:11px}
     #vd-hud .vd-action-status{display:block;font-size:11px;color:#e1d4fc;margin:4px 1px 0}
     #vd-hud .vd-action-status:empty{display:none}
+    #vd-hud .vd-regiment{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:4px;margin-bottom:6px}
+    #vd-hud .vd-regiment-name{font-size:12px;font-weight:600;line-height:1.2}
+    #vd-hud .vd-regiment button{height:auto;min-height:27px;padding:4px 6px;font-size:11px;line-height:1.15;border-color:#82758f66}
+    #vd-hud .vd-regiment button svg{width:14px;height:14px}
+    #vd-hud .vd-regiment-marker{position:absolute;width:36px;height:36px;transform:translate(-50%,calc(-100% - 12px));border:1px solid #cdb5ff;border-radius:3px;object-fit:contain;background:#1b1920ef;box-shadow:0 2px 8px #000a;pointer-events:none}
     #vd-hud .vd-wait{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;max-width:90%;padding:24px 30px;text-align:center;border:1px solid #4676a8;background:linear-gradient(#0d1e36,#060f1d);box-shadow:0 10px 50px #0008;color:#d5e4f7;pointer-events:auto}
     #vd-hud .vd-wait p{margin:0}
     #vd-hud #vd-guest-avatar{margin-top:10px;border-color:#4676a8}
-    @media(max-width:620px){#vd-hud .vd-action button{height:auto;min-height:30px;flex-wrap:wrap;line-height:1.1;gap:2px}}
+    @media(max-width:1100px){#vd-hud .vd-action button{height:auto;min-height:30px;flex-direction:column;line-height:1.1;gap:2px}}
   `;
   function update() {
     if (!root) return;
@@ -156,6 +168,7 @@
     v.stats.update();
     v.matchRecord.update();
     v.abilityPanel.update();
+    v.regiments.update();
     v.avatarDock.update();
     v.layerDrawer.update();
     v.minimap.update(performance.now());
@@ -205,6 +218,7 @@
     v.mana.stop();
     v.stats.stop();
     v.matchRecord.stop();
+    v.regiments.stop();
     v.abilityPanel.stop();
     v.settings.stop();
     v.time.stop();

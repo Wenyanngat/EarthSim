@@ -145,8 +145,8 @@ function voluntasMenuArt(layout) {
 function voluntasSetupFields(container) {
   const el = VoluntasHUD.el;
   el('p', 'vd-description', container).textContent = T(
-    'В Voluntas Devina два игрока становятся богами соперничающих держав. С началом партии страны уже воюют, а мир заключить нельзя. Копите ману и тратьте её на добродеяния и злодеяния. Помогайте своей стране дождём, животными и ресурсами, обрушивайте бедствия на соперника. Побеждает бог, чья держава выживет. Перед стартом выберите свой игровой аватар.',
-    'In Voluntas Devina, two players become gods of rival nations. Both nations start at war and cannot make peace. Earn mana and spend it on deeds. Aid your nation with rain, animals, and resources, or unleash disasters on your rival. The last nation standing wins. Choose your avatar before playing.'
+    'В Voluntas Devina два игрока становятся богами соперничающих держав. С началом партии страны уже воюют, а мир заключить нельзя. Копите ману и тратьте её на благодеяния и злодеяния. Помогайте своей стране дождём, животными, ресурсами и озарением, обрушивайте бедствия на соперника. Побеждает бог, чья держава выживет. Перед стартом выберите свой игровой аватар.',
+    'In Voluntas Devina, two players become gods of rival nations. Both nations start at war and cannot make peace. Earn mana and spend it on deeds. Aid your nation with rain, animals, resources, and inspiration, or unleash disasters on your rival. The last nation standing wins. Choose your avatar before playing.'
   );
   function label(id, name) {
     Object.assign(el('label', '', container), {htmlFor: id, textContent: name});

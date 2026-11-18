@@ -30,7 +30,9 @@ function voluntasRestoreMatch(state) {
   VOLUNTAS.active = !!state?.active;
   VOLUNTAS.solo = !!state?.solo;
   VOLUNTAS.players = Array.isArray(state?.players) ? state.players.map(player => ({
-    ...player, avatar: voluntasAvatarValid(player.avatar) ? player.avatar : VOLUNTAS_DEFAULT_AVATAR
+    ...player,
+    mana: Number.isFinite(player.mana) ? clamp(player.mana, 0, VOLUNTAS_MANA_CAP) : 0,
+    avatar: voluntasAvatarValid(player.avatar) ? player.avatar : VOLUNTAS_DEFAULT_AVATAR
   })) : [];
   VOLUNTAS.ready = state?.ready || {};
   VOLUNTAS.year = Number(state?.year) || 0;
@@ -39,6 +41,7 @@ function voluntasRestoreMatch(state) {
   const confirmed = state?.confirmedWinner;
   VOLUNTAS.confirmedWinner = confirmed === 'draw' ||
     (Number.isInteger(confirmed) && VOLUNTAS.players.some(player => player.id === confirmed)) ? confirmed : null;
+  VOLUNTAS.orders = VOLUNTAS.active && VOLUNTAS.winner === null ? voluntasRestoreOrders(state?.orders) : {};
   if (!VOLUNTAS.active) return;
   const roster = new Set(VOLUNTAS.players.map(player => player.uid));
   if (roster.size !== 2 || states.some(nation => nation.alive && !roster.has(nation.uid))) {
