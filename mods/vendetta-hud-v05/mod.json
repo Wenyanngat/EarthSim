@@ -1,0 +1,26 @@
+{
+  "id": "vendetta_hud_v05",
+  "name": "VENDETTA v0.5 — Minimap & Divine Mana",
+  "version": "0.5.0",
+  "description": "Прижатая миникарта, визуальный индикатор маны и пустая панель будущих способностей.",
+  "code": {
+    "minGame": "2.2.0",
+    "scripts": [
+      { "file": "bootstrap.js", "before": "world3d.js" },
+      { "file": "session.js", "before": "world3d.js" },
+      { "file": "viewport.js", "before": "world3d.js" },
+      { "file": "edge-scroll.js", "before": "world3d.js" },
+      { "file": "hud.js", "before": "world3d.js" },
+      { "file": "menu.js", "before": "world3d.js" },
+      { "file": "time-controls.js", "before": "world3d.js" },
+      { "file": "settings-menu.js", "before": "world3d.js" },
+      { "file": "mana-indicator.js", "before": "world3d.js" },
+      { "file": "ability-panel.js", "before": "world3d.js" },
+      { "file": "top-bar.js", "before": "world3d.js" },
+      { "file": "minimap.js", "before": "world3d.js" },
+      { "file": "character-panel.js", "before": "world3d.js" },
+      { "file": "view-switcher.js", "before": "world3d.js" },
+      { "file": "hud-controller.js", "before": "world3d.js" }
+    ]
+  }
+}
